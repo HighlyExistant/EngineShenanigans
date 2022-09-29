@@ -1,0 +1,14 @@
+﻿  GraphicsCommands.cpp
+  Helper.cpp
+  Instance.cpp
+  Source.cpp
+  Instance.hpp
+  Device.cpp
+C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.cpp(159,38): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  Swapchain.cpp
+  Window.cpp
+  Generating Code...
+C:\Users\anton\source\repos\GPU-VM\GPU-VM\GraphicsCommands.cpp(51): warning C4715: 'cow::GraphicsCommands::checkRecreation': not all control paths return a value
+x64\Debug\Instance.obj : warning LNK4042: object specified more than once; extras ignored
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  GPU-VM.vcxproj -> C:\Users\anton\source\repos\GPU-VM\x64\Debug\GPU-VM.exe
