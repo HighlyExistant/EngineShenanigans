@@ -146,7 +146,7 @@ PUBLIC	??_GSwapchain@cow@@QEAAPEAXI@Z			; cow::Swapchain::`scalar deleting destr
 PUBLIC	??0GraphicsCommands@cow@@QEAA@AEAVDevice@1@@Z	; cow::GraphicsCommands::GraphicsCommands
 PUBLIC	??1GraphicsCommands@cow@@QEAA@XZ		; cow::GraphicsCommands::~GraphicsCommands
 PUBLIC	?begin@GraphicsCommands@cow@@QEAAPEAUVkCommandBuffer_T@@XZ ; cow::GraphicsCommands::begin
-PUBLIC	?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ; cow::GraphicsCommands::beginRenderPass
+PUBLIC	?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z ; cow::GraphicsCommands::beginRenderPass
 PUBLIC	??R?$default_delete@VSwapchain@cow@@@std@@QEBAXPEAVSwapchain@cow@@@Z ; std::default_delete<cow::Swapchain>::operator()
 PUBLIC	??1?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEAA@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::~unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >
 PUBLIC	?get_deleter@?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEAAAEAU?$default_delete@VSwapchain@cow@@@2@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::get_deleter
@@ -232,7 +232,6 @@ PUBLIC	??_R0?AV?$_Ref_count_resource@PEAVSwapchain@cow@@U?$default_delete@VSwapc
 PUBLIC	??_R3?$_Ref_count_resource@PEAVSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@8 ; std::_Ref_count_resource<cow::Swapchain *,std::default_delete<cow::Swapchain> >::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2?$_Ref_count_resource@PEAVSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@8 ; std::_Ref_count_resource<cow::Swapchain *,std::default_delete<cow::Swapchain> >::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@?$_Ref_count_resource@PEAVSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@8 ; std::_Ref_count_resource<cow::Swapchain *,std::default_delete<cow::Swapchain> >::`RTTI Base Class Descriptor at (0,-1,0,64)'
-PUBLIC	__real@3c23d70a
 PUBLIC	__real@3f800000
 EXTRN	??2@YAPEAX_K@Z:PROC				; operator new
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
@@ -493,9 +492,9 @@ $pdata$?begin@GraphicsCommands@cow@@QEAAPEAUVkCommandBuffer_T@@XZ DD imagerel $L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z DD imagerel $LN3
-	DD	imagerel $LN3+825
-	DD	imagerel $unwind$?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z
+$pdata$?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+790
+	DD	imagerel $unwind$?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -806,10 +805,6 @@ pdata	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
 __real@3f800000 DD 03f800000r			; 1
-CONST	ENDS
-;	COMDAT __real@3c23d70a
-CONST	SEGMENT
-__real@3c23d70a DD 03c23d70ar			; 0.01
 CONST	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
@@ -1626,21 +1621,21 @@ $unwind$??R?$default_delete@VSwapchain@cow@@@std@@QEBAXPEAVSwapchain@cow@@@Z DD 
 xdata	ENDS
 ;	COMDAT voltbl
 voltbl	SEGMENT
-_volmd	DW	03cH
-	DW	031fH
+_volmd	DW	041H
+	DW	02fcH
 voltbl	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z DD 025064319H
-	DD	01142319H
-	DD	0700d005cH
-	DD	0500b600cH
+$unwind$?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z DD 025064819H
+	DD	0119231eH
+	DD	07012005cH
+	DD	050106011H
 	DD	imagerel __GSHandlerCheck
 	DD	02d8H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$0 DB 072H ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$0 DB 072H ; cow::GraphicsCommands::beginRenderPass
 	DB	065H
 	DB	06eH
 	DB	064H
@@ -1656,7 +1651,7 @@ CONST	SEGMENT
 	DB	06fH
 	DB	00H
 	ORG $+1
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$1 DB 063H ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$1 DB 063H ; cow::GraphicsCommands::beginRenderPass
 	DB	06cH
 	DB	065H
 	DB	061H
@@ -1669,7 +1664,7 @@ CONST	SEGMENT
 	DB	073H
 	DB	00H
 	ORG $+4
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$2 DB 076H ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$2 DB 076H ; cow::GraphicsCommands::beginRenderPass
 	DB	069H
 	DB	065H
 	DB	077H
@@ -1679,7 +1674,7 @@ CONST	SEGMENT
 	DB	074H
 	DB	00H
 	ORG $+7
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$3 DB 073H ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$3 DB 073H ; cow::GraphicsCommands::beginRenderPass
 	DB	063H
 	DB	069H
 	DB	073H
@@ -1688,22 +1683,22 @@ CONST	SEGMENT
 	DB	072H
 	DB	00H
 	ORG $+8
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcVarDesc DD 0f8H ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcVarDesc DD 0f8H ; cow::GraphicsCommands::beginRenderPass
 	DD	010H
-	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$3
+	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$3
 	DD	0c8H
 	DD	018H
-	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$2
+	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$2
 	DD	088H
 	DD	020H
-	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$1
+	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$1
 	DD	030H
 	DD	040H
-	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcName$0
+	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcName$0
 	ORG $+192
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcFrameData DD 04H ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcFrameData DD 04H ; cow::GraphicsCommands::beginRenderPass
 	DD	00H
-	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcVarDesc
+	DQ	FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcVarDesc
 CONST	ENDS
 ;	COMDAT voltbl
 voltbl	SEGMENT
@@ -4022,7 +4017,7 @@ $LN4@operator:
 ??R?$default_delete@VSwapchain@cow@@@std@@QEBAXPEAVSwapchain@cow@@@Z ENDP ; std::default_delete<cow::Swapchain>::operator()
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z
+;	COMDAT ?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z
 _TEXT	SEGMENT
 renderPassInfo$ = 16
 clearValues$ = 104
@@ -4035,19 +4030,21 @@ $T10 = 564
 $T11 = 600
 $T12 = 628
 $T13 = 660
-tv209 = 680
-tv199 = 680
-tv157 = 680
+tv211 = 680
+tv201 = 680
+tv159 = 680
 tv91 = 680
 tv83 = 680
 tv81 = 688
 __$ArrayPad$ = 696
 this$ = 736
 commandBuffer$ = 744
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z PROC ; cow::GraphicsCommands::beginRenderPass, COMDAT
+color$ = 752
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z PROC ; cow::GraphicsCommands::beginRenderPass, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\GraphicsCommands.cpp
 ; Line 67
 $LN3:
+	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -4114,14 +4111,11 @@ $LN3:
 	mov	ecx, 32					; 00000020H
 	rep stosb
 ; Line 77
-	movss	xmm0, DWORD PTR __real@3c23d70a
-	movss	DWORD PTR $T9[rbp], xmm0
-	movss	xmm0, DWORD PTR __real@3c23d70a
-	movss	DWORD PTR $T9[rbp+4], xmm0
-	movss	xmm0, DWORD PTR __real@3c23d70a
-	movss	DWORD PTR $T9[rbp+8], xmm0
-	movss	xmm0, DWORD PTR __real@3f800000
-	movss	DWORD PTR $T9[rbp+12], xmm0
+	lea	rax, QWORD PTR $T9[rbp]
+	mov	rdi, rax
+	mov	rsi, QWORD PTR color$[rbp]
+	mov	ecx, 16
+	rep movsb
 	xor	edx, edx
 	lea	rcx, QWORD PTR clearValues$[rbp]
 	call	??A?$array@TVkClearValue@@$01@std@@QEAAAEATVkClearValue@@_K@Z ; std::array<VkClearValue,2>::operator[]
@@ -4170,9 +4164,9 @@ $LN3:
 	mov	rax, QWORD PTR this$[rbp]
 	mov	rcx, rax
 	call	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
-	mov	QWORD PTR tv157[rbp], rax
+	mov	QWORD PTR tv159[rbp], rax
 	lea	rdx, QWORD PTR $T12[rbp]
-	mov	rcx, QWORD PTR tv157[rbp]
+	mov	rcx, QWORD PTR tv159[rbp]
 	call	?getExtent2D@Swapchain@cow@@QEBA?AUVkExtent2D@@XZ ; cow::Swapchain::getExtent2D
 	mov	eax, DWORD PTR [rax]
 	cvtsi2ss xmm0, rax
@@ -4181,9 +4175,9 @@ $LN3:
 	mov	rax, QWORD PTR this$[rbp]
 	mov	rcx, rax
 	call	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
-	mov	QWORD PTR tv199[rbp], rax
+	mov	QWORD PTR tv201[rbp], rax
 	lea	rdx, QWORD PTR $T13[rbp]
-	mov	rcx, QWORD PTR tv199[rbp]
+	mov	rcx, QWORD PTR tv201[rbp]
 	call	?getExtent2D@Swapchain@cow@@QEBA?AUVkExtent2D@@XZ ; cow::Swapchain::getExtent2D
 	mov	eax, DWORD PTR [rax+4]
 	cvtsi2ss xmm0, rax
@@ -4200,9 +4194,9 @@ $LN3:
 	mov	rax, QWORD PTR this$[rbp]
 	mov	rcx, rax
 	call	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
-	mov	QWORD PTR tv209[rbp], rax
+	mov	QWORD PTR tv211[rbp], rax
 	lea	rdx, QWORD PTR scissor$[rbp+8]
-	mov	rcx, QWORD PTR tv209[rbp]
+	mov	rcx, QWORD PTR tv211[rbp]
 	call	?getExtent2D@Swapchain@cow@@QEBA?AUVkExtent2D@@XZ ; cow::Swapchain::getExtent2D
 ; Line 93
 	lea	r9, QWORD PTR viewport$[rbp]
@@ -4218,7 +4212,7 @@ $LN3:
 	call	vkCmdSetScissor
 ; Line 95
 	lea	rcx, QWORD PTR [rbp-32]
-	lea	rdx, OFFSET FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z$rtcFrameData
+	lea	rdx, OFFSET FLAT:?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z$rtcFrameData
 	call	_RTC_CheckStackVars
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
@@ -4228,7 +4222,7 @@ $LN3:
 	pop	rsi
 	pop	rbp
 	ret	0
-?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ENDP ; cow::GraphicsCommands::beginRenderPass
+?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z ENDP ; cow::GraphicsCommands::beginRenderPass
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ?begin@GraphicsCommands@cow@@QEAAPEAUVkCommandBuffer_T@@XZ
@@ -5056,7 +5050,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ PROC ; cow::Device::getCommandPool, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
-; Line 42
+; Line 41
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -5079,7 +5073,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ PROC	; cow::Device::getDevice, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
-; Line 41
+; Line 40
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp

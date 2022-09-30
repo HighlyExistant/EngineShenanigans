@@ -1,22 +1,41 @@
 #include "Helper.hpp"
-
+#include <iostream>
 
 namespace cow
 {
-	VkVertexInputBindingDescription Vertex2DSRGB::bindingDescription() 
+	VkVertexInputBindingDescription Vertex2D::bindingDesc()
 	{
 		VkVertexInputBindingDescription r_bindingDesc;
 		r_bindingDesc.binding = 0;
-		r_bindingDesc.stride = sizeof(Vertex2DSRGB);
+		r_bindingDesc.stride = sizeof(Vertex2D);
 		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
 		return r_bindingDesc;
 	}
-	std::vector<VkVertexInputAttributeDescription> Vertex2DSRGB::attributeDescriptions()
+	std::vector<VkVertexInputAttributeDescription> Vertex2D::attributeDesc()
 	{
 		std::vector<VkVertexInputAttributeDescription> r_attrDescs{};
 		// The following values will be loaded into the vertex shader
-		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DSRGB, position) });
-		r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DSRGB, color) });
+		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2D, position) });
+		//r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DSRGB, color) });
+		return r_attrDescs;
+	}
+
+	VkVertexInputBindingDescription Vertex2DRGB::bindingDesc()
+	{
+		VkVertexInputBindingDescription r_bindingDesc;
+		r_bindingDesc.binding = 0;
+		r_bindingDesc.stride = sizeof(Vertex2DRGB);
+		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
+		return r_bindingDesc;
+	}
+	std::vector<VkVertexInputAttributeDescription> Vertex2DRGB::attributeDesc() 
+	{
+		std::vector<VkVertexInputAttributeDescription> r_attrDescs{};
+		// The following values will be loaded into the vertex shader
+		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2DRGB, position) });
+		r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DRGB, color) });
+		std::cout << "position: " << offsetof(Vertex2DRGB, position) << '\n';
+		std::cout << "color: " << offsetof(Vertex2DRGB, color) << '\n';
 		return r_attrDescs;
 	}
 #pragma warning( push )
@@ -85,10 +104,10 @@ namespace cow
 		pInfo.multisampleInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
 		pInfo.multisampleInfo.sampleShadingEnable = VK_FALSE;
 		pInfo.multisampleInfo.rasterizationSamples = VK_SAMPLE_COUNT_1_BIT;
-		pInfo.multisampleInfo.minSampleShading = 1.0f;           // Optional
-		pInfo.multisampleInfo.pSampleMask = nullptr;             // Optional
-		pInfo.multisampleInfo.alphaToCoverageEnable = VK_FALSE;  // Optional
-		pInfo.multisampleInfo.alphaToOneEnable = VK_FALSE;       // Optional
+		pInfo.multisampleInfo.minSampleShading = 1.0f;           
+		pInfo.multisampleInfo.pSampleMask = nullptr;             
+		pInfo.multisampleInfo.alphaToCoverageEnable = VK_FALSE;  
+		pInfo.multisampleInfo.alphaToOneEnable = VK_FALSE;       
 		
 		pInfo.colorBlendAttachment.colorWriteMask =
 			VK_COLOR_COMPONENT_R_BIT | VK_COLOR_COMPONENT_G_BIT | VK_COLOR_COMPONENT_B_BIT |

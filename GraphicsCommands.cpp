@@ -63,7 +63,7 @@ namespace cow
 		}
 		return commandBuffer;
 	}
-	void GraphicsCommands::beginRenderPass(VkCommandBuffer commandBuffer)
+	void GraphicsCommands::beginRenderPass(VkCommandBuffer commandBuffer, VkClearColorValue color)
 	{
 		VkRenderPassBeginInfo renderPassInfo{};
 		renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
@@ -74,7 +74,7 @@ namespace cow
 		renderPassInfo.renderArea.extent = swapchain->getExtent2D();
 
 		std::array<VkClearValue, 2> clearValues{};
-		clearValues[0].color = { 0.01f,0.01f,0.01f,1.0f };
+		clearValues[0].color = color;
 		clearValues[1].depthStencil = { 1.0f, 0 };
 		renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
 		renderPassInfo.pClearValues = clearValues.data();

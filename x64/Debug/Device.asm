@@ -39203,7 +39203,7 @@ tv74 = 192
 this$ = 240
 ?isComplete@QueueInUse@cow@@QEAA_NXZ PROC		; cow::QueueInUse::isComplete, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
-; Line 14
+; Line 13
 $LN5:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -39212,7 +39212,7 @@ $LN5:
 	lea	rbp, QWORD PTR [rsp+32]
 	lea	rcx, OFFSET FLAT:__61615CFA_Device@hpp
 	call	__CheckForDebuggerJustMyCode
-; Line 15
+; Line 14
 	mov	rax, QWORD PTR this$[rbp]
 	mov	rcx, rax
 	call	?has_value@?$optional@I@std@@QEBA_NXZ	; std::optional<unsigned int>::has_value
@@ -39232,7 +39232,7 @@ $LN3@isComplete:
 	mov	DWORD PTR tv74[rbp], 0
 $LN4@isComplete:
 	movzx	eax, BYTE PTR tv74[rbp]
-; Line 17
+; Line 16
 	lea	rsp, QWORD PTR [rbp+216]
 	pop	rdi
 	pop	rbp

@@ -3,14 +3,12 @@
 #include <tuple>
 #include <cstdio>
 #include <stdexcept>
+#define GLM_FORCE_RADIANS
+#define GLFW_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
 #include <vector>
 namespace cow
 {
-	enum class GraphicsPipelineType
-	{
-		SRGB2D
-	};
 	// -=-=-=-=-=-=-=- Personal Structs -=-=-=-=-=-=-=-
 	// * Constructor Info
 	struct PipelineLayoutSimpleInfo
@@ -40,13 +38,21 @@ namespace cow
 		static void defaultGraphicsPipeline(GraphicsPipelineSimpleInfo& pInfo);
 	};
 	// * Other
-	struct Vertex2DSRGB
+	struct Vertex2D
 	{
 		glm::vec2 position;
-		alignas(16) glm::vec3 color;
+		//alignas(16) glm::vec3 color;
 
-		static VkVertexInputBindingDescription bindingDescription();
-		static std::vector<VkVertexInputAttributeDescription> attributeDescriptions();
+		static VkVertexInputBindingDescription bindingDesc();
+		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
+	};
+	struct Vertex2DRGB
+	{
+		glm::vec2 position;
+		glm::vec3 color;
+
+		static VkVertexInputBindingDescription bindingDesc();
+		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
 	};
 #pragma warning( push )
 #pragma warning( disable : 4267 6387 6001)

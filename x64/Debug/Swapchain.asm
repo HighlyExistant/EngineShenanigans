@@ -6309,7 +6309,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ PROC	; cow::Device::getDevice, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
-; Line 41
+; Line 40
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp

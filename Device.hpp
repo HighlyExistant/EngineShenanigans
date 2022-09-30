@@ -3,7 +3,6 @@
 #include "Window.hpp"
 #include <vector>
 #include <optional>
-#include <tuple>
 namespace cow
 {
 	struct QueueInUse
@@ -40,7 +39,8 @@ namespace cow
 		VkPhysicalDevice getPhysicalDevice()	{ return m_physicalDevice;	}
 		VkDevice		 getDevice()			{ return m_device;			}
 		VkCommandPool	 getCommandPool()		{ return m_commandPool;		}
-		
+		VkQueue			 getGraphicsQueue()		{ return graphicsQueue;		}
+		VkQueue			 getSurfaceQueue()		{ return surfaceQueue;		}
 		// -=-=-=-=-=-=- Public Functions -=-=-=-=-=-=-
 		
 		// * Object Creation

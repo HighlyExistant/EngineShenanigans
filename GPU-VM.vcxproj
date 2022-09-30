@@ -140,6 +140,7 @@
     <ClCompile Include="GraphicsCommands.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Instance.cpp" />
+    <ClCompile Include="Pipelines.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Instance.hpp" />
     <ClCompile Include="Device.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="cowdef.hpp" />
     <ClInclude Include="Device.hpp" />
     <ClInclude Include="GraphicsCommands.hpp" />
+    <ClInclude Include="Buffer.hpp" />
     <ClInclude Include="Helper.hpp" />
     <ClInclude Include="Pipelines.hpp" />
     <ClInclude Include="Swapchain.hpp" />

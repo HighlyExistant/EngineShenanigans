@@ -9,7 +9,7 @@ namespace cow
 		~GraphicsCommands();
 
 		VkCommandBuffer begin();
-		void beginRenderPass(VkCommandBuffer commandBuffer);
+		void beginRenderPass(VkCommandBuffer commandBuffer, VkClearColorValue color);
 		inline uint32_t getCurrentImageIndex() { return m_currentImageIndex; }
 		std::unique_ptr<Swapchain> swapchain;
 	private:

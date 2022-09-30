@@ -280,6 +280,7 @@ __1EB0FD4E_integer@hpp DB 01H
 __0FF791AE_glm@hpp DB 01H
 __60F9E005_Helper@hpp DB 01H
 __32DA32DB_Pipelines@hpp DB 01H
+__4ED58781_Buffer@hpp DB 01H
 __13D4D4C0_GraphicsCommands@hpp DB 01H
 __D63E6CC3_Source@cpp DB 01H
 msvcjmc	ENDS
@@ -325,8 +326,10 @@ PUBLIC	??0runtime_error@std@@QEAA@AEBV01@@Z		; std::runtime_error::runtime_error
 PUBLIC	??_Gruntime_error@std@@UEAAPEAXI@Z		; std::runtime_error::`scalar deleting destructor'
 PUBLIC	?shouldClose@Window@cow@@QEBA_NXZ		; cow::Window::shouldClose
 PUBLIC	?__autoclassinit2@Window@cow@@QEAAX_K@Z		; cow::Window::__autoclassinit2
+PUBLIC	?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ ; cow::Device::getPhysicalDevice
 PUBLIC	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ	; cow::Device::getDevice
 PUBLIC	?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ ; cow::Device::getCommandPool
+PUBLIC	?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ ; cow::Device::getGraphicsQueue
 PUBLIC	?__autoclassinit2@Device@cow@@QEAAX_K@Z		; cow::Device::__autoclassinit2
 PUBLIC	?getRenderPass@Swapchain@cow@@QEBAPEAUVkRenderPass_T@@XZ ; cow::Swapchain::getRenderPass
 PUBLIC	?getCurrentFrame@Swapchain@cow@@QEBA_KXZ	; cow::Swapchain::getCurrentFrame
@@ -339,19 +342,19 @@ PUBLIC	?_Getal@?$vector@W4VkDynamicState@@V?$allocator@W4VkDynamicState@@@std@@@
 PUBLIC	??0?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@std@@QEAA@XZ ; std::_Vector_val<std::_Simple_types<enum VkDynamicState> >::_Vector_val<std::_Simple_types<enum VkDynamicState> >
 PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@W4VkDynamicState@@@std@@V?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@2@$00@std@@QEAAAEAV?$allocator@W4VkDynamicState@@@2@XZ ; std::_Compressed_pair<std::allocator<enum VkDynamicState>,std::_Vector_val<std::_Simple_types<enum VkDynamicState> >,1>::_Get_first
 PUBLIC	??1GraphicsPipelineSimpleInfo@cow@@QEAA@XZ	; cow::GraphicsPipelineSimpleInfo::~GraphicsPipelineSimpleInfo
-PUBLIC	??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z ; cow::GraphicsPipeline::GraphicsPipeline
-PUBLIC	??1GraphicsPipeline@cow@@QEAA@XZ		; cow::GraphicsPipeline::~GraphicsPipeline
-PUBLIC	?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ; cow::GraphicsPipeline::bind
-PUBLIC	?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z ; cow::GraphicsPipeline::__autoclassinit2
-PUBLIC	?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z ; std::allocator<VkVertexInputAttributeDescription>::deallocate
-PUBLIC	??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
-PUBLIC	?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy
-PUBLIC	?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
-PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first
-PUBLIC	?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::__autoclassinit2
+PUBLIC	??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z		; cow::Buffer::Buffer
+PUBLIC	??1Buffer@cow@@QEAA@XZ				; cow::Buffer::~Buffer
+PUBLIC	?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z	; cow::Buffer::map
+PUBLIC	?unmap@Buffer@cow@@QEAAXXZ			; cow::Buffer::unmap
+PUBLIC	?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z		; cow::Buffer::write
+PUBLIC	?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z	; cow::Buffer::copy
+PUBLIC	?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ		; cow::Buffer::get
+PUBLIC	?createBuffer@Buffer@cow@@AEAAXII@Z		; cow::Buffer::createBuffer
+PUBLIC	?__autoclassinit2@Buffer@cow@@QEAAX_K@Z		; cow::Buffer::__autoclassinit2
 PUBLIC	?getCurrentImageIndex@GraphicsCommands@cow@@QEAAIXZ ; cow::GraphicsCommands::getCurrentImageIndex
 PUBLIC	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
 PUBLIC	?__autoclassinit2@GraphicsCommands@cow@@QEAAX_K@Z ; cow::GraphicsCommands::__autoclassinit2
+PUBLIC	?lerp@@YAMMMM@Z					; lerp
 PUBLIC	main
 PUBLIC	??0?$allocator@PEAUVkCommandBuffer_T@@@std@@QEAA@XZ ; std::allocator<VkCommandBuffer_T *>::allocator<VkCommandBuffer_T *>
 PUBLIC	?deallocate@?$allocator@PEAUVkCommandBuffer_T@@@std@@QEAAXQEAPEAUVkCommandBuffer_T@@_K@Z ; std::allocator<VkCommandBuffer_T *>::deallocate
@@ -373,18 +376,62 @@ PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@PEAUVkCommandBuffer_T@@@std@@
 PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@PEAUVkCommandBuffer_T@@@std@@V?$_Vector_val@U?$_Simple_types@PEAUVkCommandBuffer_T@@@std@@@2@$00@std@@QEBAAEBV?$allocator@PEAUVkCommandBuffer_T@@@2@XZ ; std::_Compressed_pair<std::allocator<VkCommandBuffer_T *>,std::_Vector_val<std::_Simple_types<VkCommandBuffer_T *> >,1>::_Get_first
 PUBLIC	?__autoclassinit2@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAX_K@Z ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::__autoclassinit2
 PUBLIC	??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z ; std::operator<<<std::char_traits<char> >
-PUBLIC	??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z ; std::_Unfancy_maybe_null<VkCommandBuffer_T *>
+PUBLIC	??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+PUBLIC	??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ ; cow::GraphicsPipeline<cow::Vertex2DRGB>::~GraphicsPipeline<cow::Vertex2DRGB>
+PUBLIC	?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ; cow::GraphicsPipeline<cow::Vertex2DRGB>::bind
+PUBLIC	?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z ; cow::GraphicsPipeline<cow::Vertex2DRGB>::__autoclassinit2
+PUBLIC	??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ	; std::allocator<cow::Vertex2DRGB>::allocator<cow::Vertex2DRGB>
+PUBLIC	?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z ; std::allocator<cow::Vertex2DRGB>::deallocate
+PUBLIC	?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z ; std::allocator<cow::Vertex2DRGB>::allocate
+PUBLIC	?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::max_size
+PUBLIC	??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+PUBLIC	??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+PUBLIC	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+PUBLIC	?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::data
+PUBLIC	?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::size
+PUBLIC	?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::max_size
+PUBLIC	?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::capacity
+PUBLIC	?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Calculate_growth
+PUBLIC	?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Change_array
+PUBLIC	?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Tidy
+PUBLIC	?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Xlength
+PUBLIC	?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_unlocked
+PUBLIC	?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked
+PUBLIC	?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range
+PUBLIC	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+PUBLIC	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+PUBLIC	??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >
+PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first
+PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first
+PUBLIC	?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::__autoclassinit2
+PUBLIC	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z		; glm::vec<2,float,0>::vec<2,float,0><double,double>
+PUBLIC	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z		; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+PUBLIC	??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ; std::_Unfancy_maybe_null<cow::Vertex2DRGB>
+PUBLIC	??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::move<cow::Vertex2DRGB &>
+PUBLIC	??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::emplace_back<cow::Vertex2DRGB>
+PUBLIC	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+PUBLIC	??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_one_at_back<cow::Vertex2DRGB>
 PUBLIC	?deallocate@?$allocator@U_Container_proxy@std@@@std@@QEAAXQEAU_Container_proxy@2@_K@Z ; std::allocator<std::_Container_proxy>::deallocate
 PUBLIC	?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z ; std::allocator<std::_Container_proxy>::allocate
-PUBLIC	??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>
+PUBLIC	??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><cow::Vertex2DRGB>
 PUBLIC	??$exchange@PEAU_Container_proxy@std@@$$T@std@@YAPEAU_Container_proxy@0@AEAPEAU10@$$QEA$$T@Z ; std::exchange<std::_Container_proxy *,std::nullptr_t>
 PUBLIC	??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z ; std::_Delete_plain_internal<std::allocator<std::_Container_proxy> >
+PUBLIC	??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1><>
+PUBLIC	??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >
+PUBLIC	?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z ; std::allocator<VkVertexInputAttributeDescription>::deallocate
+PUBLIC	??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+PUBLIC	?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::data
+PUBLIC	?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::size
+PUBLIC	?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy
+PUBLIC	?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
+PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first
+PUBLIC	?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::__autoclassinit2
+PUBLIC	??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z ; std::_Unfancy_maybe_null<VkCommandBuffer_T *>
+PUBLIC	??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>
 PUBLIC	??$?0AEBV?$allocator@PEAUVkCommandBuffer_T@@@std@@$$V@?$_Compressed_pair@V?$allocator@PEAUVkCommandBuffer_T@@@std@@V?$_Vector_val@U?$_Simple_types@PEAUVkCommandBuffer_T@@@std@@@2@$00@std@@QEAA@U_One_then_variadic_args_t@1@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ; std::_Compressed_pair<std::allocator<VkCommandBuffer_T *>,std::_Vector_val<std::_Simple_types<VkCommandBuffer_T *> >,1>::_Compressed_pair<std::allocator<VkCommandBuffer_T *>,std::_Vector_val<std::_Simple_types<VkCommandBuffer_T *> >,1><std::allocator<VkCommandBuffer_T *> const &>
 PUBLIC	??$_Construct_n@$$V@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@AEAAX_K@Z ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::_Construct_n<>
-PUBLIC	??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>
 PUBLIC	??$?0W4VkDynamicState@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@W4VkDynamicState@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><enum VkDynamicState>
 PUBLIC	??$?0$$V@?$_Compressed_pair@V?$allocator@W4VkDynamicState@@@std@@V?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<enum VkDynamicState>,std::_Vector_val<std::_Simple_types<enum VkDynamicState> >,1>::_Compressed_pair<std::allocator<enum VkDynamicState>,std::_Vector_val<std::_Simple_types<enum VkDynamicState> >,1><>
-PUBLIC	??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >
 PUBLIC	??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::_Sentry_base
 PUBLIC	??1_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@XZ ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::~_Sentry_base
 PUBLIC	??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::sentry::sentry
@@ -394,9 +441,12 @@ PUBLIC	??$min@_K@std@@YAAEB_KAEB_K0@Z			; std::min<unsigned __int64>
 PUBLIC	??0?$_Container_proxy_ptr12@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAA@AEAV?$allocator@U_Container_proxy@std@@@1@AEAU_Container_base12@1@@Z ; std::_Container_proxy_ptr12<std::allocator<std::_Container_proxy> >::_Container_proxy_ptr12<std::allocator<std::_Container_proxy> >
 PUBLIC	??1?$_Container_proxy_ptr12@V?$allocator@U_Container_proxy@std@@@std@@@std@@QEAA@XZ ; std::_Container_proxy_ptr12<std::allocator<std::_Container_proxy> >::~_Container_proxy_ptr12<std::allocator<std::_Container_proxy> >
 PUBLIC	??$_Unfancy@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@PEAU10@@Z ; std::_Unfancy<std::_Container_proxy>
+PUBLIC	??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z ; std::_Unfancy_maybe_null<VkVertexInputAttributeDescription>
+PUBLIC	??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>
+PUBLIC	??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >
 PUBLIC	??$_Destroy_range@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAXPEAPEAUVkCommandBuffer_T@@QEAPEAU1@AEAV?$allocator@PEAUVkCommandBuffer_T@@@0@@Z ; std::_Destroy_range<std::allocator<VkCommandBuffer_T *> >
-PUBLIC	??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z ; std::_Destroy_range<std::allocator<VkVertexInputAttributeDescription> >
 PUBLIC	??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z ; std::_Destroy_range<std::allocator<enum VkDynamicState> >
+PUBLIC	??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z ; std::_Destroy_range<std::allocator<VkVertexInputAttributeDescription> >
 PUBLIC	??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z		; std::_Get_size_of_n<16>
 PUBLIC	??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z ; std::_Allocate<16,std::_Default_allocate_traits,0>
 PUBLIC	??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z	; std::_Deallocate<16,0>
@@ -404,12 +454,18 @@ PUBLIC	??$addressof@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@AEAU10
 PUBLIC	??$_Voidify_iter@PEAU_Container_proxy@std@@@std@@YAPEAXPEAU_Container_proxy@0@@Z ; std::_Voidify_iter<std::_Container_proxy *>
 PUBLIC	??$forward@PEAU_Container_base12@std@@@std@@YA$$QEAPEAU_Container_base12@0@AEAPEAU10@@Z ; std::forward<std::_Container_base12 *>
 PUBLIC	??$construct_at@U_Container_proxy@std@@PEAU_Container_base12@2@X@std@@YAPEAU_Container_proxy@0@QEAU10@$$QEAPEAU_Container_base12@0@@Z ; std::construct_at<std::_Container_proxy,std::_Container_base12 *,void>
+PUBLIC	??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_back_with_unused_capacity<cow::Vertex2DRGB>
+PUBLIC	??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_reallocate<cow::Vertex2DRGB>
 PUBLIC	??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z ; std::_Deallocate_plain<std::allocator<std::_Container_proxy> >
 PUBLIC	??$forward@AEBV?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAAEBV?$allocator@PEAUVkCommandBuffer_T@@@0@AEBV10@@Z ; std::forward<std::allocator<VkCommandBuffer_T *> const &>
 PUBLIC	??1?$_Tidy_guard@V?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@@std@@QEAA@XZ ; std::_Tidy_guard<std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> > >::~_Tidy_guard<std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> > >
 PUBLIC	??$_Uninitialized_value_construct_n@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@_KAEAV?$allocator@PEAUVkCommandBuffer_T@@@0@@Z ; std::_Uninitialized_value_construct_n<std::allocator<VkCommandBuffer_T *> >
 PUBLIC	??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z ; std::_Allocate_manually_vector_aligned<std::_Default_allocate_traits>
 PUBLIC	??$_Get_size_of_n@$07@std@@YA_K_K@Z		; std::_Get_size_of_n<8>
+PUBLIC	??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z ; std::_Construct_in_place<cow::Vertex2DRGB,cow::Vertex2DRGB>
+PUBLIC	??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ; std::_Unfancy<cow::Vertex2DRGB>
+PUBLIC	??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::construct<cow::Vertex2DRGB,cow::Vertex2DRGB>
+PUBLIC	??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
 PUBLIC	?deallocate@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@2@QEAU_Container_proxy@2@_K@Z ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::deallocate
 PUBLIC	??$_Unfancy@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z ; std::_Unfancy<VkCommandBuffer_T *>
 PUBLIC	??$_Zero_range@PEAPEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@QEAPEAU1@0@Z ; std::_Zero_range<VkCommandBuffer_T * *>
@@ -418,9 +474,22 @@ PUBLIC	??1?$_Uninitialized_backout_al@V?$allocator@PEAUVkCommandBuffer_T@@@std@@
 PUBLIC	?_Release@?$_Uninitialized_backout_al@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAPEAPEAUVkCommandBuffer_T@@XZ ; std::_Uninitialized_backout_al<std::allocator<VkCommandBuffer_T *> >::_Release
 PUBLIC	?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAX_K@Z ; std::_Uninitialized_backout_al<std::allocator<VkCommandBuffer_T *> >::__autoclassinit2
 PUBLIC	??$_Emplace_back@$$V@?$_Uninitialized_backout_al@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAXXZ ; std::_Uninitialized_backout_al<std::allocator<VkCommandBuffer_T *> >::_Emplace_back<>
+PUBLIC	??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z		; std::_Get_size_of_n<20>
+PUBLIC	??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z ; std::addressof<cow::Vertex2DRGB>
+PUBLIC	??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z ; std::construct_at<cow::Vertex2DRGB,cow::Vertex2DRGB,void>
+PUBLIC	??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z ; std::_Voidify_iter<cow::Vertex2DRGB *>
+PUBLIC	??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z ; std::_Get_unwrapped<cow::Vertex2DRGB * const &>
+PUBLIC	??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z ; std::_Copy_memmove<cow::Vertex2DRGB *,cow::Vertex2DRGB *>
+PUBLIC	??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+PUBLIC	??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::~_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+PUBLIC	?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Release
+PUBLIC	?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::__autoclassinit2
+PUBLIC	??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Emplace_back<cow::Vertex2DRGB>
 PUBLIC	??$_To_address@PEAPEAUVkCommandBuffer_T@@@std@@YA?A_PAEBQEAPEAUVkCommandBuffer_T@@@Z ; std::_To_address<VkCommandBuffer_T * *>
 PUBLIC	??$to_address@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@QEAPEAU1@@Z ; std::to_address<VkCommandBuffer_T *>
 PUBLIC	??$construct@PEAUVkCommandBuffer_T@@$$V@?$_Default_allocator_traits@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@SAXAEAV?$allocator@PEAUVkCommandBuffer_T@@@1@QEAPEAUVkCommandBuffer_T@@@Z ; std::_Default_allocator_traits<std::allocator<VkCommandBuffer_T *> >::construct<VkCommandBuffer_T *>
+PUBLIC	??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z ; std::_To_address<cow::Vertex2DRGB *>
+PUBLIC	??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z ; std::to_address<cow::Vertex2DRGB>
 PUBLIC	??$construct_at@PEAUVkCommandBuffer_T@@$$VX@std@@YAPEAPEAUVkCommandBuffer_T@@QEAPEAU1@@Z ; std::construct_at<VkCommandBuffer_T *,void>
 PUBLIC	??$_Voidify_iter@PEAPEAUVkCommandBuffer_T@@@std@@YAPEAXPEAPEAUVkCommandBuffer_T@@@Z ; std::_Voidify_iter<VkCommandBuffer_T * *>
 PUBLIC	__JustMyCode_Default
@@ -449,15 +518,21 @@ PUBLIC	??_R0?AVruntime_error@std@@@8			; std::runtime_error `RTTI Type Descripto
 PUBLIC	_CT??_R0?AVruntime_error@std@@@8??0runtime_error@std@@QEAA@AEBV01@@Z24
 PUBLIC	_TI2?AVruntime_error@std@@
 PUBLIC	_CTA2?AVruntime_error@std@@
-PUBLIC	??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@ ; `string'
+PUBLIC	??_C@_0CA@IGKKDGOC@failed?5to?5create?5vertex?5buffer?$CB@ ; `string'
+PUBLIC	??_C@_0CJ@NNDFOAFL@failed?5to?5allocate?5vertex?5buffe@ ; `string'
+PUBLIC	?__LINE__Var@?0??main@@9@4JA			; `main'::`1'::__LINE__Var
 PUBLIC	??_C@_02PHMGELLB@?6?6@				; `string'
 PUBLIC	??_C@_04MEMAJGDJ@name@				; `string'
 PUBLIC	??_C@_04GHJNJNPO@main@				; `string'
 PUBLIC	??_C@_0EJ@HKLAAGEK@C?3?2Users?2anton?2source?2repos?2GPU@ ; `string'
 PUBLIC	??_C@_0EJ@HDHKIKGP@C?3?2Users?2anton?2source?2repos?2GPU@ ; `string'
 PUBLIC	??_C@_0CD@DMDCDDIA@failed?5to?5allocate?5command?5buff@ ; `string'
+PUBLIC	??_C@_0BP@JNGFJPNG@Vertex?5Count?5must?5be?5atleast?53@ ; `string'
+PUBLIC	??_C@_1GK@IPJOBBDA@?$AAC?$AA?3?$AA?2?$AAU?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAn?$AAt?$AAo?$AAn?$AA?2@ ; `string'
+PUBLIC	??_C@_1GK@IDNJBOAD@?$AAv?$AAe?$AAr?$AAt?$AAe?$AAx?$AAC?$AAo?$AAu?$AAn?$AAt?$AA?5?$AA?$DO?$AA?$DN?$AA?5@ ; `string'
 PUBLIC	??_C@_0BI@KCJMGAAL@failed?5to?5end?5cmdBuffer@	; `string'
 PUBLIC	??_C@_0BB@LLDEEIKC@ASFDHFHUFDUHUYIF@		; `string'
+PUBLIC	??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@ ; `string'
 PUBLIC	??_C@_0DG@KGHKKGBC@null?5pointer?5cannot?5point?5to?5a?5@ ; `string'
 PUBLIC	??_C@_1HA@FACCKGGH@?$AA?$CC?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?5?$AAc@ ; `string'
 PUBLIC	??_C@_0BA@FOIKENOD@vector?5too?5long@		; `string'
@@ -477,7 +552,21 @@ PUBLIC	??_R4runtime_error@std@@6B@			; std::runtime_error::`RTTI Complete Object
 PUBLIC	??_R3runtime_error@std@@8			; std::runtime_error::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R2runtime_error@std@@8			; std::runtime_error::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@runtime_error@std@@8		; std::runtime_error::`RTTI Base Class Descriptor at (0,-1,0,64)'
+PUBLIC	__real@3dcccccd
+PUBLIC	__real@3f000000
+PUBLIC	__real@3f35c28f
+PUBLIC	__real@3f50624dd2f1a9fc
 PUBLIC	__real@3f800000
+PUBLIC	__real@3fe0000000000000
+PUBLIC	__real@3ff0000000000000
+PUBLIC	__real@3ff8000000000000
+PUBLIC	__real@4008000000000000
+PUBLIC	__real@bfdccccccccccccd
+PUBLIC	__real@bfe0000000000000
+PUBLIC	__real@bff8000000000000
+PUBLIC	__real@c0000000
+PUBLIC	__real@c000000000000000
+PUBLIC	__real@c004000000000000
 EXTRN	??2@YAPEAX_K@Z:PROC				; operator new
 EXTRN	??3@YAXPEAX@Z:PROC				; operator delete
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
@@ -485,6 +574,8 @@ EXTRN	__imp__invalid_parameter:PROC
 EXTRN	__imp__CrtDbgReport:PROC
 EXTRN	__imp_??0_Lockit@std@@QEAA@H@Z:PROC
 EXTRN	__imp_??1_Lockit@std@@QEAA@XZ:PROC
+EXTRN	memcpy:PROC
+EXTRN	memmove:PROC
 EXTRN	memset:PROC
 EXTRN	?_Xlength_error@std@@YAXPEBD@Z:PROC		; std::_Xlength_error
 EXTRN	?uncaught_exceptions@std@@YAHXZ:PROC		; std::uncaught_exceptions
@@ -507,15 +598,30 @@ EXTRN	__imp_?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADXZ:PROC
 EXTRN	__imp_?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ:PROC
 EXTRN	__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@_K@Z:PROC
 EXTRN	__imp_?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ:PROC
+EXTRN	vkGetPhysicalDeviceMemoryProperties:PROC
+EXTRN	vkQueueSubmit:PROC
+EXTRN	vkQueueWaitIdle:PROC
 EXTRN	vkDeviceWaitIdle:PROC
+EXTRN	vkAllocateMemory:PROC
+EXTRN	vkFreeMemory:PROC
+EXTRN	vkMapMemory:PROC
+EXTRN	vkUnmapMemory:PROC
+EXTRN	vkBindBufferMemory:PROC
+EXTRN	vkGetBufferMemoryRequirements:PROC
+EXTRN	vkCreateBuffer:PROC
+EXTRN	vkDestroyBuffer:PROC
 EXTRN	vkDestroyShaderModule:PROC
 EXTRN	vkCreateGraphicsPipelines:PROC
 EXTRN	vkDestroyPipeline:PROC
 EXTRN	vkDestroyPipelineLayout:PROC
 EXTRN	vkAllocateCommandBuffers:PROC
+EXTRN	vkFreeCommandBuffers:PROC
+EXTRN	vkBeginCommandBuffer:PROC
 EXTRN	vkEndCommandBuffer:PROC
 EXTRN	vkCmdBindPipeline:PROC
+EXTRN	vkCmdBindVertexBuffers:PROC
 EXTRN	vkCmdDraw:PROC
+EXTRN	vkCmdCopyBuffer:PROC
 EXTRN	vkCmdEndRenderPass:PROC
 EXTRN	glfwWindowShouldClose:PROC
 EXTRN	glfwPollEvents:PROC
@@ -524,15 +630,16 @@ EXTRN	??1Window@cow@@QEAA@XZ:PROC			; cow::Window::~Window
 EXTRN	??0Device@cow@@QEAA@AEAVWindow@1@PEAII@Z:PROC	; cow::Device::Device
 EXTRN	??1Device@cow@@QEAA@XZ:PROC			; cow::Device::~Device
 EXTRN	?submit@Swapchain@cow@@QEAA?AW4VkResult@@PEBQEAUVkCommandBuffer_T@@PEAI@Z:PROC ; cow::Swapchain::submit
+EXTRN	__imp__wassert:PROC
 EXTRN	?defaultGraphicsPipeline@GraphicsPipelineSimpleInfo@cow@@SAXAEAU12@@Z:PROC ; cow::GraphicsPipelineSimpleInfo::defaultGraphicsPipeline
-EXTRN	?bindingDescription@Vertex2DSRGB@cow@@SA?AUVkVertexInputBindingDescription@@XZ:PROC ; cow::Vertex2DSRGB::bindingDescription
-EXTRN	?attributeDescriptions@Vertex2DSRGB@cow@@SA?AV?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@XZ:PROC ; cow::Vertex2DSRGB::attributeDescriptions
+EXTRN	?bindingDesc@Vertex2DRGB@cow@@SA?AUVkVertexInputBindingDescription@@XZ:PROC ; cow::Vertex2DRGB::bindingDesc
+EXTRN	?attributeDesc@Vertex2DRGB@cow@@SA?AV?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@XZ:PROC ; cow::Vertex2DRGB::attributeDesc
 EXTRN	?createShaderModule@cow@@YAPEAUVkShaderModule_T@@PEAUVkDevice_T@@PEBD@Z:PROC ; cow::createShaderModule
 EXTRN	?defaultPipelineLayout@cow@@YAPEAUVkPipelineLayout_T@@PEAUVkDevice_T@@PEAUPipelineLayoutSimpleInfo@1@@Z:PROC ; cow::defaultPipelineLayout
 EXTRN	??0GraphicsCommands@cow@@QEAA@AEAVDevice@1@@Z:PROC ; cow::GraphicsCommands::GraphicsCommands
 EXTRN	??1GraphicsCommands@cow@@QEAA@XZ:PROC		; cow::GraphicsCommands::~GraphicsCommands
 EXTRN	?begin@GraphicsCommands@cow@@QEAAPEAUVkCommandBuffer_T@@XZ:PROC ; cow::GraphicsCommands::begin
-EXTRN	?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z:PROC ; cow::GraphicsCommands::beginRenderPass
+EXTRN	?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z:PROC ; cow::GraphicsCommands::beginRenderPass
 EXTRN	_CxxThrowException:PROC
 EXTRN	_RTC_CheckStackVars:PROC
 EXTRN	_RTC_InitBase:PROC
@@ -800,6 +907,12 @@ $pdata$?__autoclassinit2@Window@cow@@QEAAX_K@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ DD imagerel $LN3
+	DD	imagerel $LN3+52
+	DD	imagerel $unwind$?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ DD imagerel $LN3
 	DD	imagerel $LN3+52
 	DD	imagerel $unwind$?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ
@@ -809,6 +922,12 @@ pdata	SEGMENT
 $pdata$?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ DD imagerel $LN3
 	DD	imagerel $LN3+52
 	DD	imagerel $unwind$?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ DD imagerel $LN3
+	DD	imagerel $LN3+52
+	DD	imagerel $unwind$?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -884,69 +1003,57 @@ $pdata$??1GraphicsPipelineSimpleInfo@cow@@QEAA@XZ DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DD imagerel $LN6
-	DD	imagerel $LN6+1377
-	DD	imagerel $unwind$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+$pdata$??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z DD imagerel $LN3
+	DD	imagerel $LN3+123
+	DD	imagerel $unwind$??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA DD imagerel ?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA
-	DD	imagerel ?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA+39
-	DD	imagerel $unwind$?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA
+$pdata$??1Buffer@cow@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+168
+	DD	imagerel $unwind$??1Buffer@cow@@QEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??1GraphicsPipeline@cow@@QEAA@XZ DD imagerel $LN3
-	DD	imagerel $LN3+230
-	DD	imagerel $unwind$??1GraphicsPipeline@cow@@QEAA@XZ
+$pdata$?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z DD imagerel $LN3
+	DD	imagerel $LN3+149
+	DD	imagerel $unwind$?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z DD imagerel $LN3
-	DD	imagerel $LN3+71
-	DD	imagerel $unwind$?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z
+$pdata$?unmap@Buffer@cow@@QEAAXXZ DD imagerel $LN4
+	DD	imagerel $LN4+130
+	DD	imagerel $unwind$?unmap@Buffer@cow@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z DD imagerel $LN3
+$pdata$?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z DD imagerel $LN4
+	DD	imagerel $LN4+139
+	DD	imagerel $unwind$?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z DD imagerel $LN3
+	DD	imagerel $LN3+553
+	DD	imagerel $unwind$?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ DD imagerel $LN3
+	DD	imagerel $LN3+52
+	DD	imagerel $unwind$?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?createBuffer@Buffer@cow@@AEAAXII@Z DD imagerel $LN9
+	DD	imagerel $LN9+728
+	DD	imagerel $unwind$?createBuffer@Buffer@cow@@AEAAXII@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?__autoclassinit2@Buffer@cow@@QEAAX_K@Z DD imagerel $LN3
 	DD	imagerel $LN3+50
-	DD	imagerel $unwind$?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z DD imagerel $LN13
-	DD	imagerel $LN13+213
-	DD	imagerel $unwind$?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ DD imagerel $LN3
-	DD	imagerel $LN3+203
-	DD	imagerel $unwind$??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DD imagerel $LN4
-	DD	imagerel $LN4+228
-	DD	imagerel $unwind$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD imagerel $LN3
-	DD	imagerel $LN3+56
-	DD	imagerel $unwind$?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD imagerel $LN3
-	DD	imagerel $LN3+48
-	DD	imagerel $unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z DD imagerel $LN3
-	DD	imagerel $LN3+50
-	DD	imagerel $unwind$?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z
+	DD	imagerel $unwind$?__autoclassinit2@Buffer@cow@@QEAAX_K@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -968,8 +1075,14 @@ $pdata$?__autoclassinit2@GraphicsCommands@cow@@QEAAX_K@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$main DD	imagerel $LN18
-	DD	imagerel $LN18+1228
+$pdata$?lerp@@YAMMMM@Z DD imagerel $LN3
+	DD	imagerel $LN3+98
+	DD	imagerel $unwind$?lerp@@YAMMMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$main DD	imagerel $LN25
+	DD	imagerel $LN25+2478
 	DD	imagerel $unwind$main
 pdata	ENDS
 ;	COMDAT pdata
@@ -1007,6 +1120,24 @@ pdata	SEGMENT
 $pdata$main$dtor$6 DD imagerel main$dtor$6
 	DD	imagerel main$dtor$6+39
 	DD	imagerel $unwind$main$dtor$6
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$main$dtor$7 DD imagerel main$dtor$7
+	DD	imagerel main$dtor$7+39
+	DD	imagerel $unwind$main$dtor$7
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$main$dtor$8 DD imagerel main$dtor$8
+	DD	imagerel main$dtor$8+39
+	DD	imagerel $unwind$main$dtor$8
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$main$dtor$9 DD imagerel main$dtor$9
+	DD	imagerel main$dtor$9+39
+	DD	imagerel $unwind$main$dtor$9
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1142,9 +1273,225 @@ $pdata$?catch$1@?0???$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$ch
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z DD imagerel $LN3
+$pdata$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DD imagerel $LN6
+	DD	imagerel $LN6+1438
+	DD	imagerel $unwind$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA DD imagerel ?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA
+	DD	imagerel ?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA+39
+	DD	imagerel $unwind$?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+230
+	DD	imagerel $unwind$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+71
+	DD	imagerel $unwind$?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z DD imagerel $LN3
+	DD	imagerel $LN3+50
+	DD	imagerel $unwind$?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ DD imagerel $LN3
 	DD	imagerel $LN3+48
-	DD	imagerel $unwind$??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z
+	DD	imagerel $unwind$??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z DD imagerel $LN13
+	DD	imagerel $LN13+213
+	DD	imagerel $unwind$?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z DD imagerel $LN3
+	DD	imagerel $LN3+66
+	DD	imagerel $unwind$?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z DD imagerel $LN3
+	DD	imagerel $LN3+51
+	DD	imagerel $unwind$?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+137
+	DD	imagerel $unwind$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+203
+	DD	imagerel $unwind$??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+73
+	DD	imagerel $unwind$?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ DD imagerel $LN3
+	DD	imagerel $LN3+57
+	DD	imagerel $unwind$?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ DD imagerel $LN3
+	DD	imagerel $LN3+81
+	DD	imagerel $unwind$?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ DD imagerel $LN3
+	DD	imagerel $LN3+102
+	DD	imagerel $unwind$?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ DD imagerel $LN3
+	DD	imagerel $LN3+81
+	DD	imagerel $unwind$?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z DD imagerel $LN5
+	DD	imagerel $LN5+168
+	DD	imagerel $unwind$?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z DD imagerel $LN4
+	DD	imagerel $LN4+286
+	DD	imagerel $unwind$?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ DD imagerel $LN4
+	DD	imagerel $LN4+234
+	DD	imagerel $unwind$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ DD imagerel $LN3
+	DD	imagerel $LN3+49
+	DD	imagerel $unwind$?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DD imagerel $LN8
+	DD	imagerel $LN8+184
+	DD	imagerel $unwind$?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DD imagerel $LN4
+	DD	imagerel $LN4+177
+	DD	imagerel $unwind$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA DD imagerel ?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA
+	DD	imagerel ?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA+37
+	DD	imagerel $unwind$?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DD imagerel $LN5
+	DD	imagerel $LN5+117
+	DD	imagerel $unwind$?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ DD imagerel $LN3
+	DD	imagerel $LN3+56
+	DD	imagerel $unwind$?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ DD imagerel $LN3
+	DD	imagerel $LN3+56
+	DD	imagerel $unwind$?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+105
+	DD	imagerel $unwind$??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z DD imagerel $LN3
+	DD	imagerel $LN3+50
+	DD	imagerel $unwind$?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z DD imagerel $LN3
+	DD	imagerel $LN3+99
+	DD	imagerel $unwind$??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z DD imagerel $LN3
+	DD	imagerel $LN3+125
+	DD	imagerel $unwind$??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+81
+	DD	imagerel $unwind$??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z DD imagerel $LN4
+	DD	imagerel $LN4+174
+	DD	imagerel $unwind$??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1160,9 +1507,9 @@ $pdata$?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_pro
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z DD imagerel $LN3
+$pdata$??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z DD imagerel $LN3
 	DD	imagerel $LN3+53
-	DD	imagerel $unwind$??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z
+	DD	imagerel $unwind$??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1175,6 +1522,78 @@ pdata	SEGMENT
 $pdata$??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z DD imagerel $LN3
 	DD	imagerel $LN3+65
 	DD	imagerel $unwind$??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+79
+	DD	imagerel $unwind$??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+133
+	DD	imagerel $unwind$??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z DD imagerel $LN13
+	DD	imagerel $LN13+213
+	DD	imagerel $unwind$?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+203
+	DD	imagerel $unwind$??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ DD imagerel $LN3
+	DD	imagerel $LN3+57
+	DD	imagerel $unwind$?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ DD imagerel $LN3
+	DD	imagerel $LN3+75
+	DD	imagerel $unwind$?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DD imagerel $LN4
+	DD	imagerel $LN4+228
+	DD	imagerel $unwind$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD imagerel $LN3
+	DD	imagerel $LN3+56
+	DD	imagerel $unwind$?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z DD imagerel $LN3
+	DD	imagerel $LN3+50
+	DD	imagerel $unwind$?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+53
+	DD	imagerel $unwind$??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1202,12 +1621,6 @@ $pdata$?dtor$1@?0???$_Construct_n@$$V@?$vector@PEAUVkCommandBuffer_T@@V?$allocat
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z DD imagerel $LN3
-	DD	imagerel $LN3+53
-	DD	imagerel $unwind$??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$??$?0W4VkDynamicState@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@W4VkDynamicState@@@1@@Z DD imagerel $LN3
 	DD	imagerel $LN3+53
 	DD	imagerel $unwind$??$?0W4VkDynamicState@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@W4VkDynamicState@@@1@@Z
@@ -1217,12 +1630,6 @@ pdata	SEGMENT
 $pdata$??$?0$$V@?$_Compressed_pair@V?$allocator@W4VkDynamicState@@@std@@V?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z DD imagerel $LN3
 	DD	imagerel $LN3+79
 	DD	imagerel $unwind$??$?0$$V@?$_Compressed_pair@V?$allocator@W4VkDynamicState@@@std@@V?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z DD imagerel $LN3
-	DD	imagerel $LN3+133
-	DD	imagerel $unwind$??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1286,21 +1693,39 @@ $pdata$??$_Unfancy@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@PEAU10@
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+53
+	DD	imagerel $unwind$??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DD imagerel $LN3
+	DD	imagerel $LN3+51
+	DD	imagerel $unwind$??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??$_Destroy_range@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAXPEAPEAUVkCommandBuffer_T@@QEAPEAU1@AEAV?$allocator@PEAUVkCommandBuffer_T@@@0@@Z DD imagerel $LN3
 	DD	imagerel $LN3+51
 	DD	imagerel $unwind$??$_Destroy_range@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAXPEAPEAUVkCommandBuffer_T@@QEAPEAU1@AEAV?$allocator@PEAUVkCommandBuffer_T@@@0@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z DD imagerel $LN3
-	DD	imagerel $LN3+51
-	DD	imagerel $unwind$??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z DD imagerel $LN3
 	DD	imagerel $LN3+51
 	DD	imagerel $unwind$??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z DD imagerel $LN3
+	DD	imagerel $LN3+51
+	DD	imagerel $unwind$??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1346,6 +1771,24 @@ $pdata$??$construct_at@U_Container_proxy@std@@PEAU_Container_base12@2@X@std@@YAP
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z DD imagerel $LN3
+	DD	imagerel $LN3+180
+	DD	imagerel $unwind$??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DD imagerel $LN13
+	DD	imagerel $LN13+607
+	DD	imagerel $unwind$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA DD imagerel ?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA
+	DD	imagerel ?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA+91
+	DD	imagerel $unwind$?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z DD imagerel $LN3
 	DD	imagerel $LN3+72
 	DD	imagerel $unwind$??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z
@@ -1385,6 +1828,36 @@ pdata	SEGMENT
 $pdata$??$_Get_size_of_n@$07@std@@YA_K_K@Z DD imagerel $LN4
 	DD	imagerel $LN4+94
 	DD	imagerel $unwind$??$_Get_size_of_n@$07@std@@YA_K_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z DD imagerel $LN5
+	DD	imagerel $LN5+188
+	DD	imagerel $unwind$??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z DD imagerel $LN5
+	DD	imagerel $LN5+155
+	DD	imagerel $unwind$??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DD imagerel $LN8
+	DD	imagerel $LN8+367
+	DD	imagerel $unwind$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA DD imagerel ?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA
+	DD	imagerel ?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA+36
+	DD	imagerel $unwind$?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1436,6 +1909,72 @@ $pdata$??$_Emplace_back@$$V@?$_Uninitialized_backout_al@V?$allocator@PEAUVkComma
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z DD imagerel $LN4
+	DD	imagerel $LN4+91
+	DD	imagerel $unwind$??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+116
+	DD	imagerel $unwind$??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+51
+	DD	imagerel $unwind$??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z DD imagerel $LN3
+	DD	imagerel $LN3+196
+	DD	imagerel $unwind$??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z DD imagerel $LN3
+	DD	imagerel $LN3+111
+	DD	imagerel $unwind$??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD imagerel $LN3
+	DD	imagerel $LN3+78
+	DD	imagerel $unwind$??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ DD imagerel $LN3
+	DD	imagerel $LN3+73
+	DD	imagerel $unwind$?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z DD imagerel $LN3
+	DD	imagerel $LN3+50
+	DD	imagerel $unwind$?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+158
+	DD	imagerel $unwind$??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??$_To_address@PEAPEAUVkCommandBuffer_T@@@std@@YA?A_PAEBQEAPEAUVkCommandBuffer_T@@@Z DD imagerel $LN3
 	DD	imagerel $LN3+56
 	DD	imagerel $unwind$??$_To_address@PEAPEAUVkCommandBuffer_T@@@std@@YA?A_PAEBQEAPEAUVkCommandBuffer_T@@@Z
@@ -1454,6 +1993,18 @@ $pdata$??$construct@PEAUVkCommandBuffer_T@@$$V@?$_Default_allocator_traits@V?$al
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z DD imagerel $LN3
+	DD	imagerel $LN3+56
+	DD	imagerel $unwind$??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z DD imagerel $LN3
+	DD	imagerel $LN3+48
+	DD	imagerel $unwind$??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??$construct_at@PEAUVkCommandBuffer_T@@$$VX@std@@YAPEAPEAUVkCommandBuffer_T@@QEAPEAU1@@Z DD imagerel $LN3
 	DD	imagerel $LN3+136
 	DD	imagerel $unwind$??$construct_at@PEAUVkCommandBuffer_T@@$$VX@std@@YAPEAPEAUVkCommandBuffer_T@@QEAPEAU1@@Z
@@ -1464,9 +2015,65 @@ $pdata$??$_Voidify_iter@PEAPEAUVkCommandBuffer_T@@@std@@YAPEAXPEAPEAUVkCommandBu
 	DD	imagerel $LN3+48
 	DD	imagerel $unwind$??$_Voidify_iter@PEAPEAUVkCommandBuffer_T@@@std@@YAPEAXPEAPEAUVkCommandBuffer_T@@@Z
 pdata	ENDS
+;	COMDAT __real@c004000000000000
+CONST	SEGMENT
+__real@c004000000000000 DQ 0c004000000000000r	; -2.5
+CONST	ENDS
+;	COMDAT __real@c000000000000000
+CONST	SEGMENT
+__real@c000000000000000 DQ 0c000000000000000r	; -2
+CONST	ENDS
+;	COMDAT __real@c0000000
+CONST	SEGMENT
+__real@c0000000 DD 0c0000000r			; -2
+CONST	ENDS
+;	COMDAT __real@bff8000000000000
+CONST	SEGMENT
+__real@bff8000000000000 DQ 0bff8000000000000r	; -1.5
+CONST	ENDS
+;	COMDAT __real@bfe0000000000000
+CONST	SEGMENT
+__real@bfe0000000000000 DQ 0bfe0000000000000r	; -0.5
+CONST	ENDS
+;	COMDAT __real@bfdccccccccccccd
+CONST	SEGMENT
+__real@bfdccccccccccccd DQ 0bfdccccccccccccdr	; -0.45
+CONST	ENDS
+;	COMDAT __real@4008000000000000
+CONST	SEGMENT
+__real@4008000000000000 DQ 04008000000000000r	; 3
+CONST	ENDS
+;	COMDAT __real@3ff8000000000000
+CONST	SEGMENT
+__real@3ff8000000000000 DQ 03ff8000000000000r	; 1.5
+CONST	ENDS
+;	COMDAT __real@3ff0000000000000
+CONST	SEGMENT
+__real@3ff0000000000000 DQ 03ff0000000000000r	; 1
+CONST	ENDS
+;	COMDAT __real@3fe0000000000000
+CONST	SEGMENT
+__real@3fe0000000000000 DQ 03fe0000000000000r	; 0.5
+CONST	ENDS
 ;	COMDAT __real@3f800000
 CONST	SEGMENT
 __real@3f800000 DD 03f800000r			; 1
+CONST	ENDS
+;	COMDAT __real@3f50624dd2f1a9fc
+CONST	SEGMENT
+__real@3f50624dd2f1a9fc DQ 03f50624dd2f1a9fcr	; 0.001
+CONST	ENDS
+;	COMDAT __real@3f35c28f
+CONST	SEGMENT
+__real@3f35c28f DD 03f35c28fr			; 0.71
+CONST	ENDS
+;	COMDAT __real@3f000000
+CONST	SEGMENT
+__real@3f000000 DD 03f000000r			; 0.5
+CONST	ENDS
+;	COMDAT __real@3dcccccd
+CONST	SEGMENT
+__real@3dcccccd DD 03dcccccdr			; 0.1
 CONST	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
@@ -1626,6 +2233,11 @@ CONST	SEGMENT
 ??_C@_0DG@KGHKKGBC@null?5pointer?5cannot?5point?5to?5a?5@ DB 'null pointe'
 	DB	'r cannot point to a block of non-zero size', 00H ; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@
+CONST	SEGMENT
+??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@ DB 'failed to cre'
+	DB	'ate graphics pipeline', 00H			; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0BB@LLDEEIKC@ASFDHFHUFDUHUYIF@
 CONST	SEGMENT
 ??_C@_0BB@LLDEEIKC@ASFDHFHUFDUHUYIF@ DB 'ASFDHFHUFDUHUYIF', 00H ; `string'
@@ -1634,6 +2246,37 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0BI@KCJMGAAL@failed?5to?5end?5cmdBuffer@ DB 'failed to end cmdBuffe'
 	DB	'r', 00H					; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1GK@IDNJBOAD@?$AAv?$AAe?$AAr?$AAt?$AAe?$AAx?$AAC?$AAo?$AAu?$AAn?$AAt?$AA?5?$AA?$DO?$AA?$DN?$AA?5@
+CONST	SEGMENT
+??_C@_1GK@IDNJBOAD@?$AAv?$AAe?$AAr?$AAt?$AAe?$AAx?$AAC?$AAo?$AAu?$AAn?$AAt?$AA?5?$AA?$DO?$AA?$DN?$AA?5@ DB 'v'
+	DB	00H, 'e', 00H, 'r', 00H, 't', 00H, 'e', 00H, 'x', 00H, 'C', 00H
+	DB	'o', 00H, 'u', 00H, 'n', 00H, 't', 00H, ' ', 00H, '>', 00H, '='
+	DB	00H, ' ', 00H, '3', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H
+	DB	'"', 00H, 'V', 00H, 'e', 00H, 'r', 00H, 't', 00H, 'e', 00H, 'x'
+	DB	00H, ' ', 00H, 'C', 00H, 'o', 00H, 'u', 00H, 'n', 00H, 't', 00H
+	DB	' ', 00H, 'm', 00H, 'u', 00H, 's', 00H, 't', 00H, ' ', 00H, 'b'
+	DB	00H, 'e', 00H, ' ', 00H, 'a', 00H, 't', 00H, 'l', 00H, 'e', 00H
+	DB	'a', 00H, 's', 00H, 't', 00H, ' ', 00H, '3', 00H, '"', 00H, 00H
+	DB	00H						; `string'
+CONST	ENDS
+;	COMDAT ??_C@_1GK@IPJOBBDA@?$AAC?$AA?3?$AA?2?$AAU?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAn?$AAt?$AAo?$AAn?$AA?2@
+CONST	SEGMENT
+??_C@_1GK@IPJOBBDA@?$AAC?$AA?3?$AA?2?$AAU?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAn?$AAt?$AAo?$AAn?$AA?2@ DB 'C'
+	DB	00H, ':', 00H, '\', 00H, 'U', 00H, 's', 00H, 'e', 00H, 'r', 00H
+	DB	's', 00H, '\', 00H, 'a', 00H, 'n', 00H, 't', 00H, 'o', 00H, 'n'
+	DB	00H, '\', 00H, 's', 00H, 'o', 00H, 'u', 00H, 'r', 00H, 'c', 00H
+	DB	'e', 00H, '\', 00H, 'r', 00H, 'e', 00H, 'p', 00H, 'o', 00H, 's'
+	DB	00H, '\', 00H, 'G', 00H, 'P', 00H, 'U', 00H, '-', 00H, 'V', 00H
+	DB	'M', 00H, '\', 00H, 'G', 00H, 'P', 00H, 'U', 00H, '-', 00H, 'V'
+	DB	00H, 'M', 00H, '\', 00H, 'S', 00H, 'o', 00H, 'u', 00H, 'r', 00H
+	DB	'c', 00H, 'e', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, 00H
+	DB	00H						; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BP@JNGFJPNG@Vertex?5Count?5must?5be?5atleast?53@
+CONST	SEGMENT
+??_C@_0BP@JNGFJPNG@Vertex?5Count?5must?5be?5atleast?53@ DB 'Vertex Count '
+	DB	'must be atleast 3', 00H			; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0CD@DMDCDDIA@failed?5to?5allocate?5command?5buff@
 CONST	SEGMENT
@@ -1664,10 +2307,19 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_02PHMGELLB@?6?6@ DB 0aH, 0aH, 00H			; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@
+;	COMDAT ?__LINE__Var@?0??main@@9@4JA
+_DATA	SEGMENT
+?__LINE__Var@?0??main@@9@4JA DD 013H			; `main'::`1'::__LINE__Var
+_DATA	ENDS
+;	COMDAT ??_C@_0CJ@NNDFOAFL@failed?5to?5allocate?5vertex?5buffe@
 CONST	SEGMENT
-??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@ DB 'failed to cre'
-	DB	'ate graphics pipeline', 00H			; `string'
+??_C@_0CJ@NNDFOAFL@failed?5to?5allocate?5vertex?5buffe@ DB 'failed to all'
+	DB	'ocate vertex buffer memory!', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0CA@IGKKDGOC@failed?5to?5create?5vertex?5buffer?$CB@
+CONST	SEGMENT
+??_C@_0CA@IGKKDGOC@failed?5to?5create?5vertex?5buffer?$CB@ DB 'failed to '
+	DB	'create vertex buffer!', 00H			; `string'
 CONST	ENDS
 ;	COMDAT _CTA2?AVruntime_error@std@@
 xdata$x	SEGMENT
@@ -1856,6 +2508,20 @@ $unwind$??$construct_at@PEAUVkCommandBuffer_T@@$$VX@std@@YAPEAPEAUVkCommandBuffe
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$??$construct@PEAUVkCommandBuffer_T@@$$V@?$_Default_allocator_traits@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@SAXAEAV?$allocator@PEAUVkCommandBuffer_T@@@1@QEAPEAUVkCommandBuffer_T@@@Z DD 025051801H
 	DD	01132318H
 	DD	0700c0027H
@@ -1873,6 +2539,83 @@ xdata	SEGMENT
 $unwind$??$_To_address@PEAPEAUVkCommandBuffer_T@@@std@@YA?A_PAEBQEAPEAUVkCommandBuffer_T@@@Z DD 025051301H
 	DD	010e2313H
 	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c0021H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z DD 05051601H
+	DD	01130316H
+	DD	0700c0019H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z DD 025051d01H
+	DD	0118231dH
+	DD	07011001dH
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z DD 025051d01H
+	DD	0118231dH
+	DD	070110039H
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z DD 025061901H
+	DD	01142319H
+	DD	0700d0020H
+	DD	0500b600cH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z DD 025051301H
+	DD	010e2313H
+	DD	070070025H
 	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
@@ -1930,6 +2673,95 @@ $unwind$?deallocate@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@s
 	DD	0118231dH
 	DD	07011001dH
 	DD	05010H
+xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	00H
+	DB	05H
+voltbl	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DW	045H
+	DW	0156H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DB 06H
+	DB	00H
+	DB	00H
+	DB	0c5H, 03H
+	DB	02H
+	DB	'~'
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DB 02H
+	DB	0eH
+	DD	imagerel ?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DB 028H
+	DD	imagerel $stateUnwindMap$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+	DD	imagerel $ip2state$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DD 025054c19H
+	DD	011d2322H
+	DD	07016002fH
+	DD	05015H
+	DD	imagerel __GSHandlerCheck_EH4
+	DD	imagerel $cppxdata$??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+	DD	016aH
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z$rtcName$0 DB 05fH ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+	DB	042H
+	DB	061H
+	DB	063H
+	DB	06bH
+	DB	06fH
+	DB	075H
+	DB	074H
+	DB	00H
+	ORG $+7
+??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z$rtcVarDesc DD 068H ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+	DD	018H
+	DQ	FLAT:??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z$rtcName$0
+	ORG $+48
+??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z$rtcFrameData DD 01H ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+	DD	00H
+	DQ	FLAT:??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z DD 025061e01H
+	DD	0119231eH
+	DD	070120020H
+	DD	050106011H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z DD 025061901H
+	DD	01142319H
+	DD	0700d0022H
+	DD	0500b600cH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -2047,6 +2879,71 @@ $unwind$??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAX
 	DD	imagerel __CxxFrameHandler4
 	DD	imagerel $cppxdata$??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z
 xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	00H
+	DB	05H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DB 06H
+	DB	00H
+	DB	00H
+	DB	0a1H, 04H
+	DB	02H
+	DB	0d5H, 03H
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$handlerMap$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DB 02H
+	DB	01H
+	DB	080H
+	DD	imagerel ?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$tryMap$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DB 02H
+	DB	00H
+	DB	00H
+	DB	02H
+	DD	imagerel $handlerMap$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DB 04H
+	DB	08H
+	DB	010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DB 038H
+	DD	imagerel $stateUnwindMap$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+	DD	imagerel $tryMap$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+	DD	imagerel $ip2state$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z DD 025051d19H
+	DD	0118231dH
+	DD	07011004bH
+	DD	05010H
+	DD	imagerel __CxxFrameHandler4
+	DD	imagerel $cppxdata$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c002bH
+	DD	0500bH
+xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$??$construct_at@U_Container_proxy@std@@PEAU_Container_base12@2@X@std@@YAPEAU_Container_proxy@0@QEAU10@$$QEAPEAU_Container_base12@0@@Z DD 025051801H
@@ -2111,14 +3008,14 @@ $unwind$??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z DD 025051301H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z DD 025051d01H
+$unwind$??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z DD 025051d01H
 	DD	0118231dH
 	DD	07011001dH
 	DD	05010H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z DD 025051d01H
+$unwind$??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z DD 025051d01H
 	DD	0118231dH
 	DD	07011001dH
 	DD	05010H
@@ -2129,6 +3026,27 @@ $unwind$??$_Destroy_range@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAXPEA
 	DD	0118231dH
 	DD	07011001dH
 	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z DD 025051d01H
+	DD	0118231dH
+	DD	07011001dH
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c001dH
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -2256,13 +3174,6 @@ $unwind$??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z DD 025051801H
-	DD	01132318H
-	DD	0700c0025H
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$??$?0$$V@?$_Compressed_pair@V?$allocator@W4VkDynamicState@@@std@@V?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z DD 025051701H
 	DD	01122317H
 	DD	0700b001dH
@@ -2271,13 +3182,6 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$??$?0W4VkDynamicState@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@W4VkDynamicState@@@1@@Z DD 025051801H
-	DD	01132318H
-	DD	0700c001dH
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z DD 025051801H
 	DD	01132318H
 	DD	0700c001dH
 	DD	0500bH
@@ -2351,8 +3255,8 @@ xdata	ENDS
 CONST	SEGMENT
 ??$_Construct_n@$$V@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@AEAAX_K@Z$rtcName$0 DB 024H ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::_Construct_n<>
 	DB	053H
-	DB	031H
-	DB	039H
+	DB	032H
+	DB	030H
 	DB	00H
 	ORG $+3
 ??$_Construct_n@$$V@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@AEAAX_K@Z$rtcName$1 DB 05fH ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::_Construct_n<>
@@ -2394,6 +3298,126 @@ $unwind$??$?0AEBV?$allocator@PEAUVkCommandBuffer_T@@@std@@$$V@?$_Compressed_pair
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c001dH
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z DD 05051601H
+	DD	01130316H
+	DD	0700c0019H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DB 02H
+	DB	00H
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DB 060H
+	DD	imagerel $ip2state$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DD 025051319H
+	DD	010e2313H
+	DD	070070031H
+	DD	05006H
+	DD	imagerel __CxxFrameHandler4
+	DD	imagerel $cppxdata$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ DD 025051301H
+	DD	010e2313H
+	DD	070070021H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	036H
+	DB	0b2H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ DD 025053d19H
+	DD	010e2313H
+	DD	070070029H
+	DD	05006H
+	DD	imagerel __GSHandlerCheck
+	DD	0138H
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcName$0 DB 024H ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+	DB	053H
+	DB	031H
+	DB	036H
+	DB	00H
+	ORG $+11
+??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcVarDesc DD 044H ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+	DD	01H
+	DQ	FLAT:??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcName$0
+	ORG $+48
+??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcFrameData DD 01H ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+	DD	00H
+	DQ	FLAT:??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z DD 035051d01H
+	DD	0118331dH
+	DD	07011001fH
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c0025H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z DD 025051701H
+	DD	01122317H
+	DD	0700b001dH
+	DD	0500aH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z DD 025051801H
 	DD	01132318H
 	DD	0700c001dH
@@ -2408,7 +3432,7 @@ $unwind$??$exchange@PEAU_Container_proxy@std@@$$T@std@@YAPEAU_Container_proxy@0@
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z DD 025051801H
+$unwind$??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z DD 025051801H
 	DD	01132318H
 	DD	0700c001dH
 	DD	0500bH
@@ -2429,11 +3453,554 @@ $unwind$?deallocate@?$allocator@U_Container_proxy@std@@@std@@QEAAXQEAU_Container
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z DD 025051301H
+$unwind$??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c0027H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z DD 025051301H
 	DD	010e2313H
 	DD	07007001dH
 	DD	05006H
 xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c0021H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z DD 025052501H
+	DD	01202325H
+	DD	07019001dH
+	DD	05018H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z DD 025051f01H
+	DD	011a231fH
+	DD	07013001dH
+	DD	05012H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z DD 05051601H
+	DD	01130316H
+	DD	0700c0019H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DD 025051d01H
+	DD	0118231dH
+	DD	07011001dH
+	DD	05010H
+xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	00H
+	DB	05H
+voltbl	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	040H
+	DB	098H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DB 06H
+	DB	00H
+	DB	00H
+	DB	0c6H
+	DB	02H
+	DB	'6'
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DB 02H
+	DB	0eH
+	DD	imagerel ?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DB 028H
+	DD	imagerel $stateUnwindMap$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+	DD	imagerel $ip2state$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DD 025054719H
+	DD	0118231dH
+	DD	070110021H
+	DD	05010H
+	DD	imagerel __GSHandlerCheck_EH4
+	DD	imagerel $cppxdata$?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+	DD	0faH
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z$rtcName$0 DB 05fH ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked
+	DB	04cH
+	DB	06fH
+	DB	063H
+	DB	06bH
+	DB	00H
+	ORG $+10
+?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z$rtcVarDesc DD 024H ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked
+	DD	04H
+	DQ	FLAT:?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z$rtcName$0
+	ORG $+48
+?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z$rtcFrameData DD 01H ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked
+	DD	00H
+	DQ	FLAT:?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z DD 025051d01H
+	DD	0118231dH
+	DD	07011002dH
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ DD 025050f01H
+	DD	010a230fH
+	DD	07003001dH
+	DD	05002H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ DB 02H
+	DB	00H
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ DB 060H
+	DD	imagerel $ip2state$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ DD 025051319H
+	DD	010e2313H
+	DD	070070031H
+	DD	05006H
+	DD	imagerel __CxxFrameHandler4
+	DD	imagerel $cppxdata$?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z DD 025052201H
+	DD	011d2322H
+	DD	070160031H
+	DD	05015H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z DD 025051801H
+	DD	01132318H
+	DD	0700c0029H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ DD 025051301H
+	DD	010e2313H
+	DD	070070021H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ DD 025051301H
+	DD	010e2313H
+	DD	070070025H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ DD 025051301H
+	DD	010e2313H
+	DD	070070021H
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c001dH
+	DD	0500bH
+xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	036H
+	DB	0b2H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD 025053d19H
+	DD	010e2313H
+	DD	070070029H
+	DD	05006H
+	DD	imagerel __GSHandlerCheck
+	DD	0138H
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ$rtcName$0 DB 024H ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+	DB	053H
+	DB	031H
+	DB	00H
+	ORG $+12
+??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ$rtcVarDesc DD 044H ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+	DD	01H
+	DQ	FLAT:??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ$rtcName$0
+	ORG $+48
+??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ$rtcFrameData DD 01H ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+	DD	00H
+	DQ	FLAT:??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DB 02H
+	DB	00H
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DB 060H
+	DD	imagerel $ip2state$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ DD 025051319H
+	DD	010e2313H
+	DD	070070025H
+	DD	05006H
+	DD	imagerel __CxxFrameHandler4
+	DD	imagerel $cppxdata$??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z DD 025051801H
+	DD	01132318H
+	DD	0700c001dH
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z DD 035051d01H
+	DD	0118331dH
+	DD	07011001fH
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z DD 05051601H
+	DD	01130316H
+	DD	0700c0019H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z DD 025051801H
+	DD	01132318H
+	DD	0700c001dH
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ DB 02H
+	DB	00H
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ DB 060H
+	DD	imagerel $ip2state$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ DD 025051319H
+	DD	010e2313H
+	DD	07007001fH
+	DD	05006H
+	DD	imagerel __CxxFrameHandler4
+	DD	imagerel $cppxdata$??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ
+xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	00H
+	DB	05H
+voltbl	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DW	041H
+	DW	0584H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DB 06H
+	DB	00H
+	DB	00H
+	DB	'%', 09H
+	DB	02H
+	DB	'I', 0cH
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DB 02H
+	DB	0eH
+	DD	imagerel ?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DB 028H
+	DD	imagerel $stateUnwindMap$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+	DD	imagerel $ip2state$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DD 035064819H
+	DD	0119331eH
+	DD	0701200a0H
+	DD	050106011H
+	DD	imagerel __GSHandlerCheck_EH4
+	DD	imagerel $cppxdata$??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+	DD	04faH
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$0 DB 073H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	068H
+	DB	061H
+	DB	064H
+	DB	065H
+	DB	072H
+	DB	053H
+	DB	074H
+	DB	061H
+	DB	067H
+	DB	065H
+	DB	073H
+	DB	00H
+	ORG $+3
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$1 DB 062H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	069H
+	DB	06eH
+	DB	064H
+	DB	044H
+	DB	065H
+	DB	073H
+	DB	063H
+	DB	00H
+	ORG $+7
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$2 DB 061H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	074H
+	DB	074H
+	DB	072H
+	DB	044H
+	DB	065H
+	DB	073H
+	DB	063H
+	DB	00H
+	ORG $+7
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$3 DB 076H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	065H
+	DB	072H
+	DB	074H
+	DB	065H
+	DB	078H
+	DB	049H
+	DB	06eH
+	DB	070H
+	DB	075H
+	DB	074H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$4 DB 069H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	06eH
+	DB	070H
+	DB	075H
+	DB	074H
+	DB	041H
+	DB	073H
+	DB	073H
+	DB	065H
+	DB	06dH
+	DB	062H
+	DB	06cH
+	DB	079H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+6
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$5 DB 076H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	069H
+	DB	065H
+	DB	077H
+	DB	070H
+	DB	06fH
+	DB	072H
+	DB	074H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+3
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$6 DB 072H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	061H
+	DB	073H
+	DB	074H
+	DB	065H
+	DB	072H
+	DB	069H
+	DB	07aH
+	DB	061H
+	DB	074H
+	DB	069H
+	DB	06fH
+	DB	06eH
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+6
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$7 DB 063H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DB	072H
+	DB	065H
+	DB	061H
+	DB	074H
+	DB	065H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+5
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcVarDesc DD 0270H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DD	090H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$7
+	DD	0210H
+	DD	040H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$6
+	DD	01b8H
+	DD	030H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$5
+	DD	0178H
+	DD	020H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$4
+	DD	0128H
+	DD	030H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$3
+	DD	0e8H
+	DD	020H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$2
+	DD	0b8H
+	DD	0cH
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$1
+	DD	040H
+	DD	060H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$0
+	ORG $+384
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcFrameData DD 08H ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+	DD	00H
+	DQ	FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcVarDesc
+CONST	ENDS
 ;	COMDAT voltbl
 voltbl	SEGMENT
 _volmd	DB	00H
@@ -2652,7 +4219,7 @@ xdata	ENDS
 CONST	SEGMENT
 ??1?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAA@XZ$rtcName$0 DB 024H ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::~vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >
 	DB	053H
-	DB	031H
+	DB	032H
 	DB	00H
 	ORG $+12
 ??1?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAA@XZ$rtcVarDesc DD 044H ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::~vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >
@@ -2730,9 +4297,42 @@ _volmd	DB	00H
 voltbl	ENDS
 ;	COMDAT voltbl
 voltbl	SEGMENT
-_volmd	DW	02aH
-	DW	04b3H
+_volmd	DB	00H
+	DB	05H
 voltbl	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	00H
+	DB	05H
+voltbl	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DB	00H
+	DB	05H
+voltbl	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DW	02bH
+	DW	0994H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$main$dtor$9 DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$main$dtor$8 DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$main$dtor$7 DD 031001H
+	DD	0700c4210H
+	DD	0500bH
+xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$main$dtor$6 DD 031001H
@@ -2771,10 +4371,10 @@ $unwind$main$dtor$0 DD 031001H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$main DB 01aH
+$ip2state$main DB '&'
 	DB	00H
 	DB	00H
-	DB	0d2H
+	DB	0d4H
 	DB	02H
 	DB	0caH
 	DB	04H
@@ -2786,7 +4386,19 @@ $ip2state$main DB 01aH
 	DB	0aH
 	DB	0a1H, 03H
 	DB	0cH
-	DB	0b5H, 08H
+	DB	0cdH, 07H
+	DB	0eH
+	DB	0e9H, 0bH
+	DB	010H
+	DB	05H, 02H
+	DB	012H
+	DB	'U', 05H
+	DB	010H
+	DB	01aH
+	DB	0eH
+	DB	01aH
+	DB	0cH
+	DB	'`'
 	DB	0aH
 	DB	01aH
 	DB	08H
@@ -2801,7 +4413,7 @@ $ip2state$main DB 01aH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$main DB 0cH
+$stateUnwindMap$main DB 012H
 	DB	0eH
 	DD	imagerel main$dtor$0
 	DB	02eH
@@ -2814,6 +4426,12 @@ $stateUnwindMap$main DB 0cH
 	DD	imagerel main$dtor$5
 	DB	02eH
 	DD	imagerel main$dtor$6
+	DB	02eH
+	DD	imagerel main$dtor$7
+	DB	02eH
+	DD	imagerel main$dtor$8
+	DB	02eH
+	DD	imagerel main$dtor$9
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -2823,13 +4441,13 @@ $cppxdata$main DB 028H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$main DD	035053119H
-	DD	010a330fH
-	DD	0700300e5H
-	DD	05002H
+$unwind$main DD	035063219H
+	DD	010b3310H
+	DD	070040180H
+	DD	050026003H
 	DD	imagerel __GSHandlerCheck_EH4
 	DD	imagerel $cppxdata$main
-	DD	071aH
+	DD	0bfaH
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -2925,7 +4543,14 @@ main$rtcName$7 DB 063H
 	DB	06fH
 	DB	00H
 	ORG $+3
-main$rtcName$8 DB 063H
+main$rtcName$8 DB 076H
+	DB	061H
+	DB	06cH
+	DB	075H
+	DB	065H
+	DB	00H
+	ORG $+2
+main$rtcName$9 DB 063H
 	DB	06dH
 	DB	064H
 	DB	042H
@@ -2935,23 +4560,104 @@ main$rtcName$8 DB 063H
 	DB	065H
 	DB	072H
 	DB	00H
+	ORG $+6
+main$rtcName$10 DB 076H
+	DB	065H
+	DB	072H
+	DB	074H
+	DB	069H
+	DB	063H
+	DB	065H
+	DB	073H
+	DB	00H
+	ORG $+7
+main$rtcName$11 DB 073H
+	DB	074H
+	DB	061H
+	DB	067H
+	DB	069H
+	DB	06eH
+	DB	067H
+	DB	042H
+	DB	075H
+	DB	066H
+	DB	066H
+	DB	065H
+	DB	072H
+	DB	00H
 	ORG $+2
-main$rtcName$9 DB 069H
+main$rtcName$12 DB 076H
+	DB	065H
+	DB	072H
+	DB	074H
+	DB	065H
+	DB	078H
+	DB	042H
+	DB	075H
+	DB	066H
+	DB	066H
+	DB	065H
+	DB	072H
+	DB	00H
+	ORG $+3
+main$rtcName$13 DB 070H
+	DB	056H
+	DB	065H
+	DB	072H
+	DB	074H
+	DB	065H
+	DB	078H
+	DB	042H
+	DB	075H
+	DB	066H
+	DB	066H
+	DB	065H
+	DB	072H
+	DB	073H
+	DB	00H
+	ORG $+1
+main$rtcName$14 DB 06fH
+	DB	066H
+	DB	066H
+	DB	073H
+	DB	065H
+	DB	074H
+	DB	073H
+	DB	00H
+main$rtcName$15 DB 069H
 	DB	06eH
 	DB	064H
 	DB	065H
 	DB	078H
 	DB	00H
-	ORG $+6
-main$rtcFrameData DD 0aH
+	ORG $+2
+main$rtcFrameData DD 010H
 	DD	00H
 	DQ	FLAT:main$rtcVarDesc
 	ORG $+8
-main$rtcVarDesc DD 03e4H
+main$rtcVarDesc DD 05f4H
 	DD	04H
-	DQ	FLAT:main$rtcName$9
-	DD	03c8H
+	DQ	FLAT:main$rtcName$15
+	DD	05d8H
 	DD	08H
+	DQ	FLAT:main$rtcName$14
+	DD	05b8H
+	DD	08H
+	DQ	FLAT:main$rtcName$13
+	DD	0578H
+	DD	028H
+	DQ	FLAT:main$rtcName$12
+	DD	0538H
+	DD	028H
+	DQ	FLAT:main$rtcName$11
+	DD	0458H
+	DD	020H
+	DQ	FLAT:main$rtcName$10
+	DD	0438H
+	DD	08H
+	DQ	FLAT:main$rtcName$9
+	DD	03e8H
+	DD	010H
 	DQ	FLAT:main$rtcName$8
 	DD	0368H
 	DD	020H
@@ -2980,6 +4686,13 @@ main$rtcVarDesc DD 03e4H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$?lerp@@YAMMMM@Z DD 035052001H
+	DD	011b3320H
+	DD	07014001fH
+	DD	05013H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$?__autoclassinit2@GraphicsCommands@cow@@QEAAX_K@Z DD 05051601H
 	DD	01130316H
 	DD	0700c0019H
@@ -3001,268 +4714,28 @@ $unwind$?getCurrentImageIndex@GraphicsCommands@cow@@QEAAIXZ DD 025051301H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z DD 05051601H
+$unwind$?__autoclassinit2@Buffer@cow@@QEAAX_K@Z DD 05051601H
 	DD	01130316H
 	DD	0700c0019H
 	DD	0500bH
 xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD 025051301H
-	DD	010e2313H
-	DD	07007001dH
-	DD	05006H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ DD 025051301H
-	DD	010e2313H
-	DD	07007001dH
-	DD	05006H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$ip2state$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DB 02H
-	DB	00H
-	DB	00H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$cppxdata$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DB 060H
-	DD	imagerel $ip2state$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ DD 025051319H
-	DD	010e2313H
-	DD	070070031H
-	DD	05006H
-	DD	imagerel __CxxFrameHandler4
-	DD	imagerel $cppxdata$?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
-xdata	ENDS
 ;	COMDAT voltbl
 voltbl	SEGMENT
-_volmd	DB	036H
-	DB	0b2H
+_volmd	DW	03fH
+	DW	02bfH
 voltbl	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ DD 025053d19H
-	DD	010e2313H
-	DD	070070029H
-	DD	05006H
+$unwind$?createBuffer@Buffer@cow@@AEAAXII@Z DD 025054619H
+	DD	0117231cH
+	DD	0701000a7H
+	DD	0500fH
 	DD	imagerel __GSHandlerCheck
-	DD	0138H
+	DD	0520H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcName$0 DB 024H ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
-	DB	053H
-	DB	032H
-	DB	00H
-	ORG $+12
-??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcVarDesc DD 044H ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
-	DD	01H
-	DQ	FLAT:??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcName$0
-	ORG $+48
-??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcFrameData DD 01H ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
-	DD	00H
-	DQ	FLAT:??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcVarDesc
-CONST	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z DD 035051d01H
-	DD	0118331dH
-	DD	07011001fH
-	DD	05010H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z DD 05051601H
-	DD	01130316H
-	DD	0700c0019H
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z DD 025051801H
-	DD	01132318H
-	DD	0700c001dH
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$ip2state$??1GraphicsPipeline@cow@@QEAA@XZ DB 02H
-	DB	00H
-	DB	00H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$cppxdata$??1GraphicsPipeline@cow@@QEAA@XZ DB 060H
-	DD	imagerel $ip2state$??1GraphicsPipeline@cow@@QEAA@XZ
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??1GraphicsPipeline@cow@@QEAA@XZ DD 025051319H
-	DD	010e2313H
-	DD	07007001fH
-	DD	05006H
-	DD	imagerel __CxxFrameHandler4
-	DD	imagerel $cppxdata$??1GraphicsPipeline@cow@@QEAA@XZ
-xdata	ENDS
-;	COMDAT voltbl
-voltbl	SEGMENT
-_volmd	DB	00H
-	DB	05H
-voltbl	ENDS
-;	COMDAT voltbl
-voltbl	SEGMENT
-_volmd	DW	041H
-	DW	0547H
-voltbl	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA DD 031001H
-	DD	0700c4210H
-	DD	0500bH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$ip2state$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DB 06H
-	DB	00H
-	DB	00H
-	DB	'%', 09H
-	DB	02H
-	DB	'U', 0bH
-	DB	00H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$stateUnwindMap$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DB 02H
-	DB	0eH
-	DD	imagerel ?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$cppxdata$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DB 028H
-	DD	imagerel $stateUnwindMap$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
-	DD	imagerel $ip2state$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z DD 035064819H
-	DD	0119331eH
-	DD	0701200a0H
-	DD	050106011H
-	DD	imagerel __GSHandlerCheck_EH4
-	DD	imagerel $cppxdata$??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
-	DD	04faH
-xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$0 DB 073H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	068H
-	DB	061H
-	DB	064H
-	DB	065H
-	DB	072H
-	DB	053H
-	DB	074H
-	DB	061H
-	DB	067H
-	DB	065H
-	DB	073H
-	DB	00H
-	ORG $+3
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$1 DB 062H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	069H
-	DB	06eH
-	DB	064H
-	DB	044H
-	DB	065H
-	DB	073H
-	DB	063H
-	DB	00H
-	ORG $+7
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$2 DB 061H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	074H
-	DB	074H
-	DB	072H
-	DB	044H
-	DB	065H
-	DB	073H
-	DB	063H
-	DB	00H
-	ORG $+7
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$3 DB 076H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	065H
-	DB	072H
-	DB	074H
-	DB	065H
-	DB	078H
-	DB	049H
-	DB	06eH
-	DB	070H
-	DB	075H
-	DB	074H
-	DB	049H
-	DB	06eH
-	DB	066H
-	DB	06fH
-	DB	00H
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$4 DB 069H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	06eH
-	DB	070H
-	DB	075H
-	DB	074H
-	DB	041H
-	DB	073H
-	DB	073H
-	DB	065H
-	DB	06dH
-	DB	062H
-	DB	06cH
-	DB	079H
-	DB	049H
-	DB	06eH
-	DB	066H
-	DB	06fH
-	DB	00H
-	ORG $+6
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$5 DB 076H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	069H
-	DB	065H
-	DB	077H
-	DB	070H
-	DB	06fH
-	DB	072H
-	DB	074H
-	DB	049H
-	DB	06eH
-	DB	066H
-	DB	06fH
-	DB	00H
-	ORG $+3
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$6 DB 072H ; cow::GraphicsPipeline::GraphicsPipeline
-	DB	061H
-	DB	073H
-	DB	074H
-	DB	065H
-	DB	072H
-	DB	069H
-	DB	07aH
-	DB	061H
-	DB	074H
-	DB	069H
-	DB	06fH
-	DB	06eH
-	DB	049H
-	DB	06eH
-	DB	066H
-	DB	06fH
-	DB	00H
-	ORG $+6
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$7 DB 063H ; cow::GraphicsPipeline::GraphicsPipeline
+?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$0 DB 063H	; cow::Buffer::createBuffer
 	DB	072H
 	DB	065H
 	DB	061H
@@ -3274,35 +4747,217 @@ CONST	SEGMENT
 	DB	06fH
 	DB	00H
 	ORG $+5
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcVarDesc DD 0270H ; cow::GraphicsPipeline::GraphicsPipeline
-	DD	090H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$7
-	DD	0210H
-	DD	040H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$6
-	DD	01b8H
-	DD	030H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$5
-	DD	0178H
+?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$1 DB 06dH	; cow::Buffer::createBuffer
+	DB	065H
+	DB	06dH
+	DB	052H
+	DB	065H
+	DB	071H
+	DB	075H
+	DB	069H
+	DB	072H
+	DB	065H
+	DB	06dH
+	DB	065H
+	DB	06eH
+	DB	074H
+	DB	073H
+	DB	00H
+?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$2 DB 061H	; cow::Buffer::createBuffer
+	DB	06cH
+	DB	06cH
+	DB	06fH
+	DB	063H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+6
+?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$3 DB 06dH	; cow::Buffer::createBuffer
+	DB	065H
+	DB	06dH
+	DB	050H
+	DB	072H
+	DB	06fH
+	DB	070H
+	DB	065H
+	DB	072H
+	DB	074H
+	DB	069H
+	DB	065H
+	DB	073H
+	DB	00H
+	ORG $+2
+?createBuffer@Buffer@cow@@AEAAXII@Z$rtcVarDesc DD 0f0H	; cow::Buffer::createBuffer
+	DD	0208H
+	DQ	FLAT:?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$3
+	DD	0a8H
 	DD	020H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$4
-	DD	0128H
-	DD	030H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$3
-	DD	0e8H
-	DD	020H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$2
-	DD	0b8H
-	DD	0cH
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$1
-	DD	040H
-	DD	060H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcName$0
-	ORG $+384
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcFrameData DD 08H ; cow::GraphicsPipeline::GraphicsPipeline
+	DQ	FLAT:?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$2
+	DD	078H
+	DD	018H
+	DQ	FLAT:?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$1
+	DD	028H
+	DD	038H
+	DQ	FLAT:?createBuffer@Buffer@cow@@AEAAXII@Z$rtcName$0
+	ORG $+192
+?createBuffer@Buffer@cow@@AEAAXII@Z$rtcFrameData DD 04H	; cow::Buffer::createBuffer
 	DD	00H
-	DQ	FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcVarDesc
+	DQ	FLAT:?createBuffer@Buffer@cow@@AEAAXII@Z$rtcVarDesc
 CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT voltbl
+voltbl	SEGMENT
+_volmd	DW	040H
+	DW	0210H
+voltbl	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z DD 035054719H
+	DD	0118331dH
+	DD	070110049H
+	DD	05010H
+	DD	imagerel __GSHandlerCheck
+	DD	0238H
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$0 DB 061H ; cow::Buffer::copy
+	DB	06cH
+	DB	06cH
+	DB	06fH
+	DB	063H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+6
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$1 DB 063H ; cow::Buffer::copy
+	DB	06fH
+	DB	06dH
+	DB	06dH
+	DB	061H
+	DB	06eH
+	DB	064H
+	DB	042H
+	DB	075H
+	DB	066H
+	DB	066H
+	DB	065H
+	DB	072H
+	DB	00H
+	ORG $+2
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$2 DB 062H ; cow::Buffer::copy
+	DB	065H
+	DB	067H
+	DB	069H
+	DB	06eH
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+6
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$3 DB 063H ; cow::Buffer::copy
+	DB	06fH
+	DB	070H
+	DB	079H
+	DB	052H
+	DB	065H
+	DB	067H
+	DB	069H
+	DB	06fH
+	DB	06eH
+	DB	00H
+	ORG $+5
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$4 DB 073H ; cow::Buffer::copy
+	DB	075H
+	DB	062H
+	DB	06dH
+	DB	069H
+	DB	074H
+	DB	049H
+	DB	06eH
+	DB	066H
+	DB	06fH
+	DB	00H
+	ORG $+5
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcVarDesc DD 0110H ; cow::Buffer::copy
+	DD	048H
+	DQ	FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$4
+	DD	0d8H
+	DD	018H
+	DQ	FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$3
+	DD	098H
+	DD	020H
+	DQ	FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$2
+	DD	078H
+	DD	08H
+	DQ	FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$1
+	DD	038H
+	DD	020H
+	DQ	FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcName$0
+	ORG $+240
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcFrameData DD 05H ; cow::Buffer::copy
+	DD	00H
+	DQ	FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z DD 025052201H
+	DD	011d2322H
+	DD	07016001dH
+	DD	05015H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?unmap@Buffer@cow@@QEAAXXZ DD 025051301H
+	DD	010e2313H
+	DD	07007001fH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z DD 035051d01H
+	DD	0118331dH
+	DD	070110021H
+	DD	05010H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??1Buffer@cow@@QEAA@XZ DB 02H
+	DB	00H
+	DB	00H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$cppxdata$??1Buffer@cow@@QEAA@XZ DB 060H
+	DD	imagerel $ip2state$??1Buffer@cow@@QEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1Buffer@cow@@QEAA@XZ DD 025051319H
+	DD	010e2313H
+	DD	07007001fH
+	DD	05006H
+	DD	imagerel __CxxFrameHandler4
+	DD	imagerel $cppxdata$??1Buffer@cow@@QEAA@XZ
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z DD 025052201H
+	DD	011d2322H
+	DD	07016001dH
+	DD	05015H
+xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$??1GraphicsPipelineSimpleInfo@cow@@QEAA@XZ DD 025051301H
@@ -3437,6 +5092,13 @@ $unwind$?__autoclassinit2@Device@cow@@QEAAX_K@Z DD 05051601H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ DD 025051301H
 	DD	010e2313H
 	DD	07007001dH
@@ -3445,6 +5107,13 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ DD 025051301H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ DD 025051301H
 	DD	010e2313H
 	DD	07007001dH
 	DD	05006H
@@ -3869,6 +5538,56 @@ $LN3:
 ??$construct_at@PEAUVkCommandBuffer_T@@$$VX@std@@YAPEAPEAUVkCommandBuffer_T@@QEAPEAU1@@Z ENDP ; std::construct_at<VkCommandBuffer_T *,void>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z
+_TEXT	SEGMENT
+_Val$ = 224
+??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z PROC ; std::to_address<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 207
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 210
+	mov	rax, QWORD PTR _Val$[rbp]
+; Line 211
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z ENDP ; std::to_address<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z
+_TEXT	SEGMENT
+_Val$ = 224
+??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z PROC ; std::_To_address<cow::Vertex2DRGB *>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 3936
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 3938
+	mov	rax, QWORD PTR _Val$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$to_address@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@@Z ; std::to_address<cow::Vertex2DRGB>
+; Line 3939
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z ENDP ; std::_To_address<cow::Vertex2DRGB *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$construct@PEAUVkCommandBuffer_T@@$$V@?$_Default_allocator_traits@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@SAXAEAV?$allocator@PEAUVkCommandBuffer_T@@@1@QEAPEAUVkCommandBuffer_T@@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -3972,6 +5691,395 @@ $LN3:
 	pop	rbp
 	ret	0
 ??$_To_address@PEAPEAUVkCommandBuffer_T@@@std@@YA?A_PAEBQEAPEAUVkCommandBuffer_T@@@Z ENDP ; std::_To_address<VkCommandBuffer_T * *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z
+_TEXT	SEGMENT
+tv78 = 192
+tv76 = 200
+tv74 = 208
+this$ = 256
+<_Vals_0>$ = 264
+??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z PROC ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Emplace_back<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1655
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1656
+	mov	rcx, QWORD PTR <_Vals_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	QWORD PTR tv78[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+8]
+	call	??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ; std::_Unfancy<cow::Vertex2DRGB>
+	mov	QWORD PTR tv76[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+16]
+	mov	QWORD PTR tv74[rbp], rax
+	mov	r8, QWORD PTR tv78[rbp]
+	mov	rdx, QWORD PTR tv76[rbp]
+	mov	rcx, QWORD PTR tv74[rbp]
+	call	??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::construct<cow::Vertex2DRGB,cow::Vertex2DRGB>
+; Line 1657
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+	add	rax, 20
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rcx+8], rax
+; Line 1658
+	lea	rsp, QWORD PTR [rbp+232]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ENDP ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Emplace_back<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z
+_TEXT	SEGMENT
+this$ = 224
+classSize$ = 232
+?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z PROC ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::__autoclassinit2, COMDAT
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 200				; 000000c8H
+	mov	rbp, rsp
+	mov	rdi, QWORD PTR this$[rbp]
+	xor	eax, eax
+	mov	rcx, QWORD PTR classSize$[rbp]
+	rep stosb
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z ENDP ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::__autoclassinit2
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ PROC ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Release, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1660
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1661
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rcx+8]
+	mov	QWORD PTR [rax], rcx
+; Line 1662
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+; Line 1663
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ ENDP ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Release
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+_TEXT	SEGMENT
+this$ = 224
+??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ PROC ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::~_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1650
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1651
+	mov	rax, QWORD PTR this$[rbp]
+	mov	r8, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rdx, QWORD PTR [rax+8]
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >
+; Line 1652
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ENDP ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::~_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z
+_TEXT	SEGMENT
+this$ = 224
+_Dest$ = 232
+_Al_$ = 240
+??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z PROC ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1645
+$LN3:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR _Dest$[rbp]
+	mov	QWORD PTR [rax], rcx
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR _Dest$[rbp]
+	mov	QWORD PTR [rax+8], rcx
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR _Al_$[rbp]
+	mov	QWORD PTR [rax+16], rcx
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z ENDP ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z
+_TEXT	SEGMENT
+_FirstPtr$ = 8
+_LastPtr$ = 40
+_DestPtr$ = 72
+_First_ch$ = 104
+_Last_ch$ = 136
+_Dest_ch$ = 168
+_Count$ = 200
+_First$ = 448
+_Last$ = 456
+_Dest$ = 464
+??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z PROC ; std::_Copy_memmove<cow::Vertex2DRGB *,cow::Vertex2DRGB *>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 4035
+$LN3:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 456				; 000001c8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 4036
+	lea	rcx, QWORD PTR _First$[rbp]
+	call	??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z ; std::_To_address<cow::Vertex2DRGB *>
+	mov	QWORD PTR _FirstPtr$[rbp], rax
+; Line 4037
+	lea	rcx, QWORD PTR _Last$[rbp]
+	call	??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z ; std::_To_address<cow::Vertex2DRGB *>
+	mov	QWORD PTR _LastPtr$[rbp], rax
+; Line 4038
+	lea	rcx, QWORD PTR _Dest$[rbp]
+	call	??$_To_address@PEAUVertex2DRGB@cow@@@std@@YA?A_PAEBQEAUVertex2DRGB@cow@@@Z ; std::_To_address<cow::Vertex2DRGB *>
+	mov	QWORD PTR _DestPtr$[rbp], rax
+; Line 4039
+	mov	rax, QWORD PTR _FirstPtr$[rbp]
+	mov	QWORD PTR _First_ch$[rbp], rax
+; Line 4040
+	mov	rax, QWORD PTR _LastPtr$[rbp]
+	mov	QWORD PTR _Last_ch$[rbp], rax
+; Line 4041
+	mov	rax, QWORD PTR _DestPtr$[rbp]
+	mov	QWORD PTR _Dest_ch$[rbp], rax
+; Line 4042
+	mov	rax, QWORD PTR _First_ch$[rbp]
+	mov	rcx, QWORD PTR _Last_ch$[rbp]
+	sub	rcx, rax
+	mov	rax, rcx
+	mov	QWORD PTR _Count$[rbp], rax
+; Line 4043
+	mov	r8, QWORD PTR _Count$[rbp]
+	mov	rdx, QWORD PTR _First_ch$[rbp]
+	mov	rcx, QWORD PTR _Dest_ch$[rbp]
+	call	memmove
+; Line 4045
+	mov	rax, QWORD PTR _Count$[rbp]
+	mov	rcx, QWORD PTR _Dest_ch$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+; Line 4049
+	lea	rsp, QWORD PTR [rbp+424]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z ENDP ; std::_Copy_memmove<cow::Vertex2DRGB *,cow::Vertex2DRGB *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z
+_TEXT	SEGMENT
+_It$ = 224
+??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z PROC ; std::_Get_unwrapped<cow::Vertex2DRGB * const &>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 1270
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 1273
+	mov	rax, QWORD PTR _It$[rbp]
+	mov	rax, QWORD PTR [rax]
+; Line 1279
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z ENDP ; std::_Get_unwrapped<cow::Vertex2DRGB * const &>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z
+_TEXT	SEGMENT
+_It$ = 224
+??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z PROC ; std::_Voidify_iter<cow::Vertex2DRGB *>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 123
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 125
+	mov	rax, QWORD PTR _It$[rbp]
+; Line 129
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z ENDP ; std::_Voidify_iter<cow::Vertex2DRGB *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z
+_TEXT	SEGMENT
+$T1 = 200
+_Location$ = 256
+<_Args_0>$ = 264
+??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z PROC ; std::construct_at<cow::Vertex2DRGB,cow::Vertex2DRGB,void>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 135
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rsi
+	push	rdi
+	sub	rsp, 256				; 00000100H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 136
+	mov	rcx, QWORD PTR _Location$[rbp]
+	call	??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z ; std::_Voidify_iter<cow::Vertex2DRGB *>
+	mov	rdx, rax
+	mov	ecx, 20
+	call	??2@YAPEAX_KPEAX@Z			; operator new
+	mov	QWORD PTR $T1[rbp], rax
+	mov	rcx, QWORD PTR <_Args_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	rdi, QWORD PTR $T1[rbp]
+	mov	rsi, rax
+	mov	ecx, 20
+	rep movsb
+	mov	rax, QWORD PTR $T1[rbp]
+; Line 137
+	lea	rsp, QWORD PTR [rbp+224]
+	pop	rdi
+	pop	rsi
+	pop	rbp
+	ret	0
+??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z ENDP ; std::construct_at<cow::Vertex2DRGB,cow::Vertex2DRGB,void>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z
+_TEXT	SEGMENT
+_Val$ = 224
+??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z PROC ; std::addressof<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xstddef
+; Line 252
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__D567F1CA_xstddef
+	call	__CheckForDebuggerJustMyCode
+; Line 253
+	mov	rax, QWORD PTR _Val$[rbp]
+; Line 254
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z ENDP ; std::addressof<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z
+_TEXT	SEGMENT
+_Overflow_is_possible$ = 4
+_Max_possible$1 = 40
+_Count$ = 288
+??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z PROC		; std::_Get_size_of_n<20>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 55
+$LN4:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 296				; 00000128H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 56
+	mov	BYTE PTR _Overflow_is_possible$[rbp], 1
+; Line 59
+	mov	rax, 922337203685477580			; 0cccccccccccccccH
+	mov	QWORD PTR _Max_possible$1[rbp], rax
+; Line 60
+	mov	rax, 922337203685477580			; 0cccccccccccccccH
+	cmp	QWORD PTR _Count$[rbp], rax
+	jbe	SHORT $LN2@Get_size_o
+; Line 61
+	call	?_Throw_bad_array_new_length@std@@YAXXZ	; std::_Throw_bad_array_new_length
+$LN2@Get_size_o:
+; Line 65
+	imul	rax, QWORD PTR _Count$[rbp], 20
+$LN3@Get_size_o:
+; Line 66
+	lea	rsp, QWORD PTR [rbp+264]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z ENDP		; std::_Get_size_of_n<20>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Emplace_back@$$V@?$_Uninitialized_backout_al@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAXXZ
@@ -4245,6 +6353,296 @@ $LN3@deallocate:
 	pop	rbp
 	ret	0
 ?deallocate@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAEAV?$allocator@U_Container_proxy@std@@@2@QEAU_Container_proxy@2@_K@Z ENDP ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::deallocate
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+_TEXT	SEGMENT
+_UFirst$ = 8
+_ULast$ = 40
+_Backout$ = 72
+$T4 = 312
+__$ArrayPad$ = 328
+_First$ = 368
+_Last$ = 376
+_Dest$ = 384
+_Al$ = 392
+??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z PROC ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1734
+$LN8:
+	mov	QWORD PTR [rsp+32], r9
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 376				; 00000178H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rdi, QWORD PTR [rsp+32]
+	mov	ecx, 38					; 00000026H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+408]
+	mov	rax, QWORD PTR __security_cookie
+	xor	rax, rbp
+	mov	QWORD PTR __$ArrayPad$[rbp], rax
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1738
+	lea	rcx, QWORD PTR _First$[rbp]
+	call	??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z ; std::_Get_unwrapped<cow::Vertex2DRGB * const &>
+	mov	QWORD PTR _UFirst$[rbp], rax
+; Line 1739
+	lea	rcx, QWORD PTR _Last$[rbp]
+	call	??$_Get_unwrapped@AEBQEAUVertex2DRGB@cow@@@std@@YA?A_TAEBQEAUVertex2DRGB@cow@@@Z ; std::_Get_unwrapped<cow::Vertex2DRGB * const &>
+	mov	QWORD PTR _ULast$[rbp], rax
+; Line 1743
+	call	?is_constant_evaluated@std@@YA_NXZ	; std::is_constant_evaluated
+	movzx	eax, al
+	test	eax, eax
+	jne	SHORT $LN5@Uninitiali
+; Line 1746
+	mov	rcx, QWORD PTR _Dest$[rbp]
+	call	??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ; std::_Unfancy<cow::Vertex2DRGB>
+	mov	r8, rax
+	mov	rdx, QWORD PTR _ULast$[rbp]
+	mov	rcx, QWORD PTR _UFirst$[rbp]
+	call	??$_Copy_memmove@PEAUVertex2DRGB@cow@@PEAU12@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@00@Z ; std::_Copy_memmove<cow::Vertex2DRGB *,cow::Vertex2DRGB *>
+; Line 1747
+	mov	rax, QWORD PTR _UFirst$[rbp]
+	mov	rcx, QWORD PTR _ULast$[rbp]
+	sub	rcx, rax
+	mov	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+	imul	rax, rax, 20
+	mov	rcx, QWORD PTR _Dest$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+	jmp	SHORT $LN1@Uninitiali
+$LN5@Uninitiali:
+; Line 1751
+	mov	edx, 24
+	lea	rcx, QWORD PTR _Backout$[rbp]
+	call	?__autoclassinit2@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z
+	mov	r8, QWORD PTR _Al$[rbp]
+	mov	rdx, QWORD PTR _Dest$[rbp]
+	lea	rcx, QWORD PTR _Backout$[rbp]
+	call	??0?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@PEAUVertex2DRGB@cow@@AEAV?$allocator@UVertex2DRGB@cow@@@1@@Z ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+	npad	1
+; Line 1752
+	jmp	SHORT $LN4@Uninitiali
+$LN2@Uninitiali:
+	mov	rax, QWORD PTR _UFirst$[rbp]
+	add	rax, 20
+	mov	QWORD PTR _UFirst$[rbp], rax
+$LN4@Uninitiali:
+	mov	rax, QWORD PTR _ULast$[rbp]
+	cmp	QWORD PTR _UFirst$[rbp], rax
+	je	SHORT $LN3@Uninitiali
+; Line 1753
+	mov	rcx, QWORD PTR _UFirst$[rbp]
+	call	??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::move<cow::Vertex2DRGB &>
+	mov	rdx, rax
+	lea	rcx, QWORD PTR _Backout$[rbp]
+	call	??$_Emplace_back@UVertex2DRGB@cow@@@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Emplace_back<cow::Vertex2DRGB>
+; Line 1754
+	jmp	SHORT $LN2@Uninitiali
+$LN3@Uninitiali:
+; Line 1756
+	lea	rcx, QWORD PTR _Backout$[rbp]
+	call	?_Release@?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::_Release
+	mov	QWORD PTR $T4[rbp], rax
+	lea	rcx, QWORD PTR _Backout$[rbp]
+	call	??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::~_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+	mov	rax, QWORD PTR $T4[rbp]
+$LN1@Uninitiali:
+; Line 1757
+	mov	rdi, rax
+	lea	rcx, QWORD PTR [rbp-32]
+	lea	rdx, OFFSET FLAT:??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rax, rdi
+	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
+	xor	rcx, rbp
+	call	__security_check_cookie
+	lea	rsp, QWORD PTR [rbp+344]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ENDP ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+_UFirst$ = 8
+_ULast$ = 40
+_Backout$ = 72
+$T4 = 312
+__$ArrayPad$ = 328
+_First$ = 368
+_Last$ = 376
+_Dest$ = 384
+_Al$ = 392
+?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA PROC ; `std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >'::`1'::dtor$0
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+32]
+	lea	rcx, QWORD PTR _Backout$[rbp]
+	call	??1?$_Uninitialized_backout_al@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >::~_Uninitialized_backout_al<std::allocator<cow::Vertex2DRGB> >
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+?dtor$0@?0???$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z@4HA ENDP ; `std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >'::`1'::dtor$0
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z
+_TEXT	SEGMENT
+$T1 = 200
+__formal$ = 256
+_Ptr$ = 264
+<_Args_0>$ = 272
+??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z PROC ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::construct<cow::Vertex2DRGB,cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 673
+$LN5:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rsi
+	push	rdi
+	sub	rsp, 256				; 00000100H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 675
+	call	?is_constant_evaluated@std@@YA_NXZ	; std::is_constant_evaluated
+	movzx	eax, al
+	test	eax, eax
+	je	SHORT $LN2@construct
+; Line 676
+	mov	rcx, QWORD PTR <_Args_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR _Ptr$[rbp]
+	call	??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z ; std::construct_at<cow::Vertex2DRGB,cow::Vertex2DRGB,void>
+; Line 677
+	jmp	SHORT $LN3@construct
+$LN2@construct:
+; Line 680
+	mov	rcx, QWORD PTR _Ptr$[rbp]
+	call	??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z ; std::_Voidify_iter<cow::Vertex2DRGB *>
+	mov	rdx, rax
+	mov	ecx, 20
+	call	??2@YAPEAX_KPEAX@Z			; operator new
+	mov	QWORD PTR $T1[rbp], rax
+	mov	rcx, QWORD PTR <_Args_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	rdi, QWORD PTR $T1[rbp]
+	mov	rsi, rax
+	mov	ecx, 20
+	rep movsb
+$LN3@construct:
+; Line 682
+	lea	rsp, QWORD PTR [rbp+224]
+	pop	rdi
+	pop	rsi
+	pop	rbp
+	ret	0
+??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z ENDP ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::construct<cow::Vertex2DRGB,cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z
+_TEXT	SEGMENT
+_Ptr$ = 224
+??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z PROC ; std::_Unfancy<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xstddef
+; Line 265
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__D567F1CA_xstddef
+	call	__CheckForDebuggerJustMyCode
+; Line 266
+	mov	rax, QWORD PTR _Ptr$[rbp]
+; Line 267
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ENDP ; std::_Unfancy<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z
+_TEXT	SEGMENT
+$T1 = 200
+tv77 = 216
+tv75 = 224
+_Obj$ = 272
+<_Args_0>$ = 280
+??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z PROC ; std::_Construct_in_place<cow::Vertex2DRGB,cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xutility
+; Line 142
+$LN5:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rsi
+	push	rdi
+	sub	rsp, 272				; 00000110H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__7DA7D514_xutility
+	call	__CheckForDebuggerJustMyCode
+; Line 144
+	call	?is_constant_evaluated@std@@YA_NXZ	; std::is_constant_evaluated
+	movzx	eax, al
+	test	eax, eax
+	je	SHORT $LN2@Construct_
+; Line 145
+	mov	rcx, QWORD PTR <_Args_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	QWORD PTR tv77[rbp], rax
+	mov	rcx, QWORD PTR _Obj$[rbp]
+	call	??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z ; std::addressof<cow::Vertex2DRGB>
+	mov	QWORD PTR tv75[rbp], rax
+	mov	rdx, QWORD PTR tv77[rbp]
+	mov	rcx, QWORD PTR tv75[rbp]
+	call	??$construct_at@UVertex2DRGB@cow@@U12@X@std@@YAPEAUVertex2DRGB@cow@@QEAU12@$$QEAU12@@Z ; std::construct_at<cow::Vertex2DRGB,cow::Vertex2DRGB,void>
+; Line 146
+	jmp	SHORT $LN3@Construct_
+$LN2@Construct_:
+; Line 149
+	mov	rcx, QWORD PTR _Obj$[rbp]
+	call	??$addressof@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@AEAU12@@Z ; std::addressof<cow::Vertex2DRGB>
+	mov	rcx, rax
+	call	??$_Voidify_iter@PEAUVertex2DRGB@cow@@@std@@YAPEAXPEAUVertex2DRGB@cow@@@Z ; std::_Voidify_iter<cow::Vertex2DRGB *>
+	mov	rdx, rax
+	mov	ecx, 20
+	call	??2@YAPEAX_KPEAX@Z			; operator new
+	mov	QWORD PTR $T1[rbp], rax
+	mov	rcx, QWORD PTR <_Args_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	rdi, QWORD PTR $T1[rbp]
+	mov	rsi, rax
+	mov	ecx, 20
+	rep movsb
+$LN3@Construct_:
+; Line 151
+	lea	rsp, QWORD PTR [rbp+240]
+	pop	rdi
+	pop	rsi
+	pop	rbp
+	ret	0
+??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z ENDP ; std::_Construct_in_place<cow::Vertex2DRGB,cow::Vertex2DRGB>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Get_size_of_n@$07@std@@YA_K_K@Z
@@ -4591,6 +6989,301 @@ $LN3:
 ??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z ENDP ; std::_Deallocate_plain<std::allocator<std::_Container_proxy> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z
+_TEXT	SEGMENT
+_Al$ = 8
+_My_data$ = 40
+_Myfirst$ = 72
+_Mylast$ = 104
+_Whereoff$ = 136
+_Oldsize$ = 168
+_Newsize$ = 200
+_Newcapacity$ = 232
+_Newvec$ = 264
+_Constructed_last$ = 296
+_Constructed_first$ = 328
+tv134 = 536
+tv132 = 544
+this$ = 592
+_Whereptr$ = 600
+<_Val_0>$ = 608
+??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_reallocate<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 836
+$LN13:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 600				; 00000258H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 838
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+	mov	QWORD PTR _Al$[rbp], rax
+; Line 839
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 840
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 8
+	mov	QWORD PTR _Myfirst$[rbp], rax
+; Line 841
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 16
+	mov	QWORD PTR _Mylast$[rbp], rax
+; Line 845
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	rcx, QWORD PTR _Whereptr$[rbp]
+	sub	rcx, rax
+	mov	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+	mov	QWORD PTR _Whereoff$[rbp], rax
+; Line 846
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rcx, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	rax, QWORD PTR [rax]
+	sub	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+	mov	QWORD PTR _Oldsize$[rbp], rax
+; Line 848
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::max_size
+	cmp	QWORD PTR _Oldsize$[rbp], rax
+	jne	SHORT $LN2@Emplace_re
+; Line 849
+	call	?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Xlength
+$LN2@Emplace_re:
+; Line 852
+	mov	rax, QWORD PTR _Oldsize$[rbp]
+	inc	rax
+	mov	QWORD PTR _Newsize$[rbp], rax
+; Line 853
+	mov	rdx, QWORD PTR _Newsize$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Calculate_growth
+	mov	QWORD PTR _Newcapacity$[rbp], rax
+; Line 855
+	mov	rdx, QWORD PTR _Newcapacity$[rbp]
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z ; std::allocator<cow::Vertex2DRGB>::allocate
+	mov	QWORD PTR _Newvec$[rbp], rax
+; Line 856
+	imul	rax, QWORD PTR _Whereoff$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	lea	rax, QWORD PTR [rcx+rax+20]
+	mov	QWORD PTR _Constructed_last$[rbp], rax
+; Line 857
+	mov	rax, QWORD PTR _Constructed_last$[rbp]
+	mov	QWORD PTR _Constructed_first$[rbp], rax
+; Line 860
+	mov	rcx, QWORD PTR <_Val_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	QWORD PTR tv134[rbp], rax
+	imul	rax, QWORD PTR _Whereoff$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+	mov	rcx, rax
+	call	??$_Unfancy@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ; std::_Unfancy<cow::Vertex2DRGB>
+	mov	QWORD PTR tv132[rbp], rax
+	mov	r8, QWORD PTR tv134[rbp]
+	mov	rdx, QWORD PTR tv132[rbp]
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	??$construct@UVertex2DRGB@cow@@U12@@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SAXAEAV?$allocator@UVertex2DRGB@cow@@@1@QEAUVertex2DRGB@cow@@$$QEAU34@@Z ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::construct<cow::Vertex2DRGB,cow::Vertex2DRGB>
+; Line 861
+	imul	rax, QWORD PTR _Whereoff$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+	mov	QWORD PTR _Constructed_first$[rbp], rax
+; Line 863
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rax, QWORD PTR [rax]
+	cmp	QWORD PTR _Whereptr$[rbp], rax
+	jne	SHORT $LN4@Emplace_re
+; Line 865
+	mov	r9, QWORD PTR _Al$[rbp]
+	mov	r8, QWORD PTR _Newvec$[rbp]
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+; Line 869
+	jmp	SHORT $LN5@Emplace_re
+$LN4@Emplace_re:
+; Line 870
+	mov	r9, QWORD PTR _Al$[rbp]
+	mov	r8, QWORD PTR _Newvec$[rbp]
+	mov	rdx, QWORD PTR _Whereptr$[rbp]
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+; Line 871
+	mov	rax, QWORD PTR _Newvec$[rbp]
+	mov	QWORD PTR _Constructed_first$[rbp], rax
+; Line 872
+	imul	rax, QWORD PTR _Whereoff$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	lea	rax, QWORD PTR [rcx+rax+20]
+	mov	r9, QWORD PTR _Al$[rbp]
+	mov	r8, rax
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rcx, QWORD PTR _Whereptr$[rbp]
+	call	??$_Uninitialized_move@PEAUVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAPEAUVertex2DRGB@cow@@QEAU12@0PEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Uninitialized_move<cow::Vertex2DRGB *,std::allocator<cow::Vertex2DRGB> >
+	npad	1
+$LN5@Emplace_re:
+	jmp	SHORT $LN9@Emplace_re
+$LN10@Emplace_re:
+$LN9@Emplace_re:
+; Line 880
+	mov	r9, QWORD PTR _Newcapacity$[rbp]
+	mov	r8, QWORD PTR _Newsize$[rbp]
+	mov	rdx, QWORD PTR _Newvec$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Change_array
+; Line 881
+	imul	rax, QWORD PTR _Whereoff$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+; Line 882
+	lea	rsp, QWORD PTR [rbp+568]
+	pop	rdi
+	pop	rbp
+	ret	0
+$LN11@Emplace_re:
+??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_reallocate<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+_Al$ = 8
+_My_data$ = 40
+_Myfirst$ = 72
+_Mylast$ = 104
+_Whereoff$ = 136
+_Oldsize$ = 168
+_Newsize$ = 200
+_Newcapacity$ = 232
+_Newvec$ = 264
+_Constructed_last$ = 296
+_Constructed_first$ = 328
+tv134 = 536
+tv132 = 544
+this$ = 592
+_Whereptr$ = 600
+<_Val_0>$ = 608
+?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA PROC ; `std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_reallocate<cow::Vertex2DRGB>'::`1'::catch$0
+; Line 874
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+32]
+__catch$??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z$0:
+; Line 875
+	mov	r8, QWORD PTR _Al$[rbp]
+	mov	rdx, QWORD PTR _Constructed_last$[rbp]
+	mov	rcx, QWORD PTR _Constructed_first$[rbp]
+	call	??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >
+; Line 876
+	mov	r8, QWORD PTR _Newcapacity$[rbp]
+	mov	rdx, QWORD PTR _Newvec$[rbp]
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z ; std::allocator<cow::Vertex2DRGB>::deallocate
+; Line 877
+	xor	edx, edx
+	xor	ecx, ecx
+	call	_CxxThrowException
+	npad	1
+; Line 878
+	lea	rax, $LN10@catch$0
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+	int	3
+?catch$0@?0???$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z@4HA ENDP ; `std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_reallocate<cow::Vertex2DRGB>'::`1'::catch$0
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z
+_TEXT	SEGMENT
+_My_data$ = 8
+_Mylast$ = 40
+_Result$ = 72
+tv74 = 280
+tv72 = 288
+this$ = 336
+<_Val_0>$ = 344
+??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_back_with_unused_capacity<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 813
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 344				; 00000158H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 815
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 816
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 16
+	mov	QWORD PTR _Mylast$[rbp], rax
+; Line 821
+	mov	rcx, QWORD PTR <_Val_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	QWORD PTR tv74[rbp], rax
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR tv72[rbp], rax
+	mov	rdx, QWORD PTR tv74[rbp]
+	mov	rcx, QWORD PTR tv72[rbp]
+	call	??$_Construct_in_place@UVertex2DRGB@cow@@U12@@std@@YAXAEAUVertex2DRGB@cow@@$$QEAU12@@Z ; std::_Construct_in_place<cow::Vertex2DRGB,cow::Vertex2DRGB>
+; Line 828
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	r8, QWORD PTR [rax]
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range
+; Line 829
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR _Result$[rbp], rax
+; Line 830
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rax, QWORD PTR [rax]
+	add	rax, 20
+	mov	rcx, QWORD PTR _Mylast$[rbp]
+	mov	QWORD PTR [rcx], rax
+; Line 832
+	mov	rax, QWORD PTR _Result$[rbp]
+; Line 833
+	lea	rsp, QWORD PTR [rbp+312]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_back_with_unused_capacity<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$construct_at@U_Container_proxy@std@@PEAU_Container_base12@2@X@std@@YAPEAU_Container_proxy@0@QEAU10@$$QEAPEAU_Container_base12@0@@Z
 _TEXT	SEGMENT
 $T1 = 200
@@ -4838,32 +7531,6 @@ $LN3@Get_size_o:
 ??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z ENDP		; std::_Get_size_of_n<16>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z
-_TEXT	SEGMENT
-_First$ = 224
-_Last$ = 232
-_Al$ = 240
-??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z PROC ; std::_Destroy_range<std::allocator<enum VkDynamicState> >, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
-; Line 939
-$LN3:
-	mov	QWORD PTR [rsp+24], r8
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 232				; 000000e8H
-	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
-	call	__CheckForDebuggerJustMyCode
-; Line 947
-	lea	rsp, QWORD PTR [rbp+200]
-	pop	rdi
-	pop	rbp
-	ret	0
-??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z ENDP ; std::_Destroy_range<std::allocator<enum VkDynamicState> >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z
 _TEXT	SEGMENT
 _First$ = 224
@@ -4890,6 +7557,32 @@ $LN3:
 ??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z ENDP ; std::_Destroy_range<std::allocator<VkVertexInputAttributeDescription> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z
+_TEXT	SEGMENT
+_First$ = 224
+_Last$ = 232
+_Al$ = 240
+??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z PROC ; std::_Destroy_range<std::allocator<enum VkDynamicState> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 939
+$LN3:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 947
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Destroy_range@V?$allocator@W4VkDynamicState@@@std@@@std@@YAXPEAW4VkDynamicState@@QEAW41@AEAV?$allocator@W4VkDynamicState@@@0@@Z ENDP ; std::_Destroy_range<std::allocator<enum VkDynamicState> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Destroy_range@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAXPEAPEAUVkCommandBuffer_T@@QEAPEAU1@AEAV?$allocator@PEAUVkCommandBuffer_T@@@0@@Z
 _TEXT	SEGMENT
 _First$ = 224
@@ -4914,6 +7607,80 @@ $LN3:
 	pop	rbp
 	ret	0
 ??$_Destroy_range@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@YAXPEAPEAUVkCommandBuffer_T@@QEAPEAU1@AEAV?$allocator@PEAUVkCommandBuffer_T@@@0@@Z ENDP ; std::_Destroy_range<std::allocator<VkCommandBuffer_T *> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z
+_TEXT	SEGMENT
+_First$ = 224
+_Last$ = 232
+_Al$ = 240
+??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z PROC ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 939
+$LN3:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 947
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ENDP ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z
+_TEXT	SEGMENT
+this$ = 224
+__formal$ = 232
+??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 823
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z
+_TEXT	SEGMENT
+_Ptr$ = 224
+??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z PROC ; std::_Unfancy_maybe_null<VkVertexInputAttributeDescription>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 427
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 428
+	mov	rax, QWORD PTR _Ptr$[rbp]
+; Line 429
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z ENDP ; std::_Unfancy_maybe_null<VkVertexInputAttributeDescription>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Unfancy@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@PEAU10@@Z
@@ -5347,53 +8114,6 @@ $LN2@Sentry_bas:
 ??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z ENDP ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::_Sentry_base
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z
-_TEXT	SEGMENT
-_New_proxy$ = 8
-$T1 = 232
-this$ = 288
-_Al$ = 296
-??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z PROC ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
-; Line 1056
-$LN3:
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 296				; 00000128H
-	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
-	call	__CheckForDebuggerJustMyCode
-; Line 1057
-	mov	edx, 1
-	mov	rcx, QWORD PTR _Al$[rbp]
-	call	?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z ; std::allocator<std::_Container_proxy>::allocate
-	mov	rcx, rax
-	call	??$_Unfancy@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@PEAU10@@Z ; std::_Unfancy<std::_Container_proxy>
-	mov	QWORD PTR _New_proxy$[rbp], rax
-; Line 1058
-	mov	rax, QWORD PTR this$[rbp]
-	mov	QWORD PTR $T1[rbp], rax
-	lea	rdx, QWORD PTR $T1[rbp]
-	mov	rcx, QWORD PTR _New_proxy$[rbp]
-	call	??$_Construct_in_place@U_Container_proxy@std@@PEAU_Container_base12@2@@std@@YAXAEAU_Container_proxy@0@$$QEAPEAU_Container_base12@0@@Z ; std::_Construct_in_place<std::_Container_proxy,std::_Container_base12 *>
-; Line 1059
-	mov	rax, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR _New_proxy$[rbp]
-	mov	QWORD PTR [rax], rcx
-; Line 1060
-	mov	rax, QWORD PTR _New_proxy$[rbp]
-	mov	rcx, QWORD PTR this$[rbp]
-	mov	QWORD PTR [rax], rcx
-; Line 1061
-	lea	rsp, QWORD PTR [rbp+264]
-	pop	rdi
-	pop	rbp
-	ret	0
-??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z ENDP ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$?0$$V@?$_Compressed_pair@V?$allocator@W4VkDynamicState@@@std@@V?$_Vector_val@U?$_Simple_types@W4VkDynamicState@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
 _TEXT	SEGMENT
 this$ = 224
@@ -5447,35 +8167,11 @@ $LN3:
 ??$?0W4VkDynamicState@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@W4VkDynamicState@@@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><enum VkDynamicState>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z
-_TEXT	SEGMENT
-this$ = 224
-__formal$ = 232
-??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
-; Line 823
-$LN3:
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 232				; 000000e8H
-	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
-	call	__CheckForDebuggerJustMyCode
-	mov	rax, QWORD PTR this$[rbp]
-	lea	rsp, QWORD PTR [rbp+200]
-	pop	rdi
-	pop	rbp
-	ret	0
-??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Construct_n@$$V@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@AEAAX_K@Z
 _TEXT	SEGMENT
 _Al$ = 8
 _Alproxy$ = 40
-$S19$ = 68
+$S20$ = 68
 _My_data$ = 104
 _Proxy$ = 136
 _Guard$6 = 184
@@ -5508,9 +8204,9 @@ $LN6:
 	mov	QWORD PTR _Al$[rbp], rax
 ; Line 1908
 	mov	rdx, QWORD PTR _Al$[rbp]
-	lea	rcx, QWORD PTR $S19$[rbp]
+	lea	rcx, QWORD PTR $S20$[rbp]
 	call	??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>
-	lea	rax, QWORD PTR $S19$[rbp]
+	lea	rax, QWORD PTR $S20$[rbp]
 	mov	QWORD PTR _Alproxy$[rbp], rax
 ; Line 1909
 	mov	rax, QWORD PTR this$[rbp]
@@ -5569,7 +8265,7 @@ _TEXT	ENDS
 text$x	SEGMENT
 _Al$ = 8
 _Alproxy$ = 40
-$S19$ = 68
+$S20$ = 68
 _My_data$ = 104
 _Proxy$ = 136
 _Guard$6 = 184
@@ -5596,7 +8292,7 @@ text$x	ENDS
 text$x	SEGMENT
 _Al$ = 8
 _Alproxy$ = 40
-$S19$ = 68
+$S20$ = 68
 _My_data$ = 104
 _Proxy$ = 136
 _Guard$6 = 184
@@ -5648,6 +8344,472 @@ $LN3:
 	pop	rbp
 	ret	0
 ??$?0AEBV?$allocator@PEAUVkCommandBuffer_T@@@std@@$$V@?$_Compressed_pair@V?$allocator@PEAUVkCommandBuffer_T@@@std@@V?$_Vector_val@U?$_Simple_types@PEAUVkCommandBuffer_T@@@std@@@2@$00@std@@QEAA@U_One_then_variadic_args_t@1@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ENDP ; std::_Compressed_pair<std::allocator<VkCommandBuffer_T *>,std::_Vector_val<std::_Simple_types<VkCommandBuffer_T *> >,1>::_Compressed_pair<std::allocator<VkCommandBuffer_T *>,std::_Vector_val<std::_Simple_types<VkCommandBuffer_T *> >,1><std::allocator<VkCommandBuffer_T *> const &>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z
+_TEXT	SEGMENT
+this$ = 224
+__formal$ = 232
+??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 823
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z
+_TEXT	SEGMENT
+_Ptr$ = 224
+??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z PROC ; std::_Unfancy_maybe_null<VkCommandBuffer_T *>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 427
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 428
+	mov	rax, QWORD PTR _Ptr$[rbp]
+; Line 429
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z ENDP ; std::_Unfancy_maybe_null<VkCommandBuffer_T *>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z
+_TEXT	SEGMENT
+this$ = 224
+classSize$ = 232
+?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::__autoclassinit2, COMDAT
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 200				; 000000c8H
+	mov	rbp, rsp
+	mov	rdi, QWORD PTR this$[rbp]
+	xor	eax, eax
+	mov	rcx, QWORD PTR classSize$[rbp]
+	rep stosb
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::__autoclassinit2
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ PROC ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1377
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1378
+	mov	rax, QWORD PTR this$[rbp]
+; Line 1379
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ENDP ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 2027
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 2028
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, rax
+	call	?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first
+; Line 2029
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
+_TEXT	SEGMENT
+_Al$ = 8
+_My_data$ = 40
+_Myfirst$ = 72
+_Mylast$ = 104
+_Myend$ = 136
+this$ = 384
+?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1881
+$LN4:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 392				; 00000188H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1882
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
+	mov	QWORD PTR _Al$[rbp], rax
+; Line 1883
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 1884
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 8
+	mov	QWORD PTR _Myfirst$[rbp], rax
+; Line 1885
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 16
+	mov	QWORD PTR _Mylast$[rbp], rax
+; Line 1886
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 24
+	mov	QWORD PTR _Myend$[rbp], rax
+; Line 1888
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	call	?_Orphan_all@_Container_base12@std@@QEAAXXZ ; std::_Container_base12::_Orphan_all
+; Line 1890
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	cmp	QWORD PTR [rax], 0
+	je	SHORT $LN2@Tidy
+; Line 1891
+	mov	r8, QWORD PTR _Al$[rbp]
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z ; std::_Destroy_range<std::allocator<VkVertexInputAttributeDescription> >
+; Line 1893
+	mov	rax, QWORD PTR _Myend$[rbp]
+	mov	rcx, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	rax, QWORD PTR [rax]
+	sub	rax, rcx
+	sar	rax, 4
+	mov	r8, rax
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z ; std::allocator<VkVertexInputAttributeDescription>::deallocate
+; Line 1895
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	QWORD PTR [rax], 0
+; Line 1896
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	QWORD PTR [rax], 0
+; Line 1897
+	mov	rax, QWORD PTR _Myend$[rbp]
+	mov	QWORD PTR [rax], 0
+$LN2@Tidy:
+; Line 1899
+	lea	rsp, QWORD PTR [rbp+360]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ
+_TEXT	SEGMENT
+_My_data$ = 8
+this$ = 256
+?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::size, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1713
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1714
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 1715
+	mov	rax, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR [rcx+8]
+	mov	rax, QWORD PTR [rax+16]
+	sub	rax, rcx
+	sar	rax, 4
+; Line 1716
+	lea	rsp, QWORD PTR [rbp+232]
+	pop	rdi
+	pop	rbp
+	ret	0
+?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::size
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ
+_TEXT	SEGMENT
+this$ = 224
+?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::data, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1632
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1633
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+8]
+	call	??$_Unfancy_maybe_null@UVkVertexInputAttributeDescription@@@std@@YAPEAUVkVertexInputAttributeDescription@@PEAU1@@Z ; std::_Unfancy_maybe_null<VkVertexInputAttributeDescription>
+; Line 1634
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::data
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ
+_TEXT	SEGMENT
+_Alproxy$ = 8
+$S16$ = 36
+$T4 = 260
+__$ArrayPad$ = 280
+this$ = 320
+??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 790
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 328				; 00000148H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rdi, QWORD PTR [rsp+32]
+	mov	ecx, 26
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+360]
+	mov	rax, QWORD PTR __security_cookie
+	xor	rax, rbp
+	mov	QWORD PTR __$ArrayPad$[rbp], rax
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 791
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy
+; Line 793
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
+	mov	rdx, rax
+	lea	rcx, QWORD PTR $S16$[rbp]
+	call	??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>
+	lea	rax, QWORD PTR $S16$[rbp]
+	mov	QWORD PTR _Alproxy$[rbp], rax
+; Line 794
+	mov	QWORD PTR $T4[rbp], 0
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rdx, QWORD PTR $T4[rbp]
+	mov	rcx, rax
+	call	??$exchange@PEAU_Container_proxy@std@@$$T@std@@YAPEAU_Container_proxy@0@AEAPEAU10@$$QEA$$T@Z ; std::exchange<std::_Container_proxy *,std::nullptr_t>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR _Alproxy$[rbp]
+	call	??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z ; std::_Delete_plain_internal<std::allocator<std::_Container_proxy> >
+; Line 796
+	lea	rcx, QWORD PTR [rbp-32]
+	lea	rdx, OFFSET FLAT:??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
+	xor	rcx, rbp
+	call	__security_check_cookie
+	lea	rsp, QWORD PTR [rbp+296]
+	pop	rdi
+	pop	rbp
+	ret	0
+??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z
+_TEXT	SEGMENT
+this$ = 224
+_Ptr$ = 232
+_Count$ = 240
+?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z PROC ; std::allocator<VkVertexInputAttributeDescription>::deallocate, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 827
+$LN13:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 248				; 000000f8H
+	lea	rbp, QWORD PTR [rsp+48]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+$LN4@deallocate:
+; Line 828
+	cmp	QWORD PTR _Ptr$[rbp], 0
+	jne	SHORT $LN10@deallocate
+	cmp	QWORD PTR _Count$[rbp], 0
+	jne	SHORT $LN8@deallocate
+$LN10@deallocate:
+	jmp	SHORT $LN9@deallocate
+$LN8@deallocate:
+$LN7@deallocate:
+	lea	rax, OFFSET FLAT:??_C@_0DG@KGHKKGBC@null?5pointer?5cannot?5point?5to?5a?5@
+	mov	QWORD PTR [rsp+40], rax
+	lea	rax, OFFSET FLAT:??_C@_02DKCKIIND@?$CFs@
+	mov	QWORD PTR [rsp+32], rax
+	xor	r9d, r9d
+	mov	r8d, 828				; 0000033cH
+	lea	rdx, OFFSET FLAT:??_C@_0GC@DJFHHHKN@C?3?2Program?5Files?2Microsoft?5Visu@
+	mov	ecx, 2
+	call	QWORD PTR __imp__CrtDbgReport
+	cmp	eax, 1
+	jne	SHORT $LN12@deallocate
+	int	3
+	xor	eax, eax
+$LN12@deallocate:
+	mov	QWORD PTR [rsp+32], 0
+	mov	r9d, 828				; 0000033cH
+	lea	r8, OFFSET FLAT:??_C@_1ME@GEFGDEOM@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe@
+	lea	rdx, OFFSET FLAT:??_C@_11LOCGONAA@@
+	lea	rcx, OFFSET FLAT:??_C@_1HA@FACCKGGH@?$AA?$CC?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?5?$AAc@
+	call	QWORD PTR __imp__invalid_parameter
+	xor	eax, eax
+	test	eax, eax
+	jne	SHORT $LN7@deallocate
+$LN9@deallocate:
+	xor	eax, eax
+	test	eax, eax
+	jne	$LN4@deallocate
+; Line 830
+	imul	rax, QWORD PTR _Count$[rbp], 16
+	mov	rdx, rax
+	mov	rcx, QWORD PTR _Ptr$[rbp]
+	call	??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z ; std::_Deallocate<16,0>
+; Line 831
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z ENDP ; std::allocator<VkVertexInputAttributeDescription>::deallocate
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z
+_TEXT	SEGMENT
+_New_proxy$ = 8
+$T1 = 232
+this$ = 288
+_Al$ = 296
+??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z PROC ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1056
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 296				; 00000128H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1057
+	mov	edx, 1
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z ; std::allocator<std::_Container_proxy>::allocate
+	mov	rcx, rax
+	call	??$_Unfancy@U_Container_proxy@std@@@std@@YAPEAU_Container_proxy@0@PEAU10@@Z ; std::_Unfancy<std::_Container_proxy>
+	mov	QWORD PTR _New_proxy$[rbp], rax
+; Line 1058
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR $T1[rbp], rax
+	lea	rdx, QWORD PTR $T1[rbp]
+	mov	rcx, QWORD PTR _New_proxy$[rbp]
+	call	??$_Construct_in_place@U_Container_proxy@std@@PEAU_Container_base12@2@@std@@YAXAEAU_Container_proxy@0@$$QEAPEAU_Container_base12@0@@Z ; std::_Construct_in_place<std::_Container_proxy,std::_Container_base12 *>
+; Line 1059
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR _New_proxy$[rbp]
+	mov	QWORD PTR [rax], rcx
+; Line 1060
+	mov	rax, QWORD PTR _New_proxy$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rax], rcx
+; Line 1061
+	lea	rsp, QWORD PTR [rbp+264]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z ENDP ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z
+_TEXT	SEGMENT
+this$ = 224
+__formal$ = 232
+??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z PROC ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1><>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1370
+$LN3:
+	mov	BYTE PTR [rsp+16], dl
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+	mov	rcx, QWORD PTR this$[rbp]
+	call	??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ ; std::allocator<cow::Vertex2DRGB>::allocator<cow::Vertex2DRGB>
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, rax
+	call	??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z
@@ -5714,11 +8876,11 @@ $LN3:
 ??$exchange@PEAU_Container_proxy@std@@$$T@std@@YAPEAU_Container_proxy@0@AEAPEAU10@$$QEA$$T@Z ENDP ; std::exchange<std::_Container_proxy *,std::nullptr_t>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z
+;	COMDAT ??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z
 _TEXT	SEGMENT
 this$ = 224
 __formal$ = 232
-??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>, COMDAT
+??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><cow::Vertex2DRGB>, COMDAT
 ; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
 ; Line 823
 $LN3:
@@ -5735,7 +8897,7 @@ $LN3:
 	pop	rdi
 	pop	rbp
 	ret	0
-??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>
+??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><cow::Vertex2DRGB>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ?allocate@?$allocator@U_Container_proxy@std@@@std@@QEAAPEAU_Container_proxy@2@_K@Z
@@ -5835,10 +8997,153 @@ $LN9@deallocate:
 ?deallocate@?$allocator@U_Container_proxy@std@@@std@@QEAAXQEAU_Container_proxy@2@_K@Z ENDP ; std::allocator<std::_Container_proxy>::deallocate
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z
+;	COMDAT ??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z
+_TEXT	SEGMENT
+_My_data$ = 8
+_Mylast$ = 40
+tv83 = 248
+tv81 = 256
+this$ = 304
+<_Val_0>$ = 312
+??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_one_at_back<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 800
+$LN4:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 312				; 00000138H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 802
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 803
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 16
+	mov	QWORD PTR _Mylast$[rbp], rax
+; Line 805
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR [rcx+24]
+	cmp	QWORD PTR [rax], rcx
+	je	SHORT $LN2@Emplace_on
+; Line 806
+	mov	rcx, QWORD PTR <_Val_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR this$[rbp]
+	call	??$_Emplace_back_with_unused_capacity@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_back_with_unused_capacity<cow::Vertex2DRGB>
+	jmp	SHORT $LN1@Emplace_on
+$LN2@Emplace_on:
+; Line 809
+	mov	rcx, QWORD PTR <_Val_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	QWORD PTR tv83[rbp], rax
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR tv81[rbp], rax
+	mov	r8, QWORD PTR tv83[rbp]
+	mov	rdx, QWORD PTR tv81[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	??$_Emplace_reallocate@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAPEAUVertex2DRGB@cow@@QEAU23@$$QEAU23@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_reallocate<cow::Vertex2DRGB>
+$LN1@Emplace_on:
+; Line 810
+	lea	rsp, QWORD PTR [rbp+280]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_one_at_back<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z
+_TEXT	SEGMENT
+_Arg$ = 224
+??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z PROC ; std::forward<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\type_traits
+; Line 1341
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__4CC0724B_type_traits
+	call	__CheckForDebuggerJustMyCode
+; Line 1342
+	mov	rax, QWORD PTR _Arg$[rbp]
+; Line 1343
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ENDP ; std::forward<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z
+_TEXT	SEGMENT
+_Result$ = 8
+this$ = 256
+<_Val_0>$ = 264
+??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::emplace_back<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 886
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 888
+	mov	rcx, QWORD PTR <_Val_0>$[rbp]
+	call	??$forward@UVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::forward<cow::Vertex2DRGB>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR this$[rbp]
+	call	??$_Emplace_one_at_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAUVertex2DRGB@cow@@$$QEAU23@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Emplace_one_at_back<cow::Vertex2DRGB>
+	mov	QWORD PTR _Result$[rbp], rax
+; Line 890
+	mov	rax, QWORD PTR _Result$[rbp]
+; Line 894
+	lea	rsp, QWORD PTR [rbp+232]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::emplace_back<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z
+_TEXT	SEGMENT
+_Arg$ = 224
+??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z PROC ; std::move<cow::Vertex2DRGB &>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\type_traits
+; Line 1352
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__4CC0724B_type_traits
+	call	__CheckForDebuggerJustMyCode
+; Line 1353
+	mov	rax, QWORD PTR _Arg$[rbp]
+; Line 1354
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ENDP ; std::move<cow::Vertex2DRGB &>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z
 _TEXT	SEGMENT
 _Ptr$ = 224
-??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z PROC ; std::_Unfancy_maybe_null<VkCommandBuffer_T *>, COMDAT
+??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z PROC ; std::_Unfancy_maybe_null<cow::Vertex2DRGB>, COMDAT
 ; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
 ; Line 427
 $LN3:
@@ -5856,8 +9161,1628 @@ $LN3:
 	pop	rdi
 	pop	rbp
 	ret	0
-??$_Unfancy_maybe_null@PEAUVkCommandBuffer_T@@@std@@YAPEAPEAUVkCommandBuffer_T@@PEAPEAU1@@Z ENDP ; std::_Unfancy_maybe_null<VkCommandBuffer_T *>
+??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ENDP ; std::_Unfancy_maybe_null<cow::Vertex2DRGB>
 _TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z
+_TEXT	SEGMENT
+this$ = 224
+_x$ = 232
+_y$ = 240
+_z$ = 248
+??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z PROC		; glm::vec<3,float,0>::vec<3,float,0><double,double,double>, COMDAT
+; File E:\VulkanSDK\1.3.216.0\Include\glm\detail\type_vec3.inl
+; Line 57
+$LN3:
+	movsd	QWORD PTR [rsp+32], xmm3
+	movsd	QWORD PTR [rsp+24], xmm2
+	movsd	QWORD PTR [rsp+16], xmm1
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__FFF3B057_type_vec3@inl
+	call	__CheckForDebuggerJustMyCode
+; Line 54
+	cvtsd2ss xmm0, QWORD PTR _x$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	movss	DWORD PTR [rax], xmm0
+; Line 55
+	cvtsd2ss xmm0, QWORD PTR _y$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	movss	DWORD PTR [rax+4], xmm0
+; Line 56
+	cvtsd2ss xmm0, QWORD PTR _z$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	movss	DWORD PTR [rax+8], xmm0
+; Line 57
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z ENDP		; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z
+_TEXT	SEGMENT
+this$ = 224
+_x$ = 232
+_y$ = 240
+??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z PROC		; glm::vec<2,float,0>::vec<2,float,0><double,double>, COMDAT
+; File E:\VulkanSDK\1.3.216.0\Include\glm\detail\type_vec2.inl
+; Line 55
+$LN3:
+	movsd	QWORD PTR [rsp+24], xmm2
+	movsd	QWORD PTR [rsp+16], xmm1
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__C29399E7_type_vec2@inl
+	call	__CheckForDebuggerJustMyCode
+; Line 53
+	cvtsd2ss xmm0, QWORD PTR _x$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	movss	DWORD PTR [rax], xmm0
+; Line 54
+	cvtsd2ss xmm0, QWORD PTR _y$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	movss	DWORD PTR [rax+4], xmm0
+; Line 55
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z ENDP		; glm::vec<2,float,0>::vec<2,float,0><double,double>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z
+_TEXT	SEGMENT
+this$ = 224
+classSize$ = 232
+?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::__autoclassinit2, COMDAT
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 200				; 000000c8H
+	mov	rbp, rsp
+	mov	rdi, QWORD PTR this$[rbp]
+	xor	eax, eax
+	mov	rcx, QWORD PTR classSize$[rbp]
+	rep stosb
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::__autoclassinit2
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ PROC ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1381
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1382
+	mov	rax, QWORD PTR this$[rbp]
+; Line 1383
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ ENDP ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ PROC ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 1377
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 1378
+	mov	rax, QWORD PTR this$[rbp]
+; Line 1379
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ENDP ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+_TEXT	SEGMENT
+this$ = 224
+??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ PROC ; std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 392
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+	mov	rcx, QWORD PTR this$[rbp]
+	call	??0_Container_base12@std@@QEAA@XZ	; std::_Container_base12::_Container_base12
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rax+8], 0
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rax+16], 0
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rax+24], 0
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??0?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ENDP ; std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 2031
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 2032
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, rax
+	call	?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first
+; Line 2033
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ
+_TEXT	SEGMENT
+this$ = 224
+?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 2027
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 2028
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, rax
+	call	?_Get_first@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Get_first
+; Line 2029
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+_TEXT	SEGMENT
+this$ = 224
+_First$ = 232
+_Last$ = 240
+?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 2012
+$LN5:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 2015
+	call	?is_constant_evaluated@std@@YA_NXZ	; std::is_constant_evaluated
+	movzx	eax, al
+	test	eax, eax
+	je	SHORT $LN2@Orphan_ran
+; Line 2016
+	mov	r8, QWORD PTR _Last$[rbp]
+	mov	rdx, QWORD PTR _First$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_unlocked
+; Line 2017
+	jmp	SHORT $LN3@Orphan_ran
+$LN2@Orphan_ran:
+; Line 2020
+	mov	r8, QWORD PTR _Last$[rbp]
+	mov	rdx, QWORD PTR _First$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked
+$LN3@Orphan_ran:
+; Line 2022
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Orphan_range@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+_TEXT	SEGMENT
+_Lock$ = 4
+__$ArrayPad$ = 216
+this$ = 256
+_First$ = 264
+_Last$ = 272
+?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 2007
+$LN4:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rdi, QWORD PTR [rsp+32]
+	mov	ecx, 10
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+296]
+	mov	rax, QWORD PTR __security_cookie
+	xor	rax, rbp
+	mov	QWORD PTR __$ArrayPad$[rbp], rax
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 2008
+	mov	edx, 3
+	lea	rcx, QWORD PTR _Lock$[rbp]
+	call	QWORD PTR __imp_??0_Lockit@std@@QEAA@H@Z
+	npad	1
+; Line 2009
+	mov	r8, QWORD PTR _Last$[rbp]
+	mov	rdx, QWORD PTR _First$[rbp]
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_unlocked
+	npad	1
+; Line 2010
+	lea	rcx, QWORD PTR _Lock$[rbp]
+	call	QWORD PTR __imp_??1_Lockit@std@@QEAA@XZ
+	lea	rcx, QWORD PTR [rbp-32]
+	lea	rdx, OFFSET FLAT:?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
+	xor	rcx, rbp
+	call	__security_check_cookie
+	lea	rsp, QWORD PTR [rbp+232]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+_Lock$ = 4
+__$ArrayPad$ = 216
+this$ = 256
+_First$ = 264
+_Last$ = 272
+?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA PROC ; `std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked'::`1'::dtor$0
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+32]
+	lea	rcx, QWORD PTR _Lock$[rbp]
+	call	QWORD PTR __imp_??1_Lockit@std@@QEAA@XZ
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+?dtor$0@?0??_Orphan_range_locked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z@4HA ENDP ; `std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_locked'::`1'::dtor$0
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z
+_TEXT	SEGMENT
+_Pnext$ = 8
+_Pnextptr$1 = 40
+_Temp$2 = 72
+_Temp$3 = 104
+this$ = 352
+_First$ = 360
+_Last$ = 368
+?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_unlocked, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1992
+$LN8:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 360				; 00000168H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1993
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax]
+	add	rax, 8
+	mov	QWORD PTR _Pnext$[rbp], rax
+$LN2@Orphan_ran:
+; Line 1994
+	mov	rax, QWORD PTR _Pnext$[rbp]
+	cmp	QWORD PTR [rax], 0
+	je	SHORT $LN3@Orphan_ran
+; Line 1995
+	mov	rax, QWORD PTR _Pnext$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	rax, QWORD PTR [rax+16]
+	mov	QWORD PTR _Pnextptr$1[rbp], rax
+; Line 1996
+	mov	rax, QWORD PTR _First$[rbp]
+	cmp	QWORD PTR _Pnextptr$1[rbp], rax
+	jb	SHORT $LN6@Orphan_ran
+	mov	rax, QWORD PTR _Pnextptr$1[rbp]
+	cmp	QWORD PTR _Last$[rbp], rax
+	jae	SHORT $LN4@Orphan_ran
+$LN6@Orphan_ran:
+; Line 1997
+	mov	rax, QWORD PTR _Pnext$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR _Temp$2[rbp], rax
+; Line 1998
+	mov	rax, QWORD PTR _Temp$2[rbp]
+	add	rax, 8
+	mov	QWORD PTR _Pnext$[rbp], rax
+; Line 1999
+	jmp	SHORT $LN5@Orphan_ran
+$LN4@Orphan_ran:
+; Line 2000
+	mov	rax, QWORD PTR _Pnext$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR _Temp$3[rbp], rax
+; Line 2001
+	mov	rax, QWORD PTR _Temp$3[rbp]
+	mov	QWORD PTR [rax], 0
+; Line 2002
+	mov	rax, QWORD PTR _Pnext$[rbp]
+	mov	rcx, QWORD PTR _Temp$3[rbp]
+	mov	rcx, QWORD PTR [rcx+8]
+	mov	QWORD PTR [rax], rcx
+$LN5@Orphan_ran:
+; Line 2004
+	jmp	SHORT $LN2@Orphan_ran
+$LN3@Orphan_ran:
+; Line 2005
+	lea	rsp, QWORD PTR [rbp+328]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Orphan_range_unlocked@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAXPEAUVertex2DRGB@cow@@0@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Orphan_range_unlocked
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ
+_TEXT	SEGMENT
+?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Xlength, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1983
+$LN3:
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1984
+	lea	rcx, OFFSET FLAT:??_C@_0BA@FOIKENOD@vector?5too?5long@
+	call	?_Xlength_error@std@@YAXPEBD@Z		; std::_Xlength_error
+$LN2@Xlength:
+; Line 1985
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Xlength@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@CAXXZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Xlength
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ
+_TEXT	SEGMENT
+_Al$ = 8
+_My_data$ = 40
+_Myfirst$ = 72
+_Mylast$ = 104
+_Myend$ = 136
+this$ = 384
+?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Tidy, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1881
+$LN4:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 392				; 00000188H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1882
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+	mov	QWORD PTR _Al$[rbp], rax
+; Line 1883
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 1884
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 8
+	mov	QWORD PTR _Myfirst$[rbp], rax
+; Line 1885
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 16
+	mov	QWORD PTR _Mylast$[rbp], rax
+; Line 1886
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 24
+	mov	QWORD PTR _Myend$[rbp], rax
+; Line 1888
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	call	?_Orphan_all@_Container_base12@std@@QEAAXXZ ; std::_Container_base12::_Orphan_all
+; Line 1890
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	cmp	QWORD PTR [rax], 0
+	je	SHORT $LN2@Tidy
+; Line 1891
+	mov	r8, QWORD PTR _Al$[rbp]
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >
+; Line 1893
+	mov	rax, QWORD PTR _Myend$[rbp]
+	mov	rcx, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	rax, QWORD PTR [rax]
+	sub	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+	mov	r8, rax
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z ; std::allocator<cow::Vertex2DRGB>::deallocate
+; Line 1895
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	QWORD PTR [rax], 0
+; Line 1896
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	QWORD PTR [rax], 0
+; Line 1897
+	mov	rax, QWORD PTR _Myend$[rbp]
+	mov	QWORD PTR [rax], 0
+$LN2@Tidy:
+; Line 1899
+	lea	rsp, QWORD PTR [rbp+360]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Tidy
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z
+_TEXT	SEGMENT
+_Al$ = 8
+_My_data$ = 40
+_Myfirst$ = 72
+_Mylast$ = 104
+_Myend$ = 136
+this$ = 384
+_Newvec$ = 392
+_Newsize$ = 400
+_Newcapacity$ = 408
+?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Change_array, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1859
+$LN4:
+	mov	QWORD PTR [rsp+32], r9
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 392				; 00000188H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1861
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+	mov	QWORD PTR _Al$[rbp], rax
+; Line 1862
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 1863
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 8
+	mov	QWORD PTR _Myfirst$[rbp], rax
+; Line 1864
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 16
+	mov	QWORD PTR _Mylast$[rbp], rax
+; Line 1865
+	mov	rax, QWORD PTR _My_data$[rbp]
+	add	rax, 24
+	mov	QWORD PTR _Myend$[rbp], rax
+; Line 1867
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	call	?_Orphan_all@_Container_base12@std@@QEAAXXZ ; std::_Container_base12::_Orphan_all
+; Line 1869
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	cmp	QWORD PTR [rax], 0
+	je	SHORT $LN2@Change_arr
+; Line 1870
+	mov	r8, QWORD PTR _Al$[rbp]
+	mov	rax, QWORD PTR _Mylast$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	??$_Destroy_range@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@YAXPEAUVertex2DRGB@cow@@QEAU12@AEAV?$allocator@UVertex2DRGB@cow@@@0@@Z ; std::_Destroy_range<std::allocator<cow::Vertex2DRGB> >
+; Line 1872
+	mov	rax, QWORD PTR _Myend$[rbp]
+	mov	rcx, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	rax, QWORD PTR [rax]
+	sub	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+	mov	r8, rax
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rdx, QWORD PTR [rax]
+	mov	rcx, QWORD PTR _Al$[rbp]
+	call	?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z ; std::allocator<cow::Vertex2DRGB>::deallocate
+$LN2@Change_arr:
+; Line 1875
+	mov	rax, QWORD PTR _Myfirst$[rbp]
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	mov	QWORD PTR [rax], rcx
+; Line 1876
+	imul	rax, QWORD PTR _Newsize$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+	mov	rcx, QWORD PTR _Mylast$[rbp]
+	mov	QWORD PTR [rcx], rax
+; Line 1877
+	imul	rax, QWORD PTR _Newcapacity$[rbp], 20
+	mov	rcx, QWORD PTR _Newvec$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+	mov	rcx, QWORD PTR _Myend$[rbp]
+	mov	QWORD PTR [rcx], rax
+; Line 1879
+	lea	rsp, QWORD PTR [rbp+360]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Change_array@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXQEAUVertex2DRGB@cow@@_K1@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Change_array
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z
+_TEXT	SEGMENT
+_Oldcapacity$ = 8
+_Max$ = 40
+_Geometric$ = 72
+this$ = 320
+_Newsize$ = 328
+?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Calculate_growth, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1807
+$LN5:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 328				; 00000148H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1809
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::capacity
+	mov	QWORD PTR _Oldcapacity$[rbp], rax
+; Line 1810
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::max_size
+	mov	QWORD PTR _Max$[rbp], rax
+; Line 1812
+	xor	edx, edx
+	mov	rax, QWORD PTR _Oldcapacity$[rbp]
+	mov	ecx, 2
+	div	rcx
+	mov	rcx, QWORD PTR _Max$[rbp]
+	sub	rcx, rax
+	mov	rax, rcx
+	cmp	QWORD PTR _Oldcapacity$[rbp], rax
+	jbe	SHORT $LN2@Calculate_
+; Line 1813
+	mov	rax, QWORD PTR _Max$[rbp]
+	jmp	SHORT $LN1@Calculate_
+$LN2@Calculate_:
+; Line 1816
+	xor	edx, edx
+	mov	rax, QWORD PTR _Oldcapacity$[rbp]
+	mov	ecx, 2
+	div	rcx
+	mov	rcx, QWORD PTR _Oldcapacity$[rbp]
+	add	rcx, rax
+	mov	rax, rcx
+	mov	QWORD PTR _Geometric$[rbp], rax
+; Line 1818
+	mov	rax, QWORD PTR _Newsize$[rbp]
+	cmp	QWORD PTR _Geometric$[rbp], rax
+	jae	SHORT $LN3@Calculate_
+; Line 1819
+	mov	rax, QWORD PTR _Newsize$[rbp]
+	jmp	SHORT $LN1@Calculate_
+$LN3@Calculate_:
+; Line 1822
+	mov	rax, QWORD PTR _Geometric$[rbp]
+$LN1@Calculate_:
+; Line 1823
+	lea	rsp, QWORD PTR [rbp+296]
+	pop	rdi
+	pop	rbp
+	ret	0
+?_Calculate_growth@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBA_K_K@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Calculate_growth
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ
+_TEXT	SEGMENT
+_My_data$ = 8
+this$ = 256
+?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::capacity, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1723
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1724
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 1725
+	mov	rax, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR [rcx+8]
+	mov	rax, QWORD PTR [rax+24]
+	sub	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+; Line 1726
+	lea	rsp, QWORD PTR [rbp+232]
+	pop	rdi
+	pop	rbp
+	ret	0
+?capacity@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::capacity
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ
+_TEXT	SEGMENT
+$T1 = 200
+$T2 = 232
+this$ = 288
+?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::max_size, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1718
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 296				; 00000128H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1719
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEBAAEBV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+	mov	rcx, rax
+	call	?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::max_size
+	mov	QWORD PTR $T1[rbp], rax
+	call	?max@?$numeric_limits@_J@std@@SA_JXZ	; std::numeric_limits<__int64>::max
+	mov	QWORD PTR $T2[rbp], rax
+	lea	rdx, QWORD PTR $T1[rbp]
+	lea	rcx, QWORD PTR $T2[rbp]
+	call	??$min@_K@std@@YAAEB_KAEB_K0@Z		; std::min<unsigned __int64>
+	mov	rax, QWORD PTR [rax]
+; Line 1721
+	lea	rsp, QWORD PTR [rbp+264]
+	pop	rdi
+	pop	rbp
+	ret	0
+?max_size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::max_size
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ
+_TEXT	SEGMENT
+_My_data$ = 8
+this$ = 256
+?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::size, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1713
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1714
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR _My_data$[rbp], rax
+; Line 1715
+	mov	rax, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR _My_data$[rbp]
+	mov	rcx, QWORD PTR [rcx+8]
+	mov	rax, QWORD PTR [rax+16]
+	sub	rax, rcx
+	cdq
+	mov	ecx, 20
+	idiv	rcx
+; Line 1716
+	lea	rsp, QWORD PTR [rbp+232]
+	pop	rdi
+	pop	rbp
+	ret	0
+?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::size
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ
+_TEXT	SEGMENT
+this$ = 224
+?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::data, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 1632
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 1633
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+8]
+	call	??$_Unfancy_maybe_null@UVertex2DRGB@cow@@@std@@YAPEAUVertex2DRGB@cow@@PEAU12@@Z ; std::_Unfancy_maybe_null<cow::Vertex2DRGB>
+; Line 1634
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::data
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z
+_TEXT	SEGMENT
+this$ = 224
+_Val$ = 232
+?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 900
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 902
+	mov	rcx, QWORD PTR _Val$[rbp]
+	call	??$move@AEAUVertex2DRGB@cow@@@std@@YA$$QEAUVertex2DRGB@cow@@AEAU12@@Z ; std::move<cow::Vertex2DRGB &>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR this$[rbp]
+	call	??$emplace_back@UVertex2DRGB@cow@@@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA?A_T$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::emplace_back<cow::Vertex2DRGB>
+; Line 903
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+_TEXT	SEGMENT
+_Alproxy$ = 8
+$S1$ = 36
+$T4 = 260
+__$ArrayPad$ = 280
+this$ = 320
+??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 790
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 328				; 00000148H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rdi, QWORD PTR [rsp+32]
+	mov	ecx, 26
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+360]
+	mov	rax, QWORD PTR __security_cookie
+	xor	rax, rbp
+	mov	QWORD PTR __$ArrayPad$[rbp], rax
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+; Line 791
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Tidy@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAXXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Tidy
+; Line 793
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+	mov	rdx, rax
+	lea	rcx, QWORD PTR $S1$[rbp]
+	call	??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><cow::Vertex2DRGB>
+	lea	rax, QWORD PTR $S1$[rbp]
+	mov	QWORD PTR _Alproxy$[rbp], rax
+; Line 794
+	mov	QWORD PTR $T4[rbp], 0
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rdx, QWORD PTR $T4[rbp]
+	mov	rcx, rax
+	call	??$exchange@PEAU_Container_proxy@std@@$$T@std@@YAPEAU_Container_proxy@0@AEAPEAU10@$$QEA$$T@Z ; std::exchange<std::_Container_proxy *,std::nullptr_t>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR _Alproxy$[rbp]
+	call	??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z ; std::_Delete_plain_internal<std::allocator<std::_Container_proxy> >
+; Line 796
+	lea	rcx, QWORD PTR [rbp-32]
+	lea	rdx, OFFSET FLAT:??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
+	xor	rcx, rbp
+	call	__security_check_cookie
+	lea	rsp, QWORD PTR [rbp+296]
+	pop	rdi
+	pop	rbp
+	ret	0
+??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ
+_TEXT	SEGMENT
+$T1 = 196
+$T2 = 228
+tv83 = 248
+tv69 = 248
+this$ = 288
+??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ PROC ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
+; Line 659
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 296				; 00000128H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR tv69[rbp], rax
+	movzx	edx, BYTE PTR $T1[rbp]
+	mov	rcx, QWORD PTR tv69[rbp]
+	call	??$?0$$V@?$_Compressed_pair@V?$allocator@UVertex2DRGB@cow@@@std@@V?$_Vector_val@U?$_Simple_types@UVertex2DRGB@cow@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1>::_Compressed_pair<std::allocator<cow::Vertex2DRGB>,std::_Vector_val<std::_Simple_types<cow::Vertex2DRGB> >,1><>
+; Line 660
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR tv83[rbp], rax
+	mov	rcx, QWORD PTR this$[rbp]
+	call	?_Getal@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@AEAAAEAV?$allocator@UVertex2DRGB@cow@@@2@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::_Getal
+	mov	rdx, rax
+	lea	rcx, QWORD PTR $T2[rbp]
+	call	??$?0UVertex2DRGB@cow@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVertex2DRGB@cow@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><cow::Vertex2DRGB>
+	mov	rdx, rax
+	mov	rcx, QWORD PTR tv83[rbp]
+	call	??$_Alloc_proxy@V?$allocator@U_Container_proxy@std@@@std@@@_Container_base12@std@@QEAAX$$QEAV?$allocator@U_Container_proxy@std@@@1@@Z ; std::_Container_base12::_Alloc_proxy<std::allocator<std::_Container_proxy> >
+; Line 661
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+264]
+	pop	rdi
+	pop	rbp
+	ret	0
+??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ENDP ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z
+_TEXT	SEGMENT
+__formal$ = 224
+?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z PROC ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::max_size, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 693
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 694
+	mov	rax, 922337203685477580			; 0cccccccccccccccH
+; Line 695
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?max_size@?$_Default_allocator_traits@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@SA_KAEBV?$allocator@UVertex2DRGB@cow@@@2@@Z ENDP ; std::_Default_allocator_traits<std::allocator<cow::Vertex2DRGB> >::max_size
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z
+_TEXT	SEGMENT
+this$ = 224
+_Count$ = 232
+?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z PROC ; std::allocator<cow::Vertex2DRGB>::allocate, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 833
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+; Line 834
+	mov	rcx, QWORD PTR _Count$[rbp]
+	call	??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z	; std::_Get_size_of_n<20>
+	mov	rcx, rax
+	call	??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z ; std::_Allocate<16,std::_Default_allocate_traits,0>
+; Line 835
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?allocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAPEAUVertex2DRGB@cow@@_K@Z ENDP ; std::allocator<cow::Vertex2DRGB>::allocate
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z
+_TEXT	SEGMENT
+this$ = 224
+_Ptr$ = 232
+_Count$ = 240
+?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z PROC ; std::allocator<cow::Vertex2DRGB>::deallocate, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 827
+$LN13:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 248				; 000000f8H
+	lea	rbp, QWORD PTR [rsp+48]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+$LN4@deallocate:
+; Line 828
+	cmp	QWORD PTR _Ptr$[rbp], 0
+	jne	SHORT $LN10@deallocate
+	cmp	QWORD PTR _Count$[rbp], 0
+	jne	SHORT $LN8@deallocate
+$LN10@deallocate:
+	jmp	SHORT $LN9@deallocate
+$LN8@deallocate:
+$LN7@deallocate:
+	lea	rax, OFFSET FLAT:??_C@_0DG@KGHKKGBC@null?5pointer?5cannot?5point?5to?5a?5@
+	mov	QWORD PTR [rsp+40], rax
+	lea	rax, OFFSET FLAT:??_C@_02DKCKIIND@?$CFs@
+	mov	QWORD PTR [rsp+32], rax
+	xor	r9d, r9d
+	mov	r8d, 828				; 0000033cH
+	lea	rdx, OFFSET FLAT:??_C@_0GC@DJFHHHKN@C?3?2Program?5Files?2Microsoft?5Visu@
+	mov	ecx, 2
+	call	QWORD PTR __imp__CrtDbgReport
+	cmp	eax, 1
+	jne	SHORT $LN12@deallocate
+	int	3
+	xor	eax, eax
+$LN12@deallocate:
+	mov	QWORD PTR [rsp+32], 0
+	mov	r9d, 828				; 0000033cH
+	lea	r8, OFFSET FLAT:??_C@_1ME@GEFGDEOM@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe@
+	lea	rdx, OFFSET FLAT:??_C@_11LOCGONAA@@
+	lea	rcx, OFFSET FLAT:??_C@_1HA@FACCKGGH@?$AA?$CC?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?5?$AAc@
+	call	QWORD PTR __imp__invalid_parameter
+	xor	eax, eax
+	test	eax, eax
+	jne	SHORT $LN7@deallocate
+$LN9@deallocate:
+	xor	eax, eax
+	test	eax, eax
+	jne	$LN4@deallocate
+; Line 830
+	imul	rax, QWORD PTR _Count$[rbp], 20
+	mov	rdx, rax
+	mov	rcx, QWORD PTR _Ptr$[rbp]
+	call	??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z ; std::_Deallocate<16,0>
+; Line 831
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?deallocate@?$allocator@UVertex2DRGB@cow@@@std@@QEAAXQEAUVertex2DRGB@cow@@_K@Z ENDP ; std::allocator<cow::Vertex2DRGB>::deallocate
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ
+_TEXT	SEGMENT
+this$ = 224
+??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ PROC	; std::allocator<cow::Vertex2DRGB>::allocator<cow::Vertex2DRGB>, COMDAT
+; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
+; Line 819
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+??0?$allocator@UVertex2DRGB@cow@@@std@@QEAA@XZ ENDP	; std::allocator<cow::Vertex2DRGB>::allocator<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z
+_TEXT	SEGMENT
+this$ = 224
+classSize$ = 232
+?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z PROC ; cow::GraphicsPipeline<cow::Vertex2DRGB>::__autoclassinit2, COMDAT
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 200				; 000000c8H
+	mov	rbp, rsp
+	mov	rdi, QWORD PTR this$[rbp]
+	xor	eax, eax
+	mov	rcx, QWORD PTR classSize$[rbp]
+	rep stosb
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z ENDP ; cow::GraphicsPipeline<cow::Vertex2DRGB>::__autoclassinit2
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z
+_TEXT	SEGMENT
+this$ = 224
+cmdBuffer$ = 232
+?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z PROC ; cow::GraphicsPipeline<cow::Vertex2DRGB>::bind, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Pipelines.hpp
+; Line 123
+$LN3:
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__32DA32DB_Pipelines@hpp
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	mov	r8, QWORD PTR [rax+16]
+	xor	edx, edx
+	mov	rcx, QWORD PTR cmdBuffer$[rbp]
+	call	vkCmdBindPipeline
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ENDP ; cow::GraphicsPipeline<cow::Vertex2DRGB>::bind
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ
+_TEXT	SEGMENT
+tv128 = 192
+tv85 = 192
+tv74 = 192
+tv94 = 200
+tv83 = 200
+tv72 = 200
+this$ = 240
+??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ PROC ; cow::GraphicsPipeline<cow::Vertex2DRGB>::~GraphicsPipeline<cow::Vertex2DRGB>, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Pipelines.hpp
+; Line 117
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 248				; 000000f8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__32DA32DB_Pipelines@hpp
+	call	__CheckForDebuggerJustMyCode
+; Line 118
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR tv74[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+24]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv72[rbp], rax
+	xor	r8d, r8d
+	mov	rdx, QWORD PTR tv74[rbp]
+	mov	rcx, QWORD PTR tv72[rbp]
+	call	vkDestroyShaderModule
+; Line 119
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+	mov	QWORD PTR tv85[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+24]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv83[rbp], rax
+	xor	r8d, r8d
+	mov	rdx, QWORD PTR tv85[rbp]
+	mov	rcx, QWORD PTR tv83[rbp]
+	call	vkDestroyShaderModule
+; Line 120
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+16]
+	mov	QWORD PTR tv128[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+24]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv94[rbp], rax
+	xor	r8d, r8d
+	mov	rdx, QWORD PTR tv128[rbp]
+	mov	rcx, QWORD PTR tv94[rbp]
+	call	vkDestroyPipeline
+	npad	1
+; Line 121
+	lea	rsp, QWORD PTR [rbp+216]
+	pop	rdi
+	pop	rbp
+	ret	0
+??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ ENDP ; cow::GraphicsPipeline<cow::Vertex2DRGB>::~GraphicsPipeline<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+_TEXT	SEGMENT
+shaderStages$ = 16
+bindDesc$ = 136
+attrDesc$ = 184
+vertexInputInfo$ = 248
+inputAssemblyInfo$ = 328
+viewportInfo$ = 392
+rasterizationInfo$ = 480
+createInfo$ = 576
+$T11 = 1128
+$T12 = 1176
+tv210 = 1208
+tv86 = 1208
+tv75 = 1208
+tv84 = 1216
+tv73 = 1216
+__$ArrayPad$ = 1224
+this$ = 1264
+device$ = 1272
+pCreateInfo$ = 1280
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z PROC ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Pipelines.hpp
+; Line 13
+$LN6:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rsi
+	push	rdi
+	sub	rsp, 1280				; 00000500H
+	lea	rbp, QWORD PTR [rsp+48]
+	lea	rdi, QWORD PTR [rsp+48]
+	mov	ecx, 212				; 000000d4H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+1320]
+	mov	rax, QWORD PTR __security_cookie
+	xor	rax, rbp
+	mov	QWORD PTR __$ArrayPad$[rbp], rax
+	lea	rcx, OFFSET FLAT:__32DA32DB_Pipelines@hpp
+	call	__CheckForDebuggerJustMyCode
+; Line 12
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR device$[rbp]
+	mov	QWORD PTR [rax+24], rcx
+; Line 14
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR tv75[rbp], rax
+	mov	rcx, QWORD PTR device$[rbp]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv73[rbp], rax
+	mov	rdx, QWORD PTR tv75[rbp]
+	mov	rcx, QWORD PTR tv73[rbp]
+	call	?createShaderModule@cow@@YAPEAUVkShaderModule_T@@PEAUVkDevice_T@@PEBD@Z ; cow::createShaderModule
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rcx], rax
+; Line 15
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+	mov	QWORD PTR tv86[rbp], rax
+	mov	rcx, QWORD PTR device$[rbp]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv84[rbp], rax
+	mov	rdx, QWORD PTR tv86[rbp]
+	mov	rcx, QWORD PTR tv84[rbp]
+	call	?createShaderModule@cow@@YAPEAUVkShaderModule_T@@PEAUVkDevice_T@@PEBD@Z ; cow::createShaderModule
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rcx+8], rax
+; Line 17
+	lea	rax, QWORD PTR shaderStages$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 96					; 00000060H
+	rep stosb
+; Line 18
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	DWORD PTR shaderStages$[rbp+rax], 18
+; Line 19
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	DWORD PTR shaderStages$[rbp+rax+20], 1
+; Line 20
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	QWORD PTR shaderStages$[rbp+rax+24], rcx
+; Line 21
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	rcx, QWORD PTR pCreateInfo$[rbp]
+	mov	rcx, QWORD PTR [rcx+16]
+	mov	QWORD PTR shaderStages$[rbp+rax+32], rcx
+; Line 22
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	DWORD PTR shaderStages$[rbp+rax+16], 0
+; Line 23
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	QWORD PTR shaderStages$[rbp+rax+8], 0
+; Line 24
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 0
+	mov	QWORD PTR shaderStages$[rbp+rax+40], 0
+; Line 26
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	DWORD PTR shaderStages$[rbp+rax], 18
+; Line 27
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	DWORD PTR shaderStages$[rbp+rax+20], 16
+; Line 28
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rcx+8]
+	mov	QWORD PTR shaderStages$[rbp+rax+24], rcx
+; Line 29
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	rcx, QWORD PTR pCreateInfo$[rbp]
+	mov	rcx, QWORD PTR [rcx+16]
+	mov	QWORD PTR shaderStages$[rbp+rax+32], rcx
+; Line 30
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	DWORD PTR shaderStages$[rbp+rax+16], 0
+; Line 31
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	QWORD PTR shaderStages$[rbp+rax+8], 0
+; Line 32
+	mov	eax, 48					; 00000030H
+	imul	rax, rax, 1
+	mov	QWORD PTR shaderStages$[rbp+rax+40], 0
+; Line 38
+	lea	rcx, QWORD PTR $T11[rbp]
+	call	?bindingDesc@Vertex2DRGB@cow@@SA?AUVkVertexInputBindingDescription@@XZ ; cow::Vertex2DRGB::bindingDesc
+	lea	rcx, QWORD PTR bindDesc$[rbp]
+	mov	rdi, rcx
+	mov	rsi, rax
+	mov	ecx, 12
+	rep movsb
+; Line 39
+	mov	edx, 32					; 00000020H
+	lea	rcx, QWORD PTR attrDesc$[rbp]
+	call	?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z
+	lea	rcx, QWORD PTR attrDesc$[rbp]
+	call	?attributeDesc@Vertex2DRGB@cow@@SA?AV?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@XZ ; cow::Vertex2DRGB::attributeDesc
+	npad	1
+; Line 41
+	lea	rax, QWORD PTR vertexInputInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 48					; 00000030H
+	rep stosb
+; Line 42
+	mov	DWORD PTR vertexInputInfo$[rbp], 19
+; Line 43
+	lea	rcx, QWORD PTR attrDesc$[rbp]
+	call	?size@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEBA_KXZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::size
+	mov	DWORD PTR vertexInputInfo$[rbp+32], eax
+; Line 44
+	mov	DWORD PTR vertexInputInfo$[rbp+20], 1
+; Line 45
+	lea	rcx, QWORD PTR attrDesc$[rbp]
+	call	?data@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAPEAUVkVertexInputAttributeDescription@@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::data
+	mov	QWORD PTR vertexInputInfo$[rbp+40], rax
+; Line 46
+	lea	rax, QWORD PTR bindDesc$[rbp]
+	mov	QWORD PTR vertexInputInfo$[rbp+24], rax
+; Line 51
+	lea	rax, QWORD PTR inputAssemblyInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 32					; 00000020H
+	rep stosb
+; Line 52
+	mov	DWORD PTR inputAssemblyInfo$[rbp], 20
+; Line 53
+	mov	DWORD PTR inputAssemblyInfo$[rbp+20], 3
+; Line 54
+	mov	DWORD PTR inputAssemblyInfo$[rbp+24], 0
+; Line 55
+	mov	DWORD PTR inputAssemblyInfo$[rbp+16], 0
+; Line 56
+	mov	QWORD PTR inputAssemblyInfo$[rbp+8], 0
+; Line 60
+	lea	rax, QWORD PTR viewportInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 48					; 00000030H
+	rep stosb
+; Line 61
+	mov	DWORD PTR viewportInfo$[rbp], 22
+; Line 62
+	mov	DWORD PTR viewportInfo$[rbp+20], 1
+; Line 63
+	mov	QWORD PTR viewportInfo$[rbp+24], 0
+; Line 64
+	mov	DWORD PTR viewportInfo$[rbp+32], 1
+; Line 65
+	mov	QWORD PTR viewportInfo$[rbp+40], 0
+; Line 69
+	lea	rax, QWORD PTR rasterizationInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 64					; 00000040H
+	rep stosb
+; Line 70
+	mov	DWORD PTR rasterizationInfo$[rbp], 23
+; Line 71
+	mov	DWORD PTR rasterizationInfo$[rbp+20], 0
+; Line 72
+	mov	DWORD PTR rasterizationInfo$[rbp+24], 0
+; Line 73
+	mov	DWORD PTR rasterizationInfo$[rbp+28], 0
+; Line 74
+	movss	xmm0, DWORD PTR __real@3f800000
+	movss	DWORD PTR rasterizationInfo$[rbp+56], xmm0
+; Line 75
+	mov	DWORD PTR rasterizationInfo$[rbp+32], 0
+; Line 76
+	mov	DWORD PTR rasterizationInfo$[rbp+36], 1
+; Line 77
+	mov	DWORD PTR rasterizationInfo$[rbp+40], 0
+; Line 78
+	xorps	xmm0, xmm0
+	movss	DWORD PTR rasterizationInfo$[rbp+44], xmm0
+; Line 79
+	xorps	xmm0, xmm0
+	movss	DWORD PTR rasterizationInfo$[rbp+48], xmm0
+; Line 80
+	xorps	xmm0, xmm0
+	movss	DWORD PTR rasterizationInfo$[rbp+52], xmm0
+; Line 84
+	lea	rax, QWORD PTR createInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 144				; 00000090H
+	rep stosb
+; Line 85
+	mov	DWORD PTR createInfo$[rbp], 28
+; Line 86
+	mov	QWORD PTR createInfo$[rbp+8], 0
+; Line 87
+	mov	DWORD PTR createInfo$[rbp+16], 0
+; Line 88
+	mov	DWORD PTR createInfo$[rbp+20], 2
+; Line 89
+	lea	rax, QWORD PTR shaderStages$[rbp]
+	mov	QWORD PTR createInfo$[rbp+24], rax
+; Line 90
+	lea	rax, QWORD PTR vertexInputInfo$[rbp]
+	mov	QWORD PTR createInfo$[rbp+32], rax
+; Line 91
+	lea	rax, QWORD PTR inputAssemblyInfo$[rbp]
+	mov	QWORD PTR createInfo$[rbp+40], rax
+; Line 92
+	mov	QWORD PTR createInfo$[rbp+48], 0
+; Line 93
+	lea	rax, QWORD PTR viewportInfo$[rbp]
+	mov	QWORD PTR createInfo$[rbp+56], rax
+; Line 94
+	lea	rax, QWORD PTR rasterizationInfo$[rbp]
+	mov	QWORD PTR createInfo$[rbp+64], rax
+; Line 95
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	add	rax, 24
+	mov	QWORD PTR createInfo$[rbp+72], rax
+; Line 96
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	add	rax, 160				; 000000a0H
+	mov	QWORD PTR createInfo$[rbp+80], rax
+; Line 97
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	add	rax, 104				; 00000068H
+	mov	QWORD PTR createInfo$[rbp+88], rax
+; Line 98
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	add	rax, 296				; 00000128H
+	mov	QWORD PTR createInfo$[rbp+96], rax
+; Line 99
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	mov	rax, QWORD PTR [rax+328]
+	mov	QWORD PTR createInfo$[rbp+104], rax
+; Line 100
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	mov	rax, QWORD PTR [rax+336]
+	mov	QWORD PTR createInfo$[rbp+112], rax
+; Line 101
+	mov	rax, QWORD PTR pCreateInfo$[rbp]
+	mov	eax, DWORD PTR [rax+344]
+	mov	DWORD PTR createInfo$[rbp+120], eax
+; Line 102
+	mov	QWORD PTR createInfo$[rbp+128], 0
+; Line 103
+	mov	DWORD PTR createInfo$[rbp+136], -1
+; Line 111
+	mov	rax, QWORD PTR this$[rbp]
+	add	rax, 16
+	mov	QWORD PTR tv210[rbp], rax
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rcx+24]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	rcx, QWORD PTR tv210[rbp]
+	mov	QWORD PTR [rsp+40], rcx
+	mov	QWORD PTR [rsp+32], 0
+	lea	r9, QWORD PTR createInfo$[rbp]
+	mov	r8d, 1
+	xor	edx, edx
+	mov	rcx, rax
+	call	vkCreateGraphicsPipelines
+	test	eax, eax
+	je	SHORT $LN2@GraphicsPi
+; Line 113
+	lea	rdx, OFFSET FLAT:??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@
+	lea	rcx, QWORD PTR $T12[rbp]
+	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
+	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
+	lea	rcx, QWORD PTR $T12[rbp]
+	call	_CxxThrowException
+	npad	1
+$LN2@GraphicsPi:
+; Line 115
+	lea	rcx, QWORD PTR attrDesc$[rbp]
+	call	??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rdi, rax
+	lea	rcx, QWORD PTR [rbp-48]
+	lea	rdx, OFFSET FLAT:??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rax, rdi
+	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
+	xor	rcx, rbp
+	call	__security_check_cookie
+	lea	rsp, QWORD PTR [rbp+1232]
+	pop	rdi
+	pop	rsi
+	pop	rbp
+	ret	0
+$LN5@GraphicsPi:
+??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z ENDP ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+shaderStages$ = 16
+bindDesc$ = 136
+attrDesc$ = 184
+vertexInputInfo$ = 248
+inputAssemblyInfo$ = 328
+viewportInfo$ = 392
+rasterizationInfo$ = 480
+createInfo$ = 576
+$T11 = 1128
+$T12 = 1176
+tv210 = 1208
+tv86 = 1208
+tv75 = 1208
+tv84 = 1216
+tv73 = 1216
+__$ArrayPad$ = 1224
+this$ = 1264
+device$ = 1272
+pCreateInfo$ = 1280
+?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA PROC ; `cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>'::`1'::dtor$0
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+48]
+	lea	rcx, QWORD PTR attrDesc$[rbp]
+	call	??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+?dtor$0@?0???0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA ENDP ; `cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>'::`1'::dtor$0
+text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z
 _TEXT	SEGMENT
@@ -6748,7 +11673,7 @@ _TEXT	ENDS
 ;	COMDAT ??1?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAA@XZ
 _TEXT	SEGMENT
 _Alproxy$ = 8
-$S1$ = 36
+$S2$ = 36
 $T4 = 260
 __$ArrayPad$ = 280
 this$ = 320
@@ -6778,9 +11703,9 @@ $LN3:
 	mov	rcx, QWORD PTR this$[rbp]
 	call	?_Getal@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@AEAAAEAV?$allocator@PEAUVkCommandBuffer_T@@@2@XZ ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::_Getal
 	mov	rdx, rax
-	lea	rcx, QWORD PTR $S1$[rbp]
+	lea	rcx, QWORD PTR $S2$[rbp]
 	call	??$?0PEAUVkCommandBuffer_T@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkCommandBuffer_T *>
-	lea	rax, QWORD PTR $S1$[rbp]
+	lea	rax, QWORD PTR $S2$[rbp]
 	mov	QWORD PTR _Alproxy$[rbp], rax
 ; Line 794
 	mov	QWORD PTR $T4[rbp], 0
@@ -6999,29 +11924,50 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main	PROC						; COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp
-; Line 12
-$LN18:
+; Line 19
+$LN25:
 	push	rbp
+	push	rsi
 	push	rdi
-	sub	rsp, 1832				; 00000728H
+	sub	rsp, 3072				; 00000c00H
 	lea	rbp, QWORD PTR [rsp+48]
 	lea	rdi, QWORD PTR [rsp+48]
-	mov	ecx, 302				; 0000012eH
+	mov	ecx, 516				; 00000204H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	rax, QWORD PTR __security_cookie
@@ -7029,18 +11975,18 @@ $LN18:
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
 	lea	rcx, OFFSET FLAT:__D63E6CC3_Source@cpp
 	call	__CheckForDebuggerJustMyCode
-; Line 13
+; Line 20
 	mov	edx, 32					; 00000020H
 	lea	rcx, QWORD PTR commandBuffers$[rbp]
 	call	?__autoclassinit2@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAX_K@Z
-	lea	rcx, QWORD PTR $T17[rbp]
+	lea	rcx, QWORD PTR $T33[rbp]
 	call	??0?$allocator@PEAUVkCommandBuffer_T@@@std@@QEAA@XZ ; std::allocator<VkCommandBuffer_T *>::allocator<VkCommandBuffer_T *>
 	mov	r8, rax
 	mov	edx, 2
 	lea	rcx, QWORD PTR commandBuffers$[rbp]
 	call	??0?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAA@_KAEBV?$allocator@PEAUVkCommandBuffer_T@@@1@@Z ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >
 	npad	1
-; Line 15
+; Line 22
 	lea	rdx, OFFSET FLAT:??_C@_02PHMGELLB@?6?6@
 	mov	rcx, QWORD PTR __imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
 	call	??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z ; std::operator<<<std::char_traits<char> >
@@ -7051,7 +11997,7 @@ $LN18:
 	lea	rdx, OFFSET FLAT:??_C@_02PHMGELLB@?6?6@
 	mov	rcx, rax
 	call	??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z ; std::operator<<<std::char_traits<char> >
-; Line 16
+; Line 23
 	mov	edx, 24
 	lea	rcx, QWORD PTR window$[rbp]
 	call	?__autoclassinit2@Window@cow@@QEAAX_K@Z
@@ -7061,7 +12007,7 @@ $LN18:
 	lea	rcx, QWORD PTR window$[rbp]
 	call	??0Window@cow@@QEAA@HHPEBD@Z		; cow::Window::Window
 	npad	1
-; Line 18
+; Line 25
 	mov	edx, 64					; 00000040H
 	lea	rcx, QWORD PTR device$[rbp]
 	call	?__autoclassinit2@Device@cow@@QEAAX_K@Z
@@ -7071,7 +12017,7 @@ $LN18:
 	lea	rcx, QWORD PTR device$[rbp]
 	call	??0Device@cow@@QEAA@AEAVWindow@1@PEAII@Z ; cow::Device::Device
 	npad	1
-; Line 21
+; Line 27
 	mov	edx, 32					; 00000020H
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	?__autoclassinit2@GraphicsCommands@cow@@QEAAX_K@Z
@@ -7079,7 +12025,7 @@ $LN18:
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	??0GraphicsCommands@cow@@QEAA@AEAVDevice@1@@Z ; cow::GraphicsCommands::GraphicsCommands
 	npad	1
-; Line 23
+; Line 29
 	lea	rax, QWORD PTR gpsi$[rbp]
 	mov	rdi, rax
 	xor	eax, eax
@@ -7093,72 +12039,72 @@ $LN18:
 	xor	eax, eax
 	mov	ecx, 56					; 00000038H
 	rep stosb
-; Line 25
+; Line 31
 	lea	rax, QWORD PTR simpleInfo$[rbp]
 	mov	rdi, rax
 	xor	eax, eax
 	mov	ecx, 32					; 00000020H
 	rep stosb
-; Line 26
+; Line 32
 	mov	QWORD PTR simpleInfo$[rbp+8], 0
-; Line 27
+; Line 33
 	mov	DWORD PTR simpleInfo$[rbp], 0
-; Line 28
+; Line 34
 	lea	rcx, QWORD PTR device$[rbp]
 	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
 	lea	rdx, QWORD PTR simpleInfo$[rbp]
 	mov	rcx, rax
 	call	?defaultPipelineLayout@cow@@YAPEAUVkPipelineLayout_T@@PEAUVkDevice_T@@PEAUPipelineLayoutSimpleInfo@1@@Z ; cow::defaultPipelineLayout
 	mov	QWORD PTR layout$[rbp], rax
-; Line 30
+; Line 36
 	lea	rax, OFFSET FLAT:??_C@_04GHJNJNPO@main@
 	mov	QWORD PTR gpsi$[rbp+16], rax
-; Line 31
+; Line 37
 	lea	rax, OFFSET FLAT:??_C@_0EJ@HKLAAGEK@C?3?2Users?2anton?2source?2repos?2GPU@
 	mov	QWORD PTR gpsi$[rbp+8], rax
-; Line 32
+; Line 38
 	lea	rax, OFFSET FLAT:??_C@_0EJ@HDHKIKGP@C?3?2Users?2anton?2source?2repos?2GPU@
 	mov	QWORD PTR gpsi$[rbp], rax
-; Line 33
+; Line 39
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
 	mov	rcx, rax
 	call	?getRenderPass@Swapchain@cow@@QEBAPEAUVkRenderPass_T@@XZ ; cow::Swapchain::getRenderPass
 	mov	QWORD PTR gpsi$[rbp+336], rax
-; Line 34
+; Line 40
 	mov	rax, QWORD PTR layout$[rbp]
 	mov	QWORD PTR gpsi$[rbp+328], rax
-; Line 40
+; Line 43
 	lea	rcx, QWORD PTR gpsi$[rbp]
 	call	?defaultGraphicsPipeline@GraphicsPipelineSimpleInfo@cow@@SAXAEAU12@@Z ; cow::GraphicsPipelineSimpleInfo::defaultGraphicsPipeline
-; Line 42
+; Line 45
 	mov	edx, 32					; 00000020H
 	lea	rcx, QWORD PTR graphicsPipeline$[rbp]
-	call	?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z
+	call	?__autoclassinit2@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAX_K@Z
 	lea	r8, QWORD PTR gpsi$[rbp]
 	lea	rdx, QWORD PTR device$[rbp]
 	lea	rcx, QWORD PTR graphicsPipeline$[rbp]
-	call	??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z ; cow::GraphicsPipeline::GraphicsPipeline
+	call	??0?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z ; cow::GraphicsPipeline<cow::Vertex2DRGB>::GraphicsPipeline<cow::Vertex2DRGB>
 	npad	1
-; Line 44
+; Line 47
 	lea	rax, QWORD PTR cmdAllocInfo$[rbp]
 	mov	rdi, rax
 	xor	eax, eax
 	mov	ecx, 32					; 00000020H
 	rep stosb
-; Line 45
+; Line 48
 	mov	DWORD PTR cmdAllocInfo$[rbp], 40	; 00000028H
-; Line 46
+; Line 49
 	mov	DWORD PTR cmdAllocInfo$[rbp+24], 0
-; Line 47
+; Line 50
 	lea	rcx, QWORD PTR device$[rbp]
 	call	?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ ; cow::Device::getCommandPool
 	mov	QWORD PTR cmdAllocInfo$[rbp+16], rax
-; Line 48
+; Line 51
 	lea	rcx, QWORD PTR commandBuffers$[rbp]
 	call	?size@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEBA_KXZ ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::size
 	mov	DWORD PTR cmdAllocInfo$[rbp+28], eax
-; Line 50
+; Line 53
 	lea	rcx, QWORD PTR commandBuffers$[rbp]
 	call	?data@?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAAPEAPEAUVkCommandBuffer_T@@XZ ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::data
 	mov	QWORD PTR tv190[rbp], rax
@@ -7170,97 +12116,353 @@ $LN18:
 	mov	rcx, QWORD PTR tv188[rbp]
 	call	vkAllocateCommandBuffers
 	test	eax, eax
-	je	SHORT $LN2@main
-; Line 52
+	je	SHORT $LN4@main
+; Line 55
 	lea	rdx, OFFSET FLAT:??_C@_0CD@DMDCDDIA@failed?5to?5allocate?5command?5buff@
-	lea	rcx, QWORD PTR $T18[rbp]
+	lea	rcx, QWORD PTR $T34[rbp]
 	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
 	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
-	lea	rcx, QWORD PTR $T18[rbp]
+	lea	rcx, QWORD PTR $T34[rbp]
 	call	_CxxThrowException
+$LN4@main:
+; Line 57
+	movss	xmm0, DWORD PTR __real@3dcccccd
+	movss	DWORD PTR offset$[rbp], xmm0
+; Line 58
+	xorps	xmm0, xmm0
+	movss	DWORD PTR colorChange$[rbp], xmm0
+; Line 60
+	lea	rax, QWORD PTR value$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 16
+	rep stosb
+; Line 61
+	mov	eax, 4
+	imul	rax, rax, 0
+	movss	xmm0, DWORD PTR __real@3dcccccd
+	movss	DWORD PTR value$[rbp+rax], xmm0
+; Line 62
+	mov	eax, 4
+	imul	rax, rax, 1
+	movss	xmm0, DWORD PTR __real@3dcccccd
+	movss	DWORD PTR value$[rbp+rax], xmm0
+; Line 63
+	mov	eax, 4
+	imul	rax, rax, 2
+	movss	xmm0, DWORD PTR __real@3dcccccd
+	movss	DWORD PTR value$[rbp+rax], xmm0
+; Line 64
+	mov	eax, 4
+	imul	rax, rax, 3
+	movss	xmm0, DWORD PTR __real@3dcccccd
+	movss	DWORD PTR value$[rbp+rax], xmm0
 $LN2@main:
-; Line 55
+; Line 65
 	lea	rcx, QWORD PTR window$[rbp]
 	call	?shouldClose@Window@cow@@QEBA_NXZ	; cow::Window::shouldClose
 	movzx	eax, al
 	test	eax, eax
 	jne	$LN3@main
-; Line 57
+; Line 67
 	call	glfwPollEvents
-; Line 58
+; Line 68
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
 	mov	rcx, rax
 	call	?getCurrentFrame@Swapchain@cow@@QEBA_KXZ ; cow::Swapchain::getCurrentFrame
-	mov	QWORD PTR frameIndex$13[rbp], rax
-; Line 61
+	mov	QWORD PTR frameIndex$19[rbp], rax
+; Line 71
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	?begin@GraphicsCommands@cow@@QEAAPEAUVkCommandBuffer_T@@XZ ; cow::GraphicsCommands::begin
-	mov	QWORD PTR cmdBuffer$14[rbp], rax
-; Line 62
-	mov	rdx, QWORD PTR cmdBuffer$14[rbp]
+	mov	QWORD PTR cmdBuffer$20[rbp], rax
+; Line 72
+	lea	rax, QWORD PTR $T43[rbp]
+	lea	rcx, QWORD PTR value$[rbp]
+	mov	rdi, rax
+	mov	rsi, rcx
+	mov	ecx, 16
+	rep movsb
+	lea	r8, QWORD PTR $T43[rbp]
+	mov	rdx, QWORD PTR cmdBuffer$20[rbp]
 	lea	rcx, QWORD PTR commands$[rbp]
-	call	?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ; cow::GraphicsCommands::beginRenderPass
-; Line 63
-	mov	rdx, QWORD PTR cmdBuffer$14[rbp]
+	call	?beginRenderPass@GraphicsCommands@cow@@QEAAXPEAUVkCommandBuffer_T@@TVkClearColorValue@@@Z ; cow::GraphicsCommands::beginRenderPass
+; Line 73
+	mov	rdx, QWORD PTR cmdBuffer$20[rbp]
 	lea	rcx, QWORD PTR graphicsPipeline$[rbp]
-	call	?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ; cow::GraphicsPipeline::bind
-; Line 64
+	call	?bind@?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ; cow::GraphicsPipeline<cow::Vertex2DRGB>::bind
+; Line 75
+	mov	edx, 32					; 00000020H
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?__autoclassinit2@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX_K@Z
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	??0?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+	npad	1
+; Line 85
+	movss	xmm0, DWORD PTR __real@c0000000
+	movss	DWORD PTR outside$22[rbp], xmm0
+; Line 86
+	movss	xmm0, DWORD PTR __real@3f000000
+	movss	DWORD PTR to_the_side$23[rbp], xmm0
+; Line 87
+	movss	xmm0, DWORD PTR __real@3f35c28f
+	movss	DWORD PTR shade$24[rbp], xmm0
+; Line 89
+	movsd	xmm2, QWORD PTR __real@bfe0000000000000
+	movsd	xmm1, QWORD PTR __real@3fe0000000000000
+	lea	rcx, QWORD PTR $T35[rbp]
+	call	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z	; glm::vec<2,float,0>::vec<2,float,0><double,double>
+	xorps	xmm3, xmm3
+	xorps	xmm2, xmm2
+	movsd	xmm1, QWORD PTR __real@3ff0000000000000
+	lea	rcx, QWORD PTR $T35[rbp+8]
+	call	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z	; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+	lea	rdx, QWORD PTR $T35[rbp]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+; Line 90
+	movsd	xmm2, QWORD PTR __real@3fe0000000000000
+	movsd	xmm1, QWORD PTR __real@3ff0000000000000
+	lea	rcx, QWORD PTR $T36[rbp]
+	call	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z	; glm::vec<2,float,0>::vec<2,float,0><double,double>
+	xorps	xmm3, xmm3
+	movsd	xmm2, QWORD PTR __real@3ff0000000000000
+	xorps	xmm1, xmm1
+	lea	rcx, QWORD PTR $T36[rbp+8]
+	call	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z	; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+	lea	rdx, QWORD PTR $T36[rbp]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+; Line 91
+	movsd	xmm2, QWORD PTR __real@3fe0000000000000
+	xorps	xmm1, xmm1
+	lea	rcx, QWORD PTR $T37[rbp]
+	call	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z	; glm::vec<2,float,0>::vec<2,float,0><double,double>
+	movsd	xmm3, QWORD PTR __real@3ff0000000000000
+	xorps	xmm2, xmm2
+	xorps	xmm1, xmm1
+	lea	rcx, QWORD PTR $T37[rbp+8]
+	call	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z	; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+	lea	rdx, QWORD PTR $T37[rbp]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+; Line 94
+	cvtss2sd xmm0, DWORD PTR offset$[rbp]
+	movsd	xmm1, QWORD PTR __real@c000000000000000
+	addsd	xmm1, xmm0
+	movaps	xmm0, xmm1
+	movsd	xmm2, QWORD PTR __real@bfdccccccccccccd
+	movaps	xmm1, xmm0
+	lea	rcx, QWORD PTR $T38[rbp]
+	call	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z	; glm::vec<2,float,0>::vec<2,float,0><double,double>
+	movsd	xmm3, QWORD PTR __real@3ff0000000000000
+	xorps	xmm2, xmm2
+	xorps	xmm1, xmm1
+	lea	rcx, QWORD PTR $T38[rbp+8]
+	call	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z	; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+	lea	rdx, QWORD PTR $T38[rbp]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+; Line 95
+	cvtss2sd xmm0, DWORD PTR offset$[rbp]
+	movsd	xmm1, QWORD PTR __real@bff8000000000000
+	addsd	xmm1, xmm0
+	movaps	xmm0, xmm1
+	movsd	xmm2, QWORD PTR __real@3fe0000000000000
+	movaps	xmm1, xmm0
+	lea	rcx, QWORD PTR $T39[rbp]
+	call	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z	; glm::vec<2,float,0>::vec<2,float,0><double,double>
+	xorps	xmm3, xmm3
+	movsd	xmm2, QWORD PTR __real@3ff0000000000000
+	xorps	xmm1, xmm1
+	lea	rcx, QWORD PTR $T39[rbp+8]
+	call	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z	; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+	lea	rdx, QWORD PTR $T39[rbp]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+; Line 96
+	cvtss2sd xmm0, DWORD PTR offset$[rbp]
+	movsd	xmm1, QWORD PTR __real@c004000000000000
+	addsd	xmm1, xmm0
+	movaps	xmm0, xmm1
+	movsd	xmm2, QWORD PTR __real@3fe0000000000000
+	movaps	xmm1, xmm0
+	lea	rcx, QWORD PTR $T40[rbp]
+	call	??$?0NN@?$vec@$01M$0A@@glm@@QEAA@NN@Z	; glm::vec<2,float,0>::vec<2,float,0><double,double>
+	xorps	xmm3, xmm3
+	xorps	xmm2, xmm2
+	movsd	xmm1, QWORD PTR __real@3ff0000000000000
+	lea	rcx, QWORD PTR $T40[rbp+8]
+	call	??$?0NNN@?$vec@$02M$0A@@glm@@QEAA@NNN@Z	; glm::vec<3,float,0>::vec<3,float,0><double,double,double>
+	lea	rdx, QWORD PTR $T40[rbp]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?push_back@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAX$$QEAUVertex2DRGB@cow@@@Z ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::push_back
+; Line 98
+	cvtss2sd xmm0, DWORD PTR offset$[rbp]
+	movsd	xmm1, QWORD PTR __real@3ff8000000000000
+	comisd	xmm1, xmm0
+	jb	SHORT $LN5@main
+; Line 99
+	cvtss2sd xmm0, DWORD PTR offset$[rbp]
+	addsd	xmm0, QWORD PTR __real@3f50624dd2f1a9fc
+	cvtsd2ss xmm0, xmm0
+	movss	DWORD PTR offset$[rbp], xmm0
+$LN5@main:
+; Line 102
+	cvtss2sd xmm0, DWORD PTR offset$[rbp]
+	comisd	xmm0, QWORD PTR __real@4008000000000000
+	jb	SHORT $LN6@main
+; Line 104
+	xorps	xmm0, xmm0
+	movss	DWORD PTR offset$[rbp], xmm0
+$LN6@main:
+; Line 111
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?size@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEBA_KXZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::size
+	mov	DWORD PTR vertexCount$25[rbp], eax
+; Line 112
+	cmp	DWORD PTR vertexCount$25[rbp], 3
+	jb	SHORT $LN10@main
+	lea	rax, OFFSET FLAT:??_C@_0BP@JNGFJPNG@Vertex?5Count?5must?5be?5atleast?53@
+	test	rax, rax
+	jne	SHORT $LN11@main
+$LN10@main:
+	mov	eax, DWORD PTR ?__LINE__Var@?0??main@@9@4JA
+	add	eax, 93					; 0000005dH
+	mov	r8d, eax
+	lea	rdx, OFFSET FLAT:??_C@_1GK@IPJOBBDA@?$AAC?$AA?3?$AA?2?$AAU?$AAs?$AAe?$AAr?$AAs?$AA?2?$AAa?$AAn?$AAt?$AAo?$AAn?$AA?2@
+	lea	rcx, OFFSET FLAT:??_C@_1GK@IDNJBOAD@?$AAv?$AAe?$AAr?$AAt?$AAe?$AAx?$AAC?$AAo?$AAu?$AAn?$AAt?$AA?5?$AA?$DO?$AA?$DN?$AA?5@
+	call	QWORD PTR __imp__wassert
+	xor	eax, eax
+$LN11@main:
+; Line 113
+	mov	eax, DWORD PTR vertexCount$25[rbp]
+	imul	rax, rax, 20
+	mov	QWORD PTR bufferSize$26[rbp], rax
+; Line 115
+	mov	edx, 40					; 00000028H
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	?__autoclassinit2@Buffer@cow@@QEAAX_K@Z
+	mov	DWORD PTR [rsp+32], 6
+	mov	r9d, 1
+	mov	r8, QWORD PTR bufferSize$26[rbp]
+	lea	rdx, QWORD PTR device$[rbp]
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z	; cow::Buffer::Buffer
+	npad	1
+; Line 121
+	xor	r8d, r8d
+	mov	rdx, -1
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z ; cow::Buffer::map
+; Line 122
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	?data@?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAAPEAUVertex2DRGB@cow@@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::data
+	xor	r9d, r9d
+	mov	r8, QWORD PTR bufferSize$26[rbp]
+	mov	rdx, rax
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z	; cow::Buffer::write
+; Line 123
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	?unmap@Buffer@cow@@QEAAXXZ		; cow::Buffer::unmap
+; Line 125
+	mov	edx, 40					; 00000028H
+	lea	rcx, QWORD PTR vertexBuffer$28[rbp]
+	call	?__autoclassinit2@Buffer@cow@@QEAAX_K@Z
+	mov	DWORD PTR [rsp+32], 1
+	mov	r9d, 130				; 00000082H
+	mov	r8, QWORD PTR bufferSize$26[rbp]
+	lea	rdx, QWORD PTR device$[rbp]
+	lea	rcx, QWORD PTR vertexBuffer$28[rbp]
+	call	??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z	; cow::Buffer::Buffer
+	npad	1
+; Line 131
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ	; cow::Buffer::get
+	mov	r8, QWORD PTR bufferSize$26[rbp]
+	mov	rdx, rax
+	lea	rcx, QWORD PTR vertexBuffer$28[rbp]
+	call	?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z ; cow::Buffer::copy
+; Line 134
+	lea	rcx, QWORD PTR vertexBuffer$28[rbp]
+	call	?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ	; cow::Buffer::get
+	mov	QWORD PTR pVertexBuffers$29[rbp], rax
+; Line 135
+	mov	QWORD PTR offsets$30[rbp], 0
+; Line 136
+	lea	rax, QWORD PTR offsets$30[rbp]
+	mov	QWORD PTR [rsp+32], rax
+	lea	r9, QWORD PTR pVertexBuffers$29[rbp]
+	mov	r8d, 1
+	xor	edx, edx
+	mov	rcx, QWORD PTR cmdBuffer$20[rbp]
+	call	vkCmdBindVertexBuffers
+; Line 138
 	mov	DWORD PTR [rsp+32], 0
 	xor	r9d, r9d
 	mov	r8d, 1
-	mov	edx, 3
-	mov	rcx, QWORD PTR cmdBuffer$14[rbp]
+	mov	edx, DWORD PTR vertexCount$25[rbp]
+	mov	rcx, QWORD PTR cmdBuffer$20[rbp]
 	call	vkCmdDraw
-; Line 65
-	mov	rcx, QWORD PTR cmdBuffer$14[rbp]
+; Line 139
+	mov	rcx, QWORD PTR cmdBuffer$20[rbp]
 	call	vkCmdEndRenderPass
-; Line 66
-	mov	rcx, QWORD PTR cmdBuffer$14[rbp]
+; Line 140
+	mov	rcx, QWORD PTR cmdBuffer$20[rbp]
 	call	vkEndCommandBuffer
 	test	eax, eax
-	je	SHORT $LN5@main
-; Line 68
+	je	SHORT $LN7@main
+; Line 142
 	lea	rdx, OFFSET FLAT:??_C@_0BI@KCJMGAAL@failed?5to?5end?5cmdBuffer@
-	lea	rcx, QWORD PTR $T19[rbp]
+	lea	rcx, QWORD PTR $T41[rbp]
 	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
 	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
-	lea	rcx, QWORD PTR $T19[rbp]
+	lea	rcx, QWORD PTR $T41[rbp]
 	call	_CxxThrowException
-$LN5@main:
-; Line 70
+$LN7@main:
+; Line 144
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	?getCurrentImageIndex@GraphicsCommands@cow@@QEAAIXZ ; cow::GraphicsCommands::getCurrentImageIndex
-	mov	DWORD PTR index$15[rbp], eax
-; Line 71
+	mov	DWORD PTR index$31[rbp], eax
+; Line 145
 	lea	rcx, QWORD PTR commands$[rbp]
 	call	??C?$unique_ptr@VSwapchain@cow@@U?$default_delete@VSwapchain@cow@@@std@@@std@@QEBAPEAVSwapchain@cow@@XZ ; std::unique_ptr<cow::Swapchain,std::default_delete<cow::Swapchain> >::operator->
-	mov	QWORD PTR tv264[rbp], rax
-	lea	r8, QWORD PTR index$15[rbp]
-	lea	rdx, QWORD PTR cmdBuffer$14[rbp]
-	mov	rcx, QWORD PTR tv264[rbp]
+	mov	QWORD PTR tv401[rbp], rax
+	lea	r8, QWORD PTR index$31[rbp]
+	lea	rdx, QWORD PTR cmdBuffer$20[rbp]
+	mov	rcx, QWORD PTR tv401[rbp]
 	call	?submit@Swapchain@cow@@QEAA?AW4VkResult@@PEBQEAUVkCommandBuffer_T@@PEAI@Z ; cow::Swapchain::submit
-	mov	DWORD PTR result$16[rbp], eax
-; Line 73
-	cmp	DWORD PTR result$16[rbp], 0
-	je	SHORT $LN6@main
-; Line 75
+	mov	DWORD PTR result$32[rbp], eax
+; Line 147
+	cmp	DWORD PTR result$32[rbp], 0
+	je	SHORT $LN8@main
+; Line 149
 	lea	rdx, OFFSET FLAT:??_C@_0BB@LLDEEIKC@ASFDHFHUFDUHUYIF@
-	lea	rcx, QWORD PTR $T20[rbp]
+	lea	rcx, QWORD PTR $T42[rbp]
 	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
 	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
-	lea	rcx, QWORD PTR $T20[rbp]
+	lea	rcx, QWORD PTR $T42[rbp]
 	call	_CxxThrowException
-$LN6@main:
-; Line 77
+$LN8@main:
+; Line 151
 	lea	rcx, QWORD PTR device$[rbp]
 	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
 	mov	rcx, rax
 	call	vkDeviceWaitIdle
-; Line 80
+	npad	1
+; Line 154
+	lea	rcx, QWORD PTR vertexBuffer$28[rbp]
+	call	??1Buffer@cow@@QEAA@XZ			; cow::Buffer::~Buffer
+	npad	1
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	??1Buffer@cow@@QEAA@XZ			; cow::Buffer::~Buffer
+	npad	1
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
 	jmp	$LN2@main
 $LN3@main:
-; Line 81
+; Line 155
 	lea	rcx, QWORD PTR device$[rbp]
 	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
 	xor	r8d, r8d
@@ -7268,9 +12470,9 @@ $LN3@main:
 	mov	rcx, rax
 	call	vkDestroyPipelineLayout
 	npad	1
-; Line 82
+; Line 156
 	lea	rcx, QWORD PTR graphicsPipeline$[rbp]
-	call	??1GraphicsPipeline@cow@@QEAA@XZ	; cow::GraphicsPipeline::~GraphicsPipeline
+	call	??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ ; cow::GraphicsPipeline<cow::Vertex2DRGB>::~GraphicsPipeline<cow::Vertex2DRGB>
 	npad	1
 	lea	rcx, QWORD PTR gpsi$[rbp]
 	call	??1GraphicsPipelineSimpleInfo@cow@@QEAA@XZ
@@ -7286,11 +12488,11 @@ $LN3@main:
 	npad	1
 	lea	rcx, QWORD PTR commandBuffers$[rbp]
 	call	??1?$vector@PEAUVkCommandBuffer_T@@V?$allocator@PEAUVkCommandBuffer_T@@@std@@@std@@QEAA@XZ ; std::vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >::~vector<VkCommandBuffer_T *,std::allocator<VkCommandBuffer_T *> >
-	jmp	SHORT $LN16@main
-	jmp	SHORT $LN15@main
-$LN16@main:
+	jmp	SHORT $LN23@main
+	jmp	SHORT $LN22@main
+$LN23@main:
 	xor	eax, eax
-$LN15@main:
+$LN22@main:
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
 	lea	rdx, OFFSET FLAT:main$rtcFrameData
@@ -7299,11 +12501,12 @@ $LN15@main:
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+1784]
+	lea	rsp, QWORD PTR [rbp+3024]
 	pop	rdi
+	pop	rsi
 	pop	rbp
 	ret	0
-$LN17@main:
+$LN24@main:
 main	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
@@ -7318,19 +12521,39 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main$dtor$0 PROC
 	mov	QWORD PTR [rsp+8], rcx
 	mov	QWORD PTR [rsp+16], rdx
@@ -7358,19 +12581,39 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main$dtor$1 PROC
 	mov	QWORD PTR [rsp+8], rcx
 	mov	QWORD PTR [rsp+16], rdx
@@ -7398,19 +12641,39 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main$dtor$2 PROC
 	mov	QWORD PTR [rsp+8], rcx
 	mov	QWORD PTR [rsp+16], rdx
@@ -7438,19 +12701,39 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main$dtor$3 PROC
 	mov	QWORD PTR [rsp+8], rcx
 	mov	QWORD PTR [rsp+16], rdx
@@ -7478,19 +12761,39 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main$dtor$5 PROC
 	mov	QWORD PTR [rsp+8], rcx
 	mov	QWORD PTR [rsp+16], rdx
@@ -7518,19 +12821,39 @@ simpleInfo$ = 664
 layout$ = 728
 graphicsPipeline$ = 760
 cmdAllocInfo$ = 824
-frameIndex$13 = 888
-cmdBuffer$14 = 920
-index$15 = 948
-result$16 = 980
-$T17 = 1588
-$T18 = 1624
-$T19 = 1672
-$T20 = 1720
-tv264 = 1752
-tv190 = 1752
-tv82 = 1752
-tv188 = 1760
-__$ArrayPad$ = 1768
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
 main$dtor$6 PROC
 	mov	QWORD PTR [rsp+8], rcx
 	mov	QWORD PTR [rsp+16], rdx
@@ -7539,13 +12862,226 @@ main$dtor$6 PROC
 	sub	rsp, 40					; 00000028H
 	lea	rbp, QWORD PTR [rdx+48]
 	lea	rcx, QWORD PTR graphicsPipeline$[rbp]
-	call	??1GraphicsPipeline@cow@@QEAA@XZ	; cow::GraphicsPipeline::~GraphicsPipeline
+	call	??1?$GraphicsPipeline@UVertex2DRGB@cow@@@cow@@QEAA@XZ ; cow::GraphicsPipeline<cow::Vertex2DRGB>::~GraphicsPipeline<cow::Vertex2DRGB>
 	add	rsp, 40					; 00000028H
 	pop	rdi
 	pop	rbp
 	ret	0
 main$dtor$6 ENDP
 text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+commandBuffers$ = 8
+window$ = 72
+device$ = 128
+commands$ = 216
+gpsi$ = 288
+simpleInfo$ = 664
+layout$ = 728
+graphicsPipeline$ = 760
+cmdAllocInfo$ = 824
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
+main$dtor$7 PROC
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+48]
+	lea	rcx, QWORD PTR vertices$21[rbp]
+	call	??1?$vector@UVertex2DRGB@cow@@V?$allocator@UVertex2DRGB@cow@@@std@@@std@@QEAA@XZ ; std::vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >::~vector<cow::Vertex2DRGB,std::allocator<cow::Vertex2DRGB> >
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+main$dtor$7 ENDP
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+commandBuffers$ = 8
+window$ = 72
+device$ = 128
+commands$ = 216
+gpsi$ = 288
+simpleInfo$ = 664
+layout$ = 728
+graphicsPipeline$ = 760
+cmdAllocInfo$ = 824
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
+main$dtor$8 PROC
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+48]
+	lea	rcx, QWORD PTR stagingBuffer$27[rbp]
+	call	??1Buffer@cow@@QEAA@XZ			; cow::Buffer::~Buffer
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+main$dtor$8 ENDP
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT text$x
+text$x	SEGMENT
+commandBuffers$ = 8
+window$ = 72
+device$ = 128
+commands$ = 216
+gpsi$ = 288
+simpleInfo$ = 664
+layout$ = 728
+graphicsPipeline$ = 760
+cmdAllocInfo$ = 824
+offset$ = 884
+colorChange$ = 916
+value$ = 952
+frameIndex$19 = 1000
+cmdBuffer$20 = 1032
+vertices$21 = 1064
+outside$22 = 1124
+to_the_side$23 = 1156
+shade$24 = 1188
+vertexCount$25 = 1220
+bufferSize$26 = 1256
+stagingBuffer$27 = 1288
+vertexBuffer$28 = 1352
+pVertexBuffers$29 = 1416
+offsets$30 = 1448
+index$31 = 1476
+result$32 = 1508
+$T33 = 2500
+$T34 = 2536
+$T35 = 2580
+$T36 = 2628
+$T37 = 2676
+$T38 = 2724
+$T39 = 2772
+$T40 = 2820
+$T41 = 2872
+$T42 = 2920
+$T43 = 2976
+tv401 = 3000
+tv190 = 3000
+tv82 = 3000
+tv188 = 3008
+__$ArrayPad$ = 3016
+main$dtor$9 PROC
+	mov	QWORD PTR [rsp+8], rcx
+	mov	QWORD PTR [rsp+16], rdx
+	push	rbp
+	push	rdi
+	sub	rsp, 40					; 00000028H
+	lea	rbp, QWORD PTR [rdx+48]
+	lea	rcx, QWORD PTR vertexBuffer$28[rbp]
+	call	??1Buffer@cow@@QEAA@XZ			; cow::Buffer::~Buffer
+	add	rsp, 40					; 00000028H
+	pop	rdi
+	pop	rbp
+	ret	0
+main$dtor$9 ENDP
+text$x	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?lerp@@YAMMMM@Z
+_TEXT	SEGMENT
+a$ = 224
+b$ = 232
+t$ = 240
+?lerp@@YAMMMM@Z PROC					; lerp, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp
+; Line 14
+$LN3:
+	movss	DWORD PTR [rsp+24], xmm2
+	movss	DWORD PTR [rsp+16], xmm1
+	movss	DWORD PTR [rsp+8], xmm0
+	push	rbp
+	push	rdi
+	sub	rsp, 248				; 000000f8H
+	lea	rbp, QWORD PTR [rsp+48]
+	lea	rcx, OFFSET FLAT:__D63E6CC3_Source@cpp
+	call	__CheckForDebuggerJustMyCode
+; Line 15
+	movss	xmm0, DWORD PTR __real@3f800000
+	subss	xmm0, DWORD PTR t$[rbp]
+	mulss	xmm0, DWORD PTR a$[rbp]
+	movss	xmm1, DWORD PTR t$[rbp]
+	mulss	xmm1, DWORD PTR b$[rbp]
+	addss	xmm0, xmm1
+; Line 16
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?lerp@@YAMMMM@Z ENDP					; lerp
+_TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ?__autoclassinit2@GraphicsCommands@cow@@QEAAX_K@Z
 _TEXT	SEGMENT
@@ -7618,11 +13154,11 @@ $LN3:
 ?getCurrentImageIndex@GraphicsCommands@cow@@QEAAIXZ ENDP ; cow::GraphicsCommands::getCurrentImageIndex
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z
+;	COMDAT ?__autoclassinit2@Buffer@cow@@QEAAX_K@Z
 _TEXT	SEGMENT
 this$ = 224
 classSize$ = 232
-?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::__autoclassinit2, COMDAT
+?__autoclassinit2@Buffer@cow@@QEAAX_K@Z PROC		; cow::Buffer::__autoclassinit2, COMDAT
 $LN3:
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -7638,759 +13174,620 @@ $LN3:
 	pop	rdi
 	pop	rbp
 	ret	0
-?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::__autoclassinit2
+?__autoclassinit2@Buffer@cow@@QEAAX_K@Z ENDP		; cow::Buffer::__autoclassinit2
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
+;	COMDAT ?createBuffer@Buffer@cow@@AEAAXII@Z
 _TEXT	SEGMENT
-this$ = 224
-?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ PROC ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
-; Line 1377
-$LN3:
+createInfo$ = 8
+memRequirements$ = 88
+allocInfo$ = 136
+memProperties$ = 208
+i$ = 756
+$T7 = 1176
+$T8 = 1224
+tv207 = 1252
+tv175 = 1256
+tv147 = 1256
+tv93 = 1256
+tv70 = 1256
+tv173 = 1264
+tv91 = 1264
+tv171 = 1272
+__$ArrayPad$ = 1280
+this$ = 1328
+usage$ = 1336
+properties$ = 1344
+?createBuffer@Buffer@cow@@AEAAXII@Z PROC		; cow::Buffer::createBuffer, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 33
+$LN9:
+	mov	DWORD PTR [rsp+24], r8d
+	mov	DWORD PTR [rsp+16], edx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 232				; 000000e8H
-	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
-	call	__CheckForDebuggerJustMyCode
-; Line 1378
-	mov	rax, QWORD PTR this$[rbp]
-; Line 1379
-	lea	rsp, QWORD PTR [rbp+200]
-	pop	rdi
-	pop	rbp
-	ret	0
-?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ENDP ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ
-_TEXT	SEGMENT
-this$ = 224
-?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
-; Line 2027
-$LN3:
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 232				; 000000e8H
-	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
-	call	__CheckForDebuggerJustMyCode
-; Line 2028
-	mov	rax, QWORD PTR this$[rbp]
-	mov	rcx, rax
-	call	?_Get_first@?$_Compressed_pair@V?$allocator@UVkVertexInputAttributeDescription@@@std@@V?$_Vector_val@U?$_Simple_types@UVkVertexInputAttributeDescription@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::_Compressed_pair<std::allocator<VkVertexInputAttributeDescription>,std::_Vector_val<std::_Simple_types<VkVertexInputAttributeDescription> >,1>::_Get_first
-; Line 2029
-	lea	rsp, QWORD PTR [rbp+200]
-	pop	rdi
-	pop	rbp
-	ret	0
-?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ
-_TEXT	SEGMENT
-_Al$ = 8
-_My_data$ = 40
-_Myfirst$ = 72
-_Mylast$ = 104
-_Myend$ = 136
-this$ = 384
-?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
-; Line 1881
-$LN4:
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 392				; 00000188H
-	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
-	call	__CheckForDebuggerJustMyCode
-; Line 1882
-	mov	rcx, QWORD PTR this$[rbp]
-	call	?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
-	mov	QWORD PTR _Al$[rbp], rax
-; Line 1883
-	mov	rax, QWORD PTR this$[rbp]
-	mov	QWORD PTR _My_data$[rbp], rax
-; Line 1884
-	mov	rax, QWORD PTR _My_data$[rbp]
-	add	rax, 8
-	mov	QWORD PTR _Myfirst$[rbp], rax
-; Line 1885
-	mov	rax, QWORD PTR _My_data$[rbp]
-	add	rax, 16
-	mov	QWORD PTR _Mylast$[rbp], rax
-; Line 1886
-	mov	rax, QWORD PTR _My_data$[rbp]
-	add	rax, 24
-	mov	QWORD PTR _Myend$[rbp], rax
-; Line 1888
-	mov	rcx, QWORD PTR _My_data$[rbp]
-	call	?_Orphan_all@_Container_base12@std@@QEAAXXZ ; std::_Container_base12::_Orphan_all
-; Line 1890
-	mov	rax, QWORD PTR _Myfirst$[rbp]
-	cmp	QWORD PTR [rax], 0
-	je	SHORT $LN2@Tidy
-; Line 1891
-	mov	r8, QWORD PTR _Al$[rbp]
-	mov	rax, QWORD PTR _Mylast$[rbp]
-	mov	rdx, QWORD PTR [rax]
-	mov	rax, QWORD PTR _Myfirst$[rbp]
-	mov	rcx, QWORD PTR [rax]
-	call	??$_Destroy_range@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@YAXPEAUVkVertexInputAttributeDescription@@QEAU1@AEAV?$allocator@UVkVertexInputAttributeDescription@@@0@@Z ; std::_Destroy_range<std::allocator<VkVertexInputAttributeDescription> >
-; Line 1893
-	mov	rax, QWORD PTR _Myend$[rbp]
-	mov	rcx, QWORD PTR _Myfirst$[rbp]
-	mov	rcx, QWORD PTR [rcx]
-	mov	rax, QWORD PTR [rax]
-	sub	rax, rcx
-	sar	rax, 4
-	mov	r8, rax
-	mov	rax, QWORD PTR _Myfirst$[rbp]
-	mov	rdx, QWORD PTR [rax]
-	mov	rcx, QWORD PTR _Al$[rbp]
-	call	?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z ; std::allocator<VkVertexInputAttributeDescription>::deallocate
-; Line 1895
-	mov	rax, QWORD PTR _Myfirst$[rbp]
-	mov	QWORD PTR [rax], 0
-; Line 1896
-	mov	rax, QWORD PTR _Mylast$[rbp]
-	mov	QWORD PTR [rax], 0
-; Line 1897
-	mov	rax, QWORD PTR _Myend$[rbp]
-	mov	QWORD PTR [rax], 0
-$LN2@Tidy:
-; Line 1899
-	lea	rsp, QWORD PTR [rbp+360]
-	pop	rdi
-	pop	rbp
-	ret	0
-?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ
-_TEXT	SEGMENT
-_Alproxy$ = 8
-$S2$ = 36
-$T4 = 260
-__$ArrayPad$ = 280
-this$ = 320
-??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ PROC ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector
-; Line 790
-$LN3:
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 328				; 00000148H
+	sub	rsp, 1336				; 00000538H
 	lea	rbp, QWORD PTR [rsp+32]
 	lea	rdi, QWORD PTR [rsp+32]
-	mov	ecx, 26
+	mov	ecx, 230				; 000000e6H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+360]
+	mov	rcx, QWORD PTR [rsp+1368]
 	mov	rax, QWORD PTR __security_cookie
 	xor	rax, rbp
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
-	lea	rcx, OFFSET FLAT:__63D5BD4C_vector
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
 	call	__CheckForDebuggerJustMyCode
-; Line 791
-	mov	rcx, QWORD PTR this$[rbp]
-	call	?_Tidy@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAXXZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Tidy
-; Line 793
-	mov	rcx, QWORD PTR this$[rbp]
-	call	?_Getal@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@AEAAAEAV?$allocator@UVkVertexInputAttributeDescription@@@2@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::_Getal
-	mov	rdx, rax
-	lea	rcx, QWORD PTR $S2$[rbp]
-	call	??$?0UVkVertexInputAttributeDescription@@@?$allocator@U_Container_proxy@std@@@std@@QEAA@AEBV?$allocator@UVkVertexInputAttributeDescription@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><VkVertexInputAttributeDescription>
-	lea	rax, QWORD PTR $S2$[rbp]
-	mov	QWORD PTR _Alproxy$[rbp], rax
-; Line 794
-	mov	QWORD PTR $T4[rbp], 0
+; Line 34
+	lea	rax, QWORD PTR createInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 56					; 00000038H
+	rep stosb
+; Line 35
+	mov	DWORD PTR createInfo$[rbp], 12
+; Line 36
 	mov	rax, QWORD PTR this$[rbp]
-	lea	rdx, QWORD PTR $T4[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	QWORD PTR createInfo$[rbp+24], rax
+; Line 37
+	mov	eax, DWORD PTR usage$[rbp]
+	mov	DWORD PTR createInfo$[rbp+32], eax
+; Line 38
+	mov	DWORD PTR createInfo$[rbp+36], 0
+; Line 39
+	mov	rax, QWORD PTR this$[rbp]
+	add	rax, 16
+	mov	QWORD PTR tv70[rbp], rax
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rcx+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	rcx, QWORD PTR tv70[rbp]
+	mov	r9, rcx
+	xor	r8d, r8d
+	lea	rdx, QWORD PTR createInfo$[rbp]
 	mov	rcx, rax
-	call	??$exchange@PEAU_Container_proxy@std@@$$T@std@@YAPEAU_Container_proxy@0@AEAPEAU10@$$QEA$$T@Z ; std::exchange<std::_Container_proxy *,std::nullptr_t>
-	mov	rdx, rax
-	mov	rcx, QWORD PTR _Alproxy$[rbp]
-	call	??$_Delete_plain_internal@V?$allocator@U_Container_proxy@std@@@std@@@std@@YAXAEAV?$allocator@U_Container_proxy@std@@@0@QEAU_Container_proxy@0@@Z ; std::_Delete_plain_internal<std::allocator<std::_Container_proxy> >
-; Line 796
+	call	vkCreateBuffer
+	test	eax, eax
+	je	SHORT $LN5@createBuff
+; Line 41
+	lea	rdx, OFFSET FLAT:??_C@_0CA@IGKKDGOC@failed?5to?5create?5vertex?5buffer?$CB@
+	lea	rcx, QWORD PTR $T7[rbp]
+	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
+	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
+	lea	rcx, QWORD PTR $T7[rbp]
+	call	_CxxThrowException
+$LN5@createBuff:
+; Line 44
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+16]
+	mov	QWORD PTR tv93[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv91[rbp], rax
+	lea	r8, QWORD PTR memRequirements$[rbp]
+	mov	rdx, QWORD PTR tv93[rbp]
+	mov	rcx, QWORD PTR tv91[rbp]
+	call	vkGetBufferMemoryRequirements
+; Line 46
+	lea	rax, QWORD PTR allocInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 32					; 00000020H
+	rep stosb
+; Line 47
+	mov	DWORD PTR allocInfo$[rbp], 5
+; Line 48
+	mov	rax, QWORD PTR memRequirements$[rbp]
+	mov	QWORD PTR allocInfo$[rbp+16], rax
+; Line 51
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ ; cow::Device::getPhysicalDevice
+	lea	rdx, QWORD PTR memProperties$[rbp]
+	mov	rcx, rax
+	call	vkGetPhysicalDeviceMemoryProperties
+; Line 52
+	mov	DWORD PTR i$[rbp], 0
+; Line 53
+	jmp	SHORT $LN4@createBuff
+$LN2@createBuff:
+	mov	eax, DWORD PTR i$[rbp]
+	inc	eax
+	mov	DWORD PTR i$[rbp], eax
+$LN4@createBuff:
+	mov	eax, DWORD PTR memProperties$[rbp]
+	cmp	DWORD PTR i$[rbp], eax
+	jae	SHORT $LN3@createBuff
+; Line 54
+	mov	eax, DWORD PTR i$[rbp]
+	mov	ecx, 1
+	mov	DWORD PTR tv207[rbp], ecx
+	movzx	ecx, al
+	mov	eax, DWORD PTR tv207[rbp]
+	shl	eax, cl
+	mov	ecx, DWORD PTR memRequirements$[rbp+16]
+	and	ecx, eax
+	mov	eax, ecx
+	test	eax, eax
+	je	SHORT $LN6@createBuff
+	mov	eax, DWORD PTR i$[rbp]
+	mov	ecx, DWORD PTR properties$[rbp]
+	mov	eax, DWORD PTR memProperties$[rbp+rax*8+4]
+	and	eax, ecx
+	cmp	eax, DWORD PTR properties$[rbp]
+	jne	SHORT $LN6@createBuff
+; Line 56
+	jmp	SHORT $LN3@createBuff
+$LN6@createBuff:
+; Line 58
+	jmp	SHORT $LN2@createBuff
+$LN3@createBuff:
+; Line 60
+	mov	eax, DWORD PTR i$[rbp]
+	mov	DWORD PTR allocInfo$[rbp+24], eax
+; Line 62
+	mov	rax, QWORD PTR this$[rbp]
+	add	rax, 8
+	mov	QWORD PTR tv147[rbp], rax
+	mov	rcx, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rcx+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	rcx, QWORD PTR tv147[rbp]
+	mov	r9, rcx
+	xor	r8d, r8d
+	lea	rdx, QWORD PTR allocInfo$[rbp]
+	mov	rcx, rax
+	call	vkAllocateMemory
+	test	eax, eax
+	je	SHORT $LN7@createBuff
+; Line 64
+	lea	rdx, OFFSET FLAT:??_C@_0CJ@NNDFOAFL@failed?5to?5allocate?5vertex?5buffe@
+	lea	rcx, QWORD PTR $T8[rbp]
+	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
+	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
+	lea	rcx, QWORD PTR $T8[rbp]
+	call	_CxxThrowException
+$LN7@createBuff:
+; Line 66
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+	mov	QWORD PTR tv175[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+16]
+	mov	QWORD PTR tv173[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv171[rbp], rax
+	xor	r9d, r9d
+	mov	r8, QWORD PTR tv175[rbp]
+	mov	rdx, QWORD PTR tv173[rbp]
+	mov	rcx, QWORD PTR tv171[rbp]
+	call	vkBindBufferMemory
+$LN8@createBuff:
+; Line 67
 	lea	rcx, QWORD PTR [rbp-32]
-	lea	rdx, OFFSET FLAT:??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ$rtcFrameData
+	lea	rdx, OFFSET FLAT:?createBuffer@Buffer@cow@@AEAAXII@Z$rtcFrameData
 	call	_RTC_CheckStackVars
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+296]
+	lea	rsp, QWORD PTR [rbp+1304]
 	pop	rdi
 	pop	rbp
 	ret	0
-??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ENDP ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+?createBuffer@Buffer@cow@@AEAAXII@Z ENDP		; cow::Buffer::createBuffer
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z
+;	COMDAT ?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ
 _TEXT	SEGMENT
 this$ = 224
-_Ptr$ = 232
-_Count$ = 240
-?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z PROC ; std::allocator<VkVertexInputAttributeDescription>::deallocate, COMDAT
-; File C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xmemory
-; Line 827
-$LN13:
+?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ PROC		; cow::Buffer::get, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 21
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+16]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?get@Buffer@cow@@QEAAPEAUVkBuffer_T@@XZ ENDP		; cow::Buffer::get
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z
+_TEXT	SEGMENT
+allocInfo$ = 8
+commandBuffer$ = 72
+beginInfo$ = 104
+copyRegion$ = 168
+submitInfo$ = 224
+tv154 = 504
+tv152 = 512
+__$ArrayPad$ = 520
+this$ = 560
+src$ = 568
+size$ = 576
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z PROC	; cow::Buffer::copy, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 76
+$LN3:
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 248				; 000000f8H
+	sub	rsp, 584				; 00000248H
 	lea	rbp, QWORD PTR [rsp+48]
-	lea	rcx, OFFSET FLAT:__48ED051B_xmemory
+	lea	rdi, QWORD PTR [rsp+48]
+	mov	ecx, 86					; 00000056H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+616]
+	mov	rax, QWORD PTR __security_cookie
+	xor	rax, rbp
+	mov	QWORD PTR __$ArrayPad$[rbp], rax
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
 	call	__CheckForDebuggerJustMyCode
-$LN4@deallocate:
-; Line 828
-	cmp	QWORD PTR _Ptr$[rbp], 0
-	jne	SHORT $LN10@deallocate
-	cmp	QWORD PTR _Count$[rbp], 0
-	jne	SHORT $LN8@deallocate
-$LN10@deallocate:
-	jmp	SHORT $LN9@deallocate
-$LN8@deallocate:
-$LN7@deallocate:
-	lea	rax, OFFSET FLAT:??_C@_0DG@KGHKKGBC@null?5pointer?5cannot?5point?5to?5a?5@
-	mov	QWORD PTR [rsp+40], rax
-	lea	rax, OFFSET FLAT:??_C@_02DKCKIIND@?$CFs@
-	mov	QWORD PTR [rsp+32], rax
-	xor	r9d, r9d
-	mov	r8d, 828				; 0000033cH
-	lea	rdx, OFFSET FLAT:??_C@_0GC@DJFHHHKN@C?3?2Program?5Files?2Microsoft?5Visu@
-	mov	ecx, 2
-	call	QWORD PTR __imp__CrtDbgReport
-	cmp	eax, 1
-	jne	SHORT $LN12@deallocate
-	int	3
+; Line 78
+	lea	rax, QWORD PTR allocInfo$[rbp]
+	mov	rdi, rax
 	xor	eax, eax
-$LN12@deallocate:
-	mov	QWORD PTR [rsp+32], 0
-	mov	r9d, 828				; 0000033cH
-	lea	r8, OFFSET FLAT:??_C@_1ME@GEFGDEOM@?$AAC?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe@
-	lea	rdx, OFFSET FLAT:??_C@_11LOCGONAA@@
-	lea	rcx, OFFSET FLAT:??_C@_1HA@FACCKGGH@?$AA?$CC?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?5?$AAc@
-	call	QWORD PTR __imp__invalid_parameter
-	xor	eax, eax
-	test	eax, eax
-	jne	SHORT $LN7@deallocate
-$LN9@deallocate:
-	xor	eax, eax
-	test	eax, eax
-	jne	$LN4@deallocate
-; Line 830
-	imul	rax, QWORD PTR _Count$[rbp], 16
-	mov	rdx, rax
-	mov	rcx, QWORD PTR _Ptr$[rbp]
-	call	??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z ; std::_Deallocate<16,0>
-; Line 831
-	lea	rsp, QWORD PTR [rbp+200]
-	pop	rdi
-	pop	rbp
-	ret	0
-?deallocate@?$allocator@UVkVertexInputAttributeDescription@@@std@@QEAAXQEAUVkVertexInputAttributeDescription@@_K@Z ENDP ; std::allocator<VkVertexInputAttributeDescription>::deallocate
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z
-_TEXT	SEGMENT
-this$ = 224
-classSize$ = 232
-?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z PROC	; cow::GraphicsPipeline::__autoclassinit2, COMDAT
-$LN3:
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 200				; 000000c8H
-	mov	rbp, rsp
-	mov	rdi, QWORD PTR this$[rbp]
-	xor	eax, eax
-	mov	rcx, QWORD PTR classSize$[rbp]
+	mov	ecx, 32					; 00000020H
 	rep stosb
-	lea	rsp, QWORD PTR [rbp+200]
+; Line 79
+	mov	DWORD PTR allocInfo$[rbp], 40		; 00000028H
+; Line 80
+	mov	DWORD PTR allocInfo$[rbp+24], 0
+; Line 81
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ ; cow::Device::getCommandPool
+	mov	QWORD PTR allocInfo$[rbp+16], rax
+; Line 82
+	mov	DWORD PTR allocInfo$[rbp+28], 1
+; Line 85
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	lea	r8, QWORD PTR commandBuffer$[rbp]
+	lea	rdx, QWORD PTR allocInfo$[rbp]
+	mov	rcx, rax
+	call	vkAllocateCommandBuffers
+; Line 87
+	lea	rax, QWORD PTR beginInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 32					; 00000020H
+	rep stosb
+; Line 88
+	mov	DWORD PTR beginInfo$[rbp], 42		; 0000002aH
+; Line 89
+	mov	DWORD PTR beginInfo$[rbp+16], 1
+; Line 91
+	lea	rdx, QWORD PTR beginInfo$[rbp]
+	mov	rcx, QWORD PTR commandBuffer$[rbp]
+	call	vkBeginCommandBuffer
+; Line 93
+	lea	rax, QWORD PTR copyRegion$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 24
+	rep stosb
+; Line 94
+	mov	QWORD PTR copyRegion$[rbp], 0
+; Line 95
+	mov	QWORD PTR copyRegion$[rbp+8], 0
+; Line 96
+	mov	rax, QWORD PTR size$[rbp]
+	mov	QWORD PTR copyRegion$[rbp+16], rax
+; Line 98
+	lea	rax, QWORD PTR copyRegion$[rbp]
+	mov	QWORD PTR [rsp+32], rax
+	mov	r9d, 1
+	mov	rax, QWORD PTR this$[rbp]
+	mov	r8, QWORD PTR [rax+16]
+	mov	rdx, QWORD PTR src$[rbp]
+	mov	rcx, QWORD PTR commandBuffer$[rbp]
+	call	vkCmdCopyBuffer
+; Line 100
+	mov	rcx, QWORD PTR commandBuffer$[rbp]
+	call	vkEndCommandBuffer
+; Line 102
+	lea	rax, QWORD PTR submitInfo$[rbp]
+	mov	rdi, rax
+	xor	eax, eax
+	mov	ecx, 72					; 00000048H
+	rep stosb
+; Line 103
+	mov	DWORD PTR submitInfo$[rbp], 4
+; Line 104
+	mov	DWORD PTR submitInfo$[rbp+40], 1
+; Line 105
+	lea	rax, QWORD PTR commandBuffer$[rbp]
+	mov	QWORD PTR submitInfo$[rbp+48], rax
+; Line 107
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ ; cow::Device::getGraphicsQueue
+	xor	r9d, r9d
+	lea	r8, QWORD PTR submitInfo$[rbp]
+	mov	edx, 1
+	mov	rcx, rax
+	call	vkQueueSubmit
+; Line 108
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ ; cow::Device::getGraphicsQueue
+	mov	rcx, rax
+	call	vkQueueWaitIdle
+; Line 110
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ ; cow::Device::getCommandPool
+	mov	QWORD PTR tv154[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv152[rbp], rax
+	lea	r9, QWORD PTR commandBuffer$[rbp]
+	mov	r8d, 1
+	mov	rdx, QWORD PTR tv154[rbp]
+	mov	rcx, QWORD PTR tv152[rbp]
+	call	vkFreeCommandBuffers
+; Line 111
+	lea	rcx, QWORD PTR [rbp-48]
+	lea	rdx, OFFSET FLAT:?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
+	xor	rcx, rbp
+	call	__security_check_cookie
+	lea	rsp, QWORD PTR [rbp+536]
 	pop	rdi
 	pop	rbp
 	ret	0
-?__autoclassinit2@GraphicsPipeline@cow@@QEAAX_K@Z ENDP	; cow::GraphicsPipeline::__autoclassinit2
+?copy@Buffer@cow@@QEAAXPEAUVkBuffer_T@@_K@Z ENDP	; cow::Buffer::copy
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z
+;	COMDAT ?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z
 _TEXT	SEGMENT
 this$ = 224
-cmdBuffer$ = 232
-?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z PROC ; cow::GraphicsPipeline::bind, COMDAT
-; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Pipelines.hpp
-; Line 13
-$LN3:
+data$ = 232
+size$ = 240
+offset$ = 248
+?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z PROC		; cow::Buffer::write, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 126
+$LN4:
+	mov	QWORD PTR [rsp+32], r9
+	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
 	sub	rsp, 232				; 000000e8H
 	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__32DA32DB_Pipelines@hpp
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
 	call	__CheckForDebuggerJustMyCode
+; Line 127
+	cmp	QWORD PTR size$[rbp], -1
+	jne	SHORT $LN2@write
+; Line 128
 	mov	rax, QWORD PTR this$[rbp]
-	mov	r8, QWORD PTR [rax+16]
-	xor	edx, edx
-	mov	rcx, QWORD PTR cmdBuffer$[rbp]
-	call	vkCmdBindPipeline
+	mov	r8, QWORD PTR [rax]
+	mov	rdx, QWORD PTR data$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+24]
+	call	memcpy
+	jmp	SHORT $LN1@write
+$LN2@write:
+; Line 129
+	mov	r8, QWORD PTR size$[rbp]
+	mov	rdx, QWORD PTR data$[rbp]
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR offset$[rbp]
+	mov	rcx, QWORD PTR [rax+rcx*8+24]
+	call	memcpy
+$LN1@write:
+; Line 130
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
 	pop	rbp
 	ret	0
-?bind@GraphicsPipeline@cow@@QEAAXPEAUVkCommandBuffer_T@@@Z ENDP ; cow::GraphicsPipeline::bind
+?write@Buffer@cow@@QEAAPEAXPEAX_K1@Z ENDP		; cow::Buffer::write
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??1GraphicsPipeline@cow@@QEAA@XZ
+;	COMDAT ?unmap@Buffer@cow@@QEAAXXZ
 _TEXT	SEGMENT
-tv128 = 192
+tv75 = 192
+tv73 = 200
+this$ = 240
+?unmap@Buffer@cow@@QEAAXXZ PROC				; cow::Buffer::unmap, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 119
+$LN4:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 248				; 000000f8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
+	call	__CheckForDebuggerJustMyCode
+; Line 120
+	mov	rax, QWORD PTR this$[rbp]
+	cmp	QWORD PTR [rax+24], 0
+	je	SHORT $LN2@unmap
+; Line 121
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+	mov	QWORD PTR tv75[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv73[rbp], rax
+	mov	rdx, QWORD PTR tv75[rbp]
+	mov	rcx, QWORD PTR tv73[rbp]
+	call	vkUnmapMemory
+; Line 122
+	mov	rax, QWORD PTR this$[rbp]
+	mov	QWORD PTR [rax+24], 0
+$LN2@unmap:
+; Line 124
+	lea	rsp, QWORD PTR [rbp+216]
+	pop	rdi
+	pop	rbp
+	ret	0
+?unmap@Buffer@cow@@QEAAXXZ ENDP				; cow::Buffer::unmap
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z
+_TEXT	SEGMENT
+tv79 = 192
+tv77 = 200
+this$ = 240
+size$ = 248
+offset$ = 256
+?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z PROC		; cow::Buffer::map, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 14
+$LN3:
+	mov	QWORD PTR [rsp+24], r8
+	mov	QWORD PTR [rsp+16], rdx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 264				; 00000108H
+	lea	rbp, QWORD PTR [rsp+48]
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
+	call	__CheckForDebuggerJustMyCode
+; Line 15
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+8]
+	mov	QWORD PTR tv79[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR [rax+32]
+	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
+	mov	QWORD PTR tv77[rbp], rax
+	mov	rax, QWORD PTR this$[rbp]
+	add	rax, 24
+	mov	QWORD PTR [rsp+40], rax
+	mov	DWORD PTR [rsp+32], 0
+	mov	r9, QWORD PTR size$[rbp]
+	mov	r8, QWORD PTR offset$[rbp]
+	mov	rdx, QWORD PTR tv79[rbp]
+	mov	rcx, QWORD PTR tv77[rbp]
+	call	vkMapMemory
+; Line 16
+	lea	rsp, QWORD PTR [rbp+216]
+	pop	rdi
+	pop	rbp
+	ret	0
+?map@Buffer@cow@@QEAA?AW4VkResult@@_K0@Z ENDP		; cow::Buffer::map
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ??1Buffer@cow@@QEAA@XZ
+_TEXT	SEGMENT
 tv85 = 192
 tv74 = 192
-tv94 = 200
 tv83 = 200
 tv72 = 200
 this$ = 240
-??1GraphicsPipeline@cow@@QEAA@XZ PROC			; cow::GraphicsPipeline::~GraphicsPipeline, COMDAT
-; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Pipelines.hpp
-; Line 127
+??1Buffer@cow@@QEAA@XZ PROC				; cow::Buffer::~Buffer, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 114
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
 	sub	rsp, 248				; 000000f8H
 	lea	rbp, QWORD PTR [rsp+32]
-	lea	rcx, OFFSET FLAT:__32DA32DB_Pipelines@hpp
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
 	call	__CheckForDebuggerJustMyCode
-; Line 128
+; Line 115
 	mov	rax, QWORD PTR this$[rbp]
-	mov	rax, QWORD PTR [rax]
+	mov	rax, QWORD PTR [rax+8]
 	mov	QWORD PTR tv74[rbp], rax
 	mov	rax, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR [rax+24]
+	mov	rcx, QWORD PTR [rax+32]
 	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
 	mov	QWORD PTR tv72[rbp], rax
 	xor	r8d, r8d
 	mov	rdx, QWORD PTR tv74[rbp]
 	mov	rcx, QWORD PTR tv72[rbp]
-	call	vkDestroyShaderModule
-; Line 129
+	call	vkFreeMemory
+; Line 116
 	mov	rax, QWORD PTR this$[rbp]
-	mov	rax, QWORD PTR [rax+8]
+	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR tv85[rbp], rax
 	mov	rax, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR [rax+24]
+	mov	rcx, QWORD PTR [rax+32]
 	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
 	mov	QWORD PTR tv83[rbp], rax
 	xor	r8d, r8d
 	mov	rdx, QWORD PTR tv85[rbp]
 	mov	rcx, QWORD PTR tv83[rbp]
-	call	vkDestroyShaderModule
-; Line 130
-	mov	rax, QWORD PTR this$[rbp]
-	mov	rax, QWORD PTR [rax+16]
-	mov	QWORD PTR tv128[rbp], rax
-	mov	rax, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR [rax+24]
-	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
-	mov	QWORD PTR tv94[rbp], rax
-	xor	r8d, r8d
-	mov	rdx, QWORD PTR tv128[rbp]
-	mov	rcx, QWORD PTR tv94[rbp]
-	call	vkDestroyPipeline
+	call	vkDestroyBuffer
 	npad	1
-; Line 131
+; Line 117
 	lea	rsp, QWORD PTR [rbp+216]
 	pop	rdi
 	pop	rbp
 	ret	0
-??1GraphicsPipeline@cow@@QEAA@XZ ENDP			; cow::GraphicsPipeline::~GraphicsPipeline
+??1Buffer@cow@@QEAA@XZ ENDP				; cow::Buffer::~Buffer
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT ??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z
+;	COMDAT ??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z
 _TEXT	SEGMENT
-shaderStages$ = 16
-bindDesc$ = 136
-attrDesc$ = 184
-vertexInputInfo$ = 248
-inputAssemblyInfo$ = 328
-viewportInfo$ = 392
-rasterizationInfo$ = 480
-createInfo$ = 576
-$T11 = 1128
-$T12 = 1176
-tv205 = 1208
-tv86 = 1208
-tv75 = 1208
-tv84 = 1216
-tv73 = 1216
-__$ArrayPad$ = 1224
-this$ = 1264
-device$ = 1272
-pCreateInfo$ = 1280
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z PROC ; cow::GraphicsPipeline::GraphicsPipeline, COMDAT
-; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Pipelines.hpp
-; Line 23
-$LN6:
+this$ = 224
+device$ = 232
+size$ = 240
+usage$ = 248
+properties$ = 256
+??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z PROC		; cow::Buffer::Buffer, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Buffer.hpp
+; Line 72
+$LN3:
+	mov	DWORD PTR [rsp+32], r9d
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
-	push	rsi
 	push	rdi
-	sub	rsp, 1280				; 00000500H
-	lea	rbp, QWORD PTR [rsp+48]
-	lea	rdi, QWORD PTR [rsp+48]
-	mov	ecx, 212				; 000000d4H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	rcx, QWORD PTR [rsp+1320]
-	mov	rax, QWORD PTR __security_cookie
-	xor	rax, rbp
-	mov	QWORD PTR __$ArrayPad$[rbp], rax
-	lea	rcx, OFFSET FLAT:__32DA32DB_Pipelines@hpp
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__4ED58781_Buffer@hpp
 	call	__CheckForDebuggerJustMyCode
-; Line 22
-	mov	rax, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR device$[rbp]
-	mov	QWORD PTR [rax+24], rcx
-; Line 24
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	mov	rax, QWORD PTR [rax]
-	mov	QWORD PTR tv75[rbp], rax
-	mov	rcx, QWORD PTR device$[rbp]
-	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
-	mov	QWORD PTR tv73[rbp], rax
-	mov	rdx, QWORD PTR tv75[rbp]
-	mov	rcx, QWORD PTR tv73[rbp]
-	call	?createShaderModule@cow@@YAPEAUVkShaderModule_T@@PEAUVkDevice_T@@PEBD@Z ; cow::createShaderModule
-	mov	rcx, QWORD PTR this$[rbp]
-	mov	QWORD PTR [rcx], rax
-; Line 25
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	mov	rax, QWORD PTR [rax+8]
-	mov	QWORD PTR tv86[rbp], rax
-	mov	rcx, QWORD PTR device$[rbp]
-	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
-	mov	QWORD PTR tv84[rbp], rax
-	mov	rdx, QWORD PTR tv86[rbp]
-	mov	rcx, QWORD PTR tv84[rbp]
-	call	?createShaderModule@cow@@YAPEAUVkShaderModule_T@@PEAUVkDevice_T@@PEBD@Z ; cow::createShaderModule
-	mov	rcx, QWORD PTR this$[rbp]
-	mov	QWORD PTR [rcx+8], rax
-; Line 27
-	lea	rax, QWORD PTR shaderStages$[rbp]
-	mov	rdi, rax
-	xor	eax, eax
-	mov	ecx, 96					; 00000060H
-	rep stosb
-; Line 28
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	DWORD PTR shaderStages$[rbp+rax], 18
-; Line 29
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	DWORD PTR shaderStages$[rbp+rax+20], 1
-; Line 30
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	rcx, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR [rcx]
-	mov	QWORD PTR shaderStages$[rbp+rax+24], rcx
-; Line 31
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	rcx, QWORD PTR pCreateInfo$[rbp]
-	mov	rcx, QWORD PTR [rcx+16]
-	mov	QWORD PTR shaderStages$[rbp+rax+32], rcx
-; Line 32
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	DWORD PTR shaderStages$[rbp+rax+16], 0
-; Line 33
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	QWORD PTR shaderStages$[rbp+rax+8], 0
-; Line 34
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 0
-	mov	QWORD PTR shaderStages$[rbp+rax+40], 0
-; Line 36
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	DWORD PTR shaderStages$[rbp+rax], 18
-; Line 37
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	DWORD PTR shaderStages$[rbp+rax+20], 16
-; Line 38
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	rcx, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR [rcx+8]
-	mov	QWORD PTR shaderStages$[rbp+rax+24], rcx
-; Line 39
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	rcx, QWORD PTR pCreateInfo$[rbp]
-	mov	rcx, QWORD PTR [rcx+16]
-	mov	QWORD PTR shaderStages$[rbp+rax+32], rcx
-; Line 40
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	DWORD PTR shaderStages$[rbp+rax+16], 0
-; Line 41
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	QWORD PTR shaderStages$[rbp+rax+8], 0
-; Line 42
-	mov	eax, 48					; 00000030H
-	imul	rax, rax, 1
-	mov	QWORD PTR shaderStages$[rbp+rax+40], 0
-; Line 48
-	lea	rcx, QWORD PTR $T11[rbp]
-	call	?bindingDescription@Vertex2DSRGB@cow@@SA?AUVkVertexInputBindingDescription@@XZ ; cow::Vertex2DSRGB::bindingDescription
-	lea	rcx, QWORD PTR bindDesc$[rbp]
-	mov	rdi, rcx
-	mov	rsi, rax
-	mov	ecx, 12
-	rep movsb
-; Line 49
-	mov	edx, 32					; 00000020H
-	lea	rcx, QWORD PTR attrDesc$[rbp]
-	call	?__autoclassinit2@?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAAX_K@Z
-	lea	rcx, QWORD PTR attrDesc$[rbp]
-	call	?attributeDescriptions@Vertex2DSRGB@cow@@SA?AV?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@XZ ; cow::Vertex2DSRGB::attributeDescriptions
-	npad	1
-; Line 51
-	lea	rax, QWORD PTR vertexInputInfo$[rbp]
-	mov	rdi, rax
-	xor	eax, eax
-	mov	ecx, 48					; 00000030H
-	rep stosb
-; Line 52
-	mov	DWORD PTR vertexInputInfo$[rbp], 19
-; Line 60
-	lea	rax, QWORD PTR inputAssemblyInfo$[rbp]
-	mov	rdi, rax
-	xor	eax, eax
-	mov	ecx, 32					; 00000020H
-	rep stosb
-; Line 61
-	mov	DWORD PTR inputAssemblyInfo$[rbp], 20
-; Line 62
-	mov	DWORD PTR inputAssemblyInfo$[rbp+20], 3
-; Line 63
-	mov	DWORD PTR inputAssemblyInfo$[rbp+24], 0
-; Line 64
-	mov	DWORD PTR inputAssemblyInfo$[rbp+16], 0
-; Line 65
-	mov	QWORD PTR inputAssemblyInfo$[rbp+8], 0
-; Line 69
-	lea	rax, QWORD PTR viewportInfo$[rbp]
-	mov	rdi, rax
-	xor	eax, eax
-	mov	ecx, 48					; 00000030H
-	rep stosb
 ; Line 70
-	mov	DWORD PTR viewportInfo$[rbp], 22
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR size$[rbp]
+	mov	QWORD PTR [rax], rcx
 ; Line 71
-	mov	DWORD PTR viewportInfo$[rbp+20], 1
-; Line 72
-	mov	QWORD PTR viewportInfo$[rbp+24], 0
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rcx, QWORD PTR device$[rbp]
+	mov	QWORD PTR [rax+32], rcx
 ; Line 73
-	mov	DWORD PTR viewportInfo$[rbp+32], 1
-; Line 74
-	mov	QWORD PTR viewportInfo$[rbp+40], 0
-; Line 78
-	lea	rax, QWORD PTR rasterizationInfo$[rbp]
-	mov	rdi, rax
-	xor	eax, eax
-	mov	ecx, 64					; 00000040H
-	rep stosb
-; Line 79
-	mov	DWORD PTR rasterizationInfo$[rbp], 23
-; Line 80
-	mov	DWORD PTR rasterizationInfo$[rbp+20], 0
-; Line 81
-	mov	DWORD PTR rasterizationInfo$[rbp+24], 0
-; Line 82
-	mov	DWORD PTR rasterizationInfo$[rbp+28], 0
-; Line 83
-	movss	xmm0, DWORD PTR __real@3f800000
-	movss	DWORD PTR rasterizationInfo$[rbp+56], xmm0
-; Line 84
-	mov	DWORD PTR rasterizationInfo$[rbp+32], 0
-; Line 85
-	mov	DWORD PTR rasterizationInfo$[rbp+36], 1
-; Line 86
-	mov	DWORD PTR rasterizationInfo$[rbp+40], 0
-; Line 87
-	xorps	xmm0, xmm0
-	movss	DWORD PTR rasterizationInfo$[rbp+44], xmm0
-; Line 88
-	xorps	xmm0, xmm0
-	movss	DWORD PTR rasterizationInfo$[rbp+48], xmm0
-; Line 89
-	xorps	xmm0, xmm0
-	movss	DWORD PTR rasterizationInfo$[rbp+52], xmm0
-; Line 93
-	lea	rax, QWORD PTR createInfo$[rbp]
-	mov	rdi, rax
-	xor	eax, eax
-	mov	ecx, 144				; 00000090H
-	rep stosb
-; Line 94
-	mov	DWORD PTR createInfo$[rbp], 28
-; Line 95
-	mov	QWORD PTR createInfo$[rbp+8], 0
-; Line 96
-	mov	DWORD PTR createInfo$[rbp+16], 0
-; Line 97
-	mov	DWORD PTR createInfo$[rbp+20], 2
-; Line 98
-	lea	rax, QWORD PTR shaderStages$[rbp]
-	mov	QWORD PTR createInfo$[rbp+24], rax
-; Line 99
-	lea	rax, QWORD PTR vertexInputInfo$[rbp]
-	mov	QWORD PTR createInfo$[rbp+32], rax
-; Line 100
-	lea	rax, QWORD PTR inputAssemblyInfo$[rbp]
-	mov	QWORD PTR createInfo$[rbp+40], rax
-; Line 101
-	mov	QWORD PTR createInfo$[rbp+48], 0
-; Line 102
-	lea	rax, QWORD PTR viewportInfo$[rbp]
-	mov	QWORD PTR createInfo$[rbp+56], rax
-; Line 103
-	lea	rax, QWORD PTR rasterizationInfo$[rbp]
-	mov	QWORD PTR createInfo$[rbp+64], rax
-; Line 104
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	add	rax, 24
-	mov	QWORD PTR createInfo$[rbp+72], rax
-; Line 105
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	add	rax, 160				; 000000a0H
-	mov	QWORD PTR createInfo$[rbp+80], rax
-; Line 106
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	add	rax, 104				; 00000068H
-	mov	QWORD PTR createInfo$[rbp+88], rax
-; Line 107
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	add	rax, 296				; 00000128H
-	mov	QWORD PTR createInfo$[rbp+96], rax
-; Line 108
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	mov	rax, QWORD PTR [rax+328]
-	mov	QWORD PTR createInfo$[rbp+104], rax
-; Line 109
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	mov	rax, QWORD PTR [rax+336]
-	mov	QWORD PTR createInfo$[rbp+112], rax
-; Line 110
-	mov	rax, QWORD PTR pCreateInfo$[rbp]
-	mov	eax, DWORD PTR [rax+344]
-	mov	DWORD PTR createInfo$[rbp+120], eax
-; Line 111
-	mov	QWORD PTR createInfo$[rbp+128], 0
-; Line 112
-	mov	DWORD PTR createInfo$[rbp+136], -1
-; Line 120
-	mov	rax, QWORD PTR this$[rbp]
-	add	rax, 16
-	mov	QWORD PTR tv205[rbp], rax
+	mov	r8d, DWORD PTR properties$[rbp]
+	mov	edx, DWORD PTR usage$[rbp]
 	mov	rcx, QWORD PTR this$[rbp]
-	mov	rcx, QWORD PTR [rcx+24]
-	call	?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ; cow::Device::getDevice
-	mov	rcx, QWORD PTR tv205[rbp]
-	mov	QWORD PTR [rsp+40], rcx
-	mov	QWORD PTR [rsp+32], 0
-	lea	r9, QWORD PTR createInfo$[rbp]
-	mov	r8d, 1
-	xor	edx, edx
-	mov	rcx, rax
-	call	vkCreateGraphicsPipelines
-	test	eax, eax
-	je	SHORT $LN2@GraphicsPi
-; Line 122
-	lea	rdx, OFFSET FLAT:??_C@_0CD@JOEKPGKM@failed?5to?5create?5graphics?5pipel@
-	lea	rcx, QWORD PTR $T12[rbp]
-	call	??0runtime_error@std@@QEAA@PEBD@Z	; std::runtime_error::runtime_error
-	lea	rdx, OFFSET FLAT:_TI2?AVruntime_error@std@@
-	lea	rcx, QWORD PTR $T12[rbp]
-	call	_CxxThrowException
-	npad	1
-$LN2@GraphicsPi:
-; Line 124
-	lea	rcx, QWORD PTR attrDesc$[rbp]
-	call	??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
+	call	?createBuffer@Buffer@cow@@AEAAXII@Z	; cow::Buffer::createBuffer
+; Line 74
 	mov	rax, QWORD PTR this$[rbp]
-	mov	rdi, rax
-	lea	rcx, QWORD PTR [rbp-48]
-	lea	rdx, OFFSET FLAT:??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z$rtcFrameData
-	call	_RTC_CheckStackVars
-	mov	rax, rdi
-	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
-	xor	rcx, rbp
-	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+1232]
+	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
-	pop	rsi
 	pop	rbp
 	ret	0
-$LN5@GraphicsPi:
-??0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z ENDP ; cow::GraphicsPipeline::GraphicsPipeline
+??0Buffer@cow@@QEAA@AEAVDevice@1@_KII@Z ENDP		; cow::Buffer::Buffer
 _TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-;	COMDAT text$x
-text$x	SEGMENT
-shaderStages$ = 16
-bindDesc$ = 136
-attrDesc$ = 184
-vertexInputInfo$ = 248
-inputAssemblyInfo$ = 328
-viewportInfo$ = 392
-rasterizationInfo$ = 480
-createInfo$ = 576
-$T11 = 1128
-$T12 = 1176
-tv205 = 1208
-tv86 = 1208
-tv75 = 1208
-tv84 = 1216
-tv73 = 1216
-__$ArrayPad$ = 1224
-this$ = 1264
-device$ = 1272
-pCreateInfo$ = 1280
-?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA PROC ; `cow::GraphicsPipeline::GraphicsPipeline'::`1'::dtor$0
-	mov	QWORD PTR [rsp+8], rcx
-	mov	QWORD PTR [rsp+16], rdx
-	push	rbp
-	push	rdi
-	sub	rsp, 40					; 00000028H
-	lea	rbp, QWORD PTR [rdx+48]
-	lea	rcx, QWORD PTR attrDesc$[rbp]
-	call	??1?$vector@UVkVertexInputAttributeDescription@@V?$allocator@UVkVertexInputAttributeDescription@@@std@@@std@@QEAA@XZ ; std::vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >::~vector<VkVertexInputAttributeDescription,std::allocator<VkVertexInputAttributeDescription> >
-	add	rsp, 40					; 00000028H
-	pop	rdi
-	pop	rbp
-	ret	0
-?dtor$0@?0???0GraphicsPipeline@cow@@QEAA@AEAVDevice@1@PEAUGraphicsPipelineSimpleInfo@1@@Z@4HA ENDP ; `cow::GraphicsPipeline::GraphicsPipeline'::`1'::dtor$0
-text$x	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ??1GraphicsPipelineSimpleInfo@cow@@QEAA@XZ
 _TEXT	SEGMENT
@@ -8838,12 +14235,35 @@ $LN3:
 ?__autoclassinit2@Device@cow@@QEAAX_K@Z ENDP		; cow::Device::__autoclassinit2
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ
+_TEXT	SEGMENT
+this$ = 224
+?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ PROC ; cow::Device::getGraphicsQueue, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
+; Line 42
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__61615CFA_Device@hpp
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+40]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?getGraphicsQueue@Device@cow@@QEAAPEAUVkQueue_T@@XZ ENDP ; cow::Device::getGraphicsQueue
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ
 _TEXT	SEGMENT
 this$ = 224
 ?getCommandPool@Device@cow@@QEAAPEAUVkCommandPool_T@@XZ PROC ; cow::Device::getCommandPool, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
-; Line 42
+; Line 41
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -8866,7 +14286,7 @@ _TEXT	SEGMENT
 this$ = 224
 ?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ PROC	; cow::Device::getDevice, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
-; Line 41
+; Line 40
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -8882,6 +14302,29 @@ $LN3:
 	pop	rbp
 	ret	0
 ?getDevice@Device@cow@@QEAAPEAUVkDevice_T@@XZ ENDP	; cow::Device::getDevice
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+;	COMDAT ?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ
+_TEXT	SEGMENT
+this$ = 224
+?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ PROC ; cow::Device::getPhysicalDevice, COMDAT
+; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Device.hpp
+; Line 39
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	lea	rcx, OFFSET FLAT:__61615CFA_Device@hpp
+	call	__CheckForDebuggerJustMyCode
+	mov	rax, QWORD PTR this$[rbp]
+	mov	rax, QWORD PTR [rax+16]
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+?getPhysicalDevice@Device@cow@@QEAAPEAUVkPhysicalDevice_T@@XZ ENDP ; cow::Device::getPhysicalDevice
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ;	COMDAT ?__autoclassinit2@Window@cow@@QEAAX_K@Z
@@ -10201,7 +15644,7 @@ __formal$ = 232
 __formal$ = 240
 ?__empty_global_delete@@YAXPEAX_KW4align_val_t@std@@@Z PROC ; __empty_global_delete, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp
-; Line 83
+; Line 157
 $LN3:
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -10225,7 +15668,7 @@ __formal$ = 224
 __formal$ = 232
 ?__empty_global_delete@@YAXPEAXW4align_val_t@std@@@Z PROC ; __empty_global_delete, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp
-; Line 83
+; Line 157
 $LN3:
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -10248,7 +15691,7 @@ __formal$ = 224
 __formal$ = 232
 ?__empty_global_delete@@YAXPEAX_K@Z PROC		; __empty_global_delete, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp
-; Line 83
+; Line 157
 $LN3:
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -10270,7 +15713,7 @@ _TEXT	SEGMENT
 __formal$ = 224
 ?__empty_global_delete@@YAXPEAX@Z PROC			; __empty_global_delete, COMDAT
 ; File C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp
-; Line 83
+; Line 157
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
