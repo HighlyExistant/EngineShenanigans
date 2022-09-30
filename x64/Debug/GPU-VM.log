@@ -1,9 +1,1 @@
-﻿  Source.cpp
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(63,20): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(67,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(68,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(69,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(70,24): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(78,30): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\anton\source\repos\GPU-VM\GPU-VM\Source.cpp(110,19): warning C4305: '+=': truncation from 'double' to 'float'
-  GPU-VM.vcxproj -> C:\Users\anton\source\repos\GPU-VM\x64\Debug\GPU-VM.exe
+﻿

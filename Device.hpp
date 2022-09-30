@@ -94,6 +94,9 @@ namespace cow
 		inline void freeCommandBuffers(VkCommandPool commandPool, uint32_t commandBufferCount, VkCommandBuffer* commandBuffer) 
 			const { vkFreeCommandBuffers(m_device, commandPool, commandBufferCount, commandBuffer); }
 
+		uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
+		VkCommandBuffer beginSingleTimeCommands();
+		void endSingleTimeCommands(VkCommandBuffer commandBuffer);
 	private:
 		// -=-=-=-=-=-=- Private Member Constructor Functions -=-=-=-=-=-=-
 		VkPhysicalDevice createSurface_and_findPhysicalDevice(Window *window);

@@ -6,8 +6,6 @@
 #include <glm/glm.hpp>
 namespace cow 
 {
-
-
 	class EmptyObject
 	{
 	public:
@@ -17,18 +15,6 @@ namespace cow
 		{
 			static id_t currentId = 0;
 			return EmptyObject(currentId++);
-		}
-		template<class T>
-		void pushConstant(VkCommandBuffer cmdBuffer, VkPipelineLayout layout, VkShaderStageFlags flags, T push)
-		{
-			vkCmdPushConstants(
-				cmdBuffer,
-				layout,
-				flags,
-				0,
-				sizeof(T),
-				&push
-			)
 		}
 		~EmptyObject();
 

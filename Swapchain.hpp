@@ -48,7 +48,6 @@ namespace cow
 		VkExtent2D			chooseExtent2D(const VkSurfaceCapabilitiesKHR& capabilities);
 	
 		void createRenderingObjects();
-		uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
 		void createSyncObjects();
 		
 		VkExtent2D m_windowExtent;

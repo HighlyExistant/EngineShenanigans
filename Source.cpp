@@ -1,12 +1,11 @@
 // #include "Instance.hpp"
 
 #include <iostream>
-#include "Device.hpp"
-#include "Swapchain.hpp"
-#include "Pipelines.hpp"
-#include "Buffer.hpp"
-#include "GraphicsCommands.hpp"
-#include "Model.hpp"
+#include "CowHeaders.hpp"
+#include "Texture.hpp"
+#include "Windows.h"
+using namespace cow;
+
 struct SimplePushConstantData
 {
 	glm::vec2 modelvec;
@@ -15,29 +14,45 @@ float lerp(float a, float b, float t)
 {
 	return (1 - t) * a + t * b;
 }
+class RenderObject 
+	: public EmptyObject, 
+	public Model2DComponent, 
+	public PushConstantComponent<SimplePushConstantData>
+{
+public:
+	RenderObject(Device& device, std::vector<Vertex2DRGB> vertices2d)
+		: EmptyObject{ EmptyObject::create() },
+		Model2DComponent{ device, vertices2d }
+	{}
+	RenderObject(Device& device,uint32_t size, Vertex2DRGB *vertices2d)
+		: EmptyObject{ EmptyObject::create() },
+		Model2DComponent{ device, size, vertices2d }
+	{}
+	~RenderObject() {}
+};
 
 int main()
 {
-	std::vector<VkCommandBuffer> commandBuffers(cow::Swapchain::MAX_FRAMES);
+	std::vector<VkCommandBuffer> commandBuffers(Swapchain::MAX_FRAMES);
 
-	std::cout << "\n\n" << sizeof(cow::Swapchain) << "\n\n";
-	cow::Window window(800, 500, "name");
+	std::cout << "\n\n" << sizeof(Swapchain) << "\n\n";
+	Window window(800, 500, "name");
 
-	cow::Device device(window, nullptr, 0);
+	Device device(window, nullptr, 0);
 
-	cow::GraphicsCommands commands{ device };
+	GraphicsCommands commands{ device };
 
-	cow::GraphicsPipelineSimpleInfo gpsi{};
+	GraphicsPipelineSimpleInfo gpsi{};
 
 	VkPushConstantRange pushConstants{};
 	pushConstants.offset = 0;
 	pushConstants.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
 	pushConstants.size = sizeof(SimplePushConstantData);
-	cow::PipelineLayoutSimpleInfo simpleInfo{};
+	PipelineLayoutSimpleInfo simpleInfo{};
 	simpleInfo.pPushConstantRanges = &pushConstants;
 	simpleInfo.pushConstantCount = 1;
 	
-	VkPipelineLayout layout = cow::defaultPipelineLayout(device.getDevice(), &simpleInfo);
+	VkPipelineLayout layout = defaultPipelineLayout(device.getDevice(), &simpleInfo);
 	
 	gpsi.pEntry = "main";
 	gpsi.pFragpath = "C:\\Users\\anton\\source\\repos\\GPU-VM\\GPU-VM\\Shaders\\simple_shader.frag.spv";
@@ -46,9 +61,9 @@ int main()
 	gpsi.pipelineLayout = layout;
 	
 
-	cow::GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi);
+	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi);
 
-	cow::GraphicsPipeline<cow::Vertex2DRGB> graphicsPipeline{device, &gpsi };
+	GraphicsPipeline<Vertex2DRGB> graphicsPipeline{device, &gpsi };
 	// Allocate Command Buffers
 	VkCommandBufferAllocateInfo cmdAllocInfo{};
 	cmdAllocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -69,26 +84,36 @@ int main()
 	value.float32[2] = 0.1;
 	value.float32[3] = 0.1;
 
-
-	std::vector<cow::Vertex2DRGB> verticesMain;
-	std::vector<cow::Vertex2DRGB> verticesOther;
-
 	constexpr float outside = -2;
 	constexpr float to_the_side = 0.50;
 	constexpr float shade = 0.71;
-	// Main Triangle
-	verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } });
-	verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } });
-	verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } });
+	/*Vertex2DRGB verticesMain[] =
+	{
+		{{0.0 + to_the_side, -0.5 }, {1.0 , 0.0, 0.0 }},
+		{{0.5 + to_the_side , 0.5 }, {0.0, 1.0 , 0.0 }},
+		{{-0.5 + to_the_side , 0.5}, {0.0 , 0.0 , 1.0}}
+	};*/
+	 std::vector<Vertex2DRGB> verticesMain;
+	std::vector<Vertex2DRGB> verticesOther;
+
+	 // Main Triangle
+	 verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } });
+	 verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } });
+	 verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } });
 
 	// Meeting with this person
-	verticesOther.push_back({ {(0.0 + outside) + offset, -0.45 }, {0.0 , 0.0 , 1.0  } });
-	verticesOther.push_back({ {(0.5 + outside) + offset ,0.5 }, {0.0 , 1.0 , 0.0 } });
-	verticesOther.push_back({ {(-0.5 + outside) + offset , 0.5 }, {1.0 , 0.0 , 0.0 } });
-
-	cow::Model2D modelMain{ device, verticesMain };
-	cow::Model2D modelOther{ device, verticesOther };
-
+	verticesOther.push_back({ {(0.0 + outside) + offset, -0.45	},	{0.0 , 0.0 , 1.0	} });
+	verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5		},	{0.0 , 1.0 , 0.0	} });
+	verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5		},	{1.0 , 0.0 , 0.0	} });
+	 
+	RenderObject modelMain{ device,verticesMain };
+	RenderObject modelOther{ device, verticesOther };
+	std::vector<RenderObject*> models{};
+	models.push_back(&modelMain);
+	models.push_back(&modelOther);
+	Texture texture{ device, "C:\\Users\\anton\\Downloads\\pic_goes_hard.png" };
+	texture.createTextureImageView();
+	Sleep(10000);
 	while (!window.shouldClose())
 	{
 		glfwPollEvents();
@@ -98,32 +123,25 @@ int main()
 		VkCommandBuffer cmdBuffer = commands.begin();
 		commands.beginRenderPass(cmdBuffer, value);
 		graphicsPipeline.bind(cmdBuffer);
-		// Vertex Buffer Start
 
-		
-		// Vertex Buffer End
-		// Binding
-		SimplePushConstantData data{};
-		SimplePushConstantData otherdata{};
-		otherdata.modelvec = { 0.0, 0.0 };
-		data.modelvec = { 0.0 + offset, 0.0 };
+		//Drawing
 		offset += 0.0001;
-		modelOther.pushConst(cmdBuffer,
-			layout,
-			VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
-			&data
-		);
-		modelOther.bind(cmdBuffer);
-		modelOther.draw(cmdBuffer);
+		modelOther.push_constant_data.modelvec = { 0.0 + offset, 0.0 };
+		modelMain.push_constant_data.modelvec = { 0.0 , 0.0 };
 
-		modelMain.pushConst(cmdBuffer,
-			layout,
-			VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
-			&otherdata
-		);
-		modelMain.bind(cmdBuffer);
-		modelMain.draw(cmdBuffer);
-			// // Drawing
+		for (size_t i = 0; i < models.size(); i++)
+		{
+			models.data()[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
+			models.data()[i]->bind(cmdBuffer);
+			models.data()[i]->draw(cmdBuffer);
+		}
+		if (offset >= 2.0) 
+		{
+			offset = 0.0;
+		}
+		
+		
+		// Ending
 		vkCmdEndRenderPass(cmdBuffer);
 		if (vkEndCommandBuffer(cmdBuffer) != VK_SUCCESS) 
 		{
@@ -137,8 +155,6 @@ int main()
 			throw std::runtime_error("ASFDHFHUFDUHUYIF");
 		}
 		vkDeviceWaitIdle(device.getDevice());
-		// Begin Swap chain render pass
-		// VkCommandBuffer buffer = 
 	}
 	vkDestroyPipelineLayout(device.getDevice(), layout, nullptr);
 }

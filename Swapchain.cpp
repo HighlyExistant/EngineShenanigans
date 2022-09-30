@@ -320,7 +320,7 @@ namespace cow
 			VkMemoryAllocateInfo allocInfo{};
 			allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
 			allocInfo.allocationSize = memRequirements.size;
-			allocInfo.memoryTypeIndex = findMemoryType(memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
+			allocInfo.memoryTypeIndex = m_ref_device.findMemoryType(memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
 			if (vkAllocateMemory(m_ref_device.m_device, &allocInfo, nullptr, &m_depthResources[i].memory) != VK_SUCCESS)
 			{
 				throw std::runtime_error("failed to allocate image memory!");
@@ -399,18 +399,6 @@ namespace cow
 		}
 	}
 #pragma warning( pop )
-	uint32_t Swapchain::findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties) {
-		VkPhysicalDeviceMemoryProperties memProperties;
-		vkGetPhysicalDeviceMemoryProperties(m_ref_device.m_physicalDevice, &memProperties);
-		for (uint32_t i = 0; i < memProperties.memoryTypeCount; i++) {
-			if ((typeFilter & (1 << i)) &&
-				(memProperties.memoryTypes[i].propertyFlags & properties) == properties) {
-				return i;
-			}
-		}
-
-		throw std::runtime_error("failed to find suitable memory type!");
-	}
 
 	VkResult Swapchain::nextImage(uint32_t* imageIndex)
 	{

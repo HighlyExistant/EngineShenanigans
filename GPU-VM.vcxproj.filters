@@ -71,11 +71,20 @@
     <ClInclude Include="Buffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderObject.hpp">
+    <ClInclude Include="EmptyObject.hpp">
       <Filter>ObjectComponents\Header</Filter>
     </ClInclude>
     <ClInclude Include="Model.hpp">
       <Filter>ObjectComponents\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PushConstant.hpp">
+      <Filter>ObjectComponents\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CowHeaders.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
