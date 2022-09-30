@@ -6,9 +6,10 @@
 #include "Pipelines.hpp"
 #include "Buffer.hpp"
 #include "GraphicsCommands.hpp"
+#include "Model.hpp"
 struct SimplePushConstantData
 {
-	
+	glm::vec2 modelvec;
 };
 float lerp(float a, float b, float t) 
 {
@@ -28,9 +29,14 @@ int main()
 
 	cow::GraphicsPipelineSimpleInfo gpsi{};
 
+	VkPushConstantRange pushConstants{};
+	pushConstants.offset = 0;
+	pushConstants.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+	pushConstants.size = sizeof(SimplePushConstantData);
 	cow::PipelineLayoutSimpleInfo simpleInfo{};
-	simpleInfo.pPushConstantRanges = nullptr;
-	simpleInfo.pushConstantCount = 0;
+	simpleInfo.pPushConstantRanges = &pushConstants;
+	simpleInfo.pushConstantCount = 1;
+	
 	VkPipelineLayout layout = cow::defaultPipelineLayout(device.getDevice(), &simpleInfo);
 	
 	gpsi.pEntry = "main";
@@ -62,6 +68,27 @@ int main()
 	value.float32[1] = 0.1;
 	value.float32[2] = 0.1;
 	value.float32[3] = 0.1;
+
+
+	std::vector<cow::Vertex2DRGB> verticesMain;
+	std::vector<cow::Vertex2DRGB> verticesOther;
+
+	constexpr float outside = -2;
+	constexpr float to_the_side = 0.50;
+	constexpr float shade = 0.71;
+	// Main Triangle
+	verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } });
+	verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } });
+	verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } });
+
+	// Meeting with this person
+	verticesOther.push_back({ {(0.0 + outside) + offset, -0.45 }, {0.0 , 0.0 , 1.0  } });
+	verticesOther.push_back({ {(0.5 + outside) + offset ,0.5 }, {0.0 , 1.0 , 0.0 } });
+	verticesOther.push_back({ {(-0.5 + outside) + offset , 0.5 }, {1.0 , 0.0 , 0.0 } });
+
+	cow::Model2D modelMain{ device, verticesMain };
+	cow::Model2D modelOther{ device, verticesOther };
+
 	while (!window.shouldClose())
 	{
 		glfwPollEvents();
@@ -72,70 +99,31 @@ int main()
 		commands.beginRenderPass(cmdBuffer, value);
 		graphicsPipeline.bind(cmdBuffer);
 		// Vertex Buffer Start
-		std::vector<cow::Vertex2DRGB> vertices;
-		
-		//std::cout << "sizeof vertex: " << sizeof(cow::Vertex2DRGB) << "\n";
-		// Child
-		/*
-					* 1
-		
-		
-			* 3				* 2
-		*/
-		constexpr float outside = -2;
-		constexpr float to_the_side = 0.50;
-		constexpr float shade = 0.71;
-		// Main Triangle
-		vertices.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } }); // 1
-		vertices.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } }); // 2
-		vertices.push_back({ {-0.5+ to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } }); // 3
 
-		// Meeting with this person
-		vertices.push_back({ {(0.0 + outside ) + offset, -0.45 }, {0.0 , 0.0 , 1.0  } }); // 1
-		vertices.push_back({ {(0.5 + outside) + offset ,0.5 }, {0.0 , 1.0 , 0.0 } }); // 2
-		vertices.push_back({ {(-0.5 + outside) + offset , 0.5 }, {1.0 , 0.0 , 0.0 } }); // 3
-
-		if (offset <= 1.5)
-		offset += 0.001;
-		//colorChange += 0.0002;
 		
-		if (offset >= 3.0) 
-		{
-			offset = 0.0;
-		}
-		/*
-		vec2(0.0, -0.5),
-		vec2(0.5, 0.5),
-		vec2(-0.5, 0.5)
-		*/
-		uint32_t vertexCount = static_cast<uint32_t>(vertices.size());
-		assert(vertexCount >= 3 && "Vertex Count must be atleast 3");
-		VkDeviceSize bufferSize = sizeof(vertices[0]) * vertexCount;
-		
-		cow::Buffer stagingBuffer{
-			device, 
-			bufferSize,
-			VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
-			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT
-		};
-		stagingBuffer.map();
-		stagingBuffer.write(vertices.data(), bufferSize, 0);
-		stagingBuffer.unmap();
-
-		cow::Buffer vertexBuffer{
-			device,
-			bufferSize,
-			VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-			VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT
-		};
-		vertexBuffer.copy(stagingBuffer.get(), bufferSize);
 		// Vertex Buffer End
 		// Binding
-		VkBuffer pVertexBuffers[] = { vertexBuffer.get() };
-		VkDeviceSize offsets[] = {0};
-		vkCmdBindVertexBuffers(cmdBuffer, 0, 1, pVertexBuffers, offsets);
-		// Drawing
-		vkCmdDraw(cmdBuffer, vertexCount, 1, 0, 0);
+		SimplePushConstantData data{};
+		SimplePushConstantData otherdata{};
+		otherdata.modelvec = { 0.0, 0.0 };
+		data.modelvec = { 0.0 + offset, 0.0 };
+		offset += 0.0001;
+		modelOther.pushConst(cmdBuffer,
+			layout,
+			VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+			&data
+		);
+		modelOther.bind(cmdBuffer);
+		modelOther.draw(cmdBuffer);
+
+		modelMain.pushConst(cmdBuffer,
+			layout,
+			VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+			&otherdata
+		);
+		modelMain.bind(cmdBuffer);
+		modelMain.draw(cmdBuffer);
+			// // Drawing
 		vkCmdEndRenderPass(cmdBuffer);
 		if (vkEndCommandBuffer(cmdBuffer) != VK_SUCCESS) 
 		{
