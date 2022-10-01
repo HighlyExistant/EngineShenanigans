@@ -54,6 +54,14 @@ namespace cow
 		static VkVertexInputBindingDescription bindingDesc();
 		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
 	};
+	struct Vertex2DTextured
+	{
+		glm::vec2 position;
+		glm::vec2 texture;
+
+		static VkVertexInputBindingDescription bindingDesc();
+		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
+	};
 #pragma warning( push )
 #pragma warning( disable : 4267 6387 6001)
 	// -=-=-=-=-=-=-=- Other Functions -=-=-=-=-=-=-=-

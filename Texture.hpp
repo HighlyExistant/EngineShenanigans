@@ -139,10 +139,10 @@ namespace cow
 				throw std::runtime_error("failed to create texture sampler!");
 			}
 		}
-	private:
 		VkImage m_textureImage;
 		VkImageView m_imageView;
 		VkSampler m_textureSampler;
+	private:
 
 		VkDeviceMemory m_textureImageMemory;
 
@@ -178,7 +178,7 @@ namespace cow
 		imageInfo.imageType = VK_IMAGE_TYPE_2D;
 		imageInfo.extent.width = static_cast<uint32_t>(texWidth);
 		imageInfo.extent.height = static_cast<uint32_t>(texHeight);
-		imageInfo.extent.depth = 1;
+		imageInfo.extent.depth = 1.0;
 		imageInfo.mipLevels = 1;
 		imageInfo.arrayLayers = 1;
 		imageInfo.format = VK_FORMAT_R8G8B8A8_SRGB;

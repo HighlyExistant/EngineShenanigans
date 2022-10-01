@@ -4,27 +4,29 @@
 #include "CowHeaders.hpp"
 #include "Texture.hpp"
 #include "Windows.h"
+#include <chrono>
+#include "Descriptors.hpp"
 using namespace cow;
+struct UBO
+{
+	glm::vec2 offset;
+};
 
 struct SimplePushConstantData
 {
 	glm::vec2 modelvec;
 };
-float lerp(float a, float b, float t) 
-{
-	return (1 - t) * a + t * b;
-}
 class RenderObject 
 	: public EmptyObject, 
-	public Model2DComponent, 
+	public Model2DComponent<Vertex2DTextured>,
 	public PushConstantComponent<SimplePushConstantData>
 {
 public:
-	RenderObject(Device& device, std::vector<Vertex2DRGB> vertices2d)
+	RenderObject(Device& device, std::vector<Vertex2DTextured> vertices2d)
 		: EmptyObject{ EmptyObject::create() },
 		Model2DComponent{ device, vertices2d }
 	{}
-	RenderObject(Device& device,uint32_t size, Vertex2DRGB *vertices2d)
+	RenderObject(Device& device,uint32_t size, Vertex2DTextured*vertices2d)
 		: EmptyObject{ EmptyObject::create() },
 		Model2DComponent{ device, size, vertices2d }
 	{}
@@ -42,18 +44,94 @@ int main()
 
 	GraphicsCommands commands{ device };
 
-	GraphicsPipelineSimpleInfo gpsi{};
+	std::array<VkDescriptorSetLayoutBinding, 2> ubo_bindings{};
+	// MultiPurpose Binding for whatever
+	ubo_bindings[0] = { 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1,  VK_SHADER_STAGE_VERTEX_BIT, nullptr };
+	// Texture Binding
+	ubo_bindings[1] = { 1, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr };
+	std::array<VkDescriptorPoolSize, 2> poolSizes{};
+	// MultiPurpose Binding for whatever
+	poolSizes[0] = { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 2 };
+	// Texture Binding
+	poolSizes[1] = { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 2 };
+
+	Descriptor<2, 2> descriptor{ device, ubo_bindings, poolSizes, 2 };
+	Buffer descriptorBuffers[2] = 
+	{
+		{ 
+			device,
+			sizeof(UBO),
+			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT 
+		}, 
+		{ 
+			device,
+			sizeof(UBO),
+			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT 
+		}
+	};
+	//descriptor.init_all(sizeof(UBO));
+	Texture texture{ device, "C:\\Users\\anton\\Downloads\\pic_goes_hard.png" };
+	texture.createTextureImageView();
+	texture.createTextureSampler();
+	for (size_t i = 0; i < Swapchain::MAX_FRAMES; i++)
+	{
+
+		// MultiPurpose Binding for whatever
+		VkDescriptorBufferInfo bufferInfo{};
+		bufferInfo.buffer = descriptorBuffers[i].get();
+		bufferInfo.offset = 0;
+		bufferInfo.range = sizeof(UBO);
+		
+		// Texture Binding
+		VkDescriptorImageInfo imageInfo{};
+		imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+		imageInfo.imageView = texture.m_imageView;
+		imageInfo.sampler = texture.m_textureSampler;
+		
+		std::array<VkWriteDescriptorSet, 2> descriptorWrite{};
+		descriptorWrite[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+		descriptorWrite[0].dstSet = descriptor.getSet(i);
+		descriptorWrite[0].dstBinding = 0;
+		descriptorWrite[0].dstArrayElement = 0;
+		descriptorWrite[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+		descriptorWrite[0].descriptorCount = 1;
+		descriptorWrite[0].pBufferInfo = &bufferInfo;
+		descriptorWrite[0].pImageInfo = nullptr; // Optional
+		descriptorWrite[0].pTexelBufferView = nullptr; // Optional
+
+		descriptorWrite[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+		descriptorWrite[1].dstSet = descriptor.getSet(i);
+		descriptorWrite[1].dstBinding = 1;
+		descriptorWrite[1].dstArrayElement = 0;
+		descriptorWrite[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+		descriptorWrite[1].descriptorCount = 1;
+		descriptorWrite[1].pImageInfo = &imageInfo;
+
+
+		vkUpdateDescriptorSets(device.getDevice(), static_cast<uint32_t>(descriptorWrite.size()), descriptorWrite.data(), 0, nullptr);
+
+	}
 
 	VkPushConstantRange pushConstants{};
 	pushConstants.offset = 0;
 	pushConstants.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
 	pushConstants.size = sizeof(SimplePushConstantData);
-	PipelineLayoutSimpleInfo simpleInfo{};
-	simpleInfo.pPushConstantRanges = &pushConstants;
-	simpleInfo.pushConstantCount = 1;
 	
-	VkPipelineLayout layout = defaultPipelineLayout(device.getDevice(), &simpleInfo);
-	
+	VkPipelineLayout layout;
+	VkPipelineLayoutCreateInfo createInfo{};
+	createInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
+	createInfo.pushConstantRangeCount = 1;
+	createInfo.pPushConstantRanges = &pushConstants;
+	createInfo.setLayoutCount = 1;
+	createInfo.pSetLayouts = descriptor.getLayout();
+
+	if (vkCreatePipelineLayout(device.getDevice(), &createInfo, nullptr, &layout) != VK_SUCCESS)
+	{
+		throw std::runtime_error("failed to create a pipeline layout");
+	}
+	GraphicsPipelineSimpleInfo gpsi{};
 	gpsi.pEntry = "main";
 	gpsi.pFragpath = "C:\\Users\\anton\\source\\repos\\GPU-VM\\GPU-VM\\Shaders\\simple_shader.frag.spv";
 	gpsi.pVertpath = "C:\\Users\\anton\\source\\repos\\GPU-VM\\GPU-VM\\Shaders\\simple_shader.vert.spv";
@@ -63,7 +141,7 @@ int main()
 
 	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi);
 
-	GraphicsPipeline<Vertex2DRGB> graphicsPipeline{device, &gpsi };
+	GraphicsPipeline<Vertex2DTextured> graphicsPipeline{device, &gpsi };
 	// Allocate Command Buffers
 	VkCommandBufferAllocateInfo cmdAllocInfo{};
 	cmdAllocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -84,50 +162,64 @@ int main()
 	value.float32[2] = 0.1;
 	value.float32[3] = 0.1;
 
-	constexpr float outside = -2;
+	constexpr float outside = -1;
 	constexpr float to_the_side = 0.50;
-	constexpr float shade = 0.71;
-	/*Vertex2DRGB verticesMain[] =
-	{
-		{{0.0 + to_the_side, -0.5 }, {1.0 , 0.0, 0.0 }},
-		{{0.5 + to_the_side , 0.5 }, {0.0, 1.0 , 0.0 }},
-		{{-0.5 + to_the_side , 0.5}, {0.0 , 0.0 , 1.0}}
-	};*/
-	 std::vector<Vertex2DRGB> verticesMain;
-	std::vector<Vertex2DRGB> verticesOther;
+	
+	std::vector<Vertex2DTextured> verticesMain;
+	std::vector<Vertex2DTextured> verticesOther;
 
 	 // Main Triangle
-	 verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } });
-	 verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } });
-	 verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } });
+	// verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } });
+	// verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } });
+	// verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } });
+	// 
+	// // Meeting with this person
+	// verticesOther.push_back({ {(0.0 + outside) + offset, -0.45	},	{0.0 , 0.0 , 1.0	} });
+	// verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5		},	{0.0 , 1.0 , 0.0	} });
+	// verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5		},	{1.0 , 0.0 , 0.0	} });
+	verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0 } });
+	verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 } });
+	verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 } });
 
 	// Meeting with this person
-	verticesOther.push_back({ {(0.0 + outside) + offset, -0.45	},	{0.0 , 0.0 , 1.0	} });
-	verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5		},	{0.0 , 1.0 , 0.0	} });
-	verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5		},	{1.0 , 0.0 , 0.0	} });
-	 
+	verticesOther.push_back({ {(outside) + offset, -0.45		},	{1.0 , 0.0 	} });
+	verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5	},	{0.0 , 1.0 	} });
+	verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5	},	{1.0 , 1.0 	} });
 	RenderObject modelMain{ device,verticesMain };
 	RenderObject modelOther{ device, verticesOther };
 	std::vector<RenderObject*> models{};
 	models.push_back(&modelMain);
 	models.push_back(&modelOther);
-	Texture texture{ device, "C:\\Users\\anton\\Downloads\\pic_goes_hard.png" };
-	texture.createTextureImageView();
-	Sleep(10000);
+
+	UBO ubo[2]{};
+	 
 	while (!window.shouldClose())
 	{
 		glfwPollEvents();
 		size_t frameIndex = commands.swapchain->getCurrentFrame();
+		uint32_t imageIndex = commands.getCurrentImageIndex();
 		// Begin Frame
 		
 		VkCommandBuffer cmdBuffer = commands.begin();
 		commands.beginRenderPass(cmdBuffer, value);
 		graphicsPipeline.bind(cmdBuffer);
 
+		ubo[0].offset.x += 0.0001;
+		ubo[1].offset.x += 0.0001;
 		//Drawing
 		offset += 0.0001;
-		modelOther.push_constant_data.modelvec = { 0.0 + offset, 0.0 };
+		modelOther.push_constant_data.modelvec = { 0.0, 0.0 };
 		modelMain.push_constant_data.modelvec = { 0.0 , 0.0 };
+
+		descriptorBuffers[frameIndex].map();
+		descriptorBuffers[frameIndex].write(&ubo, sizeof(UBO), 0);
+		descriptorBuffers[frameIndex].unmap();
+		// descriptor.getBuffer(frameIndex)
+		vkCmdBindDescriptorSets(cmdBuffer,
+			VK_PIPELINE_BIND_POINT_GRAPHICS,
+			layout, 0, 1, &descriptor.descriptorSets[frameIndex],
+			0,
+			nullptr);
 
 		for (size_t i = 0; i < models.size(); i++)
 		{
@@ -135,11 +227,6 @@ int main()
 			models.data()[i]->bind(cmdBuffer);
 			models.data()[i]->draw(cmdBuffer);
 		}
-		if (offset >= 2.0) 
-		{
-			offset = 0.0;
-		}
-		
 		
 		// Ending
 		vkCmdEndRenderPass(cmdBuffer);
@@ -157,4 +244,5 @@ int main()
 		vkDeviceWaitIdle(device.getDevice());
 	}
 	vkDestroyPipelineLayout(device.getDevice(), layout, nullptr);
+	
 }

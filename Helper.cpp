@@ -3,6 +3,7 @@
 
 namespace cow
 {
+	// -- --
 	VkVertexInputBindingDescription Vertex2D::bindingDesc()
 	{
 		VkVertexInputBindingDescription r_bindingDesc;
@@ -19,7 +20,7 @@ namespace cow
 		//r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DSRGB, color) });
 		return r_attrDescs;
 	}
-
+	// -- --
 	VkVertexInputBindingDescription Vertex2DRGB::bindingDesc()
 	{
 		VkVertexInputBindingDescription r_bindingDesc;
@@ -36,6 +37,22 @@ namespace cow
 		r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DRGB, color) });
 		std::cout << "position: " << offsetof(Vertex2DRGB, position) << '\n';
 		std::cout << "color: " << offsetof(Vertex2DRGB, color) << '\n';
+		return r_attrDescs;
+	}
+	// -- --
+	VkVertexInputBindingDescription Vertex2DTextured::bindingDesc()
+	{
+		VkVertexInputBindingDescription r_bindingDesc{};
+		r_bindingDesc.binding = 0;
+		r_bindingDesc.stride = sizeof(Vertex2DTextured);
+		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
+		return r_bindingDesc;
+	}
+	std::vector<VkVertexInputAttributeDescription> Vertex2DTextured::attributeDesc()
+	{
+		std::vector<VkVertexInputAttributeDescription> r_attrDescs{};
+		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2DTextured, position) });
+		r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2DTextured, texture) });
 		return r_attrDescs;
 	}
 #pragma warning( push )
@@ -83,22 +100,7 @@ namespace cow
 	/*
 	* Simple wrapper around vkCreatePipelineLayout
 	 */
-	VkPipelineLayout defaultPipelineLayout(VkDevice device, PipelineLayoutSimpleInfo* pSimpleInfo)
-	{
-		VkPipelineLayout r_pipelineLayout;
-		VkPipelineLayoutCreateInfo createInfo{};
-		createInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-		createInfo.pushConstantRangeCount = pSimpleInfo->pushConstantCount;
-		createInfo.pPushConstantRanges = pSimpleInfo->pPushConstantRanges;
-		createInfo.setLayoutCount = pSimpleInfo->setLayoutCount;
-		createInfo.pSetLayouts = pSimpleInfo->pSetLayouts;
-
-		if (vkCreatePipelineLayout(device, &createInfo, nullptr, &r_pipelineLayout) != VK_SUCCESS)
-		{
-			throw std::runtime_error("failed to create a pipeline layout");
-		}
-		return r_pipelineLayout;
-	}
+	
 	void GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(GraphicsPipelineSimpleInfo &pInfo)
 	{
 		pInfo.multisampleInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;

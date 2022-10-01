@@ -10,7 +10,7 @@ namespace cow
 	{
 	public:
 		using id_t = uint32_t;
-
+		
 		static EmptyObject create() 
 		{
 			static id_t currentId = 0;
