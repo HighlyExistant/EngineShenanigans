@@ -1,5 +1,4 @@
 #include "GraphicsCommands.hpp"
-
 namespace cow 
 {
 
@@ -34,8 +33,9 @@ namespace cow
 		* is in use is unusable by the swapchain and we need to recreate it
 		* this usually happens when you resize the window
 		*/
-		if (result == VK_ERROR_OUT_OF_DATE_KHR)
+		if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || m_ref_device.m_ref_window.wasWindowResized())
 		{
+			m_ref_device.m_ref_window.resetWindowResizedFlag();
 			recreateSwapchain();
 			return true;
 		}
@@ -44,7 +44,7 @@ namespace cow
 		* can still use the current surface to draw
 		* so it will be treated as a success
 		*/
-		if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR)
+		else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR)
 		{
 			throw std::runtime_error("failed to aquire swap chain image");
 		}
@@ -52,8 +52,17 @@ namespace cow
 	VkCommandBuffer GraphicsCommands::begin()
 	{
 		VkResult result = swapchain->nextImage(&m_currentImageIndex);
-		checkRecreation(result);
 
+		if (result == VK_ERROR_OUT_OF_DATE_KHR)
+		{
+			recreateSwapchain();
+			return nullptr;
+		}
+
+		if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR)
+		{
+			throw std::runtime_error("failed to aquire swap chain image");
+		}
 		auto commandBuffer = m_commandBuffers[swapchain->getCurrentFrame()];
 		VkCommandBufferBeginInfo beginInfo{};
 		beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;

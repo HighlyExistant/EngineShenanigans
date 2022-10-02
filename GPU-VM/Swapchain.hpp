@@ -25,7 +25,7 @@ namespace cow
 		// -=-=-=-=-=-=- Getters -=-=-=-=-=-=-
 		inline VkSwapchainKHR getSwapchainKHR() const { return m_swapChainKHR; }
 	
-		inline VkFormat getFormat() const { return m_scFormat; }
+		inline VkFormat getImageFormat() const { return m_scFormat; }
 		inline VkExtent2D getExtent2D() const { return m_scExtent; }
 		inline VkRenderPass getRenderPass() const { return m_renderPass; }
 		inline VkFramebuffer getFrameBuffer(int index) { return m_pFramebuffers[index]; }
@@ -35,7 +35,8 @@ namespace cow
 
 		bool compareSwapFormats(const Swapchain& swapChain) const
 		{
-			return swapChain.m_scFormat == this->m_scFormat;
+			return swapChain.m_depthFormat == m_depthFormat 
+				&& swapChain.m_depthFormat == m_scFormat;
 		}
 
 		// -=-=-=-=-=-=- Public Functions -=-=-=-=-=-=-
@@ -53,6 +54,7 @@ namespace cow
 		VkExtent2D m_windowExtent;
 
 		VkFormat m_scFormat;
+		VkFormat m_depthFormat;
 		VkExtent2D m_scExtent;
 		// -=-=-=-=-=-=- Swap Chain Member Variables -=-=-=-=-=-=-
 		size_t m_currentFrame = 0;

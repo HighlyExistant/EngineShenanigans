@@ -15,9 +15,9 @@ namespace cow
 		void beginRenderPass(VkCommandBuffer commandBuffer, VkClearColorValue color);
 		inline uint32_t getCurrentImageIndex() { return m_currentImageIndex; }
 		std::unique_ptr<Swapchain> swapchain;
-	private:
 		bool checkRecreation(VkResult result);
 		void recreateSwapchain();
+	private:
 		void createCommandBuffers();
 
 		VkCommandBuffer* m_commandBuffers;

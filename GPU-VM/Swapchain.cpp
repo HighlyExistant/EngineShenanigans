@@ -119,6 +119,12 @@ namespace cow
 		{
 			throw std::runtime_error("failed to create swap chain!");
 		}
+
+		vkGetSwapchainImagesKHR(m_ref_device.m_device, m_swapChainKHR, &m_scImageViewCount, nullptr);
+		m_pscImage = (VkImage*)calloc(m_scImageViewCount, sizeof(VkImage));
+		m_pscImageViews = (VkImageView*)calloc(m_scImageViewCount, sizeof(VkImageView));
+		vkGetSwapchainImagesKHR(m_ref_device.m_device, m_swapChainKHR, &m_scImageViewCount, m_pscImage);
+
 		m_scFormat = surfaceFormat.format;
 		m_scExtent = windowExtent;
 	}
@@ -200,10 +206,7 @@ namespace cow
 #pragma warning( disable : 4042 6011 )
 	void Swapchain::createRenderingObjects()
 	{
-		vkGetSwapchainImagesKHR(m_ref_device.m_device, m_swapChainKHR, &m_scImageViewCount, nullptr);
-		m_pscImage = (VkImage*)calloc(m_scImageViewCount, sizeof(VkImage));
-		m_pscImageViews = (VkImageView*)calloc(m_scImageViewCount, sizeof(VkImageView));
-		vkGetSwapchainImagesKHR(m_ref_device.m_device, m_swapChainKHR, &m_scImageViewCount, m_pscImage);
+		
 		for (size_t i = 0; i < m_scImageViewCount; i++)
 		{
 			// Image View Creation
@@ -231,8 +234,9 @@ namespace cow
 		// Render Pass Creation
 		VkFormat candidates[] = { VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_D24_UNORM_S8_UINT };
 		VkFormat depthFormat = m_ref_device.findSupportedFormat(3, candidates, VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
+		m_depthFormat = depthFormat;
 		VkAttachmentDescription depthAttachment{};
-		depthAttachment.format = depthFormat;
+		depthAttachment.format = m_ref_device.findSupportedFormat(3, candidates, VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 		depthAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
 		depthAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
 		depthAttachment.storeOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -246,7 +250,7 @@ namespace cow
 		depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
 		VkAttachmentDescription colorAttachment = {};
-		colorAttachment.format = m_scFormat;
+		colorAttachment.format = getImageFormat();
 		colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
 		colorAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
 		colorAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -409,13 +413,14 @@ namespace cow
 			VK_TRUE,
 			std::numeric_limits<uint64_t>::max());
 
-		return vkAcquireNextImageKHR(
+		VkResult result = vkAcquireNextImageKHR(
 			m_ref_device.getDevice(),
 			m_swapChainKHR,
 			std::numeric_limits<uint64_t>::max(),
 			m_pImageAvailableSemaphore[m_currentFrame],
 			VK_NULL_HANDLE,
 			imageIndex);
+		return result;
 	}
 
 
