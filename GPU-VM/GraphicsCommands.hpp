@@ -1,5 +1,8 @@
 #pragma once
 #include "Swapchain.hpp"
+#define GLM_FORCE_RADIANS
+#define GLFW_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/glm.hpp>
 namespace cow 
 {
 	class GraphicsCommands
