@@ -4,7 +4,6 @@
 #include "CowHeaders.hpp"
 #include "Texture.hpp"
 #include "Windows.h"
-#include <chrono>
 #include "Descriptors.hpp"
 using namespace cow;
 struct UBO
@@ -109,9 +108,7 @@ int main()
 		descriptorWrite[1].descriptorCount = 1;
 		descriptorWrite[1].pImageInfo = &imageInfo;
 
-
 		vkUpdateDescriptorSets(device.getDevice(), static_cast<uint32_t>(descriptorWrite.size()), descriptorWrite.data(), 0, nullptr);
-
 	}
 
 	VkPushConstantRange pushConstants{};
@@ -133,8 +130,8 @@ int main()
 	}
 	GraphicsPipelineSimpleInfo gpsi{};
 	gpsi.pEntry = "main";
-	gpsi.pFragpath = "C:\\Users\\anton\\source\\repos\\GPU-VM\\GPU-VM\\Shaders\\simple_shader.frag.spv";
-	gpsi.pVertpath = "C:\\Users\\anton\\source\\repos\\GPU-VM\\GPU-VM\\Shaders\\simple_shader.vert.spv";
+	gpsi.pFragpath = ".\\Shaders\\simple_shader.frag.spv";
+	gpsi.pVertpath = ".\\Shaders\\simple_shader.vert.spv";
 	gpsi.renderPass = commands.swapchain->getRenderPass();
 	gpsi.pipelineLayout = layout;
 	
@@ -214,7 +211,7 @@ int main()
 		descriptorBuffers[frameIndex].map();
 		descriptorBuffers[frameIndex].write(&ubo, sizeof(UBO), 0);
 		descriptorBuffers[frameIndex].unmap();
-		// descriptor.getBuffer(frameIndex)
+		
 		vkCmdBindDescriptorSets(cmdBuffer,
 			VK_PIPELINE_BIND_POINT_GRAPHICS,
 			layout, 0, 1, &descriptor.descriptorSets[frameIndex],
