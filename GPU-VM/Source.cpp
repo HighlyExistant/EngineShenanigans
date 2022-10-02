@@ -17,17 +17,17 @@ struct SimplePushConstantData
 };
 class RenderObject 
 	: public EmptyObject, 
-	public Model2DComponent<Vertex2DTextured>,
+	public ModelIndexed2DComponent,
 	public PushConstantComponent<SimplePushConstantData>
 {
 public:
-	RenderObject(Device& device, std::vector<Vertex2DTextured> vertices2d)
+	RenderObject(Device& device, std::vector<Vertex2DTextured> vertices2d, std::vector<uint32_t> indices)
 		: EmptyObject{ EmptyObject::create() },
-		Model2DComponent{ device, vertices2d }
+		ModelIndexed2DComponent{device, vertices2d, indices }
 	{}
-	RenderObject(Device& device,uint32_t size, Vertex2DTextured*vertices2d)
+	RenderObject(Device& device,uint32_t size, Vertex2DTextured*vertices2d, uint32_t indexCount, uint32_t* indices)
 		: EmptyObject{ EmptyObject::create() },
-		Model2DComponent{ device, size, vertices2d }
+		ModelIndexed2DComponent{device, size, vertices2d , indexCount, indices}
 	{}
 	~RenderObject() {}
 };
@@ -36,7 +36,7 @@ int main()
 {
 	std::vector<VkCommandBuffer> commandBuffers(Swapchain::MAX_FRAMES);
 
-	std::cout << "\n\n" << sizeof(Swapchain) << "\n\n";
+	std::cout << "\n\n" << sizeof(Model2DComponent<Vertex2DTextured, Model2DType::Model2D>) << "\n\n";
 	Window window(800, 500, "name");
 
 	Device device(window, nullptr, 0);
@@ -174,22 +174,30 @@ int main()
 	// verticesOther.push_back({ {(0.0 + outside) + offset, -0.45	},	{0.0 , 0.0 , 1.0	} });
 	// verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5		},	{0.0 , 1.0 , 0.0	} });
 	// verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5		},	{1.0 , 0.0 , 0.0	} });
-	verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0 } });
-	verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 } });
-	verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 } });
+	// verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0 } });
+	// verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 } });
+	// verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 } });
 
 	// Meeting with this person
 	verticesOther.push_back({ {(outside) + offset, -0.45		},	{1.0 , 0.0 	} });
 	verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5	},	{0.0 , 1.0 	} });
 	verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5	},	{1.0 , 1.0 	} });
-	RenderObject modelMain{ device,verticesMain };
-	RenderObject modelOther{ device, verticesOther };
+
+	std::vector<uint32_t> indices;
+	indices.push_back(0);
+	indices.push_back(1);
+	indices.push_back(2);
+	indices.push_back(0);
+	indices.push_back(3);
+	indices.push_back(1);
+	// RenderObject modelMain{ device,verticesMain, indices };
+	RenderObject modelOther{ device, verticesOther, indices };
+	
 	std::vector<RenderObject*> models{};
-	models.push_back(&modelMain);
+	// models.push_back(&modelMain);
 	models.push_back(&modelOther);
 
 	UBO ubo[2]{};
-	 
 	while (!window.shouldClose())
 	{
 		glfwPollEvents();
@@ -201,12 +209,12 @@ int main()
 		commands.beginRenderPass(cmdBuffer, value);
 		graphicsPipeline.bind(cmdBuffer);
 
-		ubo[0].offset.x += 0.0001;
-		ubo[1].offset.x += 0.0001;
+		
 		//Drawing
-		offset += 0.0001;
+		ubo[0].offset.x += 0.0001;
+
 		modelOther.push_constant_data.modelvec = { 0.0, 0.0 };
-		modelMain.push_constant_data.modelvec = { 0.0 , 0.0 };
+		// modelMain.push_constant_data.modelvec = { 0.0 , 0.0 };
 
 		descriptorBuffers[frameIndex].map();
 		descriptorBuffers[frameIndex].write(&ubo, sizeof(UBO), 0);
@@ -221,8 +229,8 @@ int main()
 		for (size_t i = 0; i < models.size(); i++)
 		{
 			models.data()[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
-			models.data()[i]->bind(cmdBuffer);
-			models.data()[i]->draw(cmdBuffer);
+			models.data()[i]->bind_indexed(cmdBuffer);
+			models.data()[i]->draw_indexed(cmdBuffer);
 		}
 		
 		// Ending
@@ -233,12 +241,18 @@ int main()
 		}
 		uint32_t index = commands.getCurrentImageIndex();
 		VkResult result = commands.swapchain->submit(&cmdBuffer, &index);
-
-		if (result != VK_SUCCESS) 
-		{
-			throw std::runtime_error("ASFDHFHUFDUHUYIF");
-		}
+		// commands.checkRecreation(result);
+		
 		vkDeviceWaitIdle(device.getDevice());
+		if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window.wasWindowResized())
+		{
+			window.resetWindowResizedFlag();
+			commands.recreateSwapchain();
+		}
+		else if (result != VK_SUCCESS)
+		{
+			throw std::runtime_error("failed to present swap chain image");
+		}
 	}
 	vkDestroyPipelineLayout(device.getDevice(), layout, nullptr);
 	
