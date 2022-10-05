@@ -1,6 +1,9 @@
 #pragma once
 #include "cowdef.hpp"
 #include <tuple>
+#include <stdexcept>
+#include <iostream>
+#include "errorlib.hpp"
 namespace cow
 {
 	class Instance
@@ -46,6 +49,8 @@ namespace cow
 		// Getters
 		inline VkInstance get() const noexcept { return instance; }
 		VkInstance instance;
+
+		Logger logger;
 	private:
 	};
 }

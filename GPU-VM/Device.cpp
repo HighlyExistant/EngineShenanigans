@@ -1,7 +1,4 @@
 #include "Device.hpp"
-#include <set>
-#include <iostream>
-#include <array>
 namespace cow 
 {
 	/* Constructors, Destructors and Helper Functions */
@@ -9,13 +6,23 @@ namespace cow
 		: m_physicalDevice{ createSurface_and_findPhysicalDevice(&window) },
 		m_ref_window{ window }
 	{
+		hasGflwRequiredInstanceExtensions();
 		VkPhysicalDeviceProperties properties{};
 		vkGetPhysicalDeviceProperties(m_physicalDevice, &properties);
 		std::cout << "physical device: " << properties.deviceName << std::endl;
+		m_instance.logger.Log(properties.deviceName, COW_ERR_TYPE::FOUND);
 		createLogicalDevice();
 		createCommandPool();
 	}
+	std::vector<const char*> getRequiredExtensions() {
+		uint32_t glfwExtensionCount = 0;
+		const char** glfwExtensions;
+		glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
 
+		std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
+
+		return extensions;
+	}
 	Device::~Device()
 	{
 		vkDestroySurfaceKHR(m_instance.get(), m_surfaceKHR, nullptr);
@@ -31,7 +38,7 @@ namespace cow
 
 		// find physical device
 		auto [deviceCount, physicalDevices] = m_instance.enumeratePhysicalDevices();
-
+		std::cout << "Found physical device\n";
 		for (size_t i = 0; i < deviceCount; i++)
 		{
 			if (deviceSuitable(physicalDevices[i]))
@@ -46,6 +53,29 @@ namespace cow
 		}
 		return r_device[0];
 	}
+	void Device::hasGflwRequiredInstanceExtensions() {
+		uint32_t extensionCount = 0;
+		vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
+		std::vector<VkExtensionProperties> extensions(extensionCount);
+		vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
+
+		std::cout << "\033[33mavailable extensions:" << std::endl;
+		std::unordered_set<std::string> available;
+		for (const auto& extension : extensions) {
+			std::cout << "\t" << extension.extensionName << std::endl;
+			available.insert(extension.extensionName);
+		}
+
+		std::cout << "\033[32mrequired extensions:" << std::endl;
+		auto requiredExtensions = getRequiredExtensions();
+		for (const auto& required : requiredExtensions) {
+			std::cout << "\t" << required << std::endl;
+			if (available.find(required) == available.end()) {
+				throw std::runtime_error("Missing required glfw extension");
+			}
+		}
+		std::cout << "\033[0m";
+	}
 	bool Device::deviceExtensionSupport(VkPhysicalDevice device)
 	{
 		// Device Extensions Chosen
@@ -53,7 +83,7 @@ namespace cow
 
 		uint32_t extensionCount;
 		vkEnumerateDeviceExtensionProperties(device, nullptr, &extensionCount, nullptr);
-
+		
 		std::vector<VkExtensionProperties> availableExtensions(extensionCount);
 		vkEnumerateDeviceExtensionProperties(
 			device,
@@ -178,6 +208,7 @@ namespace cow
 		if (vkCreateDevice(m_physicalDevice, &createInfo, nullptr, &m_device) != VK_SUCCESS) 
 		{
 			throw std::runtime_error("couldn't create VkDevice");
+			std::cout << "Created Device\n";
 		}
 		vkGetDeviceQueue(m_device, *indices.graphicsIndex, 0, &graphicsQueue);
 		vkGetDeviceQueue(m_device, *indices.surfaceIndex, 0, &surfaceQueue);

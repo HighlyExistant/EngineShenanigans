@@ -3,6 +3,10 @@
 #include "Window.hpp"
 #include <vector>
 #include <optional>
+#include <set>
+#include <iostream>
+#include <array>
+#include <unordered_set>
 namespace cow
 {
 	struct QueueInUse
@@ -61,8 +65,10 @@ namespace cow
 		{
 			return vkBindImageMemory(m_device, image, imageMemory, 0);
 		}
+		Instance m_instance;
 	private:
 		// -=-=-=-=-=-=- Private Member Constructor Functions -=-=-=-=-=-=-
+		void hasGflwRequiredInstanceExtensions();
 		VkPhysicalDevice createSurface_and_findPhysicalDevice(Window *window);
 		void createLogicalDevice();
 		void createCommandPool();
@@ -75,7 +81,6 @@ namespace cow
 		// -=-=-=-=-=-=- Private Friend Functions -=-=-=-=-=-=-
 		VkFormat findSupportedFormat(uint32_t candidateCount, VkFormat* candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 		// -=-=-=-=-=-=- Private Member Variables -=-=-=-=-=-=-
-		Instance m_instance;
 		VkSurfaceKHR m_surfaceKHR;
 		VkPhysicalDevice m_physicalDevice;
 		VkDevice m_device;
