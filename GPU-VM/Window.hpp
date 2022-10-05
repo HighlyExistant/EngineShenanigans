@@ -17,6 +17,7 @@ namespace cow
 		bool wasWindowResized() { return frameBufferResized; }
 
 		void createSurface(VkInstance instance, VkSurfaceKHR* surface) const;
+		bool getKeyState(int key, int state);
 	private:
 		int m_width;
 		int m_height;

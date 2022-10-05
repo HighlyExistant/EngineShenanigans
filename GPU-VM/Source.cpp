@@ -14,10 +14,11 @@ struct UBO
 struct SimplePushConstantData
 {
 	glm::vec2 modelvec;
+	int index;
 };
 class RenderObject 
-	: public EmptyObject, 
-	public ModelIndexed2DComponent,
+	: public ModelIndexed2DComponent<Vertex2DTextured>,
+	public EmptyObject,
 	public PushConstantComponent<SimplePushConstantData>
 {
 public:
@@ -36,8 +37,8 @@ int main()
 {
 	std::vector<VkCommandBuffer> commandBuffers(Swapchain::MAX_FRAMES);
 
-	std::cout << "\n\n" << sizeof(Model2DComponent<Vertex2DTextured, Model2DType::Model2D>) << "\n\n";
-	Window window(800, 500, "name");
+	std::cout << "\n\n" << sizeof(Model2DComponent<Vertex2DTextured, Model2DType::Default>) << "\n\n";
+	Window window(600, 400, "name");
 
 	Device device(window, nullptr, 0);
 
@@ -47,7 +48,7 @@ int main()
 	// MultiPurpose Binding for whatever
 	ubo_bindings[0] = { 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1,  VK_SHADER_STAGE_VERTEX_BIT, nullptr };
 	// Texture Binding
-	ubo_bindings[1] = { 1, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr };
+	ubo_bindings[1] = { 1, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 3, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr }; // 3 textures
 	std::array<VkDescriptorPoolSize, 2> poolSizes{};
 	// MultiPurpose Binding for whatever
 	poolSizes[0] = { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 2 };
@@ -62,7 +63,7 @@ int main()
 			sizeof(UBO),
 			VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
 			VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT 
-		}, 
+		},
 		{ 
 			device,
 			sizeof(UBO),
@@ -71,9 +72,14 @@ int main()
 		}
 	};
 	//descriptor.init_all(sizeof(UBO));
-	Texture texture{ device, "C:\\Users\\anton\\Downloads\\pic_goes_hard.png" };
-	texture.createTextureImageView();
-	texture.createTextureSampler();
+	Texture texture{ device, "Anna.png" };
+	std::cout << "Created Texture 1\n";
+
+	Texture texture2{ device, "olivia.png" };
+	std::cout << "Created Texture 2\n";
+
+	Texture texture3{ device, "kel.png" };
+	std::cout << "Created Texture 3\n";
 	for (size_t i = 0; i < Swapchain::MAX_FRAMES; i++)
 	{
 
@@ -83,12 +89,20 @@ int main()
 		bufferInfo.offset = 0;
 		bufferInfo.range = sizeof(UBO);
 		
+		std::array<VkDescriptorImageInfo, 3> imageInfo{};
 		// Texture Binding
-		VkDescriptorImageInfo imageInfo{};
-		imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-		imageInfo.imageView = texture.m_imageView;
-		imageInfo.sampler = texture.m_textureSampler;
-		
+		imageInfo[0].imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+		imageInfo[0].imageView = texture.m_imageView;
+		imageInfo[0].sampler = texture.m_textureSampler;
+
+		imageInfo[1].imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+		imageInfo[1].imageView = texture2.m_imageView;
+		imageInfo[1].sampler = texture2.m_textureSampler;
+
+		imageInfo[2].imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+		imageInfo[2].imageView = texture3.m_imageView;
+		imageInfo[2].sampler = texture3.m_textureSampler;
+
 		std::array<VkWriteDescriptorSet, 2> descriptorWrite{};
 		descriptorWrite[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
 		descriptorWrite[0].dstSet = descriptor.getSet(i);
@@ -105,10 +119,11 @@ int main()
 		descriptorWrite[1].dstBinding = 1;
 		descriptorWrite[1].dstArrayElement = 0;
 		descriptorWrite[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-		descriptorWrite[1].descriptorCount = 1;
-		descriptorWrite[1].pImageInfo = &imageInfo;
+		descriptorWrite[1].descriptorCount = 3;
+		descriptorWrite[1].pImageInfo = imageInfo.data();
 
 		vkUpdateDescriptorSets(device.getDevice(), static_cast<uint32_t>(descriptorWrite.size()), descriptorWrite.data(), 0, nullptr);
+		std::cout << "Updated Descriptor Sets\n";
 	}
 
 	VkPushConstantRange pushConstants{};
@@ -130,11 +145,10 @@ int main()
 	}
 	GraphicsPipelineSimpleInfo gpsi{};
 	gpsi.pEntry = "main";
-	gpsi.pFragpath = ".\\Shaders\\simple_shader.frag.spv";
-	gpsi.pVertpath = ".\\Shaders\\simple_shader.vert.spv";
+	gpsi.pFragpath = "simple_shader.frag.spv";
+	gpsi.pVertpath = "simple_shader.vert.spv";
 	gpsi.renderPass = commands.swapchain->getRenderPass();
 	gpsi.pipelineLayout = layout;
-	
 
 	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi);
 
@@ -164,8 +178,9 @@ int main()
 	
 	std::vector<Vertex2DTextured> verticesMain;
 	std::vector<Vertex2DTextured> verticesOther;
+	std::vector<Vertex2DTextured> verticesKel;
 
-	 // Main Triangle
+	// Main Triangle
 	// verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0, 0.0 } });
 	// verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 , 0.0 } });
 	// verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 , 1.0 } });
@@ -177,11 +192,22 @@ int main()
 	// verticesMain.push_back({ {0.0 + to_the_side, -0.5  }, {1.0 , 0.0 } });
 	// verticesMain.push_back({ {0.5 + to_the_side , 0.5  }, {0.0, 1.0 } });
 	// verticesMain.push_back({ {-0.5 + to_the_side , 0.5 }, {0.0 , 0.0 } });
-
+	
 	// Meeting with this person
-	verticesOther.push_back({ {(outside) + offset, -0.45		},	{1.0 , 0.0 	} });
-	verticesOther.push_back({ {(0.5 + outside) + offset ,	0.5	},	{0.0 , 1.0 	} });
-	verticesOther.push_back({ {(-0.5 + outside) + offset, 0.5	},	{1.0 , 1.0 	} });
+	verticesOther.push_back({ {0.3, -0.5}, {1.0 , 0.0} });
+	verticesOther.push_back({ {-0.3, 0.5}, {0.0 , 1.0} });
+	verticesOther.push_back({ {0.3, 0.5}, {1.0 , 1.0} });
+	verticesOther.push_back({ {-0.3, -0.5}, {0.0 , 0.0} });
+
+	verticesMain.push_back({ {0.3 , -0.5}, {1.0 , 0.0} });
+	verticesMain.push_back({ {-0.3 , 0.5}, {0.0 , 1.0} });
+	verticesMain.push_back({ {0.3 , 0.5}, {1.0 , 1.0} });
+	verticesMain.push_back({ {-0.3 , -0.5}, {0.0 , 0.0} });
+
+	verticesKel.push_back({ {0.3 + to_the_side, -0.5}, {1.0 , 0.0} });
+	verticesKel.push_back({ {-0.3 + to_the_side, 0.5}, {0.0 , 1.0} });
+	verticesKel.push_back({ {0.3 + to_the_side, 0.5}, {1.0 , 1.0} });
+	verticesKel.push_back({ {-0.3 + to_the_side, -0.5}, {0.0 , 0.0} });
 
 	std::vector<uint32_t> indices;
 	indices.push_back(0);
@@ -190,14 +216,18 @@ int main()
 	indices.push_back(0);
 	indices.push_back(3);
 	indices.push_back(1);
-	// RenderObject modelMain{ device,verticesMain, indices };
+	RenderObject modelMain{ device,verticesMain, indices };
 	RenderObject modelOther{ device, verticesOther, indices };
+	RenderObject modelKel{ device, verticesKel, indices };
 	
 	std::vector<RenderObject*> models{};
-	// models.push_back(&modelMain);
+	models.push_back(&modelMain);
 	models.push_back(&modelOther);
+	models.push_back(&modelKel);
 
-	UBO ubo[2]{};
+	UBO ubo{};
+	float offset_x = 0.0;
+	float offset_y = 0.0;
 	while (!window.shouldClose())
 	{
 		glfwPollEvents();
@@ -209,11 +239,27 @@ int main()
 		commands.beginRenderPass(cmdBuffer, value);
 		graphicsPipeline.bind(cmdBuffer);
 
-		
 		//Drawing
-		ubo[0].offset.x += 0.0001;
-
-		modelOther.push_constant_data.modelvec = { 0.0, 0.0 };
+		if (window.getKeyState(GLFW_KEY_W, GLFW_PRESS) )
+		{
+			offset_y -= 0.001;
+		}
+		if (window.getKeyState(GLFW_KEY_A, GLFW_PRESS) )
+		{
+			offset_x -= 0.001;
+		}
+		if (window.getKeyState(GLFW_KEY_S, GLFW_PRESS) )
+		{
+			offset_y += 0.001;
+		}
+		if (window.getKeyState(GLFW_KEY_D, GLFW_PRESS))
+		{
+			offset_x += 0.001;
+		}
+		modelOther.push_constant_data.modelvec = { offset_x, offset_y };
+		modelOther.push_constant_data.index = 1;
+		modelMain.push_constant_data.index = 0;
+		modelKel.push_constant_data.index = 2;
 		// modelMain.push_constant_data.modelvec = { 0.0 , 0.0 };
 
 		descriptorBuffers[frameIndex].map();
@@ -255,5 +301,4 @@ int main()
 		}
 	}
 	vkDestroyPipelineLayout(device.getDevice(), layout, nullptr);
-	
 }

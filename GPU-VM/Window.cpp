@@ -33,6 +33,10 @@ namespace cow
 			throw std::runtime_error("failed to create window surface");
 		}
 	}
+	bool Window::getKeyState(int key, int state)
+	{
+		return glfwGetKey(m_window, key) == state;
+	}
 	void Window::frameBufferResizeCallback(GLFWwindow* _window, int _width, int _height)
 	{
 		auto window = reinterpret_cast<Window*>(glfwGetWindowUserPointer(_window));
