@@ -20,7 +20,19 @@ namespace cow
 				sizeof(T),
 				&push_constant_data
 			);
-		} 
+		}
+		template<typename N>
+		void pushConstantExternal(VkCommandBuffer cmdBuffer, VkPipelineLayout layout, VkShaderStageFlags flags, uint32_t offset,  N *pPushConstant)
+		{
+			vkCmdPushConstants(
+				cmdBuffer,
+				layout,
+				flags,
+				offset,
+				sizeof(N),
+				pPushConstant
+			);
+		}
 		T push_constant_data;
 	private:
 
