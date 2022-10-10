@@ -138,6 +138,14 @@ namespace cow
 				throw std::runtime_error("failed to create texture sampler!");
 			}
 		}
+		
+		void fillImageInfo(VkDescriptorImageInfo *pInfo, VkImageLayout layout)
+		{
+			pInfo->imageLayout = layout;
+			pInfo->imageView = m_imageView;
+			pInfo->sampler = m_textureSampler;
+		}
+		
 		VkImage m_textureImage;
 		VkImageView m_imageView;
 		VkSampler m_textureSampler;
@@ -201,5 +209,4 @@ namespace cow
 		
 		vkFreeMemory(m_ref_device.getDevice(), m_textureImageMemory, nullptr);
 	}
-	
 }

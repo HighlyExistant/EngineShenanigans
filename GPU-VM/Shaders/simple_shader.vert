@@ -23,7 +23,10 @@ layout(location = 1) in vec2 texture;
 layout(location = 0) out vec2 fragTexCoord;
 
 layout(push_constant) uniform Push {
-    vec2 modelvec;
+    
+    mat2 modelvec;
+    vec2 offset;
+    int index;
 } push; // Current size: (8)
 
 layout(binding = 0) uniform UniformBuffer {
@@ -31,7 +34,7 @@ layout(binding = 0) uniform UniformBuffer {
 } ubo;
 
 void main() {
-    vec2 actual_pos = position + push.modelvec + ubo.offset;
+    vec2 actual_pos = vec2(push.modelvec * position + push.offset);
     gl_Position = vec4(actual_pos, 0.0, 1.0);
-    fragTexCoord = texture;
+    fragTexCoord = texture + push.offset;
 }

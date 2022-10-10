@@ -2,6 +2,11 @@
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 #include <stdexcept>
+#define GLM_FORCE_RADIANS
+#define GLFW_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/glm.hpp>
+
+
 namespace cow 
 {
 	class Window
@@ -18,7 +23,21 @@ namespace cow
 
 		void createSurface(VkInstance instance, VkSurfaceKHR* surface) const;
 		bool getKeyState(int key, int state);
+		bool getMouseState(int key, int state);
+		glm::vec2 getCursorPos() 
+		{
+			double pos[2];
+			glfwGetCursorPos(m_window, &pos[0], &pos[1]);
+			
+			float x = 2 * normalize_values(0, m_width, pos[0]) - 1;
+			float y = 2 * normalize_values(0, m_height, pos[1]) - 1;
+			return { x, y };
+		}
 	private:
+		static float normalize_values(float min, float max, float t)
+		{
+			return (t - min) / (max - min);
+		}
 		int m_width;
 		int m_height;
 		bool frameBufferResized = false;

@@ -37,6 +37,10 @@ namespace cow
 	{
 		return glfwGetKey(m_window, key) == state;
 	}
+	bool Window::getMouseState(int key, int state)
+	{
+		return glfwGetMouseButton(m_window, key) == state;
+	}
 	void Window::frameBufferResizeCallback(GLFWwindow* _window, int _width, int _height)
 	{
 		auto window = reinterpret_cast<Window*>(glfwGetWindowUserPointer(_window));
