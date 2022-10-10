@@ -6,7 +6,6 @@
 #include "Helper.hpp"
 #include "Pipelines.hpp"
 #include "Model.hpp"
-#include "EmptyObject.hpp"
 #include "PushConstant.hpp"
 #include "Window.hpp"
 
