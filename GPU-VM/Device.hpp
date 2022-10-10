@@ -13,10 +13,12 @@ namespace cow
 	{
 		std::optional<uint32_t> graphicsIndex;
 		std::optional<uint32_t> surfaceIndex;
+		std::optional<uint32_t> computeIndex;
 		bool isComplete() 
 		{ 
 			return graphicsIndex.has_value() 
-			&& surfaceIndex.has_value(); 
+				&& surfaceIndex.has_value()
+				&& computeIndex.has_value();
 		}
 	};
 
@@ -45,6 +47,7 @@ namespace cow
 		VkCommandPool	 getCommandPool()		{ return m_commandPool;		}
 		VkQueue			 getGraphicsQueue()		{ return graphicsQueue;		}
 		VkQueue			 getSurfaceQueue()		{ return surfaceQueue;		}
+		VkQueue			 getComputeQueue()		{ return computeQueue;		}
 		// -=-=-=-=-=-=- Public Functions -=-=-=-=-=-=-
 		
 		uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
@@ -60,11 +63,14 @@ namespace cow
 			VkImageLayout layout,
 			VkImage* pImage);
 		void allocateImageMemory(VkImage pImage, VkDeviceMemory* pImageMemory);
-		inline VkResult bindImageMemory(VkImage image, VkDeviceMemory imageMemory) 
+		VkCommandBuffer* allocateCommandBuffers(VkCommandBufferLevel level, uint32_t cmdBufferCount);
+		void allocateCommandBuffers(VkCommandBufferLevel level, uint32_t cmdBufferCount, VkCommandBuffer* pCmdBuffers);
+		inline VkResult bindImageMemory(VkImage image, VkDeviceMemory imageMemory)
 			const
 		{
 			return vkBindImageMemory(m_device, image, imageMemory, 0);
 		}
+
 		Instance m_instance;
 	private:
 		// -=-=-=-=-=-=- Private Member Constructor Functions -=-=-=-=-=-=-
@@ -88,6 +94,7 @@ namespace cow
 
 		VkQueue graphicsQueue;
 		VkQueue surfaceQueue;
+		VkQueue computeQueue;
 
 		Window &m_ref_window;
 

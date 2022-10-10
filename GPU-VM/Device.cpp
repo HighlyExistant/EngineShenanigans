@@ -12,6 +12,7 @@ namespace cow
 		std::cout << "physical device: " << properties.deviceName << std::endl;
 		m_instance.logger.Log(properties.deviceName, COW_ERR_TYPE::FOUND);
 		createLogicalDevice();
+		m_instance.logger.Log("created logical device", COW_ERR_TYPE::SUCCESS);
 		createCommandPool();
 	}
 	std::vector<const char*> getRequiredExtensions() {
@@ -160,6 +161,9 @@ namespace cow
 			if (queueFamily.queueCount > 0 && queueFamily.queueFlags & VK_QUEUE_GRAPHICS_BIT) {
 				indices.graphicsIndex = i;
 			}
+			if (queueFamily.queueCount > 0 && queueFamily.queueFlags & VK_QUEUE_COMPUTE_BIT) {
+				indices.computeIndex = i;
+			}
 			VkBool32 presentSupport = false;
 			vkGetPhysicalDeviceSurfaceSupportKHR(device, i, m_surfaceKHR, &presentSupport);
 			if (queueFamily.queueCount > 0 && presentSupport) {
@@ -179,7 +183,7 @@ namespace cow
 		QueueInUse indices = findQueues(m_physicalDevice);
 
 		std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
-		std::set<uint32_t> uniqueQueueFamilies = { *indices.graphicsIndex, *indices.surfaceIndex };
+		std::set<uint32_t> uniqueQueueFamilies = { *indices.graphicsIndex, *indices.surfaceIndex, *indices.computeIndex };
 		float queuePriority = 1.0f;
 
 		for (size_t itr : uniqueQueueFamilies)
@@ -211,7 +215,11 @@ namespace cow
 			std::cout << "Created Device\n";
 		}
 		vkGetDeviceQueue(m_device, *indices.graphicsIndex, 0, &graphicsQueue);
+		m_instance.logger.Log("graphics index", COW_ERR_TYPE::FOUND);
 		vkGetDeviceQueue(m_device, *indices.surfaceIndex, 0, &surfaceQueue);
+		m_instance.logger.Log("surface index", COW_ERR_TYPE::FOUND);
+		vkGetDeviceQueue(m_device, *indices.computeIndex, 0, &computeQueue);
+		m_instance.logger.Log("compute index", COW_ERR_TYPE::FOUND);
 	}
 
 	void Device::createCommandPool()
@@ -336,6 +344,34 @@ namespace cow
 		if (vkAllocateMemory(m_device, &allocInfo, nullptr, pImageMemory) != VK_SUCCESS)
 		{
 			throw std::runtime_error("failed to allocate image memory!");
+		}
+	}
+	COW_FREE_RETURN VkCommandBuffer *Device::allocateCommandBuffers(VkCommandBufferLevel level, uint32_t cmdBufferCount)
+	{
+		VkCommandBuffer* r_cmdBuffer = (VkCommandBuffer*)calloc(cmdBufferCount, sizeof(VkCommandBuffer));
+		VkCommandBufferAllocateInfo cmdAllocInfo{};
+		cmdAllocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
+		cmdAllocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+		cmdAllocInfo.commandPool = m_commandPool;
+		cmdAllocInfo.commandBufferCount = cmdBufferCount;
+
+		if (vkAllocateCommandBuffers(m_device, &cmdAllocInfo, r_cmdBuffer) != VK_SUCCESS)
+		{
+			throw std::runtime_error("failed to allocate command buffers");
+		}
+		return r_cmdBuffer;
+	}
+	void Device::allocateCommandBuffers(VkCommandBufferLevel level, uint32_t cmdBufferCount, VkCommandBuffer* pCmdBuffers) 
+	{
+		VkCommandBufferAllocateInfo cmdAllocInfo{};
+		cmdAllocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
+		cmdAllocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+		cmdAllocInfo.commandPool = m_commandPool;
+		cmdAllocInfo.commandBufferCount = cmdBufferCount;
+
+		if (vkAllocateCommandBuffers(m_device, &cmdAllocInfo, pCmdBuffers) != VK_SUCCESS)
+		{
+			throw std::runtime_error("failed to allocate command buffers");
 		}
 	}
 }
