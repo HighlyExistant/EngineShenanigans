@@ -2,6 +2,8 @@
 #include "Device.hpp"
 #include <memory>
 #include <array>
+#include <iostream>
+#include <limits>
 namespace cow
 {
 	struct ImageResources

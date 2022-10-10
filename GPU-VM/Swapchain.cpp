@@ -1,20 +1,32 @@
 #include "Swapchain.hpp"
 #include <array>
+#include <iostream>
 namespace cow 
 {
 	Swapchain::Swapchain(Device& device, VkExtent2D extent)
 		: m_windowExtent{ extent }, m_ref_device{ device }
 	{
 		createSwapchain();
+		std::cout << "Created Swapchain\n";
 		createRenderingObjects();
+		std::cout << "Created Rendering Objects\n";
 		createSyncObjects();
+		std::cout << "Created Syncing Objects\n";
 	}
 	Swapchain::Swapchain(Device& device, VkExtent2D extent, std::shared_ptr<Swapchain> old)
 		: m_ref_device{ device }, m_windowExtent{ extent }, m_oldSwapChain{ old }
 	{
 		createSwapchain();
+		std::cout << "Created Swapchain\n";
+		m_ref_device.m_instance.logger.Log("created Swapchain", COW_ERR_TYPE::SUCCESS);
+		
 		createRenderingObjects();
+		std::cout << "Created Rendering Objects\n";
+		m_ref_device.m_instance.logger.Log("created rendering objects", COW_ERR_TYPE::SUCCESS);
+		
 		createSyncObjects();
+		std::cout << "Created Syncing Objects\n";
+		m_ref_device.m_instance.logger.Log("created sync objects", COW_ERR_TYPE::SUCCESS);
 
 		m_oldSwapChain = nullptr;
 	}
@@ -160,6 +172,7 @@ namespace cow
 			if (pPresentModes[i] == VK_PRESENT_MODE_MAILBOX_KHR)
 			{
 				// std::cout << "Present mode: Mailbox" << std::endl;
+				m_ref_device.m_instance.logger.Log("mailbox present mode", COW_ERR_TYPE::FOUND);
 				return pPresentModes[i];
 			}
 		}
@@ -168,13 +181,14 @@ namespace cow
 			drawn before presenting which causes high performance but
 			also high chance of screen tearing.
 		*/
-		for (size_t i = 0; i < presentModeCount; i++)
-		{
-			if (pPresentModes[i] == VK_PRESENT_MODE_IMMEDIATE_KHR)
-			{
-				return pPresentModes[i];
-			}
-		}
+		// for (size_t i = 0; i < presentModeCount; i++)
+		// {
+		// 	if (pPresentModes[i] == VK_PRESENT_MODE_IMMEDIATE_KHR)
+		// 	{
+		// 		m_ref_device.m_instance.logger.Log("immidiate present mode", COW_ERR_TYPE::FOUND);
+		// 		return pPresentModes[i];
+		// 	}
+		// }
 
 		/*
 			This is the default present mode in Vulkan and the
@@ -182,6 +196,7 @@ namespace cow
 			low performance systems since it doesn't use too much
 			memory or energy but results in less performance.
 		*/
+		m_ref_device.m_instance.logger.Log("fifo present mode", COW_ERR_TYPE::FOUND);
 		return VK_PRESENT_MODE_FIFO_KHR;
 	}
 	VkExtent2D Swapchain::chooseExtent2D(const VkSurfaceCapabilitiesKHR& capabilities)
