@@ -35,7 +35,7 @@ void main() {
     vec3 background = vec3(0.7137, 0.498, 0.098);
     // st = st + pc.offset;
     // Plot a line
-    st.x = tan(st.x / st.y * pc.offset.y) + 15 + pc.offset.x * 3 ;
+    st.x = tan(st.x - st.y) + 15 + pc.offset.x * 3 ;
     
     float pct = plot(abs(st));
     color = lerp(color,vec3(0.0, 1.0, 0.0), pct );
