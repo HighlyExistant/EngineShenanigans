@@ -1,89 +1,38 @@
 #include "Helper.hpp"
-#include <iostream>
-
 namespace cow
 {
-	// -- --
-	VkVertexInputBindingDescription Vertex2D::bindingDesc()
-	{
-		VkVertexInputBindingDescription r_bindingDesc;
-		r_bindingDesc.binding = 0;
-		r_bindingDesc.stride = sizeof(Vertex2D);
-		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
-		return r_bindingDesc;
-	}
-	std::vector<VkVertexInputAttributeDescription> Vertex2D::attributeDesc()
-	{
-		std::vector<VkVertexInputAttributeDescription> r_attrDescs{};
-		// The following values will be loaded into the vertex shader
-		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2D, position) });
-		//r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DSRGB, color) });
-		return r_attrDescs;
-	}
-	// -- --
-	VkVertexInputBindingDescription Vertex2DRGB::bindingDesc()
-	{
-		VkVertexInputBindingDescription r_bindingDesc;
-		r_bindingDesc.binding = 0;
-		r_bindingDesc.stride = sizeof(Vertex2DRGB);
-		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
-		return r_bindingDesc;
-	}
-	std::vector<VkVertexInputAttributeDescription> Vertex2DRGB::attributeDesc() 
-	{
-		std::vector<VkVertexInputAttributeDescription> r_attrDescs{};
-		// The following values will be loaded into the vertex shader
-		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2DRGB, position) });
-		r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex2DRGB, color) });
-		std::cout << "position: " << offsetof(Vertex2DRGB, position) << '\n';
-		std::cout << "color: " << offsetof(Vertex2DRGB, color) << '\n';
-		return r_attrDescs;
-	}
-	// -- --
-	VkVertexInputBindingDescription Vertex2DTextured::bindingDesc()
-	{
-		VkVertexInputBindingDescription r_bindingDesc{};
-		r_bindingDesc.binding = 0;
-		r_bindingDesc.stride = sizeof(Vertex2DTextured);
-		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
-		return r_bindingDesc;
-	}
-	std::vector<VkVertexInputAttributeDescription> Vertex2DTextured::attributeDesc()
-	{
-		std::vector<VkVertexInputAttributeDescription> r_attrDescs{};
-		r_attrDescs.push_back({ 0,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2DTextured, position) });
-		r_attrDescs.push_back({ 1,0,VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex2DTextured, texture) });
-		return r_attrDescs;
-	}
 #pragma warning( push )
 #pragma warning( disable : 4267 6387 6001)
 	// -=-=-=-=-=-=-=- Other Functions -=-=-=-=-=-=-=-
 
 	std::tuple<uint32_t, char*> readFile(const char* filepath)
 	{
-		FILE* file;
+		
 		size_t size;
 		char* bytes;
-		fopen_s(&file, filepath, "rb");
+		FILE* file = fopen(filepath, "rb");
 		if (file != nullptr)
 		{
+			std::cout << "File Found\n";
 			fseek(file, 0, SEEK_END);
 			size = ftell(file);
 			rewind(file);
 			bytes = (char*)malloc(size);
-			fread_s(bytes, size, 1, size, file);
+			fread(bytes,1, size, file);
 		}
+		std::cout << "About to close file\n";
+
 		fclose(file);
+		std::cout << "File Closed\n";
 		return { size, bytes };
 	}
 #pragma warning( pop )
 
 	// -=-=-=-=-=-=-=- Basic Wrappers -=-=-=-=-=-=-=-
-	/*
-	* Simple wrapper around vkCreateShaderModule
-	 */
+	
 	VkShaderModule createShaderModule(VkDevice device, const char* filepath)
 	{
+		std::cout << "Creating Shader Module\n";
 		VkShaderModule r_shaderModule;
 		auto [size, code] = readFile(filepath);
 		VkShaderModuleCreateInfo createInfo{};
@@ -94,12 +43,10 @@ namespace cow
 		if (vkCreateShaderModule(device, &createInfo, nullptr, &r_shaderModule) != VK_SUCCESS)
 		{
 			throw std::runtime_error("failed to create shader module");
+			std::cout << "Shader Module Created\n";
 		}
 		return r_shaderModule;
 	}
-	/*
-	* Simple wrapper around vkCreatePipelineLayout
-	 */
 	
 	void GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(GraphicsPipelineSimpleInfo &pInfo)
 	{

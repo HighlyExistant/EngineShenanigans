@@ -7,6 +7,7 @@
 #define GLFW_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
 #include <vector>
+#include <iostream>
 namespace cow
 {
 	// -=-=-=-=-=-=-=- Personal Structs -=-=-=-=-=-=-=-
@@ -37,37 +38,10 @@ namespace cow
 
 		static void defaultGraphicsPipeline(GraphicsPipelineSimpleInfo& pInfo);
 	};
-	// * Other
-	struct Vertex2D
-	{
-		glm::vec2 position;
-		//alignas(16) glm::vec3 color;
-
-		static VkVertexInputBindingDescription bindingDesc();
-		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
-	};
-	struct Vertex2DRGB
-	{
-		glm::vec2 position;
-		glm::vec3 color;
-
-		static VkVertexInputBindingDescription bindingDesc();
-		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
-	};
-	struct Vertex2DTextured
-	{
-		glm::vec2 position;
-		glm::vec2 texture;
-
-		static VkVertexInputBindingDescription bindingDesc();
-		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
-	};
-#pragma warning( push )
-#pragma warning( disable : 4267 6387 6001)
 	// -=-=-=-=-=-=-=- Other Functions -=-=-=-=-=-=-=-
 
 	std::tuple<uint32_t, char*> readFile(const char* filepath);
-#pragma warning( pop )
+
 	// -=-=-=-=-=-=-=- Basic Wrappers -=-=-=-=-=-=-=-
 	/*
 	* Simple wrapper around vkCreateShaderModule 
@@ -76,5 +50,4 @@ namespace cow
 	/*
 	* Simple wrapper around vkCreatePipelineLayout
 	 */
-	VkPipelineLayout defaultPipelineLayout(VkDevice device, PipelineLayoutSimpleInfo* pSimpleInfo);
 }
