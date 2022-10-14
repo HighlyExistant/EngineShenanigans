@@ -18,7 +18,7 @@ namespace cow
 				flags,
 				0,
 				sizeof(T),
-				&push_constant_data
+				&push_data
 			);
 		}
 		template<typename N>
@@ -33,7 +33,7 @@ namespace cow
 				pPushConstant
 			);
 		}
-		T push_constant_data;
+		T push_data;
 	private:
 
 	};
