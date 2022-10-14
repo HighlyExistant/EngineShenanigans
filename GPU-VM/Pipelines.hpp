@@ -1,5 +1,5 @@
 #pragma once
-#include "Helper.hpp"
+#include "cow_types.hpp"
 #include "Device.hpp"
 
 namespace cow 
@@ -7,13 +7,15 @@ namespace cow
 	template<typename T>
 	class GraphicsPipeline
 	{
+		using Type = T;
 	public:
-		GraphicsPipeline(Device &device, GraphicsPipelineSimpleInfo* pCreateInfo)
+		GraphicsPipeline(Device &device, GraphicsPipelineSimpleInfo* pCreateInfo, uint32_t flags)
 			: m_ref_device{ device }
 		{
 			m_vertexShader = createShaderModule(device.getDevice(), pCreateInfo->pVertpath);
+			std::cout << "Created ShaderModule 1\n";
 			m_fragmentShader = createShaderModule(device.getDevice(), pCreateInfo->pFragpath);
-
+			std::cout << "Created ShaderModules\n";
 			VkPipelineShaderStageCreateInfo shaderStages[2]{};
 			shaderStages[0].sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 			shaderStages[0].stage = VK_SHADER_STAGE_VERTEX_BIT;
@@ -35,8 +37,8 @@ namespace cow
 			* pVertexInputState Information to see what information
 			* gets passed into the vertex shader
 			*/
-			auto bindDesc = T::bindingDesc();
-			auto attrDesc = T::attributeDesc();
+			auto bindDesc = Type::bindingDesc();
+			auto attrDesc = Type::attributeDesc();
 
 			VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
 			vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
@@ -84,7 +86,7 @@ namespace cow
 			VkGraphicsPipelineCreateInfo createInfo{};
 			createInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
 			createInfo.pNext = nullptr;
-			createInfo.flags = 0;
+			createInfo.flags = flags;
 			createInfo.stageCount = 2; // ej. fragment and vertex stage count
 			createInfo.pStages = shaderStages;
 			createInfo.pVertexInputState = &vertexInputInfo;
@@ -113,6 +115,7 @@ namespace cow
 				throw std::runtime_error("failed to create graphics pipeline");
 			}
 		}
+		
 		~GraphicsPipeline()
 		{
 			vkDestroyShaderModule(m_ref_device.getDevice(), m_vertexShader, nullptr);
@@ -121,6 +124,8 @@ namespace cow
 		}
 
 		inline void bind(VkCommandBuffer cmdBuffer) { vkCmdBindPipeline(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, m_pipeline); }
+	
+		inline VkPipeline get() { return m_pipeline; }
 	private:
 		VkShaderModule m_vertexShader;
 		VkShaderModule m_fragmentShader;
@@ -128,4 +133,40 @@ namespace cow
 		Device &m_ref_device;
 	};
 
+	class ComputePipeline
+	{
+	public:
+		ComputePipeline(Device& device, VkPipelineLayout layout, const char* filepath, const char* entry);
+		~ComputePipeline();
+		inline void bind(VkCommandBuffer cmdBuffer) { vkCmdBindPipeline(cmdBuffer, VK_PIPELINE_BIND_POINT_COMPUTE, pipeline); }
+
+	private:
+		VkPipeline pipeline;
+		VkShaderModule m_computeShader;
+		Device& m_ref_device;
+	};
+
+	ComputePipeline::ComputePipeline(Device &device,VkPipelineLayout layout, const char *filepath, const char* entry)
+		: m_ref_device{ device }
+	{
+		m_computeShader = createShaderModule(device.getDevice(), filepath);
+		VkPipelineShaderStageCreateInfo shaderInfo{};
+		shaderInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+		shaderInfo.stage = VK_SHADER_STAGE_COMPUTE_BIT;
+		shaderInfo.module = m_computeShader;
+		shaderInfo.pName = entry;
+
+		VkComputePipelineCreateInfo createInfo{};
+		createInfo.sType = VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO;
+		createInfo.layout = layout;
+		createInfo.stage = shaderInfo;
+
+		vkCreateComputePipelines(device.getDevice(), nullptr, 1, &createInfo, nullptr, &pipeline);
+	}
+
+	ComputePipeline::~ComputePipeline()
+	{
+		vkDestroyShaderModule(m_ref_device.getDevice(), m_computeShader, nullptr);
+		vkDestroyPipeline(m_ref_device.getDevice(), pipeline, nullptr);
+	}
 }

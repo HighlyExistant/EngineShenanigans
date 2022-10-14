@@ -6,7 +6,6 @@ namespace cow
 		: m_ref_device{ device }
 	{
 		recreateSwapchain();
-		//swapchain = std::make_unique<Swapchain>(device, device.m_ref_window.getExtend2D());
 		createCommandBuffers();
 	}
 
@@ -48,6 +47,7 @@ namespace cow
 		{
 			throw std::runtime_error("failed to aquire swap chain image");
 		}
+		return false;
 	}
 	VkCommandBuffer GraphicsCommands::begin()
 	{

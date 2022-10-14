@@ -1,0 +1,17 @@
+Messege Recieved: VK_SUCCESS
+
+[success] instance created
+[found]   NVIDIA GeForce GTX 1660 Ti
+[found]   graphics index
+[found]   surface index
+[found]   compute index
+[success] created logical device
+[found]   mailbox present mode
+[found]   mailbox present mode
+[success] created Swapchain
+[success] created rendering objects
+[success] created sync objects
+[found]   mailbox present mode
+[success] created Swapchain
+[success] created rendering objects
+[success] created sync objects

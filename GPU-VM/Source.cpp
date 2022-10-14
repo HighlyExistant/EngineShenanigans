@@ -5,7 +5,7 @@
 #include "Descriptors.hpp"
 #include "GraphicsEngine.hpp"
 #include <chrono>
-#include "cowmath2d.hpp"
+#include "cow_types.hpp"
 using namespace cow;
 struct UBO
 {
@@ -18,22 +18,24 @@ struct SimplePushConstantData
 	glm::vec2 offset;
 	int index;
 };
+template<typename T>
 class RenderObject
-	: public ModelIndexed2DComponent<Vertex2DTextured>,
+	: public Model2DIndexedComponent<T>,
 	public PushConstantComponent<SimplePushConstantData>
 {
 public:
-	RenderObject(Device& device, std::vector<Vertex2DTextured> vertices2d, std::vector<uint32_t> indices)
-		: ModelIndexed2DComponent{ device, vertices2d, indices }
+	RenderObject(Device& device, std::vector<T> vertices2d, std::vector<uint32_t> indices)
+		: Model2DIndexedComponent<T>{ device, vertices2d, indices }
 	{}
-	RenderObject(Device& device, uint32_t size, Vertex2DTextured* vertices2d, uint32_t indexCount, uint32_t* indices)
-		: ModelIndexed2DComponent{ device, size, vertices2d , indexCount, indices }
+	RenderObject(Device& device, uint32_t size, T* vertices2d, uint32_t indexCount, uint32_t* indices)
+		: Model2DIndexedComponent<T>{ device, size, vertices2d , indexCount, indices }
 	{}
 	~RenderObject() {}
+	AABB boundBox;
 };
+
 int main()
 {
-	std::cout << rotate({4, 4}, 30).y;
 	GraphicsEngine engine;
 
 	std::array<VkDescriptorSetLayoutBinding, 2> ubo_bindings{};
@@ -94,7 +96,7 @@ int main()
 		}
 	};
 	Texture textures[3] = 
-	{ 
+	{
 		{ engine.device, "Anna.png" }, 
 		{ engine.device, "sigma.png" }, 
 		{ engine.device, "kel.png" } 
@@ -103,10 +105,10 @@ int main()
 	for (size_t i = 0; i < Swapchain::MAX_FRAMES; i++)
 	{
 		// MultiPurpose Binding for whatever
-		VkDescriptorBufferInfo bufferInfo{};
-		bufferInfo.buffer = descriptorBuffers[i].get();
-		bufferInfo.offset = 0;
-		bufferInfo.range = sizeof(UBO);
+		std::array<VkDescriptorBufferInfo, 1> bufferInfo{};
+		bufferInfo[0].buffer = descriptorBuffers[i].get();
+		bufferInfo[0].offset = 0;
+		bufferInfo[0].range = sizeof(UBO);
 
 		std::array<VkDescriptorImageInfo, 3> imageInfo{};
 		// Texture Binding
@@ -116,15 +118,7 @@ int main()
 		}
 
 		std::array<VkWriteDescriptorSet, 2> descriptorWrite{};
-		descriptorWrite[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-		descriptorWrite[0].dstSet = sets.getSet(i);
-		descriptorWrite[0].dstBinding = 0;
-		descriptorWrite[0].dstArrayElement = 0;
-		descriptorWrite[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-		descriptorWrite[0].descriptorCount = 1;
-		descriptorWrite[0].pBufferInfo = &bufferInfo;
-		descriptorWrite[0].pImageInfo = nullptr; // Optional
-		descriptorWrite[0].pTexelBufferView = nullptr; // Optional
+		sets.fillUniformBuffer<1>(&descriptorWrite[0], i, 0, 0, bufferInfo);
 
 		descriptorWrite[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
 		descriptorWrite[1].dstSet = sets.getSet(i);
@@ -163,8 +157,23 @@ int main()
 	gpsi.pipelineLayout = layout;
 
 	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi);
-	GraphicsPipeline<Vertex2DTextured> graphicsPipeline{ engine.device, &gpsi };
 	
+	GraphicsPipeline<Vertex2DTextured> graphicsPipeline{ engine.device, &gpsi, 0 };
+	
+
+	GraphicsPipelineSimpleInfo gpsi2{};
+	gpsi2.pEntry = "main";
+	gpsi2.pFragpath = "Shaders\\vertex2drgb.frag.spv";
+	gpsi2.pVertpath = "Shaders\\vertex2drgb.vert.spv";
+	gpsi2.renderPass = engine.getRenderPass();
+	gpsi2.pipelineLayout = layout;
+
+	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi2);
+	gpsi2.colorBlendAttachment.blendEnable = VK_TRUE;
+	gpsi2.colorBlendAttachment.srcColorBlendFactor = VK_BLEND_FACTOR_SRC_ALPHA;
+	gpsi2.colorBlendAttachment.dstColorBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+	GraphicsPipeline<Vertex2DRGB> UIPipeline{ engine.device, &gpsi2, 0 };
+
 	float offset = 0.1;
 	float colorChange = 0.0;
 
@@ -178,7 +187,9 @@ int main()
 	constexpr float to_the_side = 0.10;
 	
 	std::vector<Vertex2DTextured> verticesMain;
-	std::vector<Vertex2DTextured> dynamicVertices;
+	std::vector<Vertex2DRGB> uiMainVerices;
+	std::vector<Vertex2DRGB> uiOtherVerices;
+	// std::vector<Vertex2DRGB> rgbVertices;
 
 	// Meeting with this person
 
@@ -186,6 +197,16 @@ int main()
 	verticesMain.push_back({ {-0.3 , 0.5}, {0.0 , 1.0} });
 	verticesMain.push_back({ {0.3 , 0.5}, {1.0 , 1.0} });
 	verticesMain.push_back({ {-0.3 , -0.5}, {0.0 , 0.0} });
+
+	uiMainVerices.push_back({ {1.0 , -1.0	}, {1.0 , 0.0, 0.0}	});
+	uiMainVerices.push_back({ {-1.0 , 1.0	}, {0.0 , 1.0, 0.0}	});
+	uiMainVerices.push_back({ {1.0 , 1.0	}, {1.0 , 1.0, 0.0}	});
+	uiMainVerices.push_back({ {-1.0 , -1.0	}, {1.0 , 1.0, 1.0}	});
+	
+	uiOtherVerices.push_back({ {1.1 , -1.0	}, {1.0 , 1.0, 1.0} });
+	uiOtherVerices.push_back({ {-1.3 , 1.6	}, {1.0 , 1.0, 1.0} });
+	uiOtherVerices.push_back({ {1.4 , 1.5	}, {1.0 , 1.0, 1.0} });
+	uiOtherVerices.push_back({ {-5.0 , -0.0	}, {1.0 , 1.0, 1.0} });
 
 	std::vector<uint32_t> indices;
 	std::vector<uint32_t> dynamicIndices;
@@ -196,26 +217,21 @@ int main()
 	indices.push_back(3);
 	indices.push_back(1);
 
-	RenderObject modelMain{ engine.device,verticesMain, indices };
-	RenderObject dynamic{ engine.device,verticesMain, indices };
+	RenderObject<Vertex2DTextured> modelMain{ engine.device,verticesMain, indices };
+	RenderObject<Vertex2DRGB> uiMain{ engine.device,uiMainVerices, indices };
+	RenderObject<Vertex2DRGB> uiOther{ engine.device,uiOtherVerices, indices };
 	
-	std::vector<RenderObject*> models{};
-	models.push_back(&modelMain);
-	models.push_back(&dynamic);
+	std::vector<RenderObject<Vertex2DTextured>*> models{};
+	std::vector<RenderObject<Vertex2DRGB>*> uimodels{};
+	//models.push_back(&modelMain);
+	uimodels.push_back(&uiMain);
+	uimodels.push_back(&uiOther);
 
 	UBO ubo{};
-	float offset_x = 0.0;
-	float offset_y = 0.0;
 	auto currentTime = std::chrono::high_resolution_clock::now();
-	
-	bool render = true;
-	bool pressed = false;
-	bool pressed2 = false;
-
 	float inc = 0;
 	while (!engine.window.shouldClose())
 	{
-		inc += 0.005;
 		glfwPollEvents();
 
 		auto newTime = std::chrono::high_resolution_clock::now();
@@ -226,78 +242,15 @@ int main()
 		uint32_t imageIndex = engine.commands.getCurrentImageIndex();
 		// Begin Frame
 		
-		VkCommandBuffer cmdBuffer = engine.begin();
-		graphicsPipeline.bind(cmdBuffer);
-
+		VkCommandBuffer cmdBuffer = engine.begin(); // Beginning command buffer and render pass
+		
 		//Drawing
-		if (engine.keyPressed(GLFW_KEY_W))
-		{
-			offset_y -= 1.0 * frameTime;
-		}
-		if (engine.keyPressed(GLFW_KEY_A))
-		{
-			offset_x -= 1.0 * frameTime;
-		}
-		if (engine.keyPressed(GLFW_KEY_S))
-		{
-			offset_y += 1.0 * frameTime;
-		}
-		if (engine.keyPressed(GLFW_KEY_D))
-		{
-			offset_x += 1.0 * frameTime;
-		}
-		if (engine.window.getMouseState(GLFW_MOUSE_BUTTON_LEFT, GLFW_PRESS))
-		{
-			if (!pressed) 
-			{
-				static int adding = 0;
-				dynamicVertices.push_back({ {engine.window.getCursorPos().x, engine.window.getCursorPos().y}, {engine.window.getCursorPos().x, engine.window.getCursorPos().y} });
-				dynamicIndices.push_back(adding);
-				adding++;
-				std::cout << "Pressed\n";
-			}
-			pressed = true;
-		}
-		else
-		{
-			pressed = false;
-		}
-		if (engine.keyPressed(GLFW_KEY_3))
-		{
-			if (!pressed2) 
-			{
-			dynamic.rewriteVertices(dynamicVertices.size(), dynamicVertices.data());
-			dynamic.rewriteIndices(dynamicIndices.size(), dynamicIndices.data());
-			std::cout << "Pressed\n";
-			}
-			pressed2 = true;
-		}
-		else 
-		{
-			pressed2 = false;
-		}
-		if (engine.keyPressed(GLFW_KEY_0))
-			render = false;
-		if (engine.keyPressed(GLFW_KEY_1))
-			render = true;
-		if (engine.keyPressed(GLFW_KEY_X))
-		{
-			std::cout << "Cursor X Pos: " << engine.window.getCursorPos().x << '\n';
-		}
-		if (engine.keyPressed(GLFW_KEY_Y))
-		{
-			std::cout << "Cursor Y Pos: " << engine.window.getCursorPos().y << '\n';
-		}
-
 		Transform2DComponent comp{};
 		Transform2DComponent comp2{};
-		comp.rotation = inc;
+		// comp.rotation = inc;
 		modelMain.push_data.modelvec = { comp.mat2() };
-		modelMain.push_data.index = 1;
-		modelMain.push_data.offset = { offset_x, offset_y };
-		dynamic.push_data.index = 1;
-		dynamic.push_data.modelvec = { comp2.mat2() };
-
+		uiMain.push_data.modelvec = { comp.mat2() };
+		uiOther.push_data.modelvec = { comp.mat2() };
 		descriptorBuffers[frameIndex].map();
 		descriptorBuffers[frameIndex].write(&ubo, sizeof(UBO), 0);
 		descriptorBuffers[frameIndex].unmap();
@@ -307,18 +260,30 @@ int main()
 			layout, 0, 1, &sets.get()[frameIndex],
 			0,
 			nullptr);
+		
+		graphicsPipeline.bind(cmdBuffer);
 
 		for (size_t i = 0; i < models.size(); i++)
 		{
-			if (render)
-			{
-				models[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
-				models[i]->bind_indexed(cmdBuffer);
-				models[i]->draw_indexed(cmdBuffer);
-			}
+			models[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
+			models[i]->bind_indexed(cmdBuffer);
+			models[i]->draw_indexed(cmdBuffer);
+		}
+
+		UIPipeline.bind(cmdBuffer); 
+		uiMain.push_data.offset = { glm::cos(inc) , inc };
+		uiOther.push_data.offset = { glm::cos(inc) , inc };
+		inc += 1.0 * frameTime;
+		
+		std::cout << inc << '\n';
+		for (size_t i = 0; i < uimodels.size(); i++)
+		{
+			uimodels[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
+			uimodels[i]->bind_indexed(cmdBuffer);
+			uimodels[i]->draw_indexed(cmdBuffer);
 		}
 		// Ending
-		engine.end(cmdBuffer);
+		engine.end(cmdBuffer); // ending command buffer and render pass
 		uint32_t index = engine.commands.getCurrentImageIndex();
 		VkResult result = engine.submit(&cmdBuffer, &index);
 		engine.checkSwapchainRecreation(result);

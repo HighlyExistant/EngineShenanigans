@@ -4,7 +4,6 @@
 #include <vector>
 #include <optional>
 #include <set>
-#include <iostream>
 #include <array>
 #include <unordered_set>
 namespace cow

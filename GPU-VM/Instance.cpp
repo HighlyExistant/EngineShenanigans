@@ -2,7 +2,6 @@
 #define GLFW_INCLUDE_VULKAN
 #include "GLFW/glfw3.h"
 #include <array>
-#include <iostream>
 #include <stdexcept>
 namespace cow
 {
@@ -12,7 +11,7 @@ namespace cow
 
 		VkApplicationInfo appInfo{};
 		appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-		appInfo.apiVersion = VK_API_VERSION_1_3;
+		appInfo.apiVersion = VK_API_VERSION_1_0;
 		appInfo.applicationVersion = VK_MAKE_API_VERSION(0, 0, 0, 0);
 		appInfo.pApplicationName = "vk_app";
 		appInfo.engineVersion = VK_MAKE_API_VERSION(0, 0, 0, 0);

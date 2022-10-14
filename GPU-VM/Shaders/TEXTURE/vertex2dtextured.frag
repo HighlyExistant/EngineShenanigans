@@ -23,5 +23,5 @@ void main() {
     
     // float hairval = float(0.333333 <= text.x && 0.180392 <= text.y && 0.0431373 <= text.z);
     // 0.333333, 0.180392, 0.0431373
-    outColor = text - vec4(0.0,0.0,0.0,0.5);
+    outColor = text;
 }

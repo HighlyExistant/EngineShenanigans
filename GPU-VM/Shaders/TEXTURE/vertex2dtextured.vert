@@ -27,7 +27,7 @@ layout(push_constant) uniform Push {
     mat2 modelvec;
     vec2 offset;
     int index;
-} push; // Current size: (8)
+} push; // Current size: (28)
 
 layout(binding = 0) uniform UniformBuffer {
     vec2 offset;
