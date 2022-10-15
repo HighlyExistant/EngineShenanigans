@@ -4,6 +4,8 @@
 
 *.png
 *.jpg
+*.bmp
+*.gif
 *.obj
 *.asm
 *.vcsproj
@@ -19,3 +21,4 @@
 *.log
 *.recipe
 *.FileListAbsolute.txt
+log.txt
