@@ -6,6 +6,8 @@
 #include "GraphicsEngine.hpp"
 #include <chrono>
 #include "cow_types.hpp"
+// Around 3400 Lines of code
+
 using namespace cow;
 struct UBO
 {
@@ -97,7 +99,7 @@ int main()
 	};
 	Texture textures[3] = 
 	{
-		{ engine.device, "Anna.png" }, 
+		{ engine.device, "transparent_anya.png" }, 
 		{ engine.device, "sigma.png" }, 
 		{ engine.device, "kel.png" } 
 	};
@@ -157,22 +159,16 @@ int main()
 	gpsi.pipelineLayout = layout;
 
 	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi);
+	gpsi.colorBlendAttachment.blendEnable = VK_TRUE;
+	gpsi.colorBlendAttachment.srcColorBlendFactor = VK_BLEND_FACTOR_SRC_ALPHA;
+	gpsi.colorBlendAttachment.dstColorBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
 	
 	GraphicsPipeline<Vertex2DTextured> graphicsPipeline{ engine.device, &gpsi, 0 };
 	
+	gpsi.pFragpath = "Shaders\\vertex2drgba.frag.spv";
+	gpsi.pVertpath = "Shaders\\vertex2drgba.vert.spv";
 
-	GraphicsPipelineSimpleInfo gpsi2{};
-	gpsi2.pEntry = "main";
-	gpsi2.pFragpath = "Shaders\\vertex2drgb.frag.spv";
-	gpsi2.pVertpath = "Shaders\\vertex2drgb.vert.spv";
-	gpsi2.renderPass = engine.getRenderPass();
-	gpsi2.pipelineLayout = layout;
-
-	GraphicsPipelineSimpleInfo::defaultGraphicsPipeline(gpsi2);
-	gpsi2.colorBlendAttachment.blendEnable = VK_TRUE;
-	gpsi2.colorBlendAttachment.srcColorBlendFactor = VK_BLEND_FACTOR_SRC_ALPHA;
-	gpsi2.colorBlendAttachment.dstColorBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
-	GraphicsPipeline<Vertex2DRGB> UIPipeline{ engine.device, &gpsi2, 0 };
+	GraphicsPipeline<Vertex2DRGBA> UIPipeline{ engine.device, &gpsi, 0 };
 
 	float offset = 0.1;
 	float colorChange = 0.0;
@@ -187,9 +183,8 @@ int main()
 	constexpr float to_the_side = 0.10;
 	
 	std::vector<Vertex2DTextured> verticesMain;
-	std::vector<Vertex2DRGB> uiMainVerices;
-	std::vector<Vertex2DRGB> uiOtherVerices;
-	// std::vector<Vertex2DRGB> rgbVertices;
+	std::vector<Vertex2DRGBA> uiMainVerices;
+	std::vector<Vertex2DRGBA> uiOtherVerices;
 
 	// Meeting with this person
 
@@ -198,15 +193,15 @@ int main()
 	verticesMain.push_back({ {0.3 , 0.5}, {1.0 , 1.0} });
 	verticesMain.push_back({ {-0.3 , -0.5}, {0.0 , 0.0} });
 
-	uiMainVerices.push_back({ {1.0 , -1.0	}, {1.0 , 0.0, 0.0}	});
-	uiMainVerices.push_back({ {-1.0 , 1.0	}, {0.0 , 1.0, 0.0}	});
-	uiMainVerices.push_back({ {1.0 , 1.0	}, {1.0 , 1.0, 0.0}	});
-	uiMainVerices.push_back({ {-1.0 , -1.0	}, {1.0 , 1.0, 1.0}	});
+	uiMainVerices.push_back({ {1.0 , -1.0	}, {1.0 , 0.0, 0.0, 0.0} });
+	uiMainVerices.push_back({ {-1.0 , 1.0	}, {0.0 , 1.0, 0.0, 1.0} });
+	uiMainVerices.push_back({ {1.0 , 1.0	}, {1.0 , 1.0, 0.0, 1.0} });
+	uiMainVerices.push_back({ {-1.0 , -1.0	}, {1.0 , 1.0, 1.0, 1.0} });
 	
-	uiOtherVerices.push_back({ {1.1 , -1.0	}, {1.0 , 1.0, 1.0} });
-	uiOtherVerices.push_back({ {-1.3 , 1.6	}, {1.0 , 1.0, 1.0} });
-	uiOtherVerices.push_back({ {1.4 , 1.5	}, {1.0 , 1.0, 1.0} });
-	uiOtherVerices.push_back({ {-5.0 , -0.0	}, {1.0 , 1.0, 1.0} });
+	uiOtherVerices.push_back({ {1.1 , -1.0	}, {1.0 , 1.0, 1.0, 0.5} });
+	uiOtherVerices.push_back({ {-1.3 , 1.6	}, {1.0 , 1.0, 1.0, 0.5} });
+	uiOtherVerices.push_back({ {1.4 , 1.5	}, {1.0 , 1.0, 1.0, 0.5} });
+	uiOtherVerices.push_back({ {-5.0 , -0.0	}, {1.0 , 1.0, 1.0, 0.5} });
 
 	std::vector<uint32_t> indices;
 	std::vector<uint32_t> dynamicIndices;
@@ -218,12 +213,12 @@ int main()
 	indices.push_back(1);
 
 	RenderObject<Vertex2DTextured> modelMain{ engine.device,verticesMain, indices };
-	RenderObject<Vertex2DRGB> uiMain{ engine.device,uiMainVerices, indices };
-	RenderObject<Vertex2DRGB> uiOther{ engine.device,uiOtherVerices, indices };
+	RenderObject<Vertex2DRGBA> uiMain{ engine.device,uiMainVerices, indices };
+	RenderObject<Vertex2DRGBA> uiOther{ engine.device,uiOtherVerices, indices };
 	
 	std::vector<RenderObject<Vertex2DTextured>*> models{};
-	std::vector<RenderObject<Vertex2DRGB>*> uimodels{};
-	//models.push_back(&modelMain);
+	std::vector<RenderObject<Vertex2DRGBA>*> uimodels{};
+	models.push_back(&modelMain);
 	uimodels.push_back(&uiMain);
 	uimodels.push_back(&uiOther);
 
@@ -247,7 +242,7 @@ int main()
 		//Drawing
 		Transform2DComponent comp{};
 		Transform2DComponent comp2{};
-		// comp.rotation = inc;
+
 		modelMain.push_data.modelvec = { comp.mat2() };
 		uiMain.push_data.modelvec = { comp.mat2() };
 		uiOther.push_data.modelvec = { comp.mat2() };
@@ -274,7 +269,9 @@ int main()
 		uiMain.push_data.offset = { glm::cos(inc) , inc };
 		uiOther.push_data.offset = { glm::cos(inc) , inc };
 		inc += 1.0 * frameTime;
-		
+
+		engine.window.opacity(inc * 0.1);
+
 		std::cout << inc << '\n';
 		for (size_t i = 0; i < uimodels.size(); i++)
 		{

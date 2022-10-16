@@ -9,10 +9,15 @@
 
 namespace cow 
 {
+	struct WindowFeatures
+	{
+		int resizable;
+		int transparent;
+	};
 	class Window
 	{
 	public:
-		Window(int width, int height, const char* name);
+		Window(int width, int height, const char* name, WindowFeatures features);
 		~Window();
 
 		inline bool shouldClose() const { return glfwWindowShouldClose(m_window); }
@@ -21,6 +26,7 @@ namespace cow
 		void resetWindowResizedFlag() { frameBufferResized = false; }
 		bool wasWindowResized() { return frameBufferResized; }
 
+		void opacity(float opacity);
 		void createSurface(VkInstance instance, VkSurfaceKHR* surface) const;
 		bool getKeyState(int key, int state);
 		bool getMouseState(int key, int state);

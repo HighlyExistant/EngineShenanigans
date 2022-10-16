@@ -67,7 +67,7 @@ namespace cow
 			device.allocateCommandBuffers(level, cmdBufferCount, cmdBuffers);
 		}
 		
-		Window window{ 800, 600, "name" };
+		Window window{ 800, 600, "name", {GLFW_TRUE, GLFW_TRUE} };
 		Device device{ window, nullptr, 0 };
 		GraphicsCommands commands{ device };
 	private:
