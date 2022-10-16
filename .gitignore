@@ -9,6 +9,7 @@
 *.obj
 *.asm
 *.vcsproj
+*.vcxproj
 *.exe
 *.pdb
 *.iobj
