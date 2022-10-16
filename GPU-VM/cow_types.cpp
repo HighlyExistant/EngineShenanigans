@@ -58,7 +58,7 @@ namespace cow
 	{
 		VkVertexInputBindingDescription r_bindingDesc{};
 		r_bindingDesc.binding = 0;
-		r_bindingDesc.stride = sizeof(Vertex2DTextured);
+		r_bindingDesc.stride = sizeof(Vertex2DRGBA);
 		r_bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
 		return r_bindingDesc;
 	}
