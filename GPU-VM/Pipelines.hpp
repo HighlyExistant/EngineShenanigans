@@ -7,7 +7,6 @@ namespace cow
 	template<typename T>
 	class GraphicsPipeline
 	{
-		using Type = T;
 	public:
 		GraphicsPipeline(Device &device, GraphicsPipelineSimpleInfo* pCreateInfo, uint32_t flags)
 			: m_ref_device{ device }
@@ -37,9 +36,9 @@ namespace cow
 			* pVertexInputState Information to see what information
 			* gets passed into the vertex shader
 			*/
-			auto bindDesc = Type::bindingDesc();
-			auto attrDesc = Type::attributeDesc();
-
+			auto bindDesc = T::bindingDesc();
+			auto attrDesc = T::attributeDesc();
+			
 			VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
 			vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
 			vertexInputInfo.vertexAttributeDescriptionCount = static_cast<uint32_t>(attrDesc.size());

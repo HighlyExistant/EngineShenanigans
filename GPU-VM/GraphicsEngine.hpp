@@ -12,10 +12,10 @@ namespace cow
 		VkCommandBuffer begin() 
 		{
 			VkClearColorValue value{};
-			value.float32[0] = 0.1;
-			value.float32[1] = 0.1;
-			value.float32[2] = 0.1;
-			value.float32[3] = 0.1;
+			value.float32[0] = 0.0;
+			value.float32[1] = 0.0;
+			value.float32[2] = 0.0;
+			value.float32[3] = 0.0;
 			VkCommandBuffer cmdbuffer = commands.begin();
 			commands.beginRenderPass(cmdbuffer, value);
 			return cmdbuffer;

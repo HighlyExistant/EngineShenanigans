@@ -19,24 +19,39 @@ float lerp(float a, float b, float t) {
     return (1.0-t) * a + t * b;
 }
 
+float quadraticBezier (float x, vec2 a){
+  // adapted from BEZMATH.PS (1993)
+  // by Don Lancaster, SYNERGETICS Inc. 
+  // http://www.tinaja.com/text/bezmath.html
 
+  float epsilon = 0.00001;
+  a.x = clamp(a.x,0.0,1.0);
+  a.y = clamp(a.y,0.0,1.0);
+  if (a.x == 0.5){
+    a += epsilon;
+  }
+  
+  // solve t from x (an inverse operation)
+  float om2a = 1.0 - 2.0 * a.x;
+  float t = (sqrt(a.x*a.x + om2a*x) - a.x)/om2a;
+  float y = (1.0-2.0*a.y)*(t*t) + (2.0*a.y)*t;
+  return y;
+}
+float plot(vec2 st, float pct){
+  return  smoothstep( pct-0.02, pct, st.y) 
+  //- smoothstep( pct, pct+0.4, st.y)
+  ;
+}
 void main() {
-    vec2 st = gl_FragCoord.xy;
+    vec2 st = gl_FragCoord.xy / vec2(800, 600);
+    float px = 1.0 / 600;
+    // float y = st.x + pc.offset.x;
+    vec2 cp = vec2(pc.offset.x,pc.offset.y) * 0.55 + 0.5; //  
     
-    vec3 color = vec3(0.0);
-    vec3 color1 = vec3(0.0);
-    vec3 background = vec3(0.7137, 0.498, 0.098);
-    
-    // Plot a line
-    st.x = tan(st.x - st.y) + 15 + pc.offset.x * 3 ;
-    
-    float pct = smoothstep(10.0, 0.0, abs(st.x));
-    
-    color = lerp(color,vec3(0.0, 1.0, 0.0), pct );
-    
-    st.x = tan(st.x) + 4 + (pc.offset.x - 45) * 6;
-    
-    color1 = lerp(color,vec3(1.0, 1.0, 0.0), pct );
+    float pct = quadraticBezier(st.x, cp);
+    vec3 color = vec3(smoothstep(pct, pct+px, st.y));;
 
-    outColor = vec4((color +color1), fragColor.w);
+    // color = lerp(color, vec3(0.0,1.0,0.0), pct);
+
+    outColor = vec4(color, fragColor.w);
 }

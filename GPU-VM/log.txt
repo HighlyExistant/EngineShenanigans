@@ -7,11 +7,3 @@ Messege Recieved: VK_SUCCESS
 [found]   compute index
 [success] created logical device
 [found]   mailbox present mode
-[found]   mailbox present mode
-[success] created Swapchain
-[success] created rendering objects
-[success] created sync objects
-[found]   mailbox present mode
-[success] created Swapchain
-[success] created rendering objects
-[success] created sync objects

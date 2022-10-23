@@ -3,7 +3,7 @@
 #include "GraphicsCommands.hpp"
 #include "cow_types.hpp"
 #include "Buffer.hpp"
-namespace cow 
+namespace cow
 {
 	enum class Model2DType
 	{
@@ -29,7 +29,7 @@ namespace cow
 		{
 			Constructor<modeltype>(count, vertices2d);
 		}
-		
+
 		~Model2DComponent() {}
 
 		// -=-=-=-=-=-=- Public Functions -=-=-=-=-=-=-
@@ -64,11 +64,11 @@ namespace cow
 		}
 	private:
 		// -=-=-=-=-=-=- Constructor Templates -=-=-=-=-=-=-
-		
+
 		/*
 		* Vertex Only Constructors
 		*/
-		
+
 		template<Model2DType N, typename std::enable_if < N == Model2DType::Default> ::type* = nullptr>
 		inline void Constructor(uint32_t count, T* vertices2d)
 		{
@@ -85,7 +85,7 @@ namespace cow
 			vertexBuffer->write(vertices2d, bufferSize, 0);
 			vertexBuffer->unmap();
 		}
-		
+
 		template<Model2DType N, typename std::enable_if < N == Model2DType::Staged> ::type* = nullptr>
 		inline void Constructor(uint32_t count, T* vertices2d)
 		{
@@ -123,29 +123,26 @@ namespace cow
 		friend class EmptyObject;
 	};
 
-	template<class T>
+	template<class T, Model2DType modeltype>
 	class Model2DIndexedComponent
+		: public Model2DComponent<T, modeltype>
 	{
 	public:
 		Model2DIndexedComponent(Device& device, std::vector<T> vertices2d, std::vector<uint32_t> indices)
-			: vertexCount{ static_cast<uint32_t>(vertices2d.size()) },
-			indexCount{ static_cast<uint32_t>(indices.size()) },
-			m_ref_device{ device }
+			: Model2DComponent<T, modeltype>{ device, vertices2d },
+			indexCount{ static_cast<uint32_t>(indices.size()) }
 		{
-			VertexConstructor(vertexCount, vertices2d.data());
-			IndexedConstructor(indexCount, indices.data());
+			IndexedConstructor<modeltype>(indexCount, indices.data());
 		}
 		Model2DIndexedComponent(Device& device, uint32_t count, T* vertices2d, uint32_t indexCount, uint32_t* indices)
-			: vertexCount{ count },
-			indexCount{indexCount},
-			m_ref_device{ device }
+			: Model2DComponent<T, modeltype>{ device, count, vertices2d },
+			indexCount{ indexCount }
 		{
-			VertexConstructor(count, vertices2d);
-			IndexedConstructor(indexCount, indices);
+			IndexedConstructor<modeltype>(indexCount, indices);
 		}
-		~Model2DIndexedComponent() 
+		~Model2DIndexedComponent()
 		{
-		
+
 		}
 		void bind_indexed(VkCommandBuffer cmdBuffer)
 		{
@@ -179,10 +176,8 @@ namespace cow
 	private:
 		std::unique_ptr<cow::Buffer> indexBuffer;
 		uint32_t indexCount;
-		std::unique_ptr<cow::Buffer> vertexBuffer;
-		uint32_t vertexCount;
-		Device &m_ref_device;
 
+		template<Model2DType N, typename std::enable_if < N == Model2DType::Default> ::type* = nullptr>
 		void IndexedConstructor(uint32_t indexCount, uint32_t* indices)
 		{
 			VkDeviceSize indexBufferSize = sizeof(indices[0]) * indexCount;
@@ -198,38 +193,37 @@ namespace cow
 			indexBuffer->write(indices, indexBufferSize, 0);
 			indexBuffer->unmap();
 		}
-
-		inline void VertexConstructor(uint32_t count, T* vertices2d)
+		template<Model2DType N, typename std::enable_if < N == Model2DType::Staged> ::type* = nullptr>
+		void IndexedConstructor(uint32_t indexCount, uint32_t* indices)
 		{
-			assert(vertexCount >= 3 && "Vertex Count must be atleast 3");
-			VkDeviceSize bufferSize = sizeof(vertices2d[0]) * vertexCount;
+			VkDeviceSize indexBufferSize = sizeof(indices[0]) * indexCount;
 
 			cow::Buffer stagingBuffer{
-				m_ref_device,
-				bufferSize,
+				this->m_ref_device,
+				indexBufferSize,
 				VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
 				VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT
 			};
 			stagingBuffer.map();
-			stagingBuffer.write(vertices2d, bufferSize, 0);
+			stagingBuffer.write(indices, indexBufferSize, 0);
 			stagingBuffer.unmap();
 
-			vertexBuffer = std::make_unique<cow::Buffer>(
-				m_ref_device,
-				bufferSize,
-				VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-				VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT
+			indexBuffer = std::make_unique<cow::Buffer>(
+				this->m_ref_device,
+				indexBufferSize,
+				VK_BUFFER_USAGE_INDEX_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+				VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT | VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT
 				);
-			vertexBuffer->copy(stagingBuffer.get(), bufferSize);
+			indexBuffer->copy(stagingBuffer.get(), indexBufferSize);
+		}
+
+		glm::vec2 rotate(glm::vec2 vec, float rot)
+		{
+			return
+			{
+				vec.x * glm::cos(rot) - vec.y * sin(rot),
+				vec.x * glm::sin(rot) + vec.y * cos(rot)
+			};
 		}
 	};
-
-	glm::vec2 rotate(glm::vec2 vec, float rot)
-	{
-		return
-		{
-			vec.x * glm::cos(rot) - vec.y * sin(rot),
-			vec.x * glm::sin(rot) + vec.y * cos(rot)
-		};
-	}
-};
+}

@@ -10,36 +10,51 @@ namespace cow
 {
 	struct Vertex2D
 	{
+		static void Rect(float width, float height, Vertex2D buf[4]);
+
 		glm::vec2 position;
-		//alignas(16) glm::vec3 color;
 
 		static VkVertexInputBindingDescription bindingDesc();
 		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
 	};
 	struct Vertex2DRGB
 	{
+		static void Rect(float width, float height, Vertex2DRGB buf[4]);
 		glm::vec2 position;
 		glm::vec3 color;
 
 		static VkVertexInputBindingDescription bindingDesc();
 		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
-	};
+	} ;
 	struct Vertex2DTextured
 	{
+		static void Rect(float width, float height, Vertex2DTextured buf[4]);
 		glm::vec2 position;
 		glm::vec2 texture;
 
 		static VkVertexInputBindingDescription bindingDesc();
 		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
 	};
-	struct Vertex2DRGBA 
+	struct Vertex2DRGBA
 	{
+		static void Rect(float width, float height, Vertex2DRGBA buf[4]);
 		glm::vec2 position;
 		glm::vec4 color;
 
 		static VkVertexInputBindingDescription bindingDesc();
 		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
 	};
+	struct Vertex2DTexturedRGBA
+	{
+		static void Rect(float width, float height, Vertex2DTexturedRGBA buf[4]);
+		glm::vec2 position;
+		glm::vec2 texture;
+		glm::vec4 color;
+
+		static VkVertexInputBindingDescription bindingDesc();
+		static std::vector<VkVertexInputAttributeDescription> attributeDesc();
+	};
+
 	/*
 	* Example found:
 	* https://www.toptal.com/game/video-game-physics-part-ii-collision-detection-for-solid-objects

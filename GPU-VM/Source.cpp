@@ -1,44 +1,17 @@
 #include <iostream>
 #include "CowHeaders.hpp"
 #include "Texture.hpp"
-#include "Windows.h"
 #include "Descriptors.hpp"
-#include "GraphicsEngine.hpp"
 #include <chrono>
-#include "cow_types.hpp"
+#include "ProjectTypes.h"
+#include "Server.hpp"
 // Around 3400 Lines of code
-
+// This source file will be user stuff
 using namespace cow;
-struct UBO
-{
-	glm::vec2 offset;
-};
-
-struct SimplePushConstantData
-{
-	glm::mat2 modelvec;
-	glm::vec2 offset;
-	int index;
-};
-template<typename T>
-class RenderObject
-	: public Model2DIndexedComponent<T>,
-	public PushConstantComponent<SimplePushConstantData>
-{
-public:
-	RenderObject(Device& device, std::vector<T> vertices2d, std::vector<uint32_t> indices)
-		: Model2DIndexedComponent<T>{ device, vertices2d, indices }
-	{}
-	RenderObject(Device& device, uint32_t size, T* vertices2d, uint32_t indexCount, uint32_t* indices)
-		: Model2DIndexedComponent<T>{ device, size, vertices2d , indexCount, indices }
-	{}
-	~RenderObject() {}
-	AABB boundBox;
-};
 
 int main()
 {
-	GraphicsEngine engine;
+	cow::GraphicsEngine engine;
 
 	std::array<VkDescriptorSetLayoutBinding, 2> ubo_bindings{};
 	// MultiPurpose Binding for whatever
@@ -98,13 +71,15 @@ int main()
 		}
 	};
 	Texture textures[3] = 
-	{
-		{ engine.device, "transparent_anya.png" }, 
+	{ // transparent_anya
+		{ engine.device, "olivia.png" }, 
 		{ engine.device, "sigma.png" }, 
 		{ engine.device, "kel.png" } 
 	};
-
-	for (size_t i = 0; i < Swapchain::MAX_FRAMES; i++)
+	Texture texture{ engine.device, "sigma.png" };	// switch out anya with this
+	VkDescriptorImageInfo imageInfoSwitch{};
+	texture.fillImageInfo(&imageInfoSwitch, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+	for (uint32_t i = 0; i < Swapchain::MAX_FRAMES; i++)
 	{
 		// MultiPurpose Binding for whatever
 		std::array<VkDescriptorBufferInfo, 1> bufferInfo{};
@@ -153,8 +128,8 @@ int main()
 	}
 	GraphicsPipelineSimpleInfo gpsi{};
 	gpsi.pEntry = "main";
-	gpsi.pFragpath = "simple_shader.frag.spv";
-	gpsi.pVertpath = "simple_shader.vert.spv";
+	gpsi.pFragpath = "Shaders\\SPV\\vertex2dtexturedrgba.frag.spv";
+	gpsi.pVertpath = "Shaders\\SPV\\vertex2dtexturedrgba.vert.spv";
 	gpsi.renderPass = engine.getRenderPass();
 	gpsi.pipelineLayout = layout;
 
@@ -163,48 +138,20 @@ int main()
 	gpsi.colorBlendAttachment.srcColorBlendFactor = VK_BLEND_FACTOR_SRC_ALPHA;
 	gpsi.colorBlendAttachment.dstColorBlendFactor = VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
 	
-	GraphicsPipeline<Vertex2DTextured> graphicsPipeline{ engine.device, &gpsi, 0 };
-	
-	gpsi.pFragpath = "Shaders\\vertex2drgba.frag.spv";
-	gpsi.pVertpath = "Shaders\\vertex2drgba.vert.spv";
+	GraphicsPipeline<Vertex2DTexturedRGBA> graphicsPipeline{ engine.device, &gpsi, 0 };
+	gpsi.pFragpath = "Shaders\\SPV\\vertex2drgba.frag.spv";
+	gpsi.pVertpath = "Shaders\\SPV\\vertex2drgba.vert.spv";
 
 	GraphicsPipeline<Vertex2DRGBA> UIPipeline{ engine.device, &gpsi, 0 };
-
-	float offset = 0.1;
-	float colorChange = 0.0;
-
-	VkClearColorValue value{};
-	value.float32[0] = 0.1;
-	value.float32[1] = 0.1;
-	value.float32[2] = 0.1;
-	value.float32[3] = 0.1;
-
-	constexpr float outside = -1;
-	constexpr float to_the_side = 0.10;
 	
-	std::vector<Vertex2DTextured> verticesMain;
-	std::vector<Vertex2DRGBA> uiMainVerices;
-	std::vector<Vertex2DRGBA> uiOtherVerices;
-
+	std::vector<Vertex2DTexturedRGBA> verticesMain;
+	Vertex2DRGBA uiMainVerices[4];
+	Vertex2DRGBA::Rect(1.0, 1.0, uiMainVerices);
+	Vertex2DTexturedRGBA vertexRect[4]; 
+	Vertex2DTexturedRGBA::Rect(-0.2, -0.2, vertexRect);
 	// Meeting with this person
 
-	verticesMain.push_back({ {0.3 , -0.5}, {1.0 , 0.0} });
-	verticesMain.push_back({ {-0.3 , 0.5}, {0.0 , 1.0} });
-	verticesMain.push_back({ {0.3 , 0.5}, {1.0 , 1.0} });
-	verticesMain.push_back({ {-0.3 , -0.5}, {0.0 , 0.0} });
-
-	uiMainVerices.push_back({ {1.0 , -1.0	}, {1.0 , 0.0, 0.0, 0.0} });
-	uiMainVerices.push_back({ {-1.0 , 1.0	}, {0.0 , 1.0, 0.0, 1.0} });
-	uiMainVerices.push_back({ {1.0 , 1.0	}, {1.0 , 1.0, 0.0, 1.0} });
-	uiMainVerices.push_back({ {-1.0 , -1.0	}, {1.0 , 1.0, 1.0, 1.0} });
-	
-	uiOtherVerices.push_back({ {1.1 , -1.0	}, {1.0 , 1.0, 1.0, 0.5} });
-	uiOtherVerices.push_back({ {-1.3 , 1.6	}, {1.0 , 1.0, 1.0, 0.5} });
-	uiOtherVerices.push_back({ {1.4 , 1.5	}, {1.0 , 1.0, 1.0, 0.5} });
-	uiOtherVerices.push_back({ {-5.0 , -0.0	}, {1.0 , 1.0, 1.0, 0.5} });
-
 	std::vector<uint32_t> indices;
-	std::vector<uint32_t> dynamicIndices;
 	indices.push_back(0);
 	indices.push_back(1);
 	indices.push_back(2);
@@ -212,23 +159,43 @@ int main()
 	indices.push_back(3);
 	indices.push_back(1);
 
-	RenderObject<Vertex2DTextured> modelMain{ engine.device,verticesMain, indices };
-	RenderObject<Vertex2DRGBA> uiMain{ engine.device,uiMainVerices, indices };
-	RenderObject<Vertex2DRGBA> uiOther{ engine.device,uiOtherVerices, indices };
+	Player<Vertex2DTexturedRGBA> player1 = { engine, 4, vertexRect, 6, indices.data()};
+	RenderObject<Vertex2DRGBA> uiMain{ engine.device, 4, uiMainVerices,6, indices.data() };
 	
-	std::vector<RenderObject<Vertex2DTextured>*> models{};
-	std::vector<RenderObject<Vertex2DRGBA>*> uimodels{};
-	models.push_back(&modelMain);
-	uimodels.push_back(&uiMain);
-	uimodels.push_back(&uiOther);
+	RenderGroup<Vertex2DTexturedRGBA> models{ &graphicsPipeline };
+	RenderGroup<Vertex2DRGBA> uimodels{ &UIPipeline };
+	models.push(&player1);
+	uimodels.push(&uiMain);
 
 	UBO ubo{};
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	float inc = 0;
+
+	bool pressed = false;
+	glm::vec2 pos(0.0);
 	while (!engine.window.shouldClose())
 	{
 		glfwPollEvents();
+		if (engine.keyPressed(GLFW_KEY_Q) && !pressed)
+		{
+			for (uint32_t i = 0; i < Swapchain::MAX_FRAMES; i++)
+			{
+				VkWriteDescriptorSet writer{};
 
+				writer.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+				writer.dstSet = sets.getSet(i);
+				writer.dstBinding = 1;
+				writer.dstArrayElement = 0;
+				writer.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+				writer.descriptorCount = 1;
+				writer.pImageInfo = &imageInfoSwitch;
+				vkUpdateDescriptorSets(engine.device.getDevice(), 1, &writer, 0, nullptr);
+			}
+		}
+		else if (!engine.keyPressed(GLFW_KEY_Q) && pressed)
+		{
+			pressed = false;
+		}
 		auto newTime = std::chrono::high_resolution_clock::now();
 		float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
 		currentTime = newTime;
@@ -241,11 +208,11 @@ int main()
 		
 		//Drawing
 		Transform2DComponent comp{};
-		Transform2DComponent comp2{};
+		player1.moveController(&pos, 1.0 * frameTime);
 
-		modelMain.push_data.modelvec = { comp.mat2() };
+		player1.push_data.modelvec = { comp.mat2() };
+		player1.push_data.offset = { pos };
 		uiMain.push_data.modelvec = { comp.mat2() };
-		uiOther.push_data.modelvec = { comp.mat2() };
 		descriptorBuffers[frameIndex].map();
 		descriptorBuffers[frameIndex].write(&ubo, sizeof(UBO), 0);
 		descriptorBuffers[frameIndex].unmap();
@@ -256,29 +223,12 @@ int main()
 			0,
 			nullptr);
 		
-		graphicsPipeline.bind(cmdBuffer);
+		models.draw(cmdBuffer, layout);
 
-		for (size_t i = 0; i < models.size(); i++)
-		{
-			models[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
-			models[i]->bind_indexed(cmdBuffer);
-			models[i]->draw_indexed(cmdBuffer);
-		}
-
-		UIPipeline.bind(cmdBuffer); 
 		uiMain.push_data.offset = { glm::cos(inc) , inc };
-		uiOther.push_data.offset = { glm::cos(inc) , inc };
 		inc += 1.0 * frameTime;
 
-		engine.window.opacity(inc * 0.1);
-
-		std::cout << inc << '\n';
-		for (size_t i = 0; i < uimodels.size(); i++)
-		{
-			uimodels[i]->pushConstant(cmdBuffer, layout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT);
-			uimodels[i]->bind_indexed(cmdBuffer);
-			uimodels[i]->draw_indexed(cmdBuffer);
-		}
+		uimodels.draw(cmdBuffer, layout);
 		// Ending
 		engine.end(cmdBuffer); // ending command buffer and render pass
 		uint32_t index = engine.commands.getCurrentImageIndex();
@@ -287,4 +237,4 @@ int main()
 	}
 	vkDestroyPipelineLayout(engine.device.getDevice(), layout, nullptr);
 	vkDestroyDescriptorSetLayout(engine.device.getDevice(), descLayout, nullptr);
-}
+};

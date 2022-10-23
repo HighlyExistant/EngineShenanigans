@@ -35,8 +35,8 @@ namespace cow
 			double pos[2];
 			glfwGetCursorPos(m_window, &pos[0], &pos[1]);
 			
-			float x = 2 * normalize_values(0, m_width, pos[0]) - 1;
-			float y = 2 * normalize_values(0, m_height, pos[1]) - 1;
+			float x = 2.0 * normalize_values(0.0, static_cast<float>(m_width), pos[0]) - 1.0;
+			float y = 2.0 * normalize_values(0.0, static_cast<float>(m_height), pos[1]) - 1.0;
 			return { x, y };
 		}
 	private:

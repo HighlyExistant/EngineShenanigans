@@ -5,11 +5,9 @@ namespace cow
 #pragma warning( push )
 #pragma warning( disable : 4042 6011 26495 )
 	template<class T>
-	class PushConstantComponent
+	struct PushConstantComponent
 	{
-	public:
-		PushConstantComponent() {}
-		~PushConstantComponent() {}
+		T push_data;
 		void pushConstant(VkCommandBuffer cmdBuffer, VkPipelineLayout layout, VkShaderStageFlags flags)
 		{
 			vkCmdPushConstants(
@@ -33,9 +31,6 @@ namespace cow
 				pPushConstant
 			);
 		}
-		T push_data;
-	private:
-
 	};
 #pragma warning ( pop )
 }
