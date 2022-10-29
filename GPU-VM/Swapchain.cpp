@@ -18,15 +18,12 @@ namespace cow
 	{
 		createSwapchain();
 		std::cout << "Created Swapchain\n";
-		m_ref_device.m_instance.logger.Log("created Swapchain", COW_ERR_TYPE::SUCCESS);
 		
 		createRenderingObjects();
 		std::cout << "Created Rendering Objects\n";
-		m_ref_device.m_instance.logger.Log("created rendering objects", COW_ERR_TYPE::SUCCESS);
 		
 		createSyncObjects();
 		std::cout << "Created Syncing Objects\n";
-		m_ref_device.m_instance.logger.Log("created sync objects", COW_ERR_TYPE::SUCCESS);
 
 		m_oldSwapChain = nullptr;
 	}
@@ -172,7 +169,6 @@ namespace cow
 			if (pPresentModes[i] == VK_PRESENT_MODE_MAILBOX_KHR)
 			{
 				// std::cout << "Present mode: Mailbox" << std::endl;
-				m_ref_device.m_instance.logger.Log("mailbox present mode", COW_ERR_TYPE::FOUND);
 				return pPresentModes[i];
 			}
 		}
@@ -196,7 +192,6 @@ namespace cow
 			low performance systems since it doesn't use too much
 			memory or energy but results in less performance.
 		*/
-		m_ref_device.m_instance.logger.Log("fifo present mode", COW_ERR_TYPE::FOUND);
 		return VK_PRESENT_MODE_FIFO_KHR;
 	}
 	VkExtent2D Swapchain::chooseExtent2D(const VkSurfaceCapabilitiesKHR& capabilities)

@@ -4,8 +4,7 @@
 #define GLM_FORCE_RADIANS
 #define GLFW_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
-#include "Buffer.hpp"
-#include "ErrorHandler.hpp"
+#include "Buffers.hpp"
 namespace cow
 {
 	template<uint32_t bindingSize, uint32_t poolSize>

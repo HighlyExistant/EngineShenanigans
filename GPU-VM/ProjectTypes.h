@@ -15,15 +15,15 @@ struct SimplePushConstantData
 };
 template<typename T>
 class RenderObject
-	: protected Model2DIndexedComponent<T, Model2DType::Staged>,
+	: protected Mesh2DIndexedComponent<T, Model2DType::Staged>,
 	public PushConstantComponent<SimplePushConstantData>
 {
 public:
 	RenderObject(Device& device, std::vector<T> vertices2d, std::vector<uint32_t> indices)
-		: Model2DIndexedComponent<T, Model2DType::Staged>{ device, vertices2d, indices }
+		: Mesh2DIndexedComponent<T, Model2DType::Staged>{ device, vertices2d, indices }
 	{}
 	RenderObject(Device& device, uint32_t size, T* vertices2d, uint32_t indexCount, uint32_t* indices)
-		: Model2DIndexedComponent<T, Model2DType::Staged>{ device, size, vertices2d , indexCount, indices }
+		: Mesh2DIndexedComponent<T, Model2DType::Staged>{ device, size, vertices2d , indexCount, indices }
 	{}
 	~RenderObject() {}
 
@@ -63,7 +63,7 @@ private:
 	std::vector<RenderObject<T>*> obj;
 };
 template<typename T>
-class Player 
+class Player
 	: public RenderObject<T>
 {
 public:

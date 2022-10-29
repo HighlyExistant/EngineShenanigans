@@ -1,4 +1,5 @@
 #pragma once
+
 namespace cow
 {
 	// Data Analysis
@@ -15,7 +16,7 @@ namespace cow
 	}
 
 	template<typename T>
-	T average(T* data, uint32_t median) 
+	T average(T* data, unsigned int median) 
 	{
 		T r_average;
 		for (uint32_t i = 0; i < median; i++)
@@ -24,6 +25,32 @@ namespace cow
 		}
 		return r_average / median;
 	}
+	template<typename T>
+	void clamp(T min, T max, T *pVal) 
+	{
+		if (*pVal < min)
+		{
+			*pVal = min;
+			return;
+		}
+		if (*pVal > max) 
+		{
+			*pVal = max;
+			return;
+		}
+	}
 
-
+	template<typename T>
+	T clamped(T min, T max, T pVal)
+	{
+		if (*pVal < min)
+		{
+			return min;
+		}
+		if (*pVal > max)
+		{
+			return max;
+		}
+		return pVal;
+	}
 }

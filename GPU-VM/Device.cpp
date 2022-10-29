@@ -10,9 +10,7 @@ namespace cow
 		VkPhysicalDeviceProperties properties{};
 		vkGetPhysicalDeviceProperties(m_physicalDevice, &properties);
 		std::cout << "physical device: " << properties.deviceName << std::endl;
-		m_instance.logger.Log(properties.deviceName, COW_ERR_TYPE::FOUND);
 		createLogicalDevice();
-		m_instance.logger.Log("created logical device", COW_ERR_TYPE::SUCCESS);
 		createCommandPool();
 	}
 	std::vector<const char*> getRequiredExtensions() {
@@ -215,11 +213,8 @@ namespace cow
 			std::cout << "Created Device\n";
 		}
 		vkGetDeviceQueue(m_device, *indices.graphicsIndex, 0, &graphicsQueue);
-		m_instance.logger.Log("graphics index", COW_ERR_TYPE::FOUND);
 		vkGetDeviceQueue(m_device, *indices.surfaceIndex, 0, &surfaceQueue);
-		m_instance.logger.Log("surface index", COW_ERR_TYPE::FOUND);
 		vkGetDeviceQueue(m_device, *indices.computeIndex, 0, &computeQueue);
-		m_instance.logger.Log("compute index", COW_ERR_TYPE::FOUND);
 	}
 
 	void Device::createCommandPool()

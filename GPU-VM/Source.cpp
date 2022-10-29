@@ -4,7 +4,7 @@
 #include "Descriptors.hpp"
 #include <chrono>
 #include "ProjectTypes.h"
-#include "Server.hpp"
+#include "cow_math.hpp"
 // Around 3400 Lines of code
 // This source file will be user stuff
 using namespace cow;
@@ -33,7 +33,6 @@ int main()
 	
 	if (vkCreateDescriptorSetLayout(engine.device.getDevice(), &layoutInfo, nullptr, &descLayout) != VK_SUCCESS)
 	{
-		engine.device.m_instance.logger.Log("program stopped at descriptor set layout creation", COW_ERR_TYPE::FAILURE);
 		throw std::runtime_error("failed to create descriptor set layout!");
 	}
 	Descriptor<2, 2> descriptor{ engine.device, descLayout, poolSizes, 2 };
@@ -72,13 +71,22 @@ int main()
 	};
 	Texture textures[3] = 
 	{ // transparent_anya
-		{ engine.device, "olivia.png" }, 
-		{ engine.device, "sigma.png" }, 
-		{ engine.device, "kel.png" } 
+		{ engine.device, "Images\\olivia.png" }, 
+		{ engine.device, "Images\\sigma.png" }, 
+		{ engine.device, "Images\\kel.png" } 
 	};
-	Texture texture{ engine.device, "sigma.png" };	// switch out anya with this
-	VkDescriptorImageInfo imageInfoSwitch{};
-	texture.fillImageInfo(&imageInfoSwitch, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+	Texture switchtexture[4] = 
+	{ 
+		{engine.device, "Images\\sigma.png"},
+		{engine.device, "Images\\olivia.png"},
+		{engine.device, "Images\\kel.png"},
+		{engine.device, "Images\\transparent_anya.png"}
+	};	// switch out anya with this
+	VkDescriptorImageInfo imageInfoSwitch[4]{};
+	for (size_t i = 0; i < 4; i++)
+	{
+		switchtexture[i].fillImageInfo(&imageInfoSwitch[i], VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+	}
 	for (uint32_t i = 0; i < Swapchain::MAX_FRAMES; i++)
 	{
 		// MultiPurpose Binding for whatever
@@ -103,6 +111,7 @@ int main()
 		descriptorWrite[1].dstArrayElement = 0;
 		descriptorWrite[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
 		descriptorWrite[1].descriptorCount = 3;
+		
 		descriptorWrite[1].pImageInfo = imageInfo.data();
 
 		vkUpdateDescriptorSets(engine.device.getDevice(), static_cast<uint32_t>(descriptorWrite.size()), descriptorWrite.data(), 0, nullptr);
@@ -146,9 +155,10 @@ int main()
 	
 	std::vector<Vertex2DTexturedRGBA> verticesMain;
 	Vertex2DRGBA uiMainVerices[4];
-	Vertex2DRGBA::Rect(1.0, 1.0, uiMainVerices);
+	Vertex2DRGBA::Rect(1.0f, 1.0f, uiMainVerices);
+	Vertex2DRGBA::GlobalOpacity(4, uiMainVerices, 0.0f);
 	Vertex2DTexturedRGBA vertexRect[4]; 
-	Vertex2DTexturedRGBA::Rect(-0.2, -0.2, vertexRect);
+	Vertex2DTexturedRGBA::Rect(-0.2f, -0.2f, vertexRect);
 	// Meeting with this person
 
 	std::vector<uint32_t> indices;
@@ -172,11 +182,13 @@ int main()
 	float inc = 0;
 
 	bool pressed = false;
-	glm::vec2 pos(0.0);
+	glm::vec2 pos(0.0f);
+	int index = 0;
+	float clampedFrameTime = 0.f;
 	while (!engine.window.shouldClose())
 	{
 		glfwPollEvents();
-		if (engine.keyPressed(GLFW_KEY_Q) && !pressed)
+		// if (engine.keyPressed(GLFW_KEY_Q) && !pressed)
 		{
 			for (uint32_t i = 0; i < Swapchain::MAX_FRAMES; i++)
 			{
@@ -188,18 +200,27 @@ int main()
 				writer.dstArrayElement = 0;
 				writer.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
 				writer.descriptorCount = 1;
-				writer.pImageInfo = &imageInfoSwitch;
+				writer.pImageInfo = &imageInfoSwitch[index];
 				vkUpdateDescriptorSets(engine.device.getDevice(), 1, &writer, 0, nullptr);
 			}
 		}
-		else if (!engine.keyPressed(GLFW_KEY_Q) && pressed)
+		// else if (!engine.keyPressed(GLFW_KEY_Q) && pressed)
 		{
 			pressed = false;
 		}
 		auto newTime = std::chrono::high_resolution_clock::now();
 		float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
+		clampedFrameTime += frameTime;
 		currentTime = newTime;
-
+		if (clampedFrameTime > 1.0 / 1.0)	// framrate 24
+		{
+			clampedFrameTime = 0.f;
+			index++;
+		}
+		if (index > 3)
+		{
+			index = 0;
+		}
 		size_t frameIndex = engine.commands.swapchain->getCurrentFrame();
 		uint32_t imageIndex = engine.commands.getCurrentImageIndex();
 		// Begin Frame
@@ -208,14 +229,12 @@ int main()
 		
 		//Drawing
 		Transform2DComponent comp{};
-		player1.moveController(&pos, 1.0 * frameTime);
+		player1.moveController(&pos, 1.0f * frameTime);
 
 		player1.push_data.modelvec = { comp.mat2() };
 		player1.push_data.offset = { pos };
 		uiMain.push_data.modelvec = { comp.mat2() };
-		descriptorBuffers[frameIndex].map();
-		descriptorBuffers[frameIndex].write(&ubo, sizeof(UBO), 0);
-		descriptorBuffers[frameIndex].unmap();
+		descriptorBuffers[frameIndex].fast_write(&ubo, sizeof(UBO), 0);
 
 		vkCmdBindDescriptorSets(cmdBuffer,
 			VK_PIPELINE_BIND_POINT_GRAPHICS,
@@ -226,7 +245,7 @@ int main()
 		models.draw(cmdBuffer, layout);
 
 		uiMain.push_data.offset = { glm::cos(inc) , inc };
-		inc += 1.0 * frameTime;
+		inc += 1.0f * frameTime;
 
 		uimodels.draw(cmdBuffer, layout);
 		// Ending

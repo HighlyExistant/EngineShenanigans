@@ -1,4 +1,4 @@
-#include "Buffer.hpp"
+#include "Buffers.hpp"
 
 namespace cow 
 {
@@ -44,6 +44,13 @@ namespace cow
 		m_ref_device{ device }
 	{
 		createBuffer(usage, properties);
+	}
+	Buffer::Buffer(Buffer& copied, VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties)
+		: m_size{ size },
+		m_ref_device{ copied.m_ref_device }
+	{
+		createBuffer(usage, properties);
+		copy(this->buffer, m_size);
 	}
 	void Buffer::copy(VkBuffer src, VkDeviceSize size)
 	{

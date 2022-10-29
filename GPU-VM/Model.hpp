@@ -2,7 +2,7 @@
 
 #include "GraphicsCommands.hpp"
 #include "cow_types.hpp"
-#include "Buffer.hpp"
+#include "Buffers.hpp"
 namespace cow
 {
 	enum class Model2DType
@@ -16,21 +16,21 @@ namespace cow
 	*/
 	// * Model2D Default
 	template<class T, Model2DType modeltype>
-	class Model2DComponent
+	class Mesh2DComponent
 	{
 	public:
-		Model2DComponent(Device& device, std::vector<T> vertices2d)
+		Mesh2DComponent(Device& device, std::vector<T> vertices2d)
 			: m_ref_device{ device }, vertexCount{ static_cast<uint32_t>(vertices2d.size()) }
 		{
 			Constructor<modeltype>(vertices2d.size(), vertices2d.data());
 		}
-		Model2DComponent(Device& device, uint32_t count, T* vertices2d)
+		Mesh2DComponent(Device& device, uint32_t count, T* vertices2d)
 			: m_ref_device{ device }, vertexCount{ count }
 		{
 			Constructor<modeltype>(count, vertices2d);
 		}
 
-		~Model2DComponent() {}
+		~Mesh2DComponent() {}
 
 		// -=-=-=-=-=-=- Public Functions -=-=-=-=-=-=-
 
@@ -124,23 +124,23 @@ namespace cow
 	};
 
 	template<class T, Model2DType modeltype>
-	class Model2DIndexedComponent
-		: public Model2DComponent<T, modeltype>
+	class Mesh2DIndexedComponent
+		: public Mesh2DComponent<T, modeltype>
 	{
 	public:
-		Model2DIndexedComponent(Device& device, std::vector<T> vertices2d, std::vector<uint32_t> indices)
-			: Model2DComponent<T, modeltype>{ device, vertices2d },
+		Mesh2DIndexedComponent(Device& device, std::vector<T> vertices2d, std::vector<uint32_t> indices)
+			: Mesh2DComponent<T, modeltype>{ device, vertices2d },
 			indexCount{ static_cast<uint32_t>(indices.size()) }
 		{
 			IndexedConstructor<modeltype>(indexCount, indices.data());
 		}
-		Model2DIndexedComponent(Device& device, uint32_t count, T* vertices2d, uint32_t indexCount, uint32_t* indices)
-			: Model2DComponent<T, modeltype>{ device, count, vertices2d },
+		Mesh2DIndexedComponent(Device& device, uint32_t count, T* vertices2d, uint32_t indexCount, uint32_t* indices)
+			: Mesh2DComponent<T, modeltype>{ device, count, vertices2d },
 			indexCount{ indexCount }
 		{
 			IndexedConstructor<modeltype>(indexCount, indices);
 		}
-		~Model2DIndexedComponent()
+		~Mesh2DIndexedComponent()
 		{
 
 		}

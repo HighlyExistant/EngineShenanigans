@@ -38,6 +38,7 @@ namespace cow
 	struct Vertex2DRGBA
 	{
 		static void Rect(float width, float height, Vertex2DRGBA buf[4]);
+		static void GlobalOpacity(uint32_t vertexCount, Vertex2DRGBA* buf, float opacity);
 		glm::vec2 position;
 		glm::vec4 color;
 
@@ -47,6 +48,7 @@ namespace cow
 	struct Vertex2DTexturedRGBA
 	{
 		static void Rect(float width, float height, Vertex2DTexturedRGBA buf[4]);
+		static void GlobalOpacity(uint32_t vertexCount, Vertex2DTexturedRGBA* buf, float opacity);
 		glm::vec2 position;
 		glm::vec2 texture;
 		glm::vec4 color;

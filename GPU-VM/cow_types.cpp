@@ -121,6 +121,13 @@ namespace cow
 		buf[2] = { { width, height	}, {0.0 , 0.0, 0.0, 1.0} };
 		buf[3] = { { -1.0, -1.0		}, {0.0 , 0.0, 0.0, 1.0} };
 	}
+	void Vertex2DRGBA::GlobalOpacity(uint32_t vertexCount, Vertex2DRGBA* buf, float opacity) 
+	{
+		for (size_t i = 0; i < vertexCount; i++)
+		{
+			buf[i].color.w = opacity;
+		}
+	}
 	void Vertex2DTexturedRGBA::Rect(float width, float height, Vertex2DTexturedRGBA buf[4])
 	{
 
@@ -128,5 +135,12 @@ namespace cow
 		buf[1] = { { -1.0, height }, {0.0 , 1.0}, {0.0 , 0.0, 0.0, 0.0} };
 		buf[2] = { { width, height}, {1.0 , 1.0}, {0.0 , 0.0, 0.0, 0.0} };
 		buf[3] = { { -1.0, -1.0 },  {0.0 , 0.0},{0.0 , 0.0, 0.0, 0.0} };
+	}
+	void Vertex2DTexturedRGBA::GlobalOpacity(uint32_t vertexCount, Vertex2DTexturedRGBA* buf, float opacity)
+	{
+		for (size_t i = 0; i < vertexCount; i++)
+		{
+			buf[i].color.w = opacity;
+		}
 	}
 }

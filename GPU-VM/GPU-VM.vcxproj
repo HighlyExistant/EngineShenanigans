@@ -139,9 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="Buffers.cpp" />
     <ClCompile Include="cow_types.cpp" />
-    <ClCompile Include="errorlib.cpp" />
     <ClCompile Include="GraphicsCommands.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Instance.cpp" />
@@ -155,13 +154,13 @@
   <ItemGroup>
     <ClInclude Include="cowdef.hpp" />
     <ClInclude Include="CowHeaders.hpp" />
+    <ClInclude Include="cow_math.hpp" />
     <ClInclude Include="cow_types.hpp" />
     <ClInclude Include="Device.hpp" />
     <ClInclude Include="GraphicsEngine.hpp" />
     <ClInclude Include="ErrorHandler.hpp" />
-    <ClInclude Include="errorlib.hpp" />
     <ClInclude Include="GraphicsCommands.hpp" />
-    <ClInclude Include="Buffer.hpp" />
+    <ClInclude Include="Buffers.hpp" />
     <ClInclude Include="Descriptors.hpp" />
     <ClInclude Include="ProjectTypes.h" />
     <ClInclude Include="Model.hpp" />

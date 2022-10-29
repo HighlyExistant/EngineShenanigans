@@ -13,7 +13,7 @@ namespace cow
 		glfwWindowHint(GLFW_CLIENT_API, GLFW_FALSE);
 		glfwWindowHint(GLFW_RESIZABLE, features.resizable);
 		glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, features.transparent);
-
+		
 		m_window = glfwCreateWindow(width, height, name, nullptr, nullptr);
 	
 		// glfwSetWindowOpacity(m_window, 0.5f);

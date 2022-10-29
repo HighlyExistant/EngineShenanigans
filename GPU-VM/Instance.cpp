@@ -37,21 +37,16 @@ namespace cow
 			createInfo.pNext = nullptr;
 		}
 		VkResult result = vkCreateInstance(&createInfo, nullptr, &instance);
-		logger.checkVkResult(result);
 		if (result == VK_ERROR_LAYER_NOT_PRESENT) 
 		{
-			logger.Log("while creating instance, validation layers were specified but not found\n", COW_ERR_TYPE::WARNING);
 			createInfo.enabledLayerCount = 0;
 			createInfo.ppEnabledLayerNames = nullptr;
 			result = vkCreateInstance(&createInfo, nullptr, &instance);
-			logger.checkVkResult(result);
 		}
 		if (result != VK_SUCCESS)
 		{
-			logger.Log("program stopped at instance creation\n", COW_ERR_TYPE::FAILURE);
 			throw std::runtime_error("couldn't create VkInstance");
 		}
-		logger.Log("instance created", COW_ERR_TYPE::SUCCESS);
 	}
 	Instance::~Instance()
 	{

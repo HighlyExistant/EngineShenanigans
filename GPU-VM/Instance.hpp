@@ -3,7 +3,6 @@
 #include <tuple>
 #include <stdexcept>
 #include <iostream>
-#include "errorlib.hpp"
 namespace cow
 {
 	class Instance
@@ -50,7 +49,6 @@ namespace cow
 		inline VkInstance get() const noexcept { return instance; }
 		VkInstance instance;
 
-		Logger logger;
 	private:
 	};
 }
