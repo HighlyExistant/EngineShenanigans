@@ -10,11 +10,7 @@ namespace cow
         std::string name;
         std::string value;
 
-        void print() 
-        {
-            std::cout << "Attribute Name " << ": " << name << '\n';
-            std::cout << "Attribute Value " << ": " << value << '\n';
-        }
+        void print();
     };
 
     struct Element
@@ -24,21 +20,10 @@ namespace cow
         std::vector<Attribute> attributes;
         std::vector<Element> children;
 
-        void print_recursive() 
-        {
-            std::cout << "Namespace: " << nmsp << '\n';
-            std::cout << "Element: " << element << '\n';
-            for (size_t i = 0; i < attributes.size(); i++)
-            {
-                std::cout << i << ":\n";
-                attributes.data()[i].print();
-            }
-            for (size_t i = 0; i < children.size(); i++)
-            {
-                children.data()[i].print_recursive();
-            }
-        }
+        void print_recursive();
     };
+
+    char* XmlWriter(Element element, size_t* size);
 
     class StringParser
     {
@@ -61,7 +46,7 @@ namespace cow
             m_eye++;
             m_peek++;
         }
-        int parseNumber() 
+        int parseNumber()
         {
             std::string _str;
             while (this->number())
@@ -70,7 +55,7 @@ namespace cow
                 advance();
             }
             advance();
-            
+
             return atoi(_str.c_str());
         }
         static bool whitespace(char c)
@@ -134,7 +119,7 @@ namespace cow
         }
     };
 
-    class XmlParser : public StringParser
+    class XmlParser : protected StringParser
     {
     private:
         void removeWhitespace()
@@ -146,143 +131,10 @@ namespace cow
         XmlParser(char* str) : StringParser{ str } {}
 
         ~XmlParser() {}
-        std::string getStrSplit()
-        {
-            std::string r_str;
-            while (m_str[m_eye] != '\0' && !whitespace() && character() && m_str[m_eye] != ':')
-            {
-                r_str.push_back(m_str[m_eye]);
-                advance();
-            }
-            return r_str;
-        }
-        std::vector<Element> parse()
-        {
-            removeWhitespace();
-            std::vector<Element> parentElement;
-            switch (m_str[m_eye])
-            {
-            case '<':
-                advance();
-                parentElement.push_back(parseElement());
-                break;
-
-            default:
-                break;
-            }
-            return parentElement;
-        }
-        Attribute parseAttribute()
-        {
-            Attribute attr;
-            std::string str_container = getStrSplit();
-            attr.name = str_container;
-            str_container.clear();
-            removeWhitespace();
-            if (eye() == '=')
-            {
-                advance();  // Currently eye is in character '=' so we advance
-                removeWhitespace(); // next value has the possibility of being whitespace so we remove it
-                if (eye() == '\"') 
-                {
-                    advance();
-                    while (m_str[m_eye] != '\"')
-                    {
-                        str_container.push_back(m_str[m_eye]);
-                        advance();
-                    }
-                    attr.value = str_container;
-                    advance();
-                }
-                else 
-                {
-                    throw std::runtime_error(std::string("Attribute: " + attr.name + " value signature is incorrectly defined").c_str());
-                }
-
-            } 
-            else 
-            {
-                throw std::runtime_error(std::string("Attribute: " + attr.name + " holds no value").c_str());
-            }
-
-            return attr;
-        }
-        bool checkEnding(std::string nmsp, std::string elementName)
-        {
-            if (nmsp.empty())
-            {
-                removeWhitespace();
-                if (checkStr("</"))
-                {
-                    removeWhitespace();
-                    if (!checkStr(elementName.c_str()))
-                        throw std::runtime_error("Does not close");
-
-                    if (checkCharacter('>'))
-                    {
-                        return true;
-                    }
-                }
-            }
-            else
-            {
-                removeWhitespace();
-                if (checkStr("</"))
-                {
-                    if (!checkStr((nmsp + ":" + elementName).c_str()))
-                        throw std::runtime_error("Does not close");
-
-                    if (checkCharacter('>'))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        Element parseElement()
-        {
-            if (eye() == '<') advance();
-            bool selfclosed = false;
-            Element element;
-
-            std::string str_container = getStrSplit();   // Recieving element name
-            
-            if (eye() == ':')
-            {
-                element.nmsp = str_container;
-                str_container.clear();
-                advance();
-
-                str_container = getStrSplit();
-                element.element = str_container;
-            }
-            else
-            {
-                element.element = str_container;
-            }   // Recieving Namespace and Element
-
-            while( eye() != '>')
-            {
-                if (eye() == '/')
-                {
-                    selfclosed = true;
-                    advance();
-                    continue;
-                }
-                removeWhitespace(); // Seperate Attributes
-                element.attributes.push_back(parseAttribute());
-            }   // Getting attributes
-            if (selfclosed)
-                return element;
-            advance();  // Either self close and leave early or are currently in whitespace
-            for (size_t i = 0; !checkEnding(element.nmsp, element.element); i++)
-            {
-                removeWhitespace();
-                element.children.push_back(parseElement());
-                advance();
-            }
-            return element;
-        }
+        std::string getStrSplit();
+        std::vector<Element> parse();
+        Attribute parseAttribute();
+        bool checkEnding(std::string nmsp, std::string elementName);
+        Element parseElement();
     };
 } // namespace cow

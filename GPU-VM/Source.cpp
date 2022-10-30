@@ -8,9 +8,45 @@
 // Around 3400 Lines of code
 // This source file will be user stuff
 using namespace cow;
-
+// UDP PORT: 54001
+// TCP PORT: 54000
 int main()
 {
+	// -=-=-=-=-=-=- Create Servers -=-=-=-=-=-=-
+	uint32_t session_id = -1;
+	WSADATA wsData;
+	WORD ver = MAKEWORD(2, 2);
+	if (WSAStartup(ver, &wsData) == SOCKET_ERROR) throw;
+	char* client_buffers = (char*)malloc(512);
+	std::string str_udp_input;
+	std::getline(std::cin, str_udp_input);
+	cow::tcp::Client tcp_client{ str_udp_input.c_str(), 54000 };
+	cow::udp::Client udp_client = cow::udp::Client::createClient(const_cast<char*>(str_udp_input.c_str()), 54001);
+	while(true)
+	{
+		tcp_client.in(client_buffers, 512, 0);	// Recieve the session id
+		XmlParser parser{ client_buffers };
+		Element element = parser.parseElement();
+		if (element.element == "session")
+		{
+			for (size_t i = 0; i < element.attributes.size(); i++)
+			{
+				if (element.attributes.data()[i].name == "id")
+				{
+					session_id = atoi(element.attributes.data()[i].value.c_str());
+					break;
+				}
+			}
+			break;
+		}
+	}
+	Element out_element{};
+	out_element.element = "send";
+	out_element.attributes.push_back({ "id", std::to_string(session_id) });
+	out_element.attributes.push_back({ "x", {} });
+	out_element.attributes.push_back({ "y", {} });
+
+	// -=-=-=-=-=-=- Create Graphics -=-=-=-=-=-=-
 	cow::GraphicsEngine engine;
 
 	std::array<VkDescriptorSetLayoutBinding, 2> ubo_bindings{};
@@ -173,6 +209,7 @@ int main()
 	RenderObject<Vertex2DRGBA> uiMain{ engine.device, 4, uiMainVerices,6, indices.data() };
 	
 	RenderGroup<Vertex2DTexturedRGBA> models{ &graphicsPipeline };
+	RenderGroup<Vertex2DTexturedRGBA> server_models{ &graphicsPipeline };
 	RenderGroup<Vertex2DRGBA> uimodels{ &UIPipeline };
 	models.push(&player1);
 	uimodels.push(&uiMain);
@@ -185,42 +222,40 @@ int main()
 	glm::vec2 pos(0.0f);
 	int index = 0;
 	float clampedFrameTime = 0.f;
+
+	uint32_t clients_accounted = 0; // 1 because you count
 	while (!engine.window.shouldClose())
 	{
+		char main_buffer[512];
 		glfwPollEvents();
-		// if (engine.keyPressed(GLFW_KEY_Q) && !pressed)
-		{
-			for (uint32_t i = 0; i < Swapchain::MAX_FRAMES; i++)
-			{
-				VkWriteDescriptorSet writer{};
+		// for (uint32_t i = 0; i < Swapchain::MAX_FRAMES; i++)
+		// {
+		// 	VkWriteDescriptorSet writer{};
+		// 
+		// 	writer.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+		// 	writer.dstSet = sets.getSet(i);
+		// 	writer.dstBinding = 1;
+		// 	writer.dstArrayElement = 0;
+		// 	writer.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+		// 	writer.descriptorCount = 1;
+		// 	writer.pImageInfo = &imageInfoSwitch[index];
+		// 	vkUpdateDescriptorSets(engine.device.getDevice(), 1, &writer, 0, nullptr);
+		// }
 
-				writer.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-				writer.dstSet = sets.getSet(i);
-				writer.dstBinding = 1;
-				writer.dstArrayElement = 0;
-				writer.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-				writer.descriptorCount = 1;
-				writer.pImageInfo = &imageInfoSwitch[index];
-				vkUpdateDescriptorSets(engine.device.getDevice(), 1, &writer, 0, nullptr);
-			}
-		}
-		// else if (!engine.keyPressed(GLFW_KEY_Q) && pressed)
+		if (engine.keyPressed(GLFW_KEY_Q) && !pressed)
 		{
-			pressed = false;
+			std::cout << session_id << '\n';
+			bool pressed = true;
 		}
+		else if (!engine.keyPressed(GLFW_KEY_Q) && pressed)
+		{
+			bool pressed = false;
+		}
+		
 		auto newTime = std::chrono::high_resolution_clock::now();
 		float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
 		clampedFrameTime += frameTime;
 		currentTime = newTime;
-		if (clampedFrameTime > 1.0 / 1.0)	// framrate 24
-		{
-			clampedFrameTime = 0.f;
-			index++;
-		}
-		if (index > 3)
-		{
-			index = 0;
-		}
 		size_t frameIndex = engine.commands.swapchain->getCurrentFrame();
 		uint32_t imageIndex = engine.commands.getCurrentImageIndex();
 		// Begin Frame
@@ -233,6 +268,38 @@ int main()
 
 		player1.push_data.modelvec = { comp.mat2() };
 		player1.push_data.offset = { pos };
+		// Sending Position to server
+		size_t size_out_xml = 0;
+		out_element.attributes[1].value = std::to_string(pos.x);
+		out_element.attributes[2].value = std::to_string(pos.y);
+		
+		char* output = XmlWriter(out_element, &size_out_xml);
+		
+		udp_client.out(output, size_out_xml, 0);
+		udp_client.in(main_buffer, 512, 0);
+		std::cout << main_buffer << '\n';
+		{
+			XmlParser parse_udp{ main_buffer };
+
+			Element upd_element = parse_udp.parseElement();
+		
+			if (clients_accounted != upd_element.children.size())
+			{
+				server_models.push(new RenderObject<Vertex2DTexturedRGBA>(engine.device, 4, vertexRect, 6, indices.data()));
+				clients_accounted += 1;
+			}
+
+			for (size_t i = 0; i < server_models.size(); i++)
+			{
+				size_t j = i;
+				float x = atof(upd_element.children[j].attributes[0].value.c_str());
+				float y = atof(upd_element.children[j].attributes[1].value.c_str());
+				server_models.data()[j]->push_data.offset = { x, y };
+				server_models.data()[j]->push_data.modelvec = { comp.mat2() };
+			}
+		}
+
+		free(output);
 		uiMain.push_data.modelvec = { comp.mat2() };
 		descriptorBuffers[frameIndex].fast_write(&ubo, sizeof(UBO), 0);
 
@@ -243,7 +310,7 @@ int main()
 			nullptr);
 		
 		models.draw(cmdBuffer, layout);
-
+		server_models.draw(cmdBuffer, layout);
 		uiMain.push_data.offset = { glm::cos(inc) , inc };
 		inc += 1.0f * frameTime;
 
@@ -254,6 +321,12 @@ int main()
 		VkResult result = engine.submit(&cmdBuffer, &index);
 		engine.checkSwapchainRecreation(result);
 	}
+	for (size_t i = 0; i < server_models.size(); i++)
+	{
+		delete server_models.data()[i];
+	}
 	vkDestroyPipelineLayout(engine.device.getDevice(), layout, nullptr);
 	vkDestroyDescriptorSetLayout(engine.device.getDevice(), descLayout, nullptr);
+	free(client_buffers);
+	WSACleanup();
 };

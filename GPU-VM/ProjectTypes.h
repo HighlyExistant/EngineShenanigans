@@ -1,6 +1,8 @@
 #pragma once
 #include "cow_types.hpp"
 #include "GraphicsEngine.hpp"
+#include "Network.hpp"
+#include "xml_parser.hpp"
 using namespace cow;
 struct UBO
 {
@@ -58,6 +60,14 @@ public:
 	{
 		obj.push_back(object);
 	}
+	RenderObject<T>** data()
+	{
+		return obj.data();
+	}
+	size_t size() 
+	{
+		return obj.size();
+	}
 private:
 	GraphicsPipeline<T>* m_pPipeline;
 	std::vector<RenderObject<T>*> obj;
@@ -97,3 +107,4 @@ public:
 private:
 	GraphicsEngine& m_ref_engine;
 };
+
