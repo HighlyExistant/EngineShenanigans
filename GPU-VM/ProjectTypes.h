@@ -108,3 +108,24 @@ private:
 	GraphicsEngine& m_ref_engine;
 };
 
+uint32_t init_session(cow::tcp::Client *pTcp, cow::udp::Client *pUdp)
+{
+	constexpr int buffersize = 64;
+	char buf[buffersize];
+	while (true)
+	{
+		pTcp->in(buf, buffersize, 0);	// Recieve the session id
+		XmlParser parser{ buf };
+		Element element = parser.parseElement();
+		if (element.element == "session")
+		{
+			for (size_t i = 0; i < element.attributes.size(); i++)
+			{
+				if (element.attributes.data()[i].name == "id")
+				{
+					return atoi(element.attributes.data()[i].value.c_str());
+				}
+			}
+		}
+	}
+}

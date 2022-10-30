@@ -13,33 +13,16 @@ using namespace cow;
 int main()
 {
 	// -=-=-=-=-=-=- Create Servers -=-=-=-=-=-=-
-	uint32_t session_id = -1;
 	WSADATA wsData;
 	WORD ver = MAKEWORD(2, 2);
 	if (WSAStartup(ver, &wsData) == SOCKET_ERROR) throw;
-	char* client_buffers = (char*)malloc(512);
 	std::string str_udp_input;
 	std::getline(std::cin, str_udp_input);
 	cow::tcp::Client tcp_client{ str_udp_input.c_str(), 54000 };
 	cow::udp::Client udp_client = cow::udp::Client::createClient(const_cast<char*>(str_udp_input.c_str()), 54001);
-	while(true)
-	{
-		tcp_client.in(client_buffers, 512, 0);	// Recieve the session id
-		XmlParser parser{ client_buffers };
-		Element element = parser.parseElement();
-		if (element.element == "session")
-		{
-			for (size_t i = 0; i < element.attributes.size(); i++)
-			{
-				if (element.attributes.data()[i].name == "id")
-				{
-					session_id = atoi(element.attributes.data()[i].value.c_str());
-					break;
-				}
-			}
-			break;
-		}
-	}
+	
+	uint32_t session_id = init_session(&tcp_client, &udp_client);
+
 	Element out_element{};
 	out_element.element = "send";
 	out_element.attributes.push_back({ "id", std::to_string(session_id) });
@@ -291,11 +274,10 @@ int main()
 
 			for (size_t i = 0; i < server_models.size(); i++)
 			{
-				size_t j = i;
-				float x = atof(upd_element.children[j].attributes[0].value.c_str());
-				float y = atof(upd_element.children[j].attributes[1].value.c_str());
-				server_models.data()[j]->push_data.offset = { x, y };
-				server_models.data()[j]->push_data.modelvec = { comp.mat2() };
+				float x = atof(upd_element.children[i].attributes[0].value.c_str());
+				float y = atof(upd_element.children[i].attributes[1].value.c_str());
+				server_models.data()[i]->push_data.offset = { x, y };
+				server_models.data()[i]->push_data.modelvec = { comp.mat2() };
 			}
 		}
 
@@ -327,6 +309,5 @@ int main()
 	}
 	vkDestroyPipelineLayout(engine.device.getDevice(), layout, nullptr);
 	vkDestroyDescriptorSetLayout(engine.device.getDevice(), descLayout, nullptr);
-	free(client_buffers);
 	WSACleanup();
 };
